@@ -85,7 +85,9 @@
 ## 6. 底图与字体
 
 - 底图：Protomaps 或等价 OSM 派生的 PMTiles 中国区切片，自托管。约 1–3 GB，放本地或对象存储，**不进 git**。
-- 字体：站点名用思源黑体（Noto Sans SC）。MapLibre 需要 glyph PBF，中文必须做**字符子集**（只含实际用到的汉字），否则体积失控。
+- 字体：**不建 glyph PBF 管道**（路线一，用户 2026-11-01 确认）。样式里不写 `glyphs` 键，中文由 MapLibre GL JS 本机栅格化（`localIdeographFontFamily` 默认 `"sans-serif"`）；代价是字形随操作系统变化（Windows 微软雅黑 / macOS 苹方 / Android Noto）。
+- 实测依据（MapLibre GL JS 6.16.0，探测 7，2026-11-01）：`glyphs` 缺省时 PBF 请求 **0**、控制台警告 **0**，中英文均正常渲染；`glyphs` 指向错误地址时也只请求拉丁区 `0-255`，**CJK 码位永不走 PBF**；500 个中文站名首次渲染 73–93 ms，连续帧时间 5.6–7.5 ms。
+- 若将来要跨平台视觉一致（默认不做）：用 `font-faces` 声明自托管 WOFF2 子集，`unicode-range` 必须覆盖 CJK 汉字 + `U+3000-303F` + `U+FF00-FFEF`，否则「·」「（）」会掉回系统字体。实测 147 个汉字子集 57 KB WOFF2。
 - 底图样式必须弱化：低饱和灰底，让线路成为唯一的视觉主体。线路层级永远在底图之上、标注之下或之上按需选择。
 
 ---

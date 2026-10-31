@@ -1,0 +1,40 @@
+# Node
+node_modules/
+.pnpm-store/
+dist/
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# 数据中间产物（原始数据不进仓库，见 data/README）
+data/raw/
+data/cache/
+*.pmtiles.tmp
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# 日志
+*.log
+npm-debug.log*

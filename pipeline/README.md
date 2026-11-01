@@ -21,7 +21,18 @@ $env:PYTHONUTF8 = '1'
 E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 ```
 
-`run_s1.py` 编排 S1 的 7 个步骤，每一步可单独重跑（`--only <步骤名>`）。**当前状态：S1-1～S1-6 完成，`run_s1.py` 尚未落地（S1-7 时补）。**
+`run_s1.py` 编排可执行的 5 步（S1-2～S1-6），S1-1 与 S1-7 是人工步骤。**当前状态：S1-1～S1-7 全部完成。**
+
+| 用法 | 作用 | 实测 |
+| --- | --- | --- |
+| `run_s1.py --list` | 列步骤表，并标出哪些产物已存在 | 即时 |
+| `run_s1.py` | 全跑（会重新下载 327 MB） | ≈ 8–10 分钟（下载主导） |
+| `run_s1.py --from S1-3` | 跳过下载，从抽取开始 | **95.4 s**（S1-3 68.0 / S1-4 11.1 / S1-5 0.3 / S1-6 16.0） |
+| `run_s1.py --only S1-6` | 只重跑归属 | 16.0 s |
+
+编排器的约定：不并发（下载与解析会互相抢资源）、不缓存（每步幂等，重跑即覆盖）、失败即停（不自动重试，报错里给出「从哪步重跑」）。
+
+**幂等性实测**：整套重跑后，`relation-index.json` 除 `generated_at` / `attribution_generated_at` / `changes` 外与上一版逐字段一致，`changes` 变为全空（说明没有实质变更）；`attribution-report.json` 与 `docs/conflicts.md` 只变生成时间。
 
 ## S1 步骤与脚本映射
 
@@ -33,7 +44,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | S1-4 底图要素抽取 | `03_extract_basemap.py` | 同 PBF | `data/processed/basemap/shanghai-basemap.geojson`（提交，目标 <5 MB） | ✅ 完成（22 要素 / 0.47 MB / 46.6 s） |
 | S1-5 关系清单与指纹 | `04_track.py` | S1-3 产物 | `data/processed/relation-index.json`（提交） | ✅ 完成（287 条 / 0.56 MB / 两次运行全程可复现） |
 | S1-6 归属校验 | `05_attribution.py` | S1-3 产物 + 五省 PBF 的行政界 | `data/processed/attribution-report.json`、`docs/conflicts.md`，并回填 `relation-index.json` 的 `city`/`province` | ✅ 完成（287 条里 241 条定案；上海关系 1,129 站市内、6 站界外且全部判到苏州；详见下文） |
-| S1-7 汇总与提交 | —（人工） | 以上全部 | `data/README.md` 三问表 + 两次提交 | 待建 |
+| S1-7 汇总与提交 | —（人工） | 以上全部 | `data/README.md` 三问表 + 提交 | ✅ 完成 |
 
 ## S1-6 归属：口径与已知缺口
 

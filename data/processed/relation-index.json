@@ -1,6 +1,6 @@
 {
  "snapshot_date": "20261101",
- "generated_at": "2026-11-01T21:34:29+08:00",
+ "generated_at": "2026-11-01T21:49:22+08:00",
  "source": "download.openstreetmap.fr/extracts/asia/china/<province>-latest.osm.pbf",
  "license": "ODbL-1.0",
  "attribution": "© OpenStreetMap contributors",
@@ -32,84 +32,11 @@
   "relations_without_stops": 3
  },
  "changes": {
-  "added": [
-   13364068,
-   20010728,
-   20010729,
-   20020670,
-   20020671,
-   13401846,
-   13401847,
-   13601036,
-   13601037,
-   5964585,
-   5964920,
-   5964922,
-   6517631,
-   7839800,
-   7844334,
-   7883241,
-   7949046,
-   7949331,
-   8466367,
-   9287539,
-   9461609,
-   9461610,
-   10467351,
-   10467352,
-   10467727,
-   10488950,
-   10513362,
-   11747972,
-   11755131,
-   11755282,
-   11755283,
-   11755284,
-   11755285,
-   12385669,
-   12385670,
-   12686483,
-   12686484,
-   13067813,
-   13067814,
-   13068448,
-   13068449,
-   13536844,
-   13536845,
-   15051204,
-   15051219,
-   17518144,
-   17518159,
-   17537792,
-   17537793,
-   20008327,
-   20008328,
-   20009444,
-   20009445,
-   20009459,
-   20009461,
-   21045624,
-   21324393,
-   21324394,
-   21368520,
-   21368521,
-   12075317,
-   20736174
-  ],
+  "added": [],
   "removed": [],
   "tag_changed": [],
-  "stops_changed": [
-   15804056,
-   15804057,
-   19979191,
-   20629971
-  ],
-  "members_changed": [
-   15804056,
-   15804057,
-   19979191,
-   20629971
-  ]
+  "stops_changed": [],
+  "members_changed": []
  },
  "relations": [
   {
@@ -3525,7 +3452,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -3620,7 +3547,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -3730,7 +3657,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -3903,7 +3830,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -5777,7 +5704,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -6042,7 +5969,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -6212,7 +6139,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -7090,7 +7017,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -7194,7 +7121,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -7967,7 +7894,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -8232,7 +8159,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -8304,7 +8231,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -8376,7 +8303,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -10112,7 +10039,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -10193,7 +10120,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -10285,7 +10212,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -10593,7 +10520,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -10673,7 +10600,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -11283,7 +11210,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -11362,7 +11289,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -11440,7 +11367,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -11518,7 +11445,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -11596,7 +11523,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -11681,7 +11608,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -12078,7 +12005,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -12634,7 +12561,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -12740,7 +12667,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -13080,7 +13007,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -13164,7 +13091,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -14289,7 +14216,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -14399,7 +14326,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -14489,7 +14416,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -14579,7 +14506,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -15985,7 +15912,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -16069,7 +15996,7 @@
    "city": "芜湖市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -16155,7 +16082,7 @@
    "city": "芜湖市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -16411,7 +16338,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -16511,7 +16438,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -16945,7 +16872,7 @@
    "city": "芜湖市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -17017,7 +16944,7 @@
    "city": "芜湖市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -18700,7 +18627,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -18783,7 +18710,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -19164,36 +19091,6 @@
    "first_seen": "20261101",
    "last_seen": "20261101",
    "status": "active",
-   "changes": {
-    "members": {
-     "members": [
-      24,
-      24
-     ],
-     "unique_stops": [
-      14,
-      14
-     ]
-    },
-    "stops": {
-     "stops": [
-      5,
-      14
-     ],
-     "added": [
-      "林楼",
-      "大王郢",
-      "苏滁商务中心",
-      "担子",
-      "滁州政务中心",
-      "琅琊山",
-      "花博园",
-      "腰铺",
-      "滁州高铁站"
-     ],
-     "removed": []
-    }
-   },
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -19268,36 +19165,6 @@
    "first_seen": "20261101",
    "last_seen": "20261101",
    "status": "active",
-   "changes": {
-    "members": {
-     "members": [
-      24,
-      24
-     ],
-     "unique_stops": [
-      14,
-      14
-     ]
-    },
-    "stops": {
-     "stops": [
-      5,
-      14
-     ],
-     "added": [
-      "滁州高铁站",
-      "腰铺",
-      "花博园",
-      "琅琊山",
-      "滁州政务中心",
-      "担子",
-      "苏滁商务中心",
-      "大王郢",
-      "林楼"
-     ],
-     "removed": []
-    }
-   },
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -21300,7 +21167,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -21392,7 +21259,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -21493,7 +21360,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -21596,7 +21463,7 @@
    "city": "合肥市",
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -22978,28 +22845,6 @@
    "first_seen": "20261101",
    "last_seen": "20261101",
    "status": "active",
-   "changes": {
-    "members": {
-     "members": [
-      20,
-      20
-     ],
-     "unique_stops": [
-      16,
-      16
-     ]
-    },
-    "stops": {
-     "stops": [
-      15,
-      16
-     ],
-     "added": [
-      "太白"
-     ],
-     "removed": []
-    }
-   },
    "province": "安徽省",
    "attribution": {
     "method": "l5_city",
@@ -23095,7 +22940,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23185,7 +23030,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23259,7 +23104,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23333,7 +23178,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23404,7 +23249,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23475,7 +23320,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23567,7 +23412,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23659,7 +23504,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23727,7 +23572,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -23795,7 +23640,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -24048,28 +23893,6 @@
    "first_seen": "20261101",
    "last_seen": "20261101",
    "status": "active",
-   "changes": {
-    "members": {
-     "members": [
-      21,
-      21
-     ],
-     "unique_stops": [
-      16,
-      16
-     ]
-    },
-    "stops": {
-     "stops": [
-      15,
-      16
-     ],
-     "added": [
-      "太白"
-     ],
-     "removed": []
-    }
-   },
    "province": "江苏省",
    "attribution": {
     "method": "l5_city",
@@ -24146,7 +23969,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -24198,7 +24021,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -24287,7 +24110,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -24376,7 +24199,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -24447,7 +24270,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -24518,7 +24341,7 @@
    "city": null,
    "first_seen": "20261101",
    "last_seen": "20261101",
-   "status": "added",
+   "status": "active",
    "province": null,
    "attribution": {
     "method": "none",
@@ -25013,5 +24836,5 @@
    "no_resolved_stops": 3
   }
  },
- "attribution_generated_at": "2026-11-01T21:36:25+08:00"
+ "attribution_generated_at": "2026-11-01T21:49:38+08:00"
 }

@@ -1,6 +1,6 @@
 {
  "snapshot_date": "20261101",
- "generated_at": "2026-11-01T21:36:25+08:00",
+ "generated_at": "2026-11-01T21:49:38+08:00",
  "method": {
   "city": "admin_level=5 地级市面点面判定（上海用 admin_level=4 上海市面）",
   "province": "城市命中即得省；未命中城市时退回省面（上海/浙江/安徽用 L4，江苏 = 13 地级市并集）",

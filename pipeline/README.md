@@ -21,19 +21,44 @@ $env:PYTHONUTF8 = '1'
 E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 ```
 
-`run_s1.py` 编排 S1 的 7 个步骤，每一步可单独重跑（`--only <步骤名>`）。**当前状态：S1-1～S1-4 完成，`run_s1.py` 尚未落地（S1-7 时补）。**
+`run_s1.py` 编排 S1 的 7 个步骤，每一步可单独重跑（`--only <步骤名>`）。**当前状态：S1-1～S1-6 完成，`run_s1.py` 尚未落地（S1-7 时补）。**
 
 ## S1 步骤与脚本映射
 
 | 步骤 | 脚本 | 输入 | 输出 | 状态 |
 | --- | --- | --- | --- | --- |
 | S1-1 目录与环境 | —（本文件 + `.gitignore`） | — | 目录骨架 | ✅ 完成 |
-| S1-2 快照下载与归档 | `01_fetch_snapshot.py` | `download.openstreetmap.fr/extracts/asia/china/` | `E:\subway-data\snapshots\<date>\*.osm.pbf`；`data/snapshots/<date>/{*.sha256,manifest.json}` | ✅ 完成（20261101：上海 29.7 MB / 江苏 89.4 MB / 浙江 99.0 MB） |
-| S1-3 轨道关系抽取 | `02_extract_transit.py` | 上一步的 PBF | `data/raw/transit-relations.json`（不提交） | ✅ 完成（三省 225 条关系 / 上海子集 65 条 / 4,540 个 stop 节点） |
+| S1-2 快照下载与归档 | `01_fetch_snapshot.py` | `download.openstreetmap.fr/extracts/asia/china/` | `E:\subway-data\snapshots\<date>\*.osm.pbf`；`data/snapshots/<date>/{*.sha256,manifest.json}` | ✅ 完成（20261101 五省：上海 29.7 MB / 江苏 89.4 MB / 浙江 99.0 MB / 安徽 46.3 MB / 山东 78.9 MB，合计 327.4 MB） |
+| S1-3 轨道关系抽取 | `02_extract_transit.py` | 上一步的 PBF | `data/raw/transit-relations.json`（不提交） | ✅ 完成（五省 287 条关系 / 上海子集 65 条 / 6,129 个 stop 节点 / 未解析坐标 4） |
 | S1-4 底图要素抽取 | `03_extract_basemap.py` | 同 PBF | `data/processed/basemap/shanghai-basemap.geojson`（提交，目标 <5 MB） | ✅ 完成（22 要素 / 0.47 MB / 46.6 s） |
-| S1-5 关系清单与指纹 | `04_track.py` | S1-3 产物 | `data/processed/relation-index.json`（提交） | ✅ 完成（225 条 / 0.42 MB / 两次运行全程可复现） |
-| S1-6 归属校验 | `05_attribution.py` | S1-3 产物 + 边界 | `data/processed/attribution-report.json`、`docs/conflicts.md` | 待建 |
+| S1-5 关系清单与指纹 | `04_track.py` | S1-3 产物 | `data/processed/relation-index.json`（提交） | ✅ 完成（287 条 / 0.56 MB / 两次运行全程可复现） |
+| S1-6 归属校验 | `05_attribution.py` | S1-3 产物 + 五省 PBF 的行政界 | `data/processed/attribution-report.json`、`docs/conflicts.md`，并回填 `relation-index.json` 的 `city`/`province` | ✅ 完成（287 条里 241 条定案；上海关系 1,129 站市内、6 站界外且全部判到苏州；详见下文） |
 | S1-7 汇总与提交 | —（人工） | 以上全部 | `data/README.md` 三问表 + 两次提交 | 待建 |
+
+## S1-6 归属：口径与已知缺口
+
+省份与城市都是**点面判定**（`shapely.contains_xy`），不是手写台账：
+
+| 层级 | 用哪个面 | 实测面积 | 备注 |
+| --- | --- | --- | --- |
+| 上海市 | L4 `913067` | 16,229.5 km²（2 部件，含海域） | 官方陆地 6,340 km²，差额是海域 |
+| 浙江省 | L4 `553302` | 144,895.7 km²（单文件只有 239/241 way，必须跨 extract 并集） | 含海域 |
+| 安徽省 | L4 `913011` | 141,251.4 km² | 官方 14.01 万 km²，吻合 |
+| 江苏省 | **无可用 L4** | 地级市并集 11/13 → 81,289.5 km² | 江苏 L4 的 374 个 way 全都在五省 PBF 里，仍拼不闭合（23 个碎片、309.4 km²）；缺与山东/安徽共边的节点，加了两省仍未闭合 |
+| 城市 | L5 地级市（上海用 L4） | 38 个可用 | 江苏另配 13 市固定名称表，市名命中即判江苏省 |
+
+**已知缺口（46 条关系未定，全部写在 `docs/conflicts.md`）：**
+
+- **山东 39 条**（济南、青岛、济宁云巴/孔孟快线）：山东省面同样拼不闭合（4.0 km² / 8 个碎片），其地级市面也一并缺；补齐需要河北、河南的 extract —— 按用户 m01450「不扩大范围」暂不下载。
+- **江苏南通 4 条**（1 号线平潮↔振兴路、2 号线幸福↔先锋，共 56 站）：南通市面 81 个 way 拼不闭合（长江口边界被 extract 裁切）；盐城无轨道线路，不影响。
+- **3 条无站点母关系**（上海地铁1号线 `6800211`、嘉兴有轨T1 `15711260`、济南轨交9号线 `21045624`），S2 建模时过滤。
+
+**已验证的关键事实：**
+
+- 上海 11 号线「迪士尼→花桥」34 站在上海、3 站在苏州市（`5611110` / `5611111`）；
+- 苏州 11 号线「横山↔花桥」52 站全判为苏州市（`16025193` / `16097172`）；
+- 磁浮线 2 条关系 2 站全部判为上海市（`443258` / `9786758`）；
+- 上海关系内 1,129 个站落在上海市面内，界外只有 6 个（花桥段 3 站 × 双向重复），**「界外且未定」为 0**。
 
 ## S1-4 底图：口径与已知局限
 

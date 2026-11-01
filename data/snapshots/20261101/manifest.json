@@ -1,6 +1,6 @@
 {
   "snapshot_date": "20261101",
-  "generated_at": "2026-11-01T12:58:23+08:00",
+  "generated_at": "2026-11-01T21:33:15+08:00",
   "source": "https://download.openstreetmap.fr/extracts/asia/china/",
   "source_notes": "download.openstreetmap.fr 省级 extract，日更；整档非增量",
   "license": "ODbL-1.0",
@@ -14,9 +14,9 @@
       "bytes": 29663265,
       "sha256": "e77b91bb2c4504e4fb64ccad28d205f0c5a0b3b89eba8f098ed109e252ac3840",
       "last_modified": "Sun, 01 Nov 2026 00:27:14 GMT",
-      "downloaded_at": "2026-11-01T12:57:59+08:00",
-      "elapsed_s": 5.61,
-      "avg_bytes_per_s": 5285361,
+      "downloaded_at": "2026-11-01T21:33:15+08:00",
+      "elapsed_s": 0.0,
+      "avg_bytes_per_s": null,
       "local_path": "E:\\subway-data\\snapshots\\20261101\\shanghai-latest.osm.pbf"
     },
     {
@@ -26,9 +26,9 @@
       "bytes": 89447453,
       "sha256": "ad5c75c7950a07c674664c60b2220129e929e9157aab64fcd970fb7358f20d57",
       "last_modified": "Sun, 01 Nov 2026 00:27:58 GMT",
-      "downloaded_at": "2026-11-01T12:58:11+08:00",
-      "elapsed_s": 11.71,
-      "avg_bytes_per_s": 7638147,
+      "downloaded_at": "2026-11-01T21:33:15+08:00",
+      "elapsed_s": 0.0,
+      "avg_bytes_per_s": null,
       "local_path": "E:\\subway-data\\snapshots\\20261101\\jiangsu-latest.osm.pbf"
     },
     {
@@ -38,10 +38,34 @@
       "bytes": 99005643,
       "sha256": "c7a865ef492c3043377d669b177829855f187b14eab5e514864c4c8386f574f1",
       "last_modified": "Sun, 01 Nov 2026 00:28:58 GMT",
-      "downloaded_at": "2026-11-01T12:58:23+08:00",
-      "elapsed_s": 12.51,
-      "avg_bytes_per_s": 7916315,
+      "downloaded_at": "2026-11-01T21:33:15+08:00",
+      "elapsed_s": 0.0,
+      "avg_bytes_per_s": null,
       "local_path": "E:\\subway-data\\snapshots\\20261101\\zhejiang-latest.osm.pbf"
+    },
+    {
+      "name": "anhui-latest.osm.pbf",
+      "province": "anhui",
+      "url": "https://download.openstreetmap.fr/extracts/asia/china/anhui-latest.osm.pbf",
+      "bytes": 46314742,
+      "sha256": "ea9936043c5624b17f74f6c83cb2ed9baea8493870a83858742da53f1a8f3356",
+      "last_modified": "Sun, 01 Nov 2026 00:27:58 GMT",
+      "downloaded_at": "2026-11-01T21:33:15+08:00",
+      "elapsed_s": 0.0,
+      "avg_bytes_per_s": null,
+      "local_path": "E:\\subway-data\\snapshots\\20261101\\anhui-latest.osm.pbf"
+    },
+    {
+      "name": "shandong-latest.osm.pbf",
+      "province": "shandong",
+      "url": "https://download.openstreetmap.fr/extracts/asia/china/shandong-latest.osm.pbf",
+      "bytes": 78890478,
+      "sha256": "2a0d94c4c482259efbb0510e03fde02ab81b6def1af371ae66c150a6acc2b412",
+      "last_modified": "Sun, 01 Nov 2026 00:28:47 GMT",
+      "downloaded_at": "2026-11-01T21:33:15+08:00",
+      "elapsed_s": 0.0,
+      "avg_bytes_per_s": null,
+      "local_path": "E:\\subway-data\\snapshots\\20261101\\shandong-latest.osm.pbf"
     }
   ],
   "skipped_by_size_rule": []

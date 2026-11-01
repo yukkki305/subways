@@ -247,7 +247,9 @@ def assemble(per_province: list[dict]) -> tuple[dict[int, dict], list[dict]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--provinces", nargs="+", default=["shanghai", "jiangsu", "zhejiang"])
+    # 2026-11-01 扩到 5 省：江苏 L4 省界缺与山东/安徽共边的 way，且宁滁线、宁马线在安徽一侧
+    parser.add_argument("--provinces", nargs="+",
+                        default=["shanghai", "jiangsu", "zhejiang", "anhui", "shandong"])
     parser.add_argument("--out", default=str(OUT_DEFAULT))
     args = parser.parse_args()
 

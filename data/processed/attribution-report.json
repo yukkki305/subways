@@ -1,0 +1,5264 @@
+{
+ "snapshot_date": "20261101",
+ "generated_at": "2026-11-01T21:36:25+08:00",
+ "method": {
+  "city": "admin_level=5 地级市面点面判定（上海用 admin_level=4 上海市面）",
+  "province": "城市命中即得省；未命中城市时退回省面（上海/浙江/安徽用 L4，江苏 = 13 地级市并集）",
+  "why_jiangsu_union": "江苏省 L4 关系 374 个 way 齐全但仍拼不闭合（自拼只有 309.4 km² / 23 个碎片），改用地级市（L5）并集 + 13 市固定名称表",
+  "known_gaps": "南通市、盐城市的市面本身拼不闭合，两市内的站目前判不出归属（在 conflicts.md 列出）",
+  "note": "几何只做判定，城市名来自 OSM L5 名称，不由几何发明；未命中一律 null + flag"
+ },
+ "boundaries": {
+  "上海市": {
+   "area_km2": 16229.5,
+   "parts": 2
+  },
+  "浙江省": {
+   "area_km2": 144895.7,
+   "parts": 1
+  },
+  "安徽省": {
+   "area_km2": 141251.4,
+   "parts": 5
+  },
+  "江苏省": {
+   "area_km2": 81289.5,
+   "parts": 11
+  }
+ },
+ "city_polygons": {
+  "舟山市": {
+   "id": 3308121,
+   "province": "浙江省",
+   "area_km2": 20203.8
+  },
+  "嘉兴市": {
+   "id": 3308626,
+   "province": "浙江省",
+   "area_km2": 5727.6
+  },
+  "苏州市": {
+   "id": 4430941,
+   "province": "江苏省",
+   "area_km2": 8638.0
+  },
+  "南京市": {
+   "id": 2131524,
+   "province": "江苏省",
+   "area_km2": 6652.8
+  },
+  "湖州市": {
+   "id": 3149738,
+   "province": "浙江省",
+   "area_km2": 5800.8
+  },
+  "徐州市": {
+   "id": 3218572,
+   "province": "江苏省",
+   "area_km2": 11543.3
+  },
+  "宣城市": {
+   "id": 3222248,
+   "province": "安徽省",
+   "area_km2": 12258.7
+  },
+  "滁州市": {
+   "id": 3231588,
+   "province": "安徽省",
+   "area_km2": 13725.8
+  },
+  "宿州市": {
+   "id": 3231858,
+   "province": "安徽省",
+   "area_km2": 10242.5
+  },
+  "淮北市": {
+   "id": 3231910,
+   "province": "安徽省",
+   "area_km2": 2821.2
+  },
+  "马鞍山市": {
+   "id": 3260816,
+   "province": "安徽省",
+   "area_km2": 4071.5
+  },
+  "蚌埠市": {
+   "id": 3262334,
+   "province": "安徽省",
+   "area_km2": 6080.2
+  },
+  "宿迁市": {
+   "id": 3293941,
+   "province": "江苏省",
+   "area_km2": 8823.0
+  },
+  "连云港市": {
+   "id": 3320347,
+   "province": "江苏省",
+   "area_km2": 9826.7
+  },
+  "常州市": {
+   "id": 3429666,
+   "province": "江苏省",
+   "area_km2": 4389.9
+  },
+  "镇江市": {
+   "id": 3429680,
+   "province": "江苏省",
+   "area_km2": 3876.7
+  },
+  "淮安市": {
+   "id": 3429722,
+   "province": "江苏省",
+   "area_km2": 10240.0
+  },
+  "扬州市": {
+   "id": 4430826,
+   "province": "江苏省",
+   "area_km2": 6730.8
+  },
+  "泰州市": {
+   "id": 4430874,
+   "province": "江苏省",
+   "area_km2": 5881.7
+  },
+  "无锡市": {
+   "id": 4430942,
+   "province": "江苏省",
+   "area_km2": 4686.6
+  },
+  "黄山市": {
+   "id": 2992498,
+   "province": "安徽省",
+   "area_km2": 9567.9
+  },
+  "杭州市": {
+   "id": 3221112,
+   "province": "浙江省",
+   "area_km2": 16651.9
+  },
+  "衢州市": {
+   "id": 3278467,
+   "province": "浙江省",
+   "area_km2": 8659.7
+  },
+  "丽水市": {
+   "id": 3289209,
+   "province": "浙江省",
+   "area_km2": 16797.5
+  },
+  "温州市": {
+   "id": 3289341,
+   "province": "浙江省",
+   "area_km2": 19429.5
+  },
+  "绍兴市": {
+   "id": 3316522,
+   "province": "浙江省",
+   "area_km2": 8162.5
+  },
+  "金华市": {
+   "id": 3411720,
+   "province": "浙江省",
+   "area_km2": 10729.4
+  },
+  "台州市": {
+   "id": 3477550,
+   "province": "浙江省",
+   "area_km2": 15915.8
+  },
+  "宁波市": {
+   "id": 3478607,
+   "province": "浙江省",
+   "area_km2": 16817.3
+  },
+  "铜陵市": {
+   "id": 3077734,
+   "province": "安徽省",
+   "area_km2": 2984.3
+  },
+  "池州市": {
+   "id": 3164669,
+   "province": "安徽省",
+   "area_km2": 8324.9
+  },
+  "安庆市": {
+   "id": 3220387,
+   "province": "安徽省",
+   "area_km2": 13461.3
+  },
+  "六安市": {
+   "id": 3243393,
+   "province": "安徽省",
+   "area_km2": 15545.9
+  },
+  "亳州市": {
+   "id": 3245950,
+   "province": "安徽省",
+   "area_km2": 8740.1
+  },
+  "阜阳市": {
+   "id": 3246004,
+   "province": "安徽省",
+   "area_km2": 10321.5
+  },
+  "芜湖市": {
+   "id": 3262036,
+   "province": "安徽省",
+   "area_km2": 6014.1
+  },
+  "淮南市": {
+   "id": 3262360,
+   "province": "安徽省",
+   "area_km2": 5610.1
+  },
+  "合肥市": {
+   "id": 3288965,
+   "province": "安徽省",
+   "area_km2": 11524.7
+  },
+  "上海市": {
+   "id": 913067,
+   "province": "上海市",
+   "area_km2": 16229.5
+  }
+ },
+ "checks": {
+  "shanghai_stops_inside": 1129,
+  "shanghai_stops_outside": 6,
+  "shanghai_stops_outside_sample": [
+   [
+    "兆丰路",
+    121.14495,
+    31.29111
+   ],
+   [
+    "兆丰路",
+    121.14638,
+    31.29064
+   ],
+   [
+    "光明路",
+    121.11191,
+    31.29829
+   ],
+   [
+    "光明路",
+    121.11328,
+    31.2979
+   ],
+   [
+    "花桥",
+    121.09894,
+    31.30068
+   ],
+   [
+    "花桥",
+    121.10037,
+    31.30055
+   ]
+  ],
+  "shanghai_stops_outside_unattributed": 0
+ },
+ "counts": {
+  "relations_total": 287,
+  "by_province": {
+   "上海市": 60,
+   "江苏省": 85,
+   "(未定)": 46,
+   "安徽省": 25,
+   "浙江省": 71
+  },
+  "by_city": {
+   "上海市": 60,
+   "淮安市": 2,
+   "(未定)": 46,
+   "南京市": 35,
+   "芜湖市": 4,
+   "宁波市": 20,
+   "杭州市": 28,
+   "无锡市": 10,
+   "苏州市": 26,
+   "合肥市": 18,
+   "徐州市": 8,
+   "常州市": 4,
+   "金华市": 4,
+   "台州市": 2,
+   "绍兴市": 6,
+   "嘉兴市": 5,
+   "温州市": 6,
+   "滁州市": 2,
+   "马鞍山市": 1
+  },
+  "flags": {
+   "stops_unmatched": 43,
+   "cross_province_mixed": 4,
+   "no_resolved_stops": 3
+  }
+ },
+ "conflicts": [
+  {
+   "type": "cross_province",
+   "id": 5611110,
+   "name": "11号线：迪士尼 -> 花桥",
+   "by_province": {
+    "上海市": 34,
+    "江苏省": 3
+   },
+   "stops": [
+    "迪士尼 → 上海市",
+    "康新公路 → 上海市",
+    "秀沿路 → 上海市",
+    "罗山路 → 上海市",
+    "御桥 → 上海市",
+    "康恒路 → 上海市",
+    "浦三路 → 上海市",
+    "三林东 → 上海市",
+    "三林 → 上海市",
+    "东方体育中心 → 上海市",
+    "龙耀路 → 上海市",
+    "云锦路 → 上海市",
+    "龙华 → 上海市",
+    "上海游泳馆 → 上海市",
+    "徐家汇 → 上海市",
+    "交通大学 → 上海市",
+    "江苏路 → 上海市",
+    "隆德路 → 上海市",
+    "曹杨路 → 上海市",
+    "枫桥路 → 上海市",
+    "真如 → 上海市",
+    "上海西站 → 上海市",
+    "李子园 → 上海市",
+    "祁连山路 → 上海市",
+    "武威路 → 上海市",
+    "桃浦新村 → 上海市",
+    "南翔 → 上海市",
+    "陈翔公路 → 上海市",
+    "马陆 → 上海市",
+    "嘉定新城 → 上海市",
+    "上海赛车场 → 上海市",
+    "昌吉东路 → 上海市",
+    "上海汽车城 → 上海市",
+    "安亭 → 上海市",
+    "兆丰路 → 江苏省",
+    "光明路 → 江苏省",
+    "花桥 → 江苏省"
+   ]
+  },
+  {
+   "type": "cross_province",
+   "id": 5611111,
+   "name": "11号线：花桥 -> 迪士尼",
+   "by_province": {
+    "江苏省": 3,
+    "上海市": 34
+   },
+   "stops": [
+    "花桥 → 江苏省",
+    "光明路 → 江苏省",
+    "兆丰路 → 江苏省",
+    "安亭 → 上海市",
+    "上海汽车城 → 上海市",
+    "昌吉东路 → 上海市",
+    "上海赛车场 → 上海市",
+    "嘉定新城 → 上海市",
+    "马陆 → 上海市",
+    "陈翔公路 → 上海市",
+    "南翔 → 上海市",
+    "桃浦新村 → 上海市",
+    "武威路 → 上海市",
+    "祁连山路 → 上海市",
+    "李子园 → 上海市",
+    "上海西站 → 上海市",
+    "真如 → 上海市",
+    "枫桥路 → 上海市",
+    "曹杨路 → 上海市",
+    "隆德路 → 上海市",
+    "江苏路 → 上海市",
+    "交通大学 → 上海市",
+    "徐家汇 → 上海市",
+    "上海游泳馆 → 上海市",
+    "龙华 → 上海市",
+    "云锦路 → 上海市",
+    "龙耀路 → 上海市",
+    "东方体育中心 → 上海市",
+    "三林 → 上海市",
+    "三林东 → 上海市",
+    "浦三路 → 上海市",
+    "康恒路 → 上海市",
+    "御桥 → 上海市",
+    "罗山路 → 上海市",
+    "秀沿路 → 上海市",
+    "康新公路 → 上海市",
+    "迪士尼 → 上海市"
+   ]
+  },
+  {
+   "type": "cross_province",
+   "id": 19979191,
+   "name": "南京地铁S2号线/宁马线: 太白 → 西善桥",
+   "by_province": {
+    "安徽省": 8,
+    "江苏省": 8
+   },
+   "stops": [
+    "太白 → 安徽省",
+    "姑孰 → 安徽省",
+    "马鞍山经开区 → 安徽省",
+    "阳湖 → 安徽省",
+    "雨山东路 → 安徽省",
+    "湖南路・安工大 → 安徽省",
+    "湖北路・二中 → 安徽省",
+    "慈湖高新区 → 安徽省",
+    "铜井 → 江苏省",
+    "牧龙 → 江苏省",
+    "江宁滨江开发区 → 江苏省",
+    "江宁镇 → 江苏省",
+    "板桥南 → 江苏省",
+    "板桥 → 江苏省",
+    "雨花经济开发区 → 江苏省",
+    "西善桥 → 江苏省"
+   ]
+  },
+  {
+   "type": "cross_province",
+   "id": 20629971,
+   "name": "南京地铁S2号线/宁马线: 西善桥 → 太白",
+   "by_province": {
+    "江苏省": 8,
+    "安徽省": 8
+   },
+   "stops": [
+    "西善桥 → 江苏省",
+    "雨花经济开发区 → 江苏省",
+    "板桥 → 江苏省",
+    "板桥南 → 江苏省",
+    "江宁镇 → 江苏省",
+    "江宁滨江开发区 → 江苏省",
+    "牧龙 → 江苏省",
+    "铜井 → 江苏省",
+    "慈湖高新区 → 安徽省",
+    "湖北路・二中 → 安徽省",
+    "湖南路・安工大 → 安徽省",
+    "雨山东路 → 安徽省",
+    "阳湖 → 安徽省",
+    "马鞍山经开区 → 安徽省",
+    "姑孰 → 安徽省",
+    "太白 → 安徽省"
+   ]
+  }
+ ],
+ "relations": [
+  {
+   "id": 8167020,
+   "name": "浦江线：汇臻路 -> 沈杜公路",
+   "transit_type": "apm",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "上海市": 6
+   },
+   "stops_by_province": {
+    "上海市": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8167021,
+   "name": "浦江线：沈杜公路 -> 汇臻路",
+   "transit_type": "apm",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "上海市": 6
+   },
+   "stops_by_province": {
+    "上海市": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12603872,
+   "name": "淮安有轨电车1号线 南门→体育馆",
+   "transit_type": "lrt",
+   "province": "江苏省",
+   "city": "淮安市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "淮安市": 23
+   },
+   "stops_by_province": {
+    "江苏省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12603873,
+   "name": "淮安有轨电车1号线 体育馆→南门",
+   "transit_type": "lrt",
+   "province": "江苏省",
+   "city": "淮安市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "淮安市": 23
+   },
+   "stops_by_province": {
+    "江苏省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13364068,
+   "name": "孔孟旅游快线",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 1,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 1,
+   "flags": [
+    "stops_unmatched:1"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14660487,
+   "name": "上海浦东机场旅客捷运系统西线：S1 -> T1",
+   "transit_type": "lrt",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14660488,
+   "name": "上海浦东机场旅客捷运系统东线：S2 -> T2",
+   "transit_type": "lrt",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14660489,
+   "name": "上海浦东机场旅客捷运系统东线：T2 -> S2",
+   "transit_type": "lrt",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14660490,
+   "name": "上海浦东机场旅客捷运系统西线：T1 -> S1",
+   "transit_type": "lrt",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16159336,
+   "name": "南京河西有轨电车 奥体中心→鱼嘴",
+   "transit_type": "lrt",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "南京市": 13
+   },
+   "stops_by_province": {
+    "江苏省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16159337,
+   "name": "南京河西有轨电车 鱼嘴→奥体中心",
+   "transit_type": "lrt",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "南京市": 13
+   },
+   "stops_by_province": {
+    "江苏省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16159338,
+   "name": "南京麒麟有轨电车 马群→石杨路",
+   "transit_type": "lrt",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "南京市": 13
+   },
+   "stops_by_province": {
+    "江苏省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16159339,
+   "name": "南京麒麟有轨电车 石杨路→马群",
+   "transit_type": "lrt",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "南京市": 13
+   },
+   "stops_by_province": {
+    "江苏省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 20010728,
+   "name": "云巴线：徐马 -> 春园路 -> 徐马",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20010729,
+   "name": "云巴线：徐马 -> 大正路 -> 徐马",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20020670,
+   "name": "济阳线：济南东站 -> 济阳北",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20020671,
+   "name": "济阳线：济阳北 -> 济南东站",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 443258,
+   "name": "磁浮线：龙阳路 -> 浦东1号2号航站楼",
+   "transit_type": "maglev",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9786758,
+   "name": "磁浮线：浦东1号2号航站楼 -> 龙阳路",
+   "transit_type": "maglev",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13401846,
+   "name": "芜湖轨道交通1号线: 白马山→保顺路",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "芜湖市": 25
+   },
+   "stops_by_province": {
+    "安徽省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13401847,
+   "name": "芜湖轨道交通1号线: 保顺路→白马山",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "芜湖市": 25
+   },
+   "stops_by_province": {
+    "安徽省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13601036,
+   "name": "芜湖轨道交通2号线: 鸠兹广场→万春湖路",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "芜湖市": 11
+   },
+   "stops_by_province": {
+    "安徽省": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13601037,
+   "name": "芜湖轨道交通2号线: 万春湖路→鸠兹广场",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "芜湖市": 11
+   },
+   "stops_by_province": {
+    "安徽省": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 196737,
+   "name": "8号线：沈杜公路 -> 市光路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "上海市": 30
+   },
+   "stops_by_province": {
+    "上海市": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 196738,
+   "name": "3号线：江杨北路 -> 上海南站",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 29,
+   "stops_by_city": {
+    "上海市": 29
+   },
+   "stops_by_province": {
+    "上海市": 29
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 196854,
+   "name": "4号线：内圈",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 26,
+   "stops_by_city": {
+    "上海市": 26
+   },
+   "stops_by_province": {
+    "上海市": 26
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 199189,
+   "name": "10号线：航中路 -> 基隆路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "上海市": 33
+   },
+   "stops_by_province": {
+    "上海市": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 199200,
+   "name": "1号线：富锦路 -> 莘庄",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "上海市": 28
+   },
+   "stops_by_province": {
+    "上海市": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 214629,
+   "name": "9号线：上海松江站 -> 曹路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "上海市": 34
+   },
+   "stops_by_province": {
+    "上海市": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 214631,
+   "name": "13号线：张江路 -> 金运路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 214736,
+   "name": "6号线：东方体育中心 -> 港城路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "上海市": 28
+   },
+   "stops_by_province": {
+    "上海市": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 214779,
+   "name": "5号线：闵行开发区 -> 莘庄",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "上海市": 11
+   },
+   "stops_by_province": {
+    "上海市": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 1529760,
+   "name": "南京地铁10号线: 东麒路→雨山路",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "南京市": 24
+   },
+   "stops_by_province": {
+    "江苏省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 1529762,
+   "name": "南京地铁2号线: 鱼嘴→经天路",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "南京市": 30
+   },
+   "stops_by_province": {
+    "江苏省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 1533791,
+   "name": "南京地铁1号线: 八卦洲大桥南→中国药科大学",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "南京市": 32
+   },
+   "stops_by_province": {
+    "江苏省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 3400215,
+   "name": "南京地铁10号线: 雨山路→东麒路",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "南京市": 24
+   },
+   "stops_by_province": {
+    "江苏省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 3413088,
+   "name": "南京地铁2号线: 经天路→鱼嘴",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "南京市": 30
+   },
+   "stops_by_province": {
+    "江苏省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 4622007,
+   "name": "1号线：高桥西 → 霞浦",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 29,
+   "stops_by_city": {
+    "宁波市": 29
+   },
+   "stops_by_province": {
+    "浙江省": 29
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 4627560,
+   "name": "1号线：湘湖 -> 萧山国际机场",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 4627561,
+   "name": "1号线：萧山国际机场 -> 湘湖",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5178631,
+   "name": "16号线普通车：滴水湖 -> 龙阳路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "上海市": 13
+   },
+   "stops_by_province": {
+    "上海市": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454457,
+   "name": "2号线：朝阳 -> 良渚",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454532,
+   "name": "南京地铁3号线: 林场→秣陵",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "南京市": 31
+   },
+   "stops_by_province": {
+    "江苏省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454533,
+   "name": "南京地铁S1号线: 南京南站→空港新城江宁",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "南京市": 9
+   },
+   "stops_by_province": {
+    "江苏省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454534,
+   "name": "南京地铁S8号线: 长江大桥北→金牛湖",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "南京市": 19
+   },
+   "stops_by_province": {
+    "江苏省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454535,
+   "name": "无锡地铁1号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "无锡市": 27
+   },
+   "stops_by_province": {
+    "江苏省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454536,
+   "name": "无锡地铁2号线: 梅园开原寺→无锡东站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "无锡市": 21
+   },
+   "stops_by_province": {
+    "江苏省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5454538,
+   "name": "2号线：骑河 → 桑田岛",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "苏州市": 35
+   },
+   "stops_by_province": {
+    "江苏省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5498699,
+   "name": "12号线：七莘路 → 金海路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "上海市": 32
+   },
+   "stops_by_province": {
+    "上海市": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5558604,
+   "name": "2号线：栎社国际机场 -> 红联",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "宁波市": 27
+   },
+   "stops_by_province": {
+    "浙江省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5611108,
+   "name": "11号线：迪士尼 -> 嘉定北",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "上海市": 33
+   },
+   "stops_by_province": {
+    "上海市": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5611109,
+   "name": "11号线：嘉定北 -> 迪士尼",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "上海市": 33
+   },
+   "stops_by_province": {
+    "上海市": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5611110,
+   "name": "11号线：迪士尼 -> 花桥",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 37,
+   "stops_by_city": {
+    "上海市": 34,
+    "苏州市": 3
+   },
+   "stops_by_province": {
+    "上海市": 34,
+    "江苏省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [
+    "cross_province_mixed"
+   ],
+   "method": "l5_city"
+  },
+  {
+   "id": 5611111,
+   "name": "11号线：花桥 -> 迪士尼",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 37,
+   "stops_by_city": {
+    "苏州市": 3,
+    "上海市": 34
+   },
+   "stops_by_province": {
+    "江苏省": 3,
+    "上海市": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [
+    "cross_province_mixed"
+   ],
+   "method": "l5_city"
+  },
+  {
+   "id": 5611325,
+   "name": "2号线：浦东1号2号航站楼 → 蟠祥路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5611326,
+   "name": "2号线：蟠祥路 → 浦东1号2号航站楼",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5964585,
+   "name": "合肥轨道交通2号线: 南岗→撮镇",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "合肥市": 35
+   },
+   "stops_by_province": {
+    "安徽省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5964920,
+   "name": "合肥轨道交通1号线: 张洼→九联圩",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 26,
+   "stops_by_city": {
+    "合肥市": 26
+   },
+   "stops_by_province": {
+    "安徽省": 26
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5964922,
+   "name": "合肥轨道交通3号线: 省儿童医院新区→相城路",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 40,
+   "stops_by_city": {
+    "合肥市": 40
+   },
+   "stops_by_province": {
+    "安徽省": 40
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6325787,
+   "name": "17号线：虹桥火车站 -> 西岑",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "上海市": 14
+   },
+   "stops_by_province": {
+    "上海市": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6517631,
+   "name": "3号线：青岛站 → 青岛北站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 22,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 22,
+   "flags": [
+    "stops_unmatched:22"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6683150,
+   "name": "徐州地铁1号线：路窝→徐州东站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "徐州市": 18
+   },
+   "stops_by_province": {
+    "江苏省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6705866,
+   "name": "徐州地铁2号线：客运北站→新城区东",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "徐州市": 20
+   },
+   "stops_by_province": {
+    "江苏省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6705867,
+   "name": "徐州地铁3号线：振兴大道→银山",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 22,
+   "stops_by_city": {
+    "徐州市": 22
+   },
+   "stops_by_province": {
+    "江苏省": 22
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6800210,
+   "name": "1号线：莘庄 -> 富锦路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "上海市": 28
+   },
+   "stops_by_province": {
+    "上海市": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6800211,
+   "name": "上海地铁1号线",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6803856,
+   "name": "16号线普通车：龙阳路 -> 滴水湖",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "上海市": 13
+   },
+   "stops_by_province": {
+    "上海市": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6806163,
+   "name": "5号线：莘庄 -> 闵行开发区",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "上海市": 11
+   },
+   "stops_by_province": {
+    "上海市": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6817178,
+   "name": "3号线：上海南站 -> 江杨北路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 29,
+   "stops_by_city": {
+    "上海市": 29
+   },
+   "stops_by_province": {
+    "上海市": 29
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6819599,
+   "name": "7号线：美兰湖 -> 花木路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "上海市": 33
+   },
+   "stops_by_province": {
+    "上海市": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6819600,
+   "name": "7号线：花木路 -> 美兰湖",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "上海市": 33
+   },
+   "stops_by_province": {
+    "上海市": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6840915,
+   "name": "6号线：港城路 -> 东方体育中心",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "上海市": 28
+   },
+   "stops_by_province": {
+    "上海市": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7448423,
+   "name": "4号线：外圈",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 26,
+   "stops_by_city": {
+    "上海市": 26
+   },
+   "stops_by_province": {
+    "上海市": 26
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7451832,
+   "name": "8号线：市光路 -> 沈杜公路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "上海市": 30
+   },
+   "stops_by_province": {
+    "上海市": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7451834,
+   "name": "9号线：曹路 -> 上海松江站",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "上海市": 34
+   },
+   "stops_by_province": {
+    "上海市": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7451886,
+   "name": "12号线：金海路 → 七莘路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "上海市": 32
+   },
+   "stops_by_province": {
+    "上海市": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7451888,
+   "name": "13号线：金运路 -> 张江路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7452116,
+   "name": "10号线：基隆路 -> 航中路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "上海市": 33
+   },
+   "stops_by_province": {
+    "上海市": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7452117,
+   "name": "10号线：虹桥火车站 -> 基隆路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "上海市": 34
+   },
+   "stops_by_province": {
+    "上海市": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7452118,
+   "name": "10号线：基隆路 -> 虹桥火车站",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "上海市": 34
+   },
+   "stops_by_province": {
+    "上海市": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7839800,
+   "name": "2号线：四川路 → 李村公园",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7841833,
+   "name": "无锡地铁1号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "无锡市": 27
+   },
+   "stops_by_province": {
+    "江苏省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7841836,
+   "name": "无锡地铁2号线: 无锡东站→梅园开原寺",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "无锡市": 21
+   },
+   "stops_by_province": {
+    "江苏省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7844334,
+   "name": "2号线：李村公园 → 四川路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7845846,
+   "name": "17号线：西岑 -> 虹桥火车站",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "上海市": 14
+   },
+   "stops_by_province": {
+    "上海市": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7883241,
+   "name": "3号线：青岛北站 → 青岛站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 22,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 22,
+   "flags": [
+    "stops_unmatched:22"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7883943,
+   "name": "2号线：红联 -> 栎社国际机场",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "宁波市": 27
+   },
+   "stops_by_province": {
+    "浙江省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7883975,
+   "name": "1号线：霞浦 → 高桥西",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 29,
+   "stops_by_city": {
+    "宁波市": 29
+   },
+   "stops_by_province": {
+    "浙江省": 29
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7885542,
+   "name": "南京地铁3号线: 秣陵→林场",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "南京市": 31
+   },
+   "stops_by_province": {
+    "江苏省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7889176,
+   "name": "1号线：钟南街 -> 木渎",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "苏州市": 24
+   },
+   "stops_by_province": {
+    "江苏省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7889177,
+   "name": "1号线：木渎 -> 钟南街",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "苏州市": 24
+   },
+   "stops_by_province": {
+    "江苏省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7889201,
+   "name": "4号线：龙道浜 → 同里",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "苏州市": 31
+   },
+   "stops_by_province": {
+    "江苏省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913253,
+   "name": "南京地铁S3号线: 高家冲→南京南站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "南京市": 19
+   },
+   "stops_by_province": {
+    "江苏省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913264,
+   "name": "南京地铁S3号线: 南京南站→高家冲",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "南京市": 19
+   },
+   "stops_by_province": {
+    "江苏省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913265,
+   "name": "南京地铁S1号线: 空港新城江宁→南京南站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "南京市": 9
+   },
+   "stops_by_province": {
+    "江苏省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7949046,
+   "name": "合肥轨道交通1号线: 九联圩→张洼",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 26,
+   "stops_by_city": {
+    "合肥市": 26
+   },
+   "stops_by_province": {
+    "安徽省": 26
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7949331,
+   "name": "合肥轨道交通2号线: 撮镇→南岗",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "合肥市": 35
+   },
+   "stops_by_province": {
+    "安徽省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8323744,
+   "name": "2号线：良渚 -> 朝阳",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8365114,
+   "name": "南京地铁S7号线: 空港新城江宁→无想山",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "南京市": 9
+   },
+   "stops_by_province": {
+    "江苏省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8439220,
+   "name": "4号线：木里 → 龙道浜",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "苏州市": 25
+   },
+   "stops_by_province": {
+    "江苏省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8439221,
+   "name": "4号线：龙道浜 → 木里",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "苏州市": 25
+   },
+   "stops_by_province": {
+    "江苏省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8439222,
+   "name": "4号线：同里 → 龙道浜",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "苏州市": 31
+   },
+   "stops_by_province": {
+    "江苏省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8439252,
+   "name": "2号线：桑田岛 → 骑河",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "苏州市": 35
+   },
+   "stops_by_province": {
+    "江苏省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8466367,
+   "name": "3号线：龙洞 -> 机场南",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 18,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 18,
+   "flags": [
+    "stops_unmatched:18"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9170631,
+   "name": "5号线：奉贤新城 -> 莘庄",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "上海市": 15
+   },
+   "stops_by_province": {
+    "上海市": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9170632,
+   "name": "5号线：莘庄 -> 奉贤新城",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "上海市": 15
+   },
+   "stops_by_province": {
+    "上海市": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9287539,
+   "name": "西海岸快线: 嘉陵江西路 → 董家口火车站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 23,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 23,
+   "flags": [
+    "stops_unmatched:23"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9461609,
+   "name": "1号线：工研院 → 方特",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9461610,
+   "name": "1号线：方特 → 工研院",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9584574,
+   "name": "南京地铁S9号线: 高淳→翔宇路南",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "南京市": 6
+   },
+   "stops_by_province": {
+    "江苏省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9584575,
+   "name": "南京地铁S9号线: 翔宇路南→高淳",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "南京市": 6
+   },
+   "stops_by_province": {
+    "江苏省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9584584,
+   "name": "南京地铁S7号线: 无想山→空港新城江宁",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "南京市": 9
+   },
+   "stops_by_province": {
+    "江苏省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9588173,
+   "name": "南京地铁S8号线: 金牛湖→长江大桥北",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "南京市": 19
+   },
+   "stops_by_province": {
+    "江苏省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9588280,
+   "name": "南京地铁4号线: 仙林湖→龙江",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "南京市": 18
+   },
+   "stops_by_province": {
+    "江苏省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9588281,
+   "name": "南京地铁4号线: 龙江→仙林湖",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "南京市": 18
+   },
+   "stops_by_province": {
+    "江苏省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9641050,
+   "name": "4号线：浦沿 -> 池华街",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "杭州市": 32
+   },
+   "stops_by_province": {
+    "浙江省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10095916,
+   "name": "18号线：航头 -> 康文路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10095917,
+   "name": "18号线：康文路 -> 航头",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10149400,
+   "name": "常州地铁1号线 森林公园-南夏墅",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "常州市",
+   "stops_total": 29,
+   "stops_by_city": {
+    "常州市": 29
+   },
+   "stops_by_province": {
+    "江苏省": 29
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10164420,
+   "name": "常州地铁1号线 南夏墅-森林公园",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "常州市",
+   "stops_total": 29,
+   "stops_by_city": {
+    "常州市": 29
+   },
+   "stops_by_province": {
+    "江苏省": 29
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10241348,
+   "name": "16号线大站车：滴水湖 -> 龙阳路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "上海市": 6
+   },
+   "stops_by_province": {
+    "上海市": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10241349,
+   "name": "16号线大站车：龙阳路 -> 滴水湖",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "上海市": 6
+   },
+   "stops_by_province": {
+    "上海市": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10379851,
+   "name": "徐州地铁1号线：徐州东站→路窝",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "徐州市": 18
+   },
+   "stops_by_province": {
+    "江苏省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10383240,
+   "name": "3号线：金海路 -> 大通桥",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "宁波市": 24
+   },
+   "stops_by_province": {
+    "浙江省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10383242,
+   "name": "3号线：大通桥 -> 金海路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "宁波市": 24
+   },
+   "stops_by_province": {
+    "浙江省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10386952,
+   "name": "5号线：南湖东 -> 姑娘桥",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 40,
+   "stops_by_city": {
+    "杭州市": 40
+   },
+   "stops_by_province": {
+    "浙江省": 40
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10386965,
+   "name": "5号线：姑娘桥 -> 南湖东",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 40,
+   "stops_by_city": {
+    "杭州市": 40
+   },
+   "stops_by_province": {
+    "浙江省": 40
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10467351,
+   "name": "蓝谷快线：钱谷山 → 苗岭路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 21,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 21,
+   "flags": [
+    "stops_unmatched:21"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10467352,
+   "name": "蓝谷快线：苗岭路 → 钱谷山",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 21,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 21,
+   "flags": [
+    "stops_unmatched:21"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10467727,
+   "name": "西海岸快线: 董家口火车站 → 嘉陵江西路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 23,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 23,
+   "flags": [
+    "stops_unmatched:23"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10488901,
+   "name": "3号线：葑亭大道 -> 苏州新区火车站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "苏州市": 35
+   },
+   "stops_by_province": {
+    "江苏省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10488910,
+   "name": "3号线：苏州新区火车站 -> 葑亭大道",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "苏州市": 35
+   },
+   "stops_by_province": {
+    "江苏省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10488950,
+   "name": "合肥轨道交通3号线: 相城路→省儿童医院新区",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 40,
+   "stops_by_city": {
+    "合肥市": 40
+   },
+   "stops_by_province": {
+    "安徽省": 40
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10513362,
+   "name": "3号线：机场南 -> 龙洞",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 18,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 18,
+   "flags": [
+    "stops_unmatched:18"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10557250,
+   "name": "14号线：桂桥路 → 封浜",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10557251,
+   "name": "14号线：封浜 → 桂桥路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "上海市": 31
+   },
+   "stops_by_province": {
+    "上海市": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11076297,
+   "name": "16号线：绿汀路 -> 九州街",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "杭州市": 12
+   },
+   "stops_by_province": {
+    "浙江省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11076298,
+   "name": "16号线：九州街 -> 绿汀路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "杭州市": 12
+   },
+   "stops_by_province": {
+    "浙江省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11289867,
+   "name": "金华轨道交通义东线 明清宫→凌云",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "金华市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "金华市": 14
+   },
+   "stops_by_province": {
+    "浙江省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11746005,
+   "name": "南京地铁1号线: 中国药科大学→八卦洲大桥南",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "南京市": 32
+   },
+   "stops_by_province": {
+    "江苏省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11747972,
+   "name": "合肥轨道交通6号线-上行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "合肥市": 21
+   },
+   "stops_by_province": {
+    "安徽省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755131,
+   "name": "合肥轨道交通7号线-下行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "合肥市": 16
+   },
+   "stops_by_province": {
+    "安徽省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755282,
+   "name": "合肥轨道交通8号线：一里井→北城高铁站",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "合肥市": 12
+   },
+   "stops_by_province": {
+    "安徽省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755283,
+   "name": "合肥轨道交通8号线：北城高铁站→一里井",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "合肥市": 12
+   },
+   "stops_by_province": {
+    "安徽省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755284,
+   "name": "合肥轨道交通7号线-上行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 17,
+   "stops_by_city": {
+    "合肥市": 17
+   },
+   "stops_by_province": {
+    "安徽省": 17
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755285,
+   "name": "合肥轨道交通6号线-下行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "合肥市": 21
+   },
+   "stops_by_province": {
+    "安徽省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11798334,
+   "name": "无锡地铁3号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "无锡市": 21
+   },
+   "stops_by_province": {
+    "江苏省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11798335,
+   "name": "无锡地铁3号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "无锡市": 21
+   },
+   "stops_by_province": {
+    "江苏省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11930603,
+   "name": "台州市域铁路S1线",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "台州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "台州市": 15
+   },
+   "stops_by_province": {
+    "浙江省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11930605,
+   "name": "台州市域铁路S1线",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "台州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "台州市": 15
+   },
+   "stops_by_province": {
+    "浙江省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12106703,
+   "name": "4号线：慈城西 -> 国际会议中心",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "宁波市": 27
+   },
+   "stops_by_province": {
+    "浙江省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12108850,
+   "name": "徐州地铁6号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "徐州市": 16
+   },
+   "stops_by_province": {
+    "江苏省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12144418,
+   "name": "4号线：国际会议中心 -> 慈城西",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "宁波市": 27
+   },
+   "stops_by_province": {
+    "浙江省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12231216,
+   "name": "15号线：紫竹高新区 -> 顾村公园",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "上海市": 30
+   },
+   "stops_by_province": {
+    "上海市": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12231217,
+   "name": "15号线：顾村公园 -> 紫竹高新区",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "上海市": 30
+   },
+   "stops_by_province": {
+    "上海市": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12385669,
+   "name": "合肥轨道交通5号线: 贵阳路→汲桥路",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "合肥市": 33
+   },
+   "stops_by_province": {
+    "安徽省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12385670,
+   "name": "合肥轨道交通5号线: 汲桥路→贵阳路",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "合肥市": 33
+   },
+   "stops_by_province": {
+    "安徽省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12561898,
+   "name": "7号线：江东二路 -> 吴山广场",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "杭州市": 24
+   },
+   "stops_by_province": {
+    "浙江省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12686483,
+   "name": "2号线：王府庄 → 彭家庄",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 19,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 19,
+   "flags": [
+    "stops_unmatched:19"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 12686484,
+   "name": "2号线：彭家庄 → 王府庄",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 19,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 19,
+   "flags": [
+    "stops_unmatched:19"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 12770688,
+   "name": "常州地铁2号线 青枫公园-五一路",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "常州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "常州市": 15
+   },
+   "stops_by_province": {
+    "江苏省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12894636,
+   "name": "1号线：芳泉 -> 姑娘桥",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "绍兴市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "绍兴市": 26,
+    "杭州市": 2
+   },
+   "stops_by_province": {
+    "浙江省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12910757,
+   "name": "5号线：阳澄湖南 -> 太湖香山",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "苏州市": 34
+   },
+   "stops_by_province": {
+    "江苏省": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12914034,
+   "name": "常州地铁2号线 五一路-青枫公园",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "常州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "常州市": 15
+   },
+   "stops_by_province": {
+    "江苏省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12920989,
+   "name": "1号线：姑娘桥 -> 芳泉",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "绍兴市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "杭州市": 2,
+    "绍兴市": 26
+   },
+   "stops_by_province": {
+    "浙江省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12935362,
+   "name": "徐州地铁2号线：新城区东→客运北站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "徐州市": 20
+   },
+   "stops_by_province": {
+    "江苏省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12935363,
+   "name": "徐州地铁3号线：银山→振兴大道",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 22,
+   "stops_by_city": {
+    "徐州市": 22
+   },
+   "stops_by_province": {
+    "江苏省": 22
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13042425,
+   "name": "8号线：新湾路 -> 文海南路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "杭州市": 9
+   },
+   "stops_by_province": {
+    "浙江省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13042426,
+   "name": "8号线：文海南路 -> 新湾路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "杭州市": 9
+   },
+   "stops_by_province": {
+    "浙江省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13060895,
+   "name": "9号线：龙安 -> 观音塘",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "杭州市": 19
+   },
+   "stops_by_province": {
+    "浙江省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13060896,
+   "name": "9号线：观音塘 -> 龙安",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "杭州市": 19
+   },
+   "stops_by_province": {
+    "浙江省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13061278,
+   "name": "7号线：吴山广场 -> 江东二路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "杭州市": 24
+   },
+   "stops_by_province": {
+    "浙江省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13067813,
+   "name": "1号线：王家港 → 东郭庄",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 41,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 41,
+   "flags": [
+    "stops_unmatched:41"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13067814,
+   "name": "1号线：东郭庄 → 王家港",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 41,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 41,
+   "flags": [
+    "stops_unmatched:41"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13068448,
+   "name": "8号线：胶州北站 → 五四广场",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13068449,
+   "name": "8号线：五四广场 → 胶州北站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13077286,
+   "name": "6号线：桂花西路 -> 枸桔弄",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13077287,
+   "name": "6号线：枸桔弄 -> 双浦",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13077348,
+   "name": "6号线：枸桔弄 -> 双浦",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "杭州市": 25
+   },
+   "stops_by_province": {
+    "浙江省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13077349,
+   "name": "6号线：双浦 -> 枸桔弄",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "杭州市": 25
+   },
+   "stops_by_province": {
+    "浙江省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13077392,
+   "name": "4号线：池华街 -> 浦沿",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "杭州市": 32
+   },
+   "stops_by_province": {
+    "浙江省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13078548,
+   "name": "杭海城际铁路：浙大国际校区 -> 临平南高铁站",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "嘉兴市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "嘉兴市": 11,
+    "杭州市": 1
+   },
+   "stops_by_province": {
+    "浙江省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13078549,
+   "name": "杭海城际铁路：临平南高铁站 -> 浙大国际校区",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "嘉兴市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "杭州市": 1,
+    "嘉兴市": 11
+   },
+   "stops_by_province": {
+    "浙江省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13084224,
+   "name": "温州轨道交通S1线: 桐岭→双瓯大道",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "温州市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "温州市": 18
+   },
+   "stops_by_province": {
+    "浙江省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13084225,
+   "name": "温州轨道交通S1线: 双瓯大道→桐岭",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "温州市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "温州市": 18
+   },
+   "stops_by_province": {
+    "浙江省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13091427,
+   "name": "5号线：太湖香山 -> 阳澄湖南",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "苏州市": 34
+   },
+   "stops_by_province": {
+    "江苏省": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13200479,
+   "name": "南京地铁S6号线: 句容→马群",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "镇江市": 5,
+    "南京市": 8
+   },
+   "stops_by_province": {
+    "江苏省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13200480,
+   "name": "南京地铁S6号线: 马群→句容",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "南京市": 8,
+    "镇江市": 5
+   },
+   "stops_by_province": {
+    "江苏省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13279890,
+   "name": "杭海城际铁路大站车：浙大国际校区 -> 临平南高铁站",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "嘉兴市",
+   "stops_total": 5,
+   "stops_by_city": {
+    "嘉兴市": 4,
+    "杭州市": 1
+   },
+   "stops_by_province": {
+    "浙江省": 5
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13279891,
+   "name": "杭海城际铁路大站车：临平南高铁站 -> 浙大国际校区",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "嘉兴市",
+   "stops_total": 5,
+   "stops_by_city": {
+    "杭州市": 1,
+    "嘉兴市": 4
+   },
+   "stops_by_province": {
+    "浙江省": 5
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13282128,
+   "name": "温州轨道交通S2线: 清东路→东山",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "温州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "温州市": 20
+   },
+   "stops_by_province": {
+    "浙江省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13535686,
+   "name": "10号线：逸盛路 -> 黄龙体育中心",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "杭州市": 12
+   },
+   "stops_by_province": {
+    "浙江省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13535687,
+   "name": "10号线：黄龙体育中心 -> 逸盛路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "杭州市": 12
+   },
+   "stops_by_province": {
+    "浙江省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13536844,
+   "name": "合肥轨道交通4号线: 综保区→青龙岗",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "合肥市": 31
+   },
+   "stops_by_province": {
+    "安徽省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13536845,
+   "name": "合肥轨道交通4号线: 青龙岗→综保区",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "合肥市": 31
+   },
+   "stops_by_province": {
+    "安徽省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13538219,
+   "name": "3号线：星桥 -> 吴山前村",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13538220,
+   "name": "3号线：吴山前村 -> 星桥",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "杭州市": 33
+   },
+   "stops_by_province": {
+    "浙江省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13540932,
+   "name": "无锡地铁四号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "无锡市": 18
+   },
+   "stops_by_province": {
+    "江苏省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13540933,
+   "name": "无锡地铁四号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "无锡市": 18
+   },
+   "stops_by_province": {
+    "江苏省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13615483,
+   "name": "5号线：布政 -> 骆驼桥",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "宁波市": 27
+   },
+   "stops_by_province": {
+    "浙江省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13618691,
+   "name": "16号线直达车：龙阳路 -> 滴水湖",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "上海市": 12
+   },
+   "stops_by_province": {
+    "上海市": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13618692,
+   "name": "16号线直达车：滴水湖 -> 龙阳路",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "上海市": 2
+   },
+   "stops_by_province": {
+    "上海市": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13626145,
+   "name": "5号线：骆驼桥 -> 布政",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "宁波市": 27
+   },
+   "stops_by_province": {
+    "浙江省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13675604,
+   "name": "金华轨道交通金义东线 金义段: 秦塘 → 金华站",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "金华市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "金华市": 15
+   },
+   "stops_by_province": {
+    "浙江省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14280624,
+   "name": "3号线：星桥 -> 石马",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "杭州市": 28
+   },
+   "stops_by_province": {
+    "浙江省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14280625,
+   "name": "3号线：石马 -> 星桥",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "杭州市": 28
+   },
+   "stops_by_province": {
+    "浙江省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14489038,
+   "name": "金华轨道交通金义东线 金义段: 金华站 → 秦塘",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "金华市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "金华市": 15
+   },
+   "stops_by_province": {
+    "浙江省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14613120,
+   "name": "19号线：永盛路 -> 火车西站",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 17,
+   "stops_by_city": {
+    "杭州市": 17
+   },
+   "stops_by_province": {
+    "浙江省": 17
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14613131,
+   "name": "19号线：火车西站 -> 永盛路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "杭州市",
+   "stops_total": 17,
+   "stops_by_city": {
+    "杭州市": 17
+   },
+   "stops_by_province": {
+    "浙江省": 17
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14863572,
+   "name": "1号线：平潮 -> 振兴路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 28,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 28,
+   "flags": [
+    "stops_unmatched:28"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14870559,
+   "name": "1号线：振兴路 -> 平潮",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 28,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 28,
+   "flags": [
+    "stops_unmatched:28"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14974356,
+   "name": "1号线：上海火车站 -> 莘庄",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "上海市": 16
+   },
+   "stops_by_province": {
+    "上海市": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14974357,
+   "name": "1号线：莘庄 -> 上海火车站",
+   "transit_type": "metro",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "上海市": 16
+   },
+   "stops_by_province": {
+    "上海市": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15051204,
+   "name": "4号线：大河东 → 人民会堂",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 15051219,
+   "name": "4号线：人民会堂 → 大河东",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 15062140,
+   "name": "金华轨道交通义东线 凌云→明清宫",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "金华市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "金华市": 14
+   },
+   "stops_by_province": {
+    "浙江省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15336345,
+   "name": "南京地铁7号线: 西善桥→仙新路",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "南京市": 27
+   },
+   "stops_by_province": {
+    "江苏省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15336347,
+   "name": "南京地铁7号线: 仙新路→西善桥",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "南京市": 27
+   },
+   "stops_by_province": {
+    "江苏省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15804056,
+   "name": "宁滁线: 汊河→滁州高铁站",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "滁州市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "滁州市": 14
+   },
+   "stops_by_province": {
+    "安徽省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15804057,
+   "name": "宁滁线: 滁州高铁站→汊河",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "滁州市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "滁州市": 14
+   },
+   "stops_by_province": {
+    "安徽省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16025193,
+   "name": "11号线：横山 -> 花桥",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 52,
+   "stops_by_city": {
+    "苏州市": 52
+   },
+   "stops_by_province": {
+    "江苏省": 52
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16097172,
+   "name": "11号线：花桥 -> 横山",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 52,
+   "stops_by_city": {
+    "苏州市": 52
+   },
+   "stops_by_province": {
+    "江苏省": 52
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16136201,
+   "name": "2号线：人民医院总院 -> 檀渎",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "绍兴市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "绍兴市": 9
+   },
+   "stops_by_province": {
+    "浙江省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16136202,
+   "name": "2号线： 檀渎 -> 人民医院总院",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "绍兴市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "绍兴市": 9
+   },
+   "stops_by_province": {
+    "浙江省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16244466,
+   "name": "温州轨道交通S2线大站快车: 清东路→东山",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "温州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "温州市": 9
+   },
+   "stops_by_province": {
+    "浙江省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16244467,
+   "name": "温州轨道交通S2线大站快车: 东山→清东路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "温州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "温州市": 9
+   },
+   "stops_by_province": {
+    "浙江省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16244468,
+   "name": "温州轨道交通S2线: 东山→清东路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "温州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "温州市": 20
+   },
+   "stops_by_province": {
+    "浙江省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16879714,
+   "name": "11号线大站快车：花桥 -> 东方之门",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 7,
+   "stops_by_city": {
+    "苏州市": 7
+   },
+   "stops_by_province": {
+    "江苏省": 7
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16879715,
+   "name": "11号线大站快车：东方之门 -> 花桥",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 7,
+   "stops_by_city": {
+    "苏州市": 7
+   },
+   "stops_by_province": {
+    "江苏省": 7
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16918816,
+   "name": "2号线：幸福 → 先锋",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 16918817,
+   "name": "2号线：先锋 → 幸福",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17126907,
+   "name": "无锡地铁S1号线 (堰桥方向)",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "无锡市": 10
+   },
+   "stops_by_province": {
+    "江苏省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17126908,
+   "name": "无锡地铁S1号线 (江阴外滩方向)",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "无锡市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "无锡市": 10
+   },
+   "stops_by_province": {
+    "江苏省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17417176,
+   "name": "南京地铁5号线: 方家营→吉印大道",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "南京市": 30
+   },
+   "stops_by_province": {
+    "江苏省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17417177,
+   "name": "南京地铁5号线: 吉印大道→方家营",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "南京市": 30
+   },
+   "stops_by_province": {
+    "江苏省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17438392,
+   "name": "1号线：会展中心 -> 芳泉",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "绍兴市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "绍兴市": 20
+   },
+   "stops_by_province": {
+    "浙江省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17438393,
+   "name": "1号线：芳泉 -> 会展中心",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "绍兴市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "绍兴市": 20
+   },
+   "stops_by_province": {
+    "浙江省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17518144,
+   "name": "6号线：横云山路 → 灵山湾",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 21,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 21,
+   "flags": [
+    "stops_unmatched:21"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17518159,
+   "name": "6号线：灵山湾 → 横云山路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 21,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 21,
+   "flags": [
+    "stops_unmatched:21"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17537792,
+   "name": "合肥轨道交通4号线: 烧脉岗→综保区",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "合肥市": 34
+   },
+   "stops_by_province": {
+    "安徽省": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17537793,
+   "name": "合肥轨道交通4号线: 综保区→烧脉岗",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "合肥市": 34
+   },
+   "stops_by_province": {
+    "安徽省": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17876036,
+   "name": "6号线：苏州新区火车站 → 南斜步",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "苏州市": 28
+   },
+   "stops_by_province": {
+    "江苏省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17876039,
+   "name": "6号线：南斜步 → 苏州新区火车站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "苏州市": 28
+   },
+   "stops_by_province": {
+    "江苏省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18026575,
+   "name": "8号线：车坊 → 西津桥",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "苏州市": 28
+   },
+   "stops_by_province": {
+    "江苏省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18026576,
+   "name": "8号线：西津桥 → 车坊",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "苏州市": 28
+   },
+   "stops_by_province": {
+    "江苏省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18320304,
+   "name": "6号线：南斜步 → 桑田岛",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 3,
+   "stops_by_city": {
+    "苏州市": 3
+   },
+   "stops_by_province": {
+    "江苏省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18320305,
+   "name": "6号线：桑田岛 → 南斜步",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 3,
+   "stops_by_city": {
+    "苏州市": 3
+   },
+   "stops_by_province": {
+    "江苏省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18356557,
+   "name": "苏州轨道交通7号线 木里 → 常楼",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "苏州市": 19
+   },
+   "stops_by_province": {
+    "江苏省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18356558,
+   "name": "苏州轨道交通7号线 常楼→木里",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "苏州市": 19
+   },
+   "stops_by_province": {
+    "江苏省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19314267,
+   "name": "8号线：开元路 -> 寒松路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "宁波市": 18
+   },
+   "stops_by_province": {
+    "浙江省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19314268,
+   "name": "8号线：寒松路 -> 开元路",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "宁波市": 18
+   },
+   "stops_by_province": {
+    "浙江省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19533619,
+   "name": "7号线：俞范 -> 云龙",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "宁波市": 25
+   },
+   "stops_by_province": {
+    "浙江省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19533620,
+   "name": "7号线：云龙 -> 俞范",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "宁波市": 25
+   },
+   "stops_by_province": {
+    "浙江省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19572431,
+   "name": "南京地铁S1-S7贯通特快: 南京南站→无想山",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 7,
+   "stops_by_city": {
+    "南京市": 7
+   },
+   "stops_by_province": {
+    "江苏省": 7
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19574135,
+   "name": "南京地铁S1-S7贯通特快: 无想山→南京南站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 7,
+   "stops_by_city": {
+    "南京市": 7
+   },
+   "stops_by_province": {
+    "江苏省": 7
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19656186,
+   "name": "徐州地铁6号线",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "徐州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "徐州市": 15
+   },
+   "stops_by_province": {
+    "江苏省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19979191,
+   "name": "南京地铁S2号线/宁马线: 太白 → 西善桥",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "马鞍山市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "马鞍山市": 8,
+    "南京市": 8
+   },
+   "stops_by_province": {
+    "安徽省": 8,
+    "江苏省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [
+    "cross_province_mixed"
+   ],
+   "method": "l5_city"
+  },
+  {
+   "id": 20008327,
+   "name": "4号线：彭家庄 → 第一医科大学",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 33,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 33,
+   "flags": [
+    "stops_unmatched:33"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20008328,
+   "name": "4号线：第一医科大学 → 彭家庄",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 33,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 33,
+   "flags": [
+    "stops_unmatched:33"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20009444,
+   "name": "6号线：梁王 -> 山东大学",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20009445,
+   "name": "6号线：山东大学 -> 梁王",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20009459,
+   "name": "8号线：邢村立交桥东 → 清源大街",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20009461,
+   "name": "8号线：清源大街 → 邢村立交桥东",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20085684,
+   "name": "6号线：红联 -> 古林",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "宁波市": 23
+   },
+   "stops_by_province": {
+    "浙江省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 20085685,
+   "name": "6号线：古林 -> 红联",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "宁波市": 23
+   },
+   "stops_by_province": {
+    "浙江省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 20629971,
+   "name": "南京地铁S2号线/宁马线: 西善桥 → 太白",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "南京市": 8,
+    "马鞍山市": 8
+   },
+   "stops_by_province": {
+    "江苏省": 8,
+    "安徽省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [
+    "cross_province_mixed"
+   ],
+   "method": "l5_city"
+  },
+  {
+   "id": 21045624,
+   "name": "济南轨道交通9号线",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21324393,
+   "name": "1号线：兴国路 → 山里",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 20,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 20,
+   "flags": [
+    "stops_unmatched:20"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21324394,
+   "name": "1号线：山里 → 兴国路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 20,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 20,
+   "flags": [
+    "stops_unmatched:20"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21368520,
+   "name": "8号线快速：五四广场 → 胶州北站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21368521,
+   "name": "8号线快速：胶东机场 → 五四广场",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21385756,
+   "name": "12号线：大目湾 → 小洋江",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "宁波市": 10
+   },
+   "stops_by_province": {
+    "浙江省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21385757,
+   "name": "12号线：小洋江 → 大目湾",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "宁波市": 10
+   },
+   "stops_by_province": {
+    "浙江省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21423619,
+   "name": "12号线：小洋江 → 大目湾",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 3,
+   "stops_by_city": {
+    "宁波市": 3
+   },
+   "stops_by_province": {
+    "浙江省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21423620,
+   "name": "12号线：大目湾 → 小洋江",
+   "transit_type": "metro",
+   "province": "浙江省",
+   "city": "宁波市",
+   "stops_total": 3,
+   "stops_by_city": {
+    "宁波市": 3
+   },
+   "stops_by_province": {
+    "浙江省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21457468,
+   "name": "南京地铁6号线: 南京南站→栖霞山",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "南京市": 20
+   },
+   "stops_by_province": {
+    "江苏省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21457471,
+   "name": "南京地铁6号线: 栖霞山→南京南站",
+   "transit_type": "metro",
+   "province": "江苏省",
+   "city": "南京市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "南京市": 20
+   },
+   "stops_by_province": {
+    "江苏省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5161881,
+   "name": "高新有轨电车1号线",
+   "transit_type": "tram",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "苏州市": 15
+   },
+   "stops_by_province": {
+    "江苏省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12075317,
+   "name": "青岛有轨电车示范线：青特小镇 → 城阳批发市场",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13334262,
+   "name": "高新有轨电车2号线",
+   "transit_type": "tram",
+   "province": "江苏省",
+   "city": "苏州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "苏州市": 15
+   },
+   "stops_by_province": {
+    "江苏省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14251681,
+   "name": "松江有轨电车1号线：仓华路 -> 新桥火车站",
+   "transit_type": "tram",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "上海市": 27
+   },
+   "stops_by_province": {
+    "上海市": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14251884,
+   "name": "松江有轨电车1号线：新桥火车站 -> 仓华路",
+   "transit_type": "tram",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "上海市": 27
+   },
+   "stops_by_province": {
+    "上海市": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15711260,
+   "name": "嘉兴有轨电车T1线",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 16159672,
+   "name": "松江有轨电车2号线：松江大学城 -> 龙马路 -> 松江大学城",
+   "transit_type": "tram",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 42,
+   "stops_by_city": {
+    "上海市": 42
+   },
+   "stops_by_province": {
+    "上海市": 42
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16159673,
+   "name": "松江有轨电车2号线：松江大学城 -> 广富林路谷阳北路 -> 松江大学城",
+   "transit_type": "tram",
+   "province": "上海市",
+   "city": "上海市",
+   "stops_total": 41,
+   "stops_by_city": {
+    "上海市": 41
+   },
+   "stops_by_province": {
+    "上海市": 41
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19455647,
+   "name": "line 1 (嘉兴南站==>中山东路安乐路（旭辉广场）)",
+   "transit_type": "tram",
+   "province": "浙江省",
+   "city": "嘉兴市",
+   "stops_total": 1,
+   "stops_by_city": {
+    "嘉兴市": 1
+   },
+   "stops_by_province": {
+    "浙江省": 1
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 20736174,
+   "name": "青岛有轨电车示范线：城阳批发市场 → 青特小镇",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  }
+ ]
+}

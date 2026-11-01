@@ -22,7 +22,10 @@ from pathlib import Path
 import requests
 
 BASE = "https://download.openstreetmap.fr/extracts/asia/china/"
-PROVINCES = ["shanghai", "jiangsu", "zhejiang"]
+# 2026-11-01 扩到 5 省：江苏省 L4 省界与山东/安徽共边的 11 个 way 只在那两份 extract 里，
+# 少了它们江苏省面永远拼不闭合（自拼只有 309.4 km² / 23 个碎片）；顺带让宁滁线、宁马线等
+# 跨省线路能判到安徽一侧。范围只加这 2 省，不扩到长三角全部（用户 M01450 定）。
+PROVINCES = ["shanghai", "jiangsu", "zhejiang", "anhui", "shandong"]
 # D1 决策：单份超过 200 MB 就只下上海，其余按需再补
 MAX_BYTES_PER_FILE = 200 * 1024 * 1024
 SNAPSHOT_DATE = "20261101"

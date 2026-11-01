@@ -15,6 +15,8 @@
 | `data/snapshots/20261101/manifest.json` | 快照元数据：五个 PBF 的 URL、字节数、sha256、`Last-Modified`、下载时间 | 直接记录 `download.openstreetmap.fr` 的响应头与文件哈希 | **ODbL-1.0** | 2026-11-01 00:27–00:28 GMT | `pipeline/01_fetch_snapshot.py` |
 | `data/snapshots/20261101/*.osm.pbf.sha256` | 五个 PBF 的校验和（每份一行） | 本地计算，用于复核快照未被替换 | — | 2026-11-01 | `pipeline/01_fetch_snapshot.py` |
 | `docs/conflicts.md` | 归属冲突与待定项：跨省关系逐站列表、46 条未定关系明细 | 由 `attribution-report.json` 渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/05_attribution.py` |
+| `data/manual/shanghai-relation-mapping.csv` | S2-2 的关系映射表：上海子集 65 条关系 + 人工判定列（`decide` / `target_line` / `target_branch` / `note`） | 前 12 列由 `relation-index.json` 导出；后 4 列人工填写；`hint` 列是机器提示 | **ODbL-1.0**（OSM 衍生） | 数据基准 2026-11-01；判定日期见 `note` | `pipeline/06_export_mapping.py` |
+| `docs/mappings/shanghai-relations.md` | 上面那份 CSV 的人可读视图（按制式分组） | 由 CSV 渲染 | **ODbL-1.0** | 同 CSV | `pipeline/06_export_mapping.py` |
 
 **仓库外、不进 git：**
 

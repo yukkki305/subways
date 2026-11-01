@@ -117,12 +117,34 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 **`city` 字段一律 `null`**：城市归属由 S1-6 用 `admin_level=4` 精确边界填，不在这一步猜（探测 10 已证 bbox 与粗边界都不可靠）。
 
 
+## S2 步骤与脚本映射（进行中）
+
+规则见 `docs/decisions/0001-modeling-rules.md`。S2 的目标是把 65 条上海关系收敛成 20 条 `line` + `branch` + `station` + `segment` + `transfer`。
+
+| 步骤 | 脚本 | 产物 | 状态 |
+| --- | --- | --- | --- |
+| S2-1 规则定稿 | —（ADR） | `docs/decisions/0001-modeling-rules.md` | ✅ R0–R8 九节 |
+| S2-2 关系归一 · 第一步 骨架导出 | `06_export_mapping.py` | `data/manual/shanghai-relation-mapping.csv`（65 行 × 16 列，后 4 列为空待填）、`docs/mappings/shanghai-relations.md` | ✅ 完成 |
+| S2-2 关系归一 · 第二步 人工判定 | —（人工填 CSV） | 同上 CSV 的 `decide` / `target_line` / `target_branch` / `note` | 待做 |
+| S2-2 关系归一 · 第三步 生成 lines.json | `07_build_lines.py`（待写） | `data/processed/shanghai/lines.json` | 待做 |
+| S2-3 站点抽取与合并 | 待定 | `station.json` + 合并决策表 | 待做 |
+| S2-4 区间切分 | 待定（先打样 2 / 10 / 4 号线） | `segment.geojson` | 待做 |
+| S2-5 换乘 | 待定 | `transfer.json` | 待做 |
+| S2-6 属性补全 | 待定 + `data/manual/shanghai-lines.csv` | 回填各表 | 待做 |
+| S2-7 校验与提交 | `08_validate.py`（待写） | 八项校验全过 | 待做 |
+
+`06_export_mapping.py` 的两个细节：
+
+- **`hint` 列是机器提示，不是结论**。现在给三类线索：`?非上海：<市名>`、`?母关系：0 站`、`?服务变体`（普通车/大站车/直达车/大站快车/区间）、`?环线`、`?同线多交路（ref=N 共 M 条）`、`?同站集：<对向关系 id>`（站名集合完全相同的两条，多为同一线路的双向）。
+- 65 行里 **60 行有孪生提示**，5 行没有：母关系 `6800211`；16 号线直达车 `13618691`（12 站）与 `13618692`（2 站）——OSM 里这个直达车关系一个方向只登记了龙阳路、滴水湖两站，属数据缺陷；松江有轨 2 号线 `16159672`（42 站）与 `16159673`（41 站）——两个方向的终点记录不同且站数不等。
+
 ## 目录分工
 
 | 目录 | 内容 | 是否提交 |
 | --- | --- | --- |
 | `data/raw/` | 抓下来的中间 JSON（关系、节点、几何） | ❌ |
 | `data/cache/` | 可重建的缓存 | ❌ |
+| `data/manual/` | 人工维护的判定表（映射表、属性表），随快照更新 | ✅ |
 | `data/processed/` | 清洗后的 GeoJSON / JSON，前端直接读 | ✅ |
 | `data/snapshots/<date>/` | 快照的 `.sha256` 与 `manifest.json` | ✅（PBF 本体在仓库外） |
 | `E:\subway-data\snapshots\<date>\` | 原始 PBF 与原始抓取结果 | 仓库外，不进 git |

@@ -21,6 +21,10 @@ data/raw/
 data/cache/
 *.pmtiles.tmp
 
+# 底图与 OSM 原始档案（不进仓库，见 AGENTS 第 6 / 15 节）
+*.pmtiles
+*.osm.pbf
+
 # 环境与密钥
 .env
 .env.*

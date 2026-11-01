@@ -110,6 +110,10 @@ S1 产出的是 **287 条 OSM 关系**（上海子集 65 条）。OSM 的关系�
 
 - `walk_minutes` 未知填 `null`，**禁止估算**填数字。
 - 每条 transfer 必须带 `source` 与 `evidence`（站距 + 依据：OSM 节点 / 官图 / 人工）。
+- **`type` 允许低置信度**（S2-5 实测后补充，2026-11-01）：OSM 的站内通道制图稀疏，
+  且「连通」无法区分站内通道与出站换乘（上海火车站在图上连通但实为出站换乘），
+  故 `type` 只能人工判定。每条 transfer 记 `type_confidence`（`high` / `medium` / `low`）
+  与 `type_note`；**`medium` / `low` 一律标 `needs_review: true`**，留待人工或后续权威数据复核。
 
 判据：transfer 双向成对（A→B 与 B→A 都存在）；每条都有 `evidence`；`walk_minutes` 只有 `null` 或带来源的整数。
 

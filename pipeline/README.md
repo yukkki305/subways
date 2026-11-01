@@ -130,7 +130,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | S2-3 站点抽取与合并 | `09_build_stations.py` | `data/processed/shanghai/station.json`（441 KB）+ `docs/mappings/station-merge-decisions.md` | ✅ 430 站 / 592 站次 |
 | S2-4 区间切分 | `10_build_segments.py` | `data/processed/shanghai/segment.geojson`（570 段 / 792 KB） | ✅ 23 条 branch 全覆盖 |
 | S2-5 换乘 | `11_build_transfers.py` | `data/processed/shanghai/transfer.json`（22 条 / 17 KB）+ `docs/mappings/transfer-decisions.md` | ✅ 12 组候选全落，10 条待复核 |
-| S2-6 属性补全 | 待定 + `data/manual/shanghai-lines.csv` | 回填各表 | 待做 |
+| S2-6 属性补全 | `12_build_attributes.py` + `data/manual/shanghai-lines.csv` | 回填 `lines.json`（颜色/里程/开通年/运营方/英文名）+ `docs/colors.md` | ✅ 20 条齐全，颜色 4 条改用官图采样 |
 | S2-7 校验与提交 | `09_validate.py`（待写） | 八项校验全过 | 待做 |
 
 ### S2-2 的两条命令
@@ -201,6 +201,31 @@ S2-3 产出的 22 条换乘候选（12 组同名多站）落成 `transfer.json`�
 
 `type_confidence` 为 `medium`/`low` 的记录标 `needs_review: true`，明细与待办清单见
 `docs/mappings/transfer-decisions.md`。当前 22 条里 12 条判「通道」、10 条判「出站换乘」，其中 **10 条待复核**。
+
+### S2-6 属性补全（`12_build_attributes.py`）
+
+```powershell
+& $PY pipeline\12_build_attributes.py
+```
+
+**里程**：`length_km` 是该线所有 branch 几何 **先并集再量长**（dissolve 掉支线与主线的重叠段），投影到
+UTM 51N 后计算；`length_km_sum`（各 branch 直接相加）只作参考。官方里程来自 `data/manual/shanghai-lines.csv`，
+差值的记录口径按 ADR R7：「差 >5% 只记录、不阻断」。
+
+20 条里 18 条与官方口径相差在 ±5% 以内（多数 ±2%），两个例外：**2 号线 −6.5%**（官方 66 km 含延伸段口径）、
+**浦江线 −5.1%**（官方 6.64 km vs 实测 6.30 km，绝对差 340 m）。
+
+**颜色**：ADR R6「官图为准、OSM 兜底」。把官方线路图 JPEG（5497×7693）按「饱和度 >0.22 且非近白」取彩色像素，
+5 bit/通道量化找高频色簇，与 OSM 颜色比欧氏距离：≤30 视为一致（12 条）；>30 且簇可信则改用官图色
+（**2、4、5、14 号线**，见 `docs/colors.md` 的像素数与距离）；官图分辨不出的 4 条（10 淡紫、16 水绿、
+磁浮青绿、浦江灰）保留 OSM 并标 `colour_verified=false` 与原因。
+
+**属性来源**：开通年月与运营方来自百度百科词条的结构化字段（人工表 `data/manual/shanghai-lines.csv`，
+`source` / `source_url` / `as_of` 三列可追）；13、16 号线百科未给运营方 → 回退 OSM；18 号线百科记「磁浮公司」
+疑与 16 号线笔误重复，已在 `note` 留痕。`name_en` 归一成 `Line N` / `Maglev Line` / `Pujiang Line`，
+原路线描述存 `name_en_route`。
+
+S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度，`medium`/`low` 标 `needs_review`。
 
 ### S2-4 区间切分（2026-11-01）
 

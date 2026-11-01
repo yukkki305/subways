@@ -127,7 +127,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | S2-2 关系归一 · 第一步 骨架导出 | `06_export_mapping.py` | `data/manual/shanghai-relation-mapping.csv`（65 行 × 16 列，后 4 列为空待填） | ✅ 完成 |
 | S2-2 关系归一 · 第二步 人工判定 + 校验 | 人工填 CSV → `07_check_mapping.py` | 同上 CSV 的 `decide` / `target_line` / `target_branch` / `note`；`--write-md` 重渲 `docs/mappings/shanghai-relations.md` | ✅ 65/65 行已填，六项校验通过 |
 | S2-2 关系归一 · 第三步 生成 lines.json | `08_build_lines.py` | `data/processed/shanghai/lines.json`（20 条 line / 23 个 branch，41 KB） | ✅ 完成 |
-| S2-3 站点抽取与合并 | 待定 | `station.json` + 合并决策表 | 待做 |
+| S2-3 站点抽取与合并 | `09_build_stations.py` | `data/processed/shanghai/station.json`（441 KB）+ `docs/mappings/station-merge-decisions.md` | ✅ 430 站 / 592 站次 |
 | S2-4 区间切分 | 待定（先打样 2 / 10 / 4 号线） | `segment.geojson` | 待做 |
 | S2-5 换乘 | 待定 | `transfer.json` | 待做 |
 | S2-6 属性补全 | 待定 + `data/manual/shanghai-lines.csv` | 回填各表 | 待做 |
@@ -162,6 +162,30 @@ $PY = 'E:\subway-data\venv\Scripts\python.exe'
 4 号线为环线：`is_loop=true`，26 站，`loop_start=宜山路`（站序已旋转到从宜山路开始，末站上海体育馆回到起点）。
 
 `08_build_lines.py` 只产出线路与支线这一层：站序暂存**站名**，S2-3 再解析成 OSM 节点并分配 `sh-station-*` 稳定 id。产出 `data/processed/shanghai/lines.json`（41 KB），两次重跑除 `generated_at` 外逐字节一致。
+
+### S2-3 站点抽取与合并（2026-11-01）
+
+一条命令：
+
+```powershell
+& $PY pipeline\09_build_stations.py
+```
+
+做的事：按 `lines.json` 的权威站序，把每条 branch 在 `transit-relations.json` 里的 `stop*` 角色节点取出来对齐成「站次（slot）」；再按 ADR R4 的三档口径把同名同城的站次合并成 `station`。
+
+| 口径 | 判据（同一站名、同一城市的站次整体跨度） | 处理 | 本次命中 |
+| --- | --- | --- | --- |
+| `auto_150` | ≤150 m | 合并为一站，无需复核 | 96 组（另 306 个单站次站不涉及合并） |
+| `auto_review` | 150–300 m | 合并为一站，`needs_review=true` | 25 组 |
+| `split_review` | >300 m | 不合并，组内按 150 m 连通分量拆站，并登记换乘候选 | 12 组 → 29 个站 |
+
+产物：`data/processed/shanghai/station.json`（441 KB）+ `docs/mappings/station-merge-decisions.md`（逐组判定表）。
+
+数字：**430 个站 / 592 个站次 / 多线站 80 个 / 待复核 54 个 / 拆分 12 组 / 换乘候选 22 条**；城市分布 上海市 427、苏州市 3（昆山段的兆丰路、光明路、花桥）。校验：23 条 branch 的站次序号连续且与 `lines.json` 的 `stop_count` 逐条相等；站 id 唯一；每条 branch 在每个站最多出现一次。
+
+`split_review` 的 12 组是 ADR R4 的直接结果，全部登记为换乘候选（S2-5 里补 `type` 与 `walk_minutes`）：国家会展中心 793 m、浦东南路 647 m、曹杨路 434 m、娄山关路 445 m、上海南站 436 m（1/3/15 三站）、上海火车站 360 m（1/3/4 三站）、陆家嘴 359 m（2/14）、静安寺 325 m（2/7/14 三站）、南京西路 322 m（2/12/13 三站）、宜山路 320 m、桂林路 312 m、徐家汇 301 m。
+
+已知小缺口：爱辉路、长江西路、通南路三站在 OSM 里没有 `name:en`，`name_en` 留 `null`。
 
 ## 目录分工
 

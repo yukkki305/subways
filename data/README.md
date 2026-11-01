@@ -18,6 +18,8 @@
 | `data/manual/shanghai-relation-mapping.csv` | S2-2 的关系映射表：上海子集 65 条关系 + 人工判定列（`decide` / `target_line` / `target_branch` / `note`） | 前 12 列由 `relation-index.json` 导出；后 4 列人工填写；`hint` 列是机器提示 | **ODbL-1.0**（OSM 衍生） | 数据基准 2026-11-01；判定日期见 `note` | `pipeline/06_export_mapping.py` |
 | `docs/mappings/shanghai-relations.md` | 上面那份 CSV 的人可读视图（判定汇总 + 待决策 + 丢弃理由 + 全部明细） | 由 CSV 渲染 | **ODbL-1.0** | 同 CSV | `pipeline/07_check_mapping.py --write-md` |
 | `data/processed/shanghai/lines.json` | S2-2 产物：20 条 line / 23 个 branch 的骨架，含每 branch 的有序站名、环线起点、来源关系 id、服务等级、逐站归属 | 由 `shanghai-relation-mapping.csv` + `relation-index.json` 派生 | **ODbL-1.0** | 2026-11-01 | `pipeline/08_build_lines.py` |
+| `data/processed/shanghai/station.json` | S2-3 产物：430 个站（592 个站次），含稳定 id、拼音 slug、WGS-84 坐标、所属线路/支线、`is_transfer`、三档合并口径与 22 条换乘候选 | 由 `lines.json` 的权威站序 + `transit-relations.json` 的 `stop*` 节点派生；城市归属来自 `attribution-report.json` | **ODbL-1.0** | 2026-11-01 | `pipeline/09_build_stations.py` |
+| `docs/mappings/station-merge-decisions.md` | S2-3 的合并判定表：133 个同名多站次组的跨度、口径、站数与换乘候选 | 由脚本渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/09_build_stations.py` |
 
 **仓库外、不进 git：**
 

@@ -107,12 +107,14 @@ def main() -> int:
     lines = json.loads(LINES.read_text(encoding="utf-8"))
     st = json.loads(STATIONS.read_text(encoding="utf-8"))
 
-    # 站名 + branch → 节点 id
+    # 站名 + branch → 节点 id / 站点 id
     node_of: dict[tuple[str, str], int] = {}
+    id_of: dict[tuple[str, str], str] = {}
     coord_of_node: dict[int, list[float]] = {}
     for s in st["stations"]:
         for sl in s["slots"]:
             node_of[(s["name"], sl["branch"])] = sl["node"]
+            id_of[(s["name"], sl["branch"])] = s["id"]
             coord_of_node[sl["node"]] = sl["coord"]
 
     feats = []
@@ -162,8 +164,11 @@ def main() -> int:
                         "line_id": ln["id"],
                         "branch_id": bid,
                         "seq": seq + 1,
-                        "from_station": names[seq],
-                        "to_station": names[(seq + 1) % len(names)],
+                        # ADR R2：实体之间用稳定 id 引用，人名不参与连接（站名另有字段）
+                        "from_station": id_of[(names[seq], bid)],
+                        "to_station": id_of[(names[(seq + 1) % len(names)], bid)],
+                        "from_name": names[seq],
+                        "to_name": names[(seq + 1) % len(names)],
                         "length_m": round(length, 1),
                         "node_count": len(path),
                         "is_loop_close": bool(loop and seq == len(nodes) - 1),

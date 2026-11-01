@@ -20,7 +20,18 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from pyproj import Geod
+
 REPO = Path(__file__).resolve().parent.parent
+GEOD = Geod(ellps="WGS84")
+
+
+def geodesic_m(a, b) -> float:
+    """两站间 WGS-84 椭球面距离（与校验脚本同一算法）。"""
+    _, _, d = GEOD.inv(a[0], a[1], b[0], b[1])
+    return d
+
+
 STATIONS = REPO / "data" / "processed" / "shanghai" / "station.json"
 OUT = REPO / "data" / "processed" / "shanghai" / "transfer.json"
 DOC = REPO / "docs" / "mappings" / "transfer-decisions.md"
@@ -78,7 +89,7 @@ def main() -> int:
             "lines_b": b["lines"],
             "coord_a": a["coord"],
             "coord_b": b["coord"],
-            "dist_m": c["dist_m"],
+            "dist_m": round(geodesic_m(a["coord"], b["coord"]), 1),
             "type": rule["type"],
             "type_confidence": rule["confidence"],
             "type_note": rule["note"],

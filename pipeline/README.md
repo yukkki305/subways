@@ -131,7 +131,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | S2-4 区间切分 | `10_build_segments.py` | `data/processed/shanghai/segment.geojson`（570 段 / 792 KB） | ✅ 23 条 branch 全覆盖 |
 | S2-5 换乘 | `11_build_transfers.py` | `data/processed/shanghai/transfer.json`（22 条 / 17 KB）+ `docs/mappings/transfer-decisions.md` | ✅ 12 组候选全落，10 条待复核 |
 | S2-6 属性补全 | `12_build_attributes.py` + `data/manual/shanghai-lines.csv` | 回填 `lines.json`（颜色/里程/开通年/运营方/英文名）+ `docs/colors.md` | ✅ 20 条齐全，颜色 4 条改用官图采样 |
-| S2-7 校验与提交 | `09_validate.py`（待写） | 八项校验全过 | 待做 |
+| S2-7 校验与提交 | `13_validate.py` | `docs/validation-s2.md` | ✅ 八项全过（含确定性重跑） |
 
 ### S2-2 的两条命令
 
@@ -242,7 +242,7 @@ S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度
 
 车站节点都在 way 的节点集合里（打样 2/10/4 号线 0 缺失），因此每段都走得通；若某段不通，脚本会记 `gap` 并明确报出，**不伪造几何**。本次 570 段全部连通，`gap` 为空。
 
-产物 `data/processed/shanghai/segment.geojson`（792 KB）：570 个 `LineString`，要素属性含 `id`（`<branch>-<三位序号>`）、`branch_id`、`seq`、`from_station`、`to_station`、`length_m`、`node_count`、`is_loop_close` 与三问字段。
+产物 `data/processed/shanghai/segment.geojson`（792 KB）：570 个 `LineString`，要素属性含 `id`（`<branch>-<三位序号>`）、`branch_id`、`seq`、`from_station`/`to_station`（**station id**，另有 `from_name`/`to_name` 供人读）、`length_m`、`node_count`、`is_loop_close` 与三问字段。
 
 | branch | 站 | 段 | 实测 km | 对照 |
 | --- | --- | --- | --- | --- |
@@ -261,6 +261,32 @@ S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度
 质检（`--only` 打样 + 全量各跑一遍）：段数 = 站数或站数−1（逐 branch 核对，23/23 相符）；相邻段端点坐标完全一致（0 处不连续）；`length_m / 两端直线距离` 全部 ≤3 且无 <200 m 的段（0 处异常）；每条 branch 都有几何，无 `gap`。
 
 预览：`E:\subway-data\preview\segments.html`（仓库外），截图 `seg-z11.png`（全城）、`seg-line10-fork.png`（10 号线主线红/支线蓝在龙溪路分岔）、`seg-line4-loop.png`（4 号线闭环）。预览用的线色是按线路 id 轮转的**临时色**，官方配色属 S2-6。
+
+### S2-7 校验与提交（`13_validate.py`）
+
+```powershell
+& $PY pipeline\13_validate.py            # 1–7 项，秒级
+& $PY pipeline\13_validate.py --rerun    # 追加第 8 项：重跑 5 个脚本比对确定性（约 2–3 分钟）
+```
+
+按 ADR R8 逐项跑，任一不过退出码非 0，报告写 `docs/validation-s2.md`。八项全过：
+
+| # | 项 | 实测 |
+| --- | --- | --- |
+| 1 | line 数 / 每线 ≥2 站 / 唯一 main | 20 条，全部满足 |
+| 2 | 站坐标落在上海包围盒或白名单 | 430 站，越界 0 |
+| 3 | 站 `lines[]` 非空且引用有效 | 悬空 0 |
+| 4 | 环线段数=站数且首尾闭合；非环线段数=站数−1 | 23 条 branch 全符 |
+| 5 | segment 两端站点存在、站序相邻 | 570 段全符 |
+| 6 | transfer 成对、站距与坐标一致、证据齐全 | 22 条全符 |
+| 7 | 颜色 hex、拼音非空 | 20 线 + 430 站全符 |
+| 8 | 两次运行产物一致（除时间戳） | 4 份产物差异 0 |
+
+**跑校验时修掉的三处真问题**（都不是文档措辞，是模型/实现不一致）：
+
+1. **segment 原先用站名引用车站**，两个人同名（上海南站拆成 3 站）就无法区分，改名也会断链。已改为存 `station.id`，站名另存 `from_name`/`to_name`（ADR R2 补了一句「实体之间一律用稳定 id 引用」）。
+2. **transfer 的 `dist_m` 与校验用的距离算法不同**（haversine 球面 vs WGS-84 椭球），3 条对不上 1 米左右。已统一为 `pyproj.Geod` 椭球测地线。
+3. **ADR R8 第 4 项措辞与模型冲突**：原文要求「环线首末站相同」，但模型里 `stops` 只存 26 站一次（不重复首站），靠第 26 段回环。已把 ADR 措辞改成「末段 `to_station` 等于首段 `from_station`」，与实现一致。
 
 ## 目录分工
 

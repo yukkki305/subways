@@ -2,7 +2,7 @@
   "city": "上海市",
   "city_code": "sh",
   "snapshot_date": "20261101",
-  "generated_at": "2026-11-01T22:24:58+08:00",
+  "generated_at": "2026-11-01T22:56:53+08:00",
   "rules": "docs/decisions/0001-modeling-rules.md（R4 车站合并、R2 ID）",
   "merge_policy": {
     "merge_m": 150.0,

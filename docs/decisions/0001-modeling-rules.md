@@ -145,7 +145,7 @@ S1 产出的是 **287 条 OSM 关系**（上海子集 65 条）。OSM 的关系�
 1. line 数 = 20，每条 line ≥2 站，每条 line 有且只有一个 `is_main` branch；
 2. 每个 station 的 `coord` 落在上海包围盒 `[120.8, 30.6, 122.2, 31.9]` 内，或命中白名单（花桥段 3 站：兆丰路、光明路、花桥，属苏州）；
 3. 每个 station 的 `lines[]` 非空，且引用的 line 都存在；
-4. 环线 branch 首末站相同，segment 数 = 站数；非环线 segment 数 = 站数 − 1；
+4. 环线：`stops` 不重复首站，segment 数 = 站数，且**末段 `to_station` 等于首段 `from_station`**（`is_loop_close: true`）；非环线 segment 数 = 站数 − 1；
 5. 每个 segment 的 `from_station` / `to_station` 都在 station 表里，两侧站序差 1；
 6. transfer 双向成对，站距与 `evidence` 一致；
 7. 颜色匹配 `^#[0-9A-F]{6}$`，`name_pinyin` 非空；

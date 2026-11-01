@@ -129,7 +129,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | S2-2 关系归一 · 第三步 生成 lines.json | `08_build_lines.py` | `data/processed/shanghai/lines.json`（20 条 line / 23 个 branch，41 KB） | ✅ 完成 |
 | S2-3 站点抽取与合并 | `09_build_stations.py` | `data/processed/shanghai/station.json`（441 KB）+ `docs/mappings/station-merge-decisions.md` | ✅ 430 站 / 592 站次 |
 | S2-4 区间切分 | `10_build_segments.py` | `data/processed/shanghai/segment.geojson`（570 段 / 792 KB） | ✅ 23 条 branch 全覆盖 |
-| S2-5 换乘 | 待定 | `transfer.json` | 待做 |
+| S2-5 换乘 | `11_build_transfers.py` | `data/processed/shanghai/transfer.json`（22 条 / 17 KB）+ `docs/mappings/transfer-decisions.md` | ✅ 12 组候选全落，10 条待复核 |
 | S2-6 属性补全 | 待定 + `data/manual/shanghai-lines.csv` | 回填各表 | 待做 |
 | S2-7 校验与提交 | `09_validate.py`（待写） | 八项校验全过 | 待做 |
 
@@ -186,6 +186,21 @@ $PY = 'E:\subway-data\venv\Scripts\python.exe'
 `split_review` 的 12 组是 ADR R4 的直接结果，全部登记为换乘候选（S2-5 里补 `type` 与 `walk_minutes`）：国家会展中心 793 m、浦东南路 647 m、曹杨路 434 m、娄山关路 445 m、上海南站 436 m（1/3/15 三站）、上海火车站 360 m（1/3/4 三站）、陆家嘴 359 m（2/14）、静安寺 325 m（2/7/14 三站）、南京西路 322 m（2/12/13 三站）、宜山路 320 m、桂林路 312 m、徐家汇 301 m。
 
 已知小缺口：爱辉路、长江西路、通南路三站在 OSM 里没有 `name:en`，`name_en` 留 `null`。
+
+### S2-5 换乘（`11_build_transfers.py`）
+
+S2-3 产出的 22 条换乘候选（12 组同名多站）落成 `transfer.json`。三条口径：
+
+1. **只表达未合并的两站**（ADR R5）—— 合并成一站的多线站不产生 transfer。
+2. **`type` 是人工判定，不是几何推导**。OSM 没有换乘类型字段，站内通道制图也太稀疏：本次扫描候选站附近带
+   `tunnel/covered/indoor/level` 的步行要素只有 113 条，其中静安寺、南京西路、曹杨路、桂林路、国家会展中心、
+   浦东南路的 A 侧**一个步行节点都没有**。把候选两站 60 m 邻域建图做连通判定，只能得到 8 对「连通」，
+   但连通也分不清「站内通道」与「出站换乘」——上海火车站（出站换乘）在图上同样连通。
+   → 类型写在脚本的 `GROUP_TYPES` 里，带 `confidence`；改类型只改这张表、重跑，不手改产物。
+3. **`walk_minutes` 一律 `null`**（ADR R7：没有可靠来源就不编数字）。
+
+`type_confidence` 为 `medium`/`low` 的记录标 `needs_review: true`，明细与待办清单见
+`docs/mappings/transfer-decisions.md`。当前 22 条里 12 条判「通道」、10 条判「出站换乘」，其中 **10 条待复核**。
 
 ### S2-4 区间切分（2026-11-01）
 

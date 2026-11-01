@@ -21,6 +21,8 @@
 | `data/processed/shanghai/station.json` | S2-3 产物：430 个站（592 个站次），含稳定 id、拼音 slug、WGS-84 坐标、所属线路/支线、`is_transfer`、三档合并口径与 22 条换乘候选 | 由 `lines.json` 的权威站序 + `transit-relations.json` 的 `stop*` 节点派生；城市归属来自 `attribution-report.json` | **ODbL-1.0** | 2026-11-01 | `pipeline/09_build_stations.py` |
 | `docs/mappings/station-merge-decisions.md` | S2-3 的合并判定表：133 个同名多站次组的跨度、口径、站数与换乘候选 | 由脚本渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/09_build_stations.py` |
 | `data/processed/shanghai/segment.geojson` | S2-4 产物：570 段区间几何（23 条 branch 全覆盖），每段含起终站、实测长度与环路末段标记 | 由 `lines.json` 的站序 + `station.json` 的车站节点 + 代表关系的成员 way 求最短路切分 | **ODbL-1.0** | 2026-11-01 | `pipeline/10_build_segments.py` |
+| `data/processed/shanghai/transfer.json` | S2-5 产物：22 条换乘（12 组同名多站），含两站 id、站距、`type`（通道/出站换乘）、`type_confidence`、`type_note`、`needs_review`、`walk_minutes`(null) | 两站坐标与站距来自 `station.json`（OSM 几何）；**换乘类型为人工判定**，见 `docs/mappings/transfer-decisions.md` | **ODbL-1.0** | 2026-11-01 | `pipeline/11_build_transfers.py` |
+| `docs/mappings/transfer-decisions.md` | S2-5 换乘判定表：口径、统计、按站距降序的 22 条明细、待人工确认清单 | 由 `transfer.json` 渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/11_build_transfers.py` |
 
 **仓库外、不进 git：**
 

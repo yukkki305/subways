@@ -125,8 +125,8 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | --- | --- | --- | --- |
 | S2-1 规则定稿 | —（ADR） | `docs/decisions/0001-modeling-rules.md` | ✅ R0–R8 九节 |
 | S2-2 关系归一 · 第一步 骨架导出 | `06_export_mapping.py` | `data/manual/shanghai-relation-mapping.csv`（65 行 × 16 列，后 4 列为空待填） | ✅ 完成 |
-| S2-2 关系归一 · 第二步 人工判定 + 校验 | 人工填 CSV → `07_check_mapping.py` | 同上 CSV 的 `decide` / `target_line` / `target_branch` / `note`；`--write-md` 重渲 `docs/mappings/shanghai-relations.md` | 🔶 57/65 行已填，11 号线 8 行待用户决策 |
-| S2-2 关系归一 · 第三步 生成 lines.json | `08_build_lines.py`（待写） | `data/processed/shanghai/lines.json` | 待做 |
+| S2-2 关系归一 · 第二步 人工判定 + 校验 | 人工填 CSV → `07_check_mapping.py` | 同上 CSV 的 `decide` / `target_line` / `target_branch` / `note`；`--write-md` 重渲 `docs/mappings/shanghai-relations.md` | ✅ 65/65 行已填，六项校验通过 |
+| S2-2 关系归一 · 第三步 生成 lines.json | `08_build_lines.py` | `data/processed/shanghai/lines.json`（20 条 line / 23 个 branch，41 KB） | ✅ 完成 |
 | S2-3 站点抽取与合并 | 待定 | `station.json` + 合并决策表 | 待做 |
 | S2-4 区间切分 | 待定（先打样 2 / 10 / 4 号线） | `segment.geojson` | 待做 |
 | S2-5 换乘 | 待定 | `transfer.json` | 待做 |
@@ -153,11 +153,15 @@ $PY = 'E:\subway-data\venv\Scripts\python.exe'
 - **`hint` 列是机器提示，不是结论**。现在给六类线索：`?非上海：<市名>`、`?母关系：0 站`、`?服务变体`（普通车/大站车/直达车/大站快车/区间）、`?环线`、`?同线多交路（ref=N 共 M 条）`、`?同站集：<对向关系 id>`（站名集合完全相同的两条，多为同一线路的双向）。
 - 65 行里 **60 行有孪生提示**，5 行没有：母关系 `6800211`；16 号线直达车 `13618691`（12 站）与 `13618692`（2 站）——OSM 里这个直达车关系一个方向只登记了龙阳路、滴水湖两站，属数据缺陷；松江有轨 2 号线 `16159672`（42 站）与 `16159673`（41 站）——两个方向的终点记录不同且站数不等。
 
-### S2-2 判定结果（2026-11-01，57/65 行）
+### S2-2 判定结果（2026-11-01，65/65 行）
 
-保留 21 条关系 → 19 条 line / 21 个 branch；合并 27 条；丢弃 9 条（母关系 1 + 机场捷运 4 + 松江有轨 4，依据 ADR R0/R1）；11 号线 8 行待决策。
+保留 23 条关系 → **20 条 line / 23 个 branch**；合并 29 条；丢弃 13 条（母关系 1 + 机场捷运 4 + 松江有轨 4 + 苏州 11 号线 4，依据 ADR R0/R1 + D2）。
 
-支线只有两条：5 号线 `-b1`（闵行开发区↔莘庄，11 站）、10 号线 `-b1`（航中路↔基隆路，33 站）。4 号线为环线（`is_loop=true`，26 站），`loop_start` 待 S2-2 第三步定。
+支线共三条：5 号线 `-b1`（闵行开发区↔莘庄，11 站）、10 号线 `-b1`（航中路↔基隆路，33 站）、11 号线 `-b1`（迪士尼↔花桥，37 站，含昆山 3 站 `city=苏州市`）。
+
+4 号线为环线：`is_loop=true`，26 站，`loop_start=宜山路`（站序已旋转到从宜山路开始，末站上海体育馆回到起点）。
+
+`08_build_lines.py` 只产出线路与支线这一层：站序暂存**站名**，S2-3 再解析成 OSM 节点并分配 `sh-station-*` 稳定 id。产出 `data/processed/shanghai/lines.json`（41 KB），两次重跑除 `generated_at` 外逐字节一致。
 
 ## 目录分工
 

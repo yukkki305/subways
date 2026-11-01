@@ -16,7 +16,8 @@
 | `data/snapshots/20261101/*.osm.pbf.sha256` | 五个 PBF 的校验和（每份一行） | 本地计算，用于复核快照未被替换 | — | 2026-11-01 | `pipeline/01_fetch_snapshot.py` |
 | `docs/conflicts.md` | 归属冲突与待定项：跨省关系逐站列表、46 条未定关系明细 | 由 `attribution-report.json` 渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/05_attribution.py` |
 | `data/manual/shanghai-relation-mapping.csv` | S2-2 的关系映射表：上海子集 65 条关系 + 人工判定列（`decide` / `target_line` / `target_branch` / `note`） | 前 12 列由 `relation-index.json` 导出；后 4 列人工填写；`hint` 列是机器提示 | **ODbL-1.0**（OSM 衍生） | 数据基准 2026-11-01；判定日期见 `note` | `pipeline/06_export_mapping.py` |
-| `docs/mappings/shanghai-relations.md` | 上面那份 CSV 的人可读视图（按制式分组） | 由 CSV 渲染 | **ODbL-1.0** | 同 CSV | `pipeline/06_export_mapping.py` |
+| `docs/mappings/shanghai-relations.md` | 上面那份 CSV 的人可读视图（判定汇总 + 待决策 + 丢弃理由 + 全部明细） | 由 CSV 渲染 | **ODbL-1.0** | 同 CSV | `pipeline/07_check_mapping.py --write-md` |
+| `data/processed/shanghai/lines.json` | S2-2 产物：20 条 line / 23 个 branch 的骨架，含每 branch 的有序站名、环线起点、来源关系 id、服务等级、逐站归属 | 由 `shanghai-relation-mapping.csv` + `relation-index.json` 派生 | **ODbL-1.0** | 2026-11-01 | `pipeline/08_build_lines.py` |
 
 **仓库外、不进 git：**
 

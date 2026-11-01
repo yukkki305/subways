@@ -128,7 +128,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 | S2-2 关系归一 · 第二步 人工判定 + 校验 | 人工填 CSV → `07_check_mapping.py` | 同上 CSV 的 `decide` / `target_line` / `target_branch` / `note`；`--write-md` 重渲 `docs/mappings/shanghai-relations.md` | ✅ 65/65 行已填，六项校验通过 |
 | S2-2 关系归一 · 第三步 生成 lines.json | `08_build_lines.py` | `data/processed/shanghai/lines.json`（20 条 line / 23 个 branch，41 KB） | ✅ 完成 |
 | S2-3 站点抽取与合并 | `09_build_stations.py` | `data/processed/shanghai/station.json`（441 KB）+ `docs/mappings/station-merge-decisions.md` | ✅ 430 站 / 592 站次 |
-| S2-4 区间切分 | 待定（先打样 2 / 10 / 4 号线） | `segment.geojson` | 待做 |
+| S2-4 区间切分 | `10_build_segments.py` | `data/processed/shanghai/segment.geojson`（570 段 / 792 KB） | ✅ 23 条 branch 全覆盖 |
 | S2-5 换乘 | 待定 | `transfer.json` | 待做 |
 | S2-6 属性补全 | 待定 + `data/manual/shanghai-lines.csv` | 回填各表 | 待做 |
 | S2-7 校验与提交 | `09_validate.py`（待写） | 八项校验全过 | 待做 |
@@ -186,6 +186,41 @@ $PY = 'E:\subway-data\venv\Scripts\python.exe'
 `split_review` 的 12 组是 ADR R4 的直接结果，全部登记为换乘候选（S2-5 里补 `type` 与 `walk_minutes`）：国家会展中心 793 m、浦东南路 647 m、曹杨路 434 m、娄山关路 445 m、上海南站 436 m（1/3/15 三站）、上海火车站 360 m（1/3/4 三站）、陆家嘴 359 m（2/14）、静安寺 325 m（2/7/14 三站）、南京西路 322 m（2/12/13 三站）、宜山路 320 m、桂林路 312 m、徐家汇 301 m。
 
 已知小缺口：爱辉路、长江西路、通南路三站在 OSM 里没有 `name:en`，`name_en` 留 `null`。
+
+### S2-4 区间切分（2026-11-01）
+
+```powershell
+& $PY pipeline\10_build_segments.py                 # 全部 23 条 branch
+& $PY pipeline\10_build_segments.py --only sh-line-2-main sh-line-4-main   # 单独打样
+```
+
+**几何怎么来的**：不用「按成员顺序把 way 串起来」——OSM 关系里 way 的先后与方向并不保证一致（打样时 2 号线 16 个 way 有 3 处接不上，其中一个是只含 1 个节点的残段）。改用图方法：
+
+1. 把该 branch 代表关系的所有成员 way 摊成一张无向图（节点 = OSM 节点 id，边权 = 两点大圆距离），方向与顺序都不再重要；
+2. 对**相邻两个车站节点**求最短路，最短路经过的节点序列就是这一区间的轨道几何；
+3. 环线（ADR R3）把末站与 `loop_start` 之间也算一段，所以区间数 = 站数。
+
+车站节点都在 way 的节点集合里（打样 2/10/4 号线 0 缺失），因此每段都走得通；若某段不通，脚本会记 `gap` 并明确报出，**不伪造几何**。本次 570 段全部连通，`gap` 为空。
+
+产物 `data/processed/shanghai/segment.geojson`（792 KB）：570 个 `LineString`，要素属性含 `id`（`<branch>-<三位序号>`）、`branch_id`、`seq`、`from_station`、`to_station`、`length_m`、`node_count`、`is_loop_close` 与三问字段。
+
+| branch | 站 | 段 | 实测 km | 对照 |
+| --- | --- | --- | --- | --- |
+| 1 号线 | 28 | 27 | 37.01 | 官方 36.9 |
+| 2 号线 | 31 | 30 | 61.65 | 官方 64.0（−3.7%，差在两端道岔不入区间） |
+| 3 号线 | 29 | 28 | 40.14 | 官方 40.3 |
+| 4 号线（环） | 26 | 26 | 33.71 | 官方 33.6 |
+| 5 号线 main / b1 | 15 / 11 | 14 / 10 | 27.22 / 16.63 | — |
+| 6 / 7 / 8 / 9 号线 | 28 / 33 / 30 / 34 | 27 / 32 / 29 / 33 | 32.51 / 43.79 / 37.05 / 63.70 | 33.2 / 44.4 / 37.5 / 63.8 |
+| 10 号线 main / b1 | 34 / 33 | 33 / 32 | 40.61 / 39.21 | main 40.6 |
+| 11 号线 main / b1 | 33 / 37 | 32 / 36 | 62.56 / 73.08 | 常引「全线 82.4」是按两交路合计的口径 |
+| 12 / 13 / 14 / 15 号线 | 32 / 31 / 31 / 30 | 31 / 30 / 30 / 29 | 39.92 / 38.03 / 38.27 / 41.77 | 40.4 / 38.8 / 39.1 / 42.3 |
+| 16 / 17 / 18 号线 | 13 / 14 / 31 | 12 / 13 / 30 | 58.75 / 40.99 / 44.19 | 59.0 / 41.0 / 44.5 |
+| 磁浮 / 浦江线 | 2 / 6 | 1 / 5 | 29.07 / 6.31 | 30.5 / 6.7 |
+
+质检（`--only` 打样 + 全量各跑一遍）：段数 = 站数或站数−1（逐 branch 核对，23/23 相符）；相邻段端点坐标完全一致（0 处不连续）；`length_m / 两端直线距离` 全部 ≤3 且无 <200 m 的段（0 处异常）；每条 branch 都有几何，无 `gap`。
+
+预览：`E:\subway-data\preview\segments.html`（仓库外），截图 `seg-z11.png`（全城）、`seg-line10-fork.png`（10 号线主线红/支线蓝在龙溪路分岔）、`seg-line4-loop.png`（4 号线闭环）。预览用的线色是按线路 id 轮转的**临时色**，官方配色属 S2-6。
 
 ## 目录分工
 

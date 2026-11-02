@@ -6,7 +6,10 @@
     "dev": "next dev -p 3210",
     "build": "next build",
     "start": "next start -p 3210",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "sync": "node scripts/sync-data.mjs",
+    "predev": "node scripts/sync-data.mjs",
+    "prebuild": "node scripts/sync-data.mjs"
   },
   "dependencies": {
     "maplibre-gl": "6.16.0",

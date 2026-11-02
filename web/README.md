@@ -7,6 +7,7 @@ Next.js 16（App Router + **静态导出**）渲染上海地铁图。数据全�
 ```powershell
 $env:Path = 'E:\node;' + $env:Path      # 会话内工具进程可能继承旧环境
 cd E:\subway\web
+& E:\node\npm.cmd run sync              # 单独同步数据（predev / prebuild 会自动跑）
 & E:\node\npm.cmd run dev               # 开发服务器 http://127.0.0.1:3210
 & E:\node\npm.cmd run build             # 静态导出到 web\out\
 & E:\node\npm.cmd run typecheck         # tsc --noEmit
@@ -17,6 +18,26 @@ cd E:\subway\web
 ```powershell
 D:\python\python3.14.6\python.exe -m http.server 3210 --bind 127.0.0.1   # 在 web\out\ 下执行
 ```
+
+## 数据同步（S3-2）
+
+`scripts/sync-data.mjs` 把数据管道的 5 个产物复制到 `public/data/`，并在同目录写 `meta.json`：
+
+| 复制文件 | 源 | 大小 |
+| --- | --- | --- |
+| `lines.json` | `data/processed/shanghai/lines.json` | 42 KB |
+| `station.json` | `data/processed/shanghai/station.json` | 431 KB |
+| `transfer.json` | `data/processed/shanghai/transfer.json` | 17 KB |
+| `segment.geojson` | `data/processed/shanghai/segment.geojson` | 841 KB |
+| `shanghai-basemap.geojson` | `data/processed/basemap/shanghai-basemap.geojson` | 484 KB |
+
+合计 1.77 MB。行为约定：
+
+- **幂等**：逐文件比 sha256，一致则跳过（实测第二次跑输出「一致…未写盘」）
+- **缺文件即失败**：任一源文件不存在，打印缺失清单并 `exit 1`，不生成半套数据
+- **`--check` 只比对不写盘**，用于校验前端数据与管道产物是否一致
+- `meta.json` 带 `snapshot_date` / `data_as_of` / `counts` / 每文件 `sha256_16`，前端用它显示「数据截止」并排查版本错配
+- `public/data/` 与 `out/` 都在 `web/.gitignore` 里，**不进 git**（实测 `git check-ignore` 命中）
 
 ## 依赖
 

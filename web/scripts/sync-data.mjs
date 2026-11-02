@@ -16,7 +16,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const WEB = resolve(__dirname, "..");
 const REPO = resolve(WEB, "..");
-const OUT = join(WEB, "public", "data");
+const PUBLIC = join(WEB, "public");
+const OUT = join(PUBLIC, "data");
+const VENDOR = join(PUBLIC, "vendor");
 
 /** 需要同步的产物：源路径 → 目标文件名 */
 const FILES = [
@@ -25,6 +27,16 @@ const FILES = [
   ["data/processed/shanghai/transfer.json", "transfer.json"],
   ["data/processed/shanghai/segment.geojson", "segment.geojson"],
   ["data/processed/basemap/shanghai-basemap.geojson", "shanghai-basemap.geojson"],
+];
+
+/**
+ * 运行时静态资源。maplibre 的 render worker 经 Next 打包后 URL 会算错
+ * （浏览器报 "Worker failed to load. Check that the worker URL is correct."），
+ * 所以把 dist 里的 worker 原文件拷进 public/vendor，前端用 setWorkerUrl 指过去。
+ * 该 worker 自包含（无 import），单文件即可。
+ */
+const VENDOR_FILES = [
+  ["node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs", "maplibre-gl-worker.mjs"],
 ];
 
 const checkOnly = process.argv.includes("--check");
@@ -77,6 +89,20 @@ async function main() {
     console.error("[失败] 数据同步：");
     for (const p of problems) console.error("  - " + p);
     process.exit(1);
+  }
+
+  // 运行时静态资源（maplibre worker 等）
+  await mkdir(VENDOR, { recursive: true });
+  for (const [rel, name] of VENDOR_FILES) {
+    const src = join(WEB, rel);
+    const dst = join(VENDOR, name);
+    let same = false;
+    try {
+      same = (await sha256(src)) === (await sha256(dst));
+    } catch {
+      same = false;
+    }
+    if (!checkOnly && !same) await copyFile(src, dst);
   }
 
   // 数据版本信息：前端用来显示「数据截止」，也方便排查前端看到的到底是哪一版

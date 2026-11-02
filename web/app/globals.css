@@ -3,6 +3,7 @@
   --ink: #2b2b2b;
   --muted: #6b6b6b;
   --line: #dcd8d0;
+  --panel: rgba(255, 255, 255, 0.86);
 }
 
 * {
@@ -22,24 +23,95 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.placeholder {
-  max-width: 40rem;
-  margin: 12vh auto 0;
-  padding: 0 1.5rem;
+.app-main,
+.map-shell {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
-.placeholder h1 {
-  font-size: 1.6rem;
-  margin: 0 0 0.75rem;
+/* maplibre 会给容器加 .maplibregl-map{position:relative}，只写 inset 不够，必须显式给宽高 */
+.map-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.placeholder p {
-  margin: 0 0 0.5rem;
-  line-height: 1.7;
+/* 地图自带的版权条压低存在感，但仍可读 */
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.7) !important;
 }
 
-.placeholder .note {
-  margin-top: 2rem;
+.maplibregl-ctrl-bottom-left {
+  display: none; /* 比例尺改由我们自己的 footer 表达，避免左下角堆叠 */
+}
+
+.map-title {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  z-index: 2;
+  padding: 9px 14px 10px;
+  border-radius: 10px;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+}
+
+.map-title h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.map-status {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--panel);
+  font-size: 12.5px;
   color: var(--muted);
-  font-size: 0.85rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.map-status.is-error {
+  color: #8c1d1d;
+  border-radius: 10px;
+  max-width: min(36rem, 80vw);
+}
+
+.map-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  z-index: 2;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.map-footer span {
+  background: rgba(255, 255, 255, 0.72);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.map-footer i {
+  font-style: normal;
+  margin: 0 6px;
+  opacity: 0.55;
 }

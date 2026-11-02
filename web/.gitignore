@@ -2,5 +2,6 @@ node_modules/
 .next/
 out/
 public/data/
+public/vendor/
 *.tsbuildinfo
 next-env.d.ts

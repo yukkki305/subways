@@ -54,11 +54,31 @@ D:\python\python3.14.6\python.exe -m http.server 3210 --bind 127.0.0.1   # 在 w
 | 路径 | 用途 |
 | --- | --- |
 | `app/` | 路由与全局样式（`layout.tsx` / `page.tsx` / `globals.css`） |
-| `components/` | 地图与交互组件（`MapView` / `StationPanel`，S3-3 起） |
-| `lib/` | 地图样式、图层定义、数据加载（S3-3 起） |
-| `scripts/sync-data.mjs` | 把 `../data/processed/shanghai/*` 复制到 `public/data/`（S3-2） |
+| `components/MapView.tsx` | 地图组件：取数 → 建样式 → fitBounds → 版权与状态层（S3-3） |
+| `lib/mapStyle.ts` | 底图/线路的样式常量、`buildStyle()`、`boundsOf()` |
+| `scripts/sync-data.mjs` | 把 `../data/processed/*` 复制到 `public/data/`，并把 maplibre worker 拷到 `public/vendor/` |
 | `public/data/` | 复制产物，**不进 git**（`.gitignore`） |
+| `public/vendor/` | maplibre render worker 原件，**不进 git** |
 | `out/` | 静态导出结果，**不进 git** |
+
+## 两个必须知道的坑
+
+**1. maplibre 的 render worker 由 Next 打包会算错 URL** —— 浏览器控制台报 `Worker failed to load. Check that the worker URL is correct.`，地图永远停在加载态。修法是 `sync-data.mjs` 把 `node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs` 拷到 `public/vendor/`，前端创建地图前调用：
+
+```ts
+maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
+```
+
+**2. maplibre 会给容器加 `.maplibregl-map { position: relative }`**，覆盖掉 `.map-canvas { position: absolute; inset: 0 }`，容器高度塌成 0。必须显式写 `width: 100%; height: 100%`。
+
+## S3-3 地图骨架（已完成）
+
+- 单一入口 `components/MapView.tsx`（`"use client"`），`useEffect` 里一次性完成取数 + 建图，卸载时 `map.remove()`
+- 取 4 个文件：`shanghai-basemap.geojson`、`segment.geojson`、`lines.json`、`meta.json`（失败只降级、不白屏）
+- 图层顺序（底 → 顶）：`background` → `water-fill` → `coastline` → `water-line` → `district-line` → `province-line` → `metro-line`
+- 线路颜色来自 `lines.json` 的 `colour`，用 `["match", ["get","line_id"], …]` 表达式注入，前端不硬编码
+- 视野用 `boundsOf(segment.geojson)` + `fitBounds(padding 72/96/48/48)`，不用底图范围（底图含整个长江口）
+- 自查钩子：`window.__map`（E2E 读相机/图层）、`window.__mapErrors`（收集 maplibre 报错）
 
 ## 约定
 

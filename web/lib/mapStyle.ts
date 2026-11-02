@@ -219,29 +219,44 @@ export function buildStyle(
 
       // ——— 车站：换乘站在低缩放就出现，普通站 z11 起，避免全城图糊成一片 ———
       {
+        // 换乘站底下垫一圈纸色，把压着的线路「挖」出来，符号才不会糊在线条里（S4-5，D5-A）
+        id: "station-transfer-halo",
+        type: "circle",
+        source: "stations",
+        minzoom: 9.5,
+        filter: ["==", ["get", "is_transfer"], true],
+        paint: {
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 9.5, 3.4, 10, 4.0, 12, 5.2, 14, 6.8, 17, 9.0],
+          "circle-color": PALETTE.paper,
+          "circle-opacity": 0.95,
+        },
+      },
+      {
+        // 普通站：白心 + 细灰环，环宽随缩放长，低缩放时也不至于糊成点
         id: "station-dot",
         type: "circle",
         source: "stations",
         minzoom: 11,
         filter: ["!=", ["get", "is_transfer"], true],
         paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 1.8, 13, 2.8, 15, 4.0, 17, 5.0],
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 2.0, 13, 3.0, 15, 4.4, 17, 5.6],
           "circle-color": "#FFFFFF",
-          "circle-stroke-color": "#5A5A5A",
-          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 11, 0.8, 14, 1.2, 17, 1.6],
+          "circle-stroke-color": "#6E6E6E",
+          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 11, 0.9, 14, 1.3, 17, 1.7],
         },
       },
       {
+        // 换乘站：白心 + 更粗更深的环，与普通站在任何缩放下都能一眼分开
         id: "station-dot-transfer",
         type: "circle",
         source: "stations",
         minzoom: 9.5,
         filter: ["==", ["get", "is_transfer"], true],
         paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 9.5, 1.8, 10, 2.4, 12, 3.4, 14, 4.8, 17, 6.6],
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 9.5, 2.2, 10, 2.8, 12, 3.8, 14, 5.2, 17, 7.0],
           "circle-color": "#FFFFFF",
           "circle-stroke-color": "#2B2B2B",
-          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 10, 1.2, 14, 1.8, 17, 2.4],
+          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 9.5, 1.0, 12, 1.5, 14, 2.0, 17, 2.6],
         },
       },
 

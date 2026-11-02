@@ -32,6 +32,7 @@ type MetaFile = {
 /** 可点击的图层：换乘站优先，其次普通站，最后两层站名 */
 const PICK_LAYERS = [
   "station-dot-transfer",
+  "station-transfer-halo",
   "station-dot",
   "station-label-bilingual",
   "station-label-major",

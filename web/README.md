@@ -214,6 +214,17 @@ z13 起站名改为「中文一行 + 英文小字一行」，中英写在**同�
 - `metro-line` 的 filter 反过来排除了这两类，避免同一条线被画两遍（计数：实线 582 + 磁浮 2 + 浦江 5 = 589 段，与总数一致）。
 - **踩坑**：`line-dasharray` **不接受表达式**，只能是字面量数组；写成 `["interpolate", …]` 会整页白屏并报 `layers[8].paint.line-dasharray[4][0]: Expression name must be a string`。
 
+## S4-4 海面（已完成）
+
+背景色即陆地，海面单独一层填色，岛屿由海面自身的「洞」表达。
+
+- 数据由 `pipeline/14_extract_sea.py` 生成：读五省 PBF，收集 `natural=coastline`（视野内 上海 130 / 江苏 42 / 浙江 433 / 安徽 0 / 山东 0 条），与 bbox 边框一起 `polygonize`，**bbox 减掉全部陆地faces = 海面**；再删掉 <0.05 km² 的针孔洞。
+- 产物 `data/processed/basemap/shanghai-sea.geojson`：**1 个面 / 24,829.3 km² / 2,562 顶点 / 91,741 B**，含 76 个岛洞（崇明、长兴、横沙、洋山等）。
+- 前端：`mapStyle` 新增 source `sea` 与最底层填充层 `sea-fill`（`PALETTE.sea = #DCE6EF`），顺序 `background → sea-fill → water-fill → coastline → …`。四层验证：4 个海测试点进入、人民广场/崇明/长兴/滴水湖都在陆上。
+- **不能只用上海一份**：S4-0 已证 shanghai extract 的 130 段 coastline 有 32 个连通分量、8 个自由端点，拼出来是包围整个 bbox 的 39,454 km² 假面。
+- **踩坑（判定口径）**：长江口北支在 OSM 里由河岸而非 coastline 围成，若把测试海点放进去（如 `121.90,31.70`），整块上海陆地会被判成海（面积跳到 37,852 km²、人民广场落水）。最终只用三个毫无歧义的外海点。
+- 副产物：`verify-build.mjs` 的数据文件清单加 `sea.geojson`，静态检查 20 → **21 项**。
+
 ## S3-7 构建自证（已完成）
 
 `scripts/verify-build.mjs` 只做静态检查，不启浏览器，任何机器可重跑：

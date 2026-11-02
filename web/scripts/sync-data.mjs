@@ -27,6 +27,7 @@ const FILES = [
   ["data/processed/shanghai/transfer.json", "transfer.json"],
   ["data/processed/shanghai/segment.geojson", "segment.geojson"],
   ["data/processed/basemap/shanghai-basemap.geojson", "shanghai-basemap.geojson"],
+  ["data/processed/basemap/shanghai-sea.geojson", "sea.geojson"],
 ];
 
 /**

@@ -35,9 +35,9 @@ const html = mustRead(join(OUT, "index.html")).toString("utf8");
 check("index.html 存在且含标题", html.includes("中国铁路图鉴"), `${html.length} B`);
 check("页面没有指向外部站点的资源", !/(src|href)="https?:\/\//.test(html), "只有同源资源");
 
-// 2. 数据文件齐全
+// 2. 数据文件齐全（含 S4-4 的海面）
 const dataDir = join(ROOT, OUT, "data");
-const dataFiles = ["lines.json", "station.json", "transfer.json", "segment.geojson", "shanghai-basemap.geojson", "meta.json"];
+const dataFiles = ["lines.json", "station.json", "transfer.json", "segment.geojson", "shanghai-basemap.geojson", "sea.geojson", "meta.json"];
 for (const f of dataFiles) {
   check(`data/${f} 存在`, existsSync(join(dataDir, f)));
 }

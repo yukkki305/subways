@@ -4,7 +4,8 @@ import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
 import { FONT_STACK } from "./typography";
 
 export const PALETTE = {
-  paper: "#F4F1EA", // 背景＝陆地（P0 不画陆地填充面，见探测 8 决策）
+  paper: "#F4F1EA",
+  sea: "#DCE6EF", // 背景＝陆地（P0 不画陆地填充面，见探测 8 决策）
   water: "#D7E4EF",
   waterLine: "#C6D8E8",
   coastline: "#BFC9D2",
@@ -83,6 +84,7 @@ export function buildStyle(
   stations: GeoJSON.FeatureCollection,
   lineColors: LineColors,
   lineTypes: LineTypes,
+  sea: GeoJSON.FeatureCollection,
 ): StyleSpecification {
   // 制式线型（S4-3）：磁浮虚线、浦江线点线，其余地铁实线
   const maglevIds = idsOfType(lineTypes, "maglev");
@@ -93,6 +95,7 @@ export function buildStyle(
     // 不给 glyphs：中文由本机 TinySDF 渲染（AGENTS.md 第 6 节，探测 7 实测）
     sources: {
       basemap: { type: "geojson", data: basemap, attribution: "© OpenStreetMap contributors (ODbL-1.0)" },
+      sea: { type: "geojson", data: sea },
       segments: { type: "geojson", data: segments },
       stations: { type: "geojson", data: stations },
       selected: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
@@ -103,6 +106,13 @@ export function buildStyle(
         id: "background",
         type: "background",
         paint: { "background-color": PALETTE.paper },
+      },
+      // ——— 海面（S4-4）：五省 coastline 拼出的面，岛屿是它自己的洞 ———
+      {
+        id: "sea-fill",
+        type: "fill",
+        source: "sea",
+        paint: { "fill-color": PALETTE.sea, "fill-opacity": 1 },
       },
       {
         id: "water-fill",

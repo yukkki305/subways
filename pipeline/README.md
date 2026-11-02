@@ -117,6 +117,14 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 **`city` 字段一律 `null`**：城市归属由 S1-6 用 `admin_level=4` 精确边界填，不在这一步猜（探测 10 已证 bbox 与粗边界都不可靠）。
 
 
+## S4 脚本
+
+| 步骤 | 脚本 | 输出 |
+| --- | --- | --- |
+| S4-4 海面 | `14_extract_sea.py` | `data/processed/basemap/shanghai-sea.geojson`（1 个面 / 24,829.3 km²） |
+
+`14_extract_sea.py` 读五省 PBF 的 `natural=coastline`，与 bbox 边框 polygonize 后用「bbox 减陆地」得到海面，岛屿自动成为洞。约 55 s（含五份 PBF 扫描）。
+
 ## S2 步骤与脚本映射（进行中）
 
 规则见 `docs/decisions/0001-modeling-rules.md`。S2 的目标是把 65 条上海关系收敛成 20 条 `line` + `branch` + `station` + `segment` + `transfer`。

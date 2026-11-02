@@ -10,6 +10,7 @@
 | 文件 | 内容 | 来源 | 许可 | 数据截止（`as_of`） | 生成脚本 |
 | --- | --- | --- | --- | --- | --- |
 | `data/processed/basemap/shanghai-basemap.geojson` | 上海底图 22 个要素：16 个区界、市界、淀山湖、长江口/吴淞江/黄浦江中心线、海岸线 | OSM，经 `download.openstreetmap.fr` 五省省级 extract（关系 `913067` `1122227` `9392345` `9064903` + `waterway=river` 与 `natural=coastline` 的 way） | **ODbL-1.0** © OpenStreetMap contributors | **2026-11-01** 00:27–00:28 GMT | `pipeline/03_extract_basemap.py` |
+| `data/processed/basemap/shanghai-sea.geojson` | 五省 PBF 的 `natural=coastline`（上海 130 / 江苏 42 / 浙江 433 条视野内），`pipeline/14_extract_sea.py` 生成，24,829.3 km²、1 个面、76 个岛洞 | ODbL-1.0 | 2026-11-01 00:27–00:28 GMT |
 | `data/processed/relation-index.json` | 287 条轨道关系的清单与三重指纹（标签 / 成员 / 站序），含 `city` `province` 归属回填 | 同上，取自关系标签与成员节点 | **ODbL-1.0** | 2026-11-01 | `pipeline/04_track.py` |
 | `data/processed/attribution-report.json` | 归属判定报告：每省的省面来源与面积、每个关系的逐站归属、未命中计数、flags | 由上面两份派生（OSM 几何 + OSM 关系） | **ODbL-1.0** | 2026-11-01 | `pipeline/05_attribution.py` |
 | `data/snapshots/20261101/manifest.json` | 快照元数据：五个 PBF 的 URL、字节数、sha256、`Last-Modified`、下载时间 | 直接记录 `download.openstreetmap.fr` 的响应头与文件哈希 | **ODbL-1.0** | 2026-11-01 00:27–00:28 GMT | `pipeline/01_fetch_snapshot.py` |

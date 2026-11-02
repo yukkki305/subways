@@ -28,8 +28,8 @@ type MetaFile = {
   counts?: { stations?: number; slots?: number; multi_line_stations?: number };
 };
 
-/** 可点击的图层：换乘站优先，其次普通站，最后站名 */
-const PICK_LAYERS = ["station-dot-transfer", "station-dot", "station-label"];
+/** 可点击的图层：换乘站优先，其次普通站，最后两层站名 */
+const PICK_LAYERS = ["station-dot-transfer", "station-dot", "station-label-major", "station-label-minor"];
 
 async function loadJson<T>(url: string): Promise<T> {
   const res = await fetch(url, { cache: "no-cache" });
@@ -113,19 +113,48 @@ export default function MapView() {
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
         map.on("load", () => {
-          const b = boundsOf(segments);
-          if (b) map.fitBounds(b, { padding: { top: 72, bottom: 96, left: 48, right: 48 }, duration: 0 });
+          // 容器尺寸必须先生效，否则 fitBounds 会按 0 高度算缩放（曾出现一进页面就跳到 z15）
           map.resize();
+          const fit = () => {
+            const b = boundsOf(segments);
+            if (!b) return;
+            if (map.getCanvas().clientWidth < 10 || map.getCanvas().clientHeight < 10) {
+              requestAnimationFrame(fit);
+              return;
+            }
+            map.fitBounds(b, { padding: { top: 72, bottom: 96, left: 48, right: 48 }, duration: 0 });
+          };
+          requestAnimationFrame(fit);
 
-          // 悬停：变手型
+          // 悬停：变手型 + 在圆点上方浮出站名（点击前先确认点的是哪个站）
+          const clearHover = () => {
+            const src = map.getSource("hover") as maplibregl.GeoJSONSource | undefined;
+            src?.setData({ type: "FeatureCollection", features: [] } as GeoJSON.FeatureCollection);
+          };
           for (const layer of PICK_LAYERS) {
             map.on("mouseenter", layer, () => {
               map.getCanvas().style.cursor = "pointer";
             });
             map.on("mouseleave", layer, () => {
               map.getCanvas().style.cursor = "";
+              clearHover();
             });
           }
+          map.on("mousemove", (e) => {
+            const hit = map.queryRenderedFeatures(e.point, { layers: PICK_LAYERS })[0];
+            const src = map.getSource("hover") as maplibregl.GeoJSONSource | undefined;
+            if (!hit || !src) return;
+            src.setData({
+              type: "FeatureCollection",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: hit.geometry,
+                  properties: { name_display: hit.properties?.name_display ?? hit.properties?.name ?? "" },
+                },
+              ],
+            } as GeoJSON.FeatureCollection);
+          });
 
           // 点击：命中站点点位或站名 → 打开详情
           map.on("click", (e) => {
@@ -187,7 +216,20 @@ export default function MapView() {
         <h1>中国铁路图鉴 · 上海</h1>
       </header>
 
-      {status === "error" && <div className="map-status is-error">加载失败：{message}</div>}
+      {(status === "loading" || status === "error") && (
+        <div
+          className={`map-loading${status === "error" ? " is-error" : ""}`}
+          {...(status === "error" ? { role: "alert" } : { "aria-hidden": true })}
+        >
+          <div className="map-loading__card">
+            <span className="map-loading__dot" />
+            <p className="map-loading__title">{status === "error" ? "地图加载失败" : "正在铺开上海地铁图"}</p>
+            <p className="map-loading__hint">
+              {status === "error" ? message : "20 条线路 · 430 站 · 首次加载约 1 秒"}
+            </p>
+          </div>
+        </div>
+      )}
 
       {selected && dataset && (
         <StationPanel

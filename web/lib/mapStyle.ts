@@ -33,6 +33,7 @@ export function buildStyle(
       segments: { type: "geojson", data: segments },
       stations: { type: "geojson", data: stations },
       selected: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      hover: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
     },
     layers: [
       {
@@ -90,6 +91,18 @@ export function buildStyle(
           "line-dasharray": [4, 2],
         },
       },
+      // ——— 线路：先画「纸色描边」再压彩色，交叉处才有留白（S3-6） ———
+      {
+        id: "metro-line-casing",
+        type: "line",
+        source: "segments",
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: {
+          "line-color": PALETTE.paper,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 3.4, 10, 4.6, 12, 6.0, 14, 7.6, 17, 11.5],
+          "line-opacity": 0.95,
+        },
+      },
       {
         id: "metro-line",
         type: "line",
@@ -97,35 +110,36 @@ export function buildStyle(
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
           "line-color": colorExpression(lineColors) as never,
-          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.2, 10, 1.8, 12, 2.6, 14, 3.6, 17, 6],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.4, 10, 2.0, 12, 3.0, 14, 4.2, 17, 7],
           "line-opacity": 1,
         },
       },
 
-      // ——— 车站：圆点在线的上面，换乘站更大更重 ———
+      // ——— 车站：换乘站在低缩放就出现，普通站 z11 起，避免全城图糊成一片 ———
       {
         id: "station-dot",
         type: "circle",
         source: "stations",
-        minzoom: 10,
+        minzoom: 11,
+        filter: ["!=", ["get", "is_transfer"], true],
         paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 1.6, 12, 2.4, 14, 3.4, 17, 4.6],
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 1.8, 13, 2.8, 15, 4.0, 17, 5.0],
           "circle-color": "#FFFFFF",
           "circle-stroke-color": "#5A5A5A",
-          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 14, 1.2, 17, 1.6],
+          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 11, 0.8, 14, 1.2, 17, 1.6],
         },
       },
       {
         id: "station-dot-transfer",
         type: "circle",
         source: "stations",
-        minzoom: 10,
+        minzoom: 9.5,
         filter: ["==", ["get", "is_transfer"], true],
         paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 2.6, 12, 3.6, 14, 5.0, 17, 6.6],
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 9.5, 1.8, 10, 2.4, 12, 3.4, 14, 4.8, 17, 6.6],
           "circle-color": "#FFFFFF",
           "circle-stroke-color": "#2B2B2B",
-          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 10, 1.3, 14, 1.9, 17, 2.4],
+          "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 10, 1.2, 14, 1.8, 17, 2.4],
         },
       },
 
@@ -142,27 +156,73 @@ export function buildStyle(
         },
       },
 
-      // ——— 站名：zoom≥11 才出现，碰撞自动避让 ———
+      // ——— 悬停：圆点上方浮一个站名，点击前先确认点的是哪个站 ———
       {
-        id: "station-label",
+        id: "station-hover-label",
+        type: "symbol",
+        source: "hover",
+        // 只在常驻站名还没出现的缩放区间起作用，避免和大图上的标签重复
+        maxzoom: 12.55,
+        layout: {
+          "text-field": ["get", "name_display"],
+          "text-size": 12,
+          "text-anchor": "bottom",
+          "text-offset": [0, -0.9],
+          "text-allow-overlap": true,
+          "text-ignore-placement": true,
+        },
+        paint: {
+          "text-color": PALETTE.ink,
+          "text-halo-color": "rgba(255, 255, 255, 0.95)",
+          "text-halo-width": 2,
+        },
+      },
+
+      // ——— 站名两层：z11 只标换乘站（重要站），z12.6 再放开普通站 ———
+      {
+        id: "station-label-major",
         type: "symbol",
         source: "stations",
         minzoom: 11,
+        filter: ["==", ["get", "is_transfer"], true],
         layout: {
           "text-field": ["get", "name_display"],
-          "text-size": ["interpolate", ["linear"], ["zoom"], 11, 10.5, 14, 12.5, 17, 14],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 11, 11, 14, 13, 17, 15],
           "text-anchor": "left",
-          "text-offset": [0.75, 0],
+          "text-offset": [0.8, 0],
           "text-padding": 3,
-          "text-max-width": 8,
+          "text-max-width": 12,
           "text-allow-overlap": false,
           "text-ignore-placement": false,
           "symbol-sort-key": ["get", "line_count"],
         },
         paint: {
-          "text-color": "#2E2E2E",
-          "text-halo-color": "rgba(244, 241, 234, 0.92)",
-          "text-halo-width": 1.6,
+          "text-color": "#222222",
+          "text-halo-color": "rgba(244, 241, 234, 0.95)",
+          "text-halo-width": 1.8,
+          "text-halo-blur": 0.2,
+        },
+      },
+      {
+        id: "station-label-minor",
+        type: "symbol",
+        source: "stations",
+        minzoom: 12.6,
+        filter: ["!=", ["get", "is_transfer"], true],
+        layout: {
+          "text-field": ["get", "name_display"],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 12.6, 10.5, 15, 12, 17, 13],
+          "text-anchor": "left",
+          "text-offset": [0.75, 0],
+          "text-padding": 3,
+          "text-max-width": 12,
+          "text-allow-overlap": false,
+          "text-ignore-placement": false,
+        },
+        paint: {
+          "text-color": "#4A4A4A",
+          "text-halo-color": "rgba(244, 241, 234, 0.9)",
+          "text-halo-width": 1.5,
           "text-halo-blur": 0.2,
         },
       },

@@ -68,24 +68,92 @@ body {
   letter-spacing: 0.02em;
 }
 
-.map-status {
+/* ——— 加载 / 失败浮层（S3-6） ——— */
+.map-loading {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  inset: 0;
   z-index: 3;
-  transform: translate(-50%, -50%);
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: var(--panel);
-  font-size: 12.5px;
-  color: var(--muted);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  display: grid;
+  place-items: center;
+  background: rgba(244, 241, 234, 0.55);
+  backdrop-filter: blur(2px);
+  animation: fade-in 160ms ease-out;
 }
 
-.map-status.is-error {
+.map-loading__card {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 18px 26px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.08);
+}
+
+.map-loading__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c0392b;
+  box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.45);
+  animation: pulse 1.4s ease-out infinite;
+}
+
+.map-loading__title {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.map-loading__hint {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.map-loading.is-error .map-loading__dot {
+  background: #8c1d1d;
+  animation: none;
+}
+
+.map-loading.is-error .map-loading__title {
   color: #8c1d1d;
-  border-radius: 10px;
-  max-width: min(36rem, 80vw);
+}
+
+.map-loading.is-error .map-loading__hint {
+  max-width: min(32rem, 76vw);
+  text-align: center;
+  word-break: break-word;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(192, 57, 43, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(192, 57, 43, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-loading__dot {
+    animation: none;
+  }
+  .map-loading {
+    animation: none;
+  }
 }
 
 .map-footer {

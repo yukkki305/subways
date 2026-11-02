@@ -128,3 +128,42 @@ maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 - `web/lib/dataset.ts` 是唯一的数据形状与派生逻辑（`displayNames` / `transfersOf` / `neighborsOf` / `stationsToGeoJSON`），`mapStyle.ts` 不再重复实现
 
 E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「人民广场」、3 条线路 chips、zoom 不变；点击「徐家汇」标签文字 → 抽屉「徐家汇(1)」；Esc 与点空白处均关闭；上海南站(1) 抽屉正确列出与 (2)(3) 的两条「出站换乘」、254 m / 188 m、medium 置信度。
+
+## S3-6 视觉打磨（已完成）
+
+### 线路：纸色描边 + 分层宽度
+
+| 图层 | 作用 | 宽度（z8 → z17） |
+| --- | --- | --- |
+| `metro-line-casing` | 纸色（`PALETTE.paper`）描边，垫在线路下 | 3.4 → 4.6 → 6.0 → 7.6 → 11.5 |
+| `metro-line` | 线路本体（颜色来自 `lines.json` 的 `colour`） | 1.4 → 2.0 → 3.0 → 4.2 → 7 |
+
+描边不是装饰：两条线交叉时，后画的线会盖住前一条，读者会误以为那条线断了。加一层同色纸的「casing」后，交叉处出现 1–2 px 留白，线路的连续性一眼可辨（对比 `s3-6-z13.png` 与 S3-5 截图）。
+
+### 站点：按缩放分三档
+
+| 缩放 | 显示 |
+| --- | --- |
+| < 9.5 | 只有线路（全城概览） |
+| 9.5 – 11 | 换乘站圆点（80 个，给概览一点地标感） |
+| 11 – 12.6 | 换乘站点 + **换乘站站名**；普通站点只有小圆点 |
+| ≥ 12.6 | 普通站站名也出现（`station-label-minor`，更小更浅） |
+
+站名分 `station-label-major`（换乘站，11 px→15 px，`symbol-sort-key: line_count`）与 `station-label-minor`（普通站，10.5 px→13 px）。`text-max-width` 设为 12，避免「一大会址·黄陂南路」这类长名折行。
+
+### 悬停
+
+`mousemove` 命中的站点写入 `hover` 源，由 `station-hover-label` 在圆点上方浮出站名（`maxzoom 12.55`，只在常驻站名还没出现的区间生效，避免和大图标签重复）。鼠标变手型。
+
+### 首屏与加载
+
+- 加载浮层 `.map-loading`：脉冲红点 + 「正在铺开上海地铁图」+ 副行数量说明；失败态换文案并 `role="alert"`；`prefers-reduced-motion` 下关动画
+- **fitBounds 时序**：`map.on("load")` 里必须先 `map.resize()`，再用 `requestAnimationFrame` 检查 `canvas.clientWidth/clientHeight ≥ 10` 后才 `fitBounds`。否则容器高度还是 0 时算出的缩放极大（实测会跳到 z15.1，只显示 6 条线）
+
+实测（`queryRenderedFeatures` 计数）：
+
+| 缩放 | 换乘站名 | 普通站名 | 换乘点 | 普通点 |
+| --- | --- | --- | --- | --- |
+| 9.59（首屏） | 0 | 0 | 80 | 0 |
+| 11.2 | 57 | 0 | 74 | 228 |
+| 12.9 | 32 | 43 | 29 | 44 |

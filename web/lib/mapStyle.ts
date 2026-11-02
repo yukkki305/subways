@@ -14,8 +14,14 @@ export const PALETTE = {
 } as const;
 
 export type LineColors = Array<[string, string]>;
+export type LineTypes = Array<[string, string]>;
 
 /** 把线数据里的 colour 拼成 MapLibre 的 match 表达式 */
+/** 从「线路 id → 制式」里挑出某一类制式的 id，用来给图层写 filter */
+function idsOfType(lineTypes: LineTypes, wanted: string): string[] {
+  return lineTypes.filter(([, t]) => t === wanted).map(([id]) => id);
+}
+
 function colorExpression(lineColors: LineColors): unknown {
   const pairs = lineColors.flatMap(([id, color]) => [id, color]);
   return ["match", ["get", "line_id"], ...pairs, "#999999"];
@@ -76,7 +82,12 @@ export function buildStyle(
   segments: GeoJSON.FeatureCollection,
   stations: GeoJSON.FeatureCollection,
   lineColors: LineColors,
+  lineTypes: LineTypes,
 ): StyleSpecification {
+  // 制式线型（S4-3）：磁浮虚线、浦江线点线，其余地铁实线
+  const maglevIds = idsOfType(lineTypes, "maglev");
+  const apmIds = idsOfType(lineTypes, "apm");
+  const nonMetroIds = [...maglevIds, ...apmIds];
   return {
     version: 8,
     // 不给 glyphs：中文由本机 TinySDF 渲染（AGENTS.md 第 6 节，探测 7 实测）
@@ -159,11 +170,40 @@ export function buildStyle(
         id: "metro-line",
         type: "line",
         source: "segments",
+        filter: ["!", ["in", ["get", "line_id"], ["literal", nonMetroIds]]],
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
           "line-color": colorExpression(lineColors) as never,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.4, 10, 2.0, 12, 3.0, 14, 4.2, 17, 7],
           "line-opacity": 1,
+        },
+      },
+
+      // ——— 磁浮线：虚线（S4-3，D4-A）———
+      {
+        id: "maglev-line",
+        type: "line",
+        source: "segments",
+        filter: ["in", ["get", "line_id"], ["literal", maglevIds]],
+        layout: { "line-cap": "butt", "line-join": "round" },
+        paint: {
+          "line-color": colorExpression(lineColors) as never,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.4, 10, 2.0, 12, 3.0, 14, 4.2, 17, 7],
+          // dasharray 不接受表达式（只能是字面量数组），单位是线宽的倍数
+          "line-dasharray": [2.6, 2.0] as never,
+        },
+      },
+      // ——— 浦江线：点线（胶轮路轨，用圆点表示）———
+      {
+        id: "apm-line",
+        type: "line",
+        source: "segments",
+        filter: ["in", ["get", "line_id"], ["literal", apmIds]],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: {
+          "line-color": colorExpression(lineColors) as never,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 2.0, 10, 2.8, 12, 4.0, 14, 5.4, 17, 8.5],
+          "line-dasharray": [0.05, 1.6] as never,
         },
       },
 

@@ -199,6 +199,21 @@ z13 起站名改为「中文一行 + 英文小字一行」，中英写在**同�
 
 实测（`queryRenderedFeatures` 计数）：z12.9 → minor 42 / major 32（中文单层）；z13.4 → 双语 36；含长名站的视野 z13.3 → 只中文 3 + 双语 40；z15.6 → 双语 1 + 长名双语 1。
 
+## S4-3 制式线型（已完成）
+
+不同制式用不同线型，全部由 `lines.json` 的 `type` 推导，数据层不加字段（S4-3 决策 D4-A）：
+
+| 制式 | 图层 | 线型 | 依据 |
+| --- | --- | --- | --- |
+| `metro` | `metro-line` | 实线 | 18 条地铁 |
+| `maglev` | `maglev-line` | 虚线 `[2.6, 2.0]`（线宽倍数） | 磁浮线 |
+| `apm` | `apm-line` | 点线 `[0.05, 1.6]` + 圆头 | 浦江线（胶轮路轨） |
+
+- `buildStyle(basemap, segments, stations, lineColors, lineTypes)` 新增第 5 个参数；`idsOfType()` 从「id → type」里挑出某一类，写成 `["in", ["get","line_id"], ["literal", ids]]` 的 filter。
+- 三条线型层共用下面那层 `metro-line-casing`（纸色描边无 filter），所以虚线/点线在交叉处同样有留白。
+- `metro-line` 的 filter 反过来排除了这两类，避免同一条线被画两遍（计数：实线 582 + 磁浮 2 + 浦江 5 = 589 段，与总数一致）。
+- **踩坑**：`line-dasharray` **不接受表达式**，只能是字面量数组；写成 `["interpolate", …]` 会整页白屏并报 `layers[8].paint.line-dasharray[4][0]: Expression name must be a string`。
+
 ## S3-7 构建自证（已完成）
 
 `scripts/verify-build.mjs` 只做静态检查，不启浏览器，任何机器可重跑：

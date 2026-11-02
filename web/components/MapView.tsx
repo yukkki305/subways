@@ -104,11 +104,12 @@ export default function MapView() {
         if (disposed || !boxRef.current) return;
 
         const lineColors: LineColors = linesFile.lines.map((l) => [l.id, l.colour]);
+  const lineTypes = linesFile.lines.map((l) => [l.id, l.type] as [string, string]);
         const stationCollection = stationsToGeoJSON(stationFile.stations);
 
         const map = new maplibregl.Map({
           container: boxRef.current,
-          style: buildStyle(basemap, segments, stationCollection, lineColors),
+          style: buildStyle(basemap, segments, stationCollection, lineColors, lineTypes),
           center: [121.47, 31.23],
           zoom: 10.4,
         // 中文与西文都走本机渲染（不请求 glyph PBF），字体栈统一在 lib/typography.ts

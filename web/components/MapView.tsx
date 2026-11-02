@@ -4,7 +4,13 @@ import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef, useState } from "react";
 
-import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
+import {
+  boundsOf,
+  buildStyle,
+  stationsToGeoJSON,
+  type LineColors,
+  type StationRecord,
+} from "@/lib/mapStyle";
 
 // Next 打包会把 maplibre 的 worker URL 算错（浏览器报 "Worker failed to load"），
 // 这里指向 sync-data 拷进 public/vendor 的原文件。
@@ -20,6 +26,8 @@ type MetaFile = {
   counts?: { stations?: number; slots?: number; multi_line_stations?: number };
 };
 
+type StationFile = { stations: StationRecord[] };
+
 async function loadJson<T>(url: string): Promise<T> {
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
@@ -32,6 +40,7 @@ export default function MapView() {
   const [message, setMessage] = useState("正在加载底图与线路…");
   const [meta, setMeta] = useState<MetaFile | null>(null);
   const [lineCount, setLineCount] = useState<number | null>(null);
+  const [stationCount, setStationCount] = useState<number | null>(null);
 
   useEffect(() => {
     let disposed = false;
@@ -39,21 +48,24 @@ export default function MapView() {
 
     async function boot() {
       try {
-        const [basemap, segments, linesFile, metaFile] = await Promise.all([
+        const [basemap, segments, linesFile, stationFile, metaFile] = await Promise.all([
           loadJson<GeoJSON.FeatureCollection>("/data/shanghai-basemap.geojson"),
           loadJson<GeoJSON.FeatureCollection>("/data/segment.geojson"),
           loadJson<LinesFile>("/data/lines.json"),
+          loadJson<StationFile>("/data/station.json"),
           loadJson<MetaFile>("/data/meta.json").catch(() => null),
         ]);
         if (disposed || !boxRef.current) return;
 
         const lineColors: LineColors = linesFile.lines.map((l) => [l.id, l.colour]);
+        const stations = stationsToGeoJSON(stationFile.stations);
         if (disposed) return;
         setLineCount(linesFile.lines.length);
+        setStationCount(stationFile.stations.length);
 
         map = new maplibregl.Map({
           container: boxRef.current,
-          style: buildStyle(basemap, segments, lineColors),
+          style: buildStyle(basemap, segments, stations, lineColors),
           center: [121.47, 31.23],
           zoom: 10.4,
           minZoom: 8.5,
@@ -117,7 +129,7 @@ export default function MapView() {
       <footer className="map-footer">
         <span>
           {meta
-            ? `${lineCount ?? "?"} 条线路 · ${meta.counts?.stations ?? "?"} 站 · 数据截止 ${meta.data_as_of ?? meta.snapshot_date}`
+            ? `${lineCount ?? "?"} 条线路 · ${stationCount ?? meta.counts?.stations ?? "?"} 站 · 数据截止 ${meta.data_as_of ?? meta.snapshot_date}`
             : "上海城市轨道交通"}
           <i>·</i> 数据 © OpenStreetMap contributors（ODbL-1.0）
           <i>·</i> 个人作品集项目，数据仅供参考

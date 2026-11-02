@@ -80,6 +80,29 @@ maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 - 视野用 `boundsOf(segment.geojson)` + `fitBounds(padding 72/96/48/48)`，不用底图范围（底图含整个长江口）
 - 自查钩子：`window.__map`（E2E 读相机/图层）、`window.__mapErrors`（收集 maplibre 报错）
 
+## S3-4 几何分层（已完成）
+
+站点从 `station.json`（430 条）转成 GeoJSON，三层压在线的上面：
+
+| 图层 | 类型 | 阈值 | 说明 |
+| --- | --- | --- | --- |
+| `station-dot` | circle | zoom ≥ 10 | 普通站：白填充 + 灰描边，半径 z10 1.6 → z17 4.6 |
+| `station-dot-transfer` | circle | zoom ≥ 10 | 换乘站（`is_transfer`）：半径更大、描边更深（#2B2B2B） |
+| `station-label` | symbol | **zoom ≥ 11** | 站名左对齐在圆点右侧，`text-padding 3` + 自动避让 |
+
+实测（`queryRenderedFeatures`）：
+
+| 缩放 | 站名 | 圆点 |
+| --- | --- | --- |
+| z10.95 | **0** | 415 |
+| z11.15 | 201（碰撞避让后） | — |
+| z12.2 | 143 | 210（普通 156 + 换乘 54） |
+| z13.0 | 61 | — |
+
+**同名多站的显示规则**：ADR R4 里 >300 m 不合并的 12 组（上海火车站、静安寺、南京西路、陆家嘴、浦东南路等）在地图上会重名，`stationsToGeoJSON()` 给同名的第 2、3 个加 `(2)`、`(3)` 后缀（按经度排序，编号稳定）。只改 `name_display`，`name` 保持 OSM 原值。
+
+坑：`text-field` 若直接用 `name`，两个「上海火车站」并排出现会被当成 bug 报上来 —— 用之前先把重名处理掉。
+
 ## 约定
 
 - 客户端组件才碰 `window` / WebGL；地图初始化放 `useEffect` 或 `next/dynamic({ ssr: false })`

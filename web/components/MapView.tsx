@@ -30,7 +30,16 @@ type MetaFile = {
 };
 
 /** 可点击的图层：换乘站优先，其次普通站，最后两层站名 */
-const PICK_LAYERS = ["station-dot-transfer", "station-dot", "station-label-major", "station-label-minor"];
+const PICK_LAYERS = [
+  "station-dot-transfer",
+  "station-dot",
+  "station-label-bilingual",
+  "station-label-major",
+  "station-label-minor",
+  "station-label-bilingual",
+  "station-label-long-zh",
+  "station-label-bilingual-long",
+];
 
 async function loadJson<T>(url: string): Promise<T> {
   const res = await fetch(url, { cache: "no-cache" });

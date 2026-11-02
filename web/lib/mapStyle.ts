@@ -1,4 +1,4 @@
-import type { StyleSpecification } from "maplibre-gl";
+import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
 
 /** 底图与线路的视觉常量（颜色只在 lib 里定义一次，组件不硬编码） */
 import { FONT_STACK } from "./typography";
@@ -19,6 +19,56 @@ export type LineColors = Array<[string, string]>;
 function colorExpression(lineColors: LineColors): unknown {
   const pairs = lineColors.flatMap(([id, color]) => [id, color]);
   return ["match", ["get", "line_id"], ...pairs, "#999999"];
+}
+
+/** 中英双语站名图层（S4-2）：中文一行 + 英文小字一行，靠 format 的第二段调字号和颜色 */
+function bilingualLabel(
+  id: string,
+  minzoom: number,
+  lengthFilter: unknown,
+  opts: { withEn?: boolean; maxzoom?: number } = {},
+): LayerSpecification {
+  const withEn = opts.withEn !== false;
+  return {
+    id,
+    type: "symbol",
+    source: "stations",
+    minzoom,
+    ...(opts.maxzoom ? { maxzoom: opts.maxzoom } : {}),
+    // 没有英文名的站（爱辉路/长江西路/通南路）只出中文
+    filter: withEn
+      ? ["all", ["has", "name_en"], ["!=", ["get", "name_en"], ""], lengthFilter]
+      : ["all", ["has", "name_en"], lengthFilter],
+    layout: {
+      "text-font": FONT_STACK,
+      "text-field": withEn
+        ? [
+            "format",
+            ["get", "name_display"],
+            { "font-scale": 1 },
+            "\n",
+            ["get", "name_en"],
+            { "font-scale": 0.66, "text-color": "#6E6E6E" },
+          ]
+        : ["get", "name_display"],
+      "text-size": ["interpolate", ["linear"], ["zoom"], 13, 12, 15, 13.5, 17, 15.5],
+      "text-line-height": 1.02,
+      "text-anchor": "left",
+      "text-justify": "left",
+      "text-offset": [0.85, 0],
+      "text-padding": 3,
+      "text-max-width": 16,
+      "text-allow-overlap": false,
+      "text-ignore-placement": false,
+      "symbol-sort-key": ["get", "line_count"],
+    },
+    paint: {
+      "text-color": "#222222",
+      "text-halo-color": "rgba(244, 241, 234, 0.95)",
+      "text-halo-width": 1.8,
+      "text-halo-blur": 0.2,
+    },
+  } as unknown as LayerSpecification;
 }
 
 export function buildStyle(
@@ -187,6 +237,8 @@ export function buildStyle(
         type: "symbol",
         source: "stations",
         minzoom: 11,
+        // z13 起换成中英双语层
+        maxzoom: 13,
         filter: ["==", ["get", "is_transfer"], true],
         layout: {
           "text-font": FONT_STACK,
@@ -212,6 +264,7 @@ export function buildStyle(
         type: "symbol",
         source: "stations",
         minzoom: 12.6,
+        maxzoom: 13,
         filter: ["!=", ["get", "is_transfer"], true],
         layout: {
           "text-font": FONT_STACK,
@@ -231,6 +284,19 @@ export function buildStyle(
           "text-halo-blur": 0.2,
         },
       },
+      // ——— z13 起：中文站名 + 英文副行（S4-2）———
+      // 中英放在同一个 label 里（format 第二段降字号、换灰色），这样碰撞检测算作一个整体，
+      // 不会出现「中文留下了、英文被挤掉」的情况。
+      // 英文名长短差异极大（「人民广场 / People's Square」对「一大会址·黄陂南路 /
+      // Site of the First CPC National Congress·South Huangpi Road」），
+      // 所以按长度分两层：短的 z13 就出，长的压到 z15 才出，避免市中心一屏全是折行的英文。
+      bilingualLabel("station-label-bilingual", 13, ["<=", ["length", ["get", "name_en"]], 30]),
+      // 长英文名在 z13–15 之间只出中文，避免一屏全是折行的英文；z15 起再补英文副行
+      bilingualLabel("station-label-long-zh", 13, [">", ["length", ["get", "name_en"]], 30], {
+        withEn: false,
+        maxzoom: 15,
+      }),
+      bilingualLabel("station-label-bilingual-long", 15, [">", ["length", ["get", "name_en"]], 30]),
     ],
   };
 }

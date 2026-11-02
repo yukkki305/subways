@@ -181,6 +181,24 @@ E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「�
 
 **已知限制**：本机渲染不受字形 hinting 控制，极小字号（<10px）会略糊；国际化的英文副标题留给 S4-2。
 
+## S4-2 英文站名（已完成）
+
+z13 起站名改为「中文一行 + 英文小字一行」，中英写在**同一个 label** 里。
+
+- 用 `format` 表达：`["format", ["get","name_display"], {font-scale:1}, "\n", ["get","name_en"], {font-scale:0.66, text-color:"#6E6E6E"}]`。放在一个 label 里，碰撞检测把一个站算作整体，不会出现「中文留下了、英文被挤掉」。
+- `station-label-major` / `station-label-minor` 都加了 `maxzoom: 13`，从 z13 起交接给双语层。
+- **按英文名长度分三档**（英文名长短差异极大）：
+  | 图层 | 触发条件 | 效果 |
+  | --- | --- | --- |
+  | `station-label-bilingual` | z13 起，`name_en` 长度 ≤ 30 | 中英双语 |
+  | `station-label-long-zh` | z13–15，长度 > 30 | 只出中文，避免一屏折行英文 |
+  | `station-label-bilingual-long` | z15 起，长度 > 30 | 中英双语（如「一大会址·黄陂南路 / Site of the First CPC National Congress·South Huangpi Road」） |
+- 没有英文名的 3 站（爱辉路、长江西路、通南路）只出中文；`filter` 里显式排除了空值。
+- 版式：`text-size` z13 12 → z15 13.5 → z17 15.5、`text-anchor/text-justify: left`、`text-offset [0.85,0]`、`text-max-width 16`、`text-line-height 1.02`。
+- 点击命中层 `PICK_LAYERS` 扩到 5 个来源图层，双语层与「只中文」层都能被点到。
+
+实测（`queryRenderedFeatures` 计数）：z12.9 → minor 42 / major 32（中文单层）；z13.4 → 双语 36；含长名站的视野 z13.3 → 只中文 3 + 双语 40；z15.6 → 双语 1 + 长名双语 1。
+
 ## S3-7 构建自证（已完成）
 
 `scripts/verify-build.mjs` 只做静态检查，不启浏览器，任何机器可重跑：

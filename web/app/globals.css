@@ -18,8 +18,9 @@ body {
   overflow: hidden;
   background: var(--bg);
   color: var(--ink);
-  font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC",
-    "Hiragino Sans GB", sans-serif;
+  /* 与地图标签同一套字体，见 web/lib/typography.ts */
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC",
+    "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import StationPanel from "@/components/StationPanel";
 import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
+import { FONT_STACK_CSS } from "../lib/typography";
 import {
   displayNames,
   stationsToGeoJSON,
@@ -101,6 +102,8 @@ export default function MapView() {
           style: buildStyle(basemap, segments, stationCollection, lineColors),
           center: [121.47, 31.23],
           zoom: 10.4,
+        // 中文与西文都走本机渲染（不请求 glyph PBF），字体栈统一在 lib/typography.ts
+        localIdeographFontFamily: FONT_STACK_CSS,
           minZoom: 8.5,
           maxZoom: 17,
           dragRotate: false,

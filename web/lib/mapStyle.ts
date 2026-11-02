@@ -1,6 +1,8 @@
 import type { StyleSpecification } from "maplibre-gl";
 
 /** 底图与线路的视觉常量（颜色只在 lib 里定义一次，组件不硬编码） */
+import { FONT_STACK } from "./typography";
+
 export const PALETTE = {
   paper: "#F4F1EA", // 背景＝陆地（P0 不画陆地填充面，见探测 8 决策）
   water: "#D7E4EF",
@@ -164,6 +166,7 @@ export function buildStyle(
         // 只在常驻站名还没出现的缩放区间起作用，避免和大图上的标签重复
         maxzoom: 12.55,
         layout: {
+          "text-font": FONT_STACK,
           "text-field": ["get", "name_display"],
           "text-size": 12,
           "text-anchor": "bottom",
@@ -186,6 +189,7 @@ export function buildStyle(
         minzoom: 11,
         filter: ["==", ["get", "is_transfer"], true],
         layout: {
+          "text-font": FONT_STACK,
           "text-field": ["get", "name_display"],
           "text-size": ["interpolate", ["linear"], ["zoom"], 11, 11, 14, 13, 17, 15],
           "text-anchor": "left",
@@ -210,6 +214,7 @@ export function buildStyle(
         minzoom: 12.6,
         filter: ["!=", ["get", "is_transfer"], true],
         layout: {
+          "text-font": FONT_STACK,
           "text-field": ["get", "name_display"],
           "text-size": ["interpolate", ["linear"], ["zoom"], 12.6, 10.5, 15, 12, 17, 13],
           "text-anchor": "left",

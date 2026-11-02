@@ -169,6 +169,18 @@ E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「�
 | 11.2 | 57 | 0 | 74 | 228 |
 | 12.9 | 32 | 43 | 29 | 44 |
 
+## S4-1 字体（已完成）
+
+**不引入任何字体资产**（S4-1 决策 D1-A）：中文与西文都由浏览器本机渲染。
+
+- 字体栈集中在一处：`lib/typography.ts` 的 `FONT_STACK`（给 `text-font`）与 `FONT_STACK_CSS`（给 `localIdeographFontFamily` 和 CSS）。当前是 `Microsoft YaHei UI → Microsoft YaHei → PingFang SC → Hiragino Sans GB → Noto Sans SC → sans-serif`，Windows 用雅黑、macOS 落苹方。
+- 三个 symbol 图层（`station-label-major` / `station-label-minor` / `station-hover-label`）都写了 `text-font: FONT_STACK`；`MapView` 里 `localIdeographFontFamily` 用同一个串。
+- **为什么要两边都写**：读 maplibre-gl 6.16.0 源码（`GlyphManager._getTinySDF`）可知，只有 `text-font` 等于默认栈时才会用 `localIdeographFontFamily`；一旦显式写 `text-font`，就用该栈本身当 CSS 字体串。两边写成同一个栈，中文和西文才不会各走各的。
+- 实测：`glyph PBF 请求 0 次`、字体文件请求 `0 次`、z12.85 下 76 个标签正常出字。
+- 换字体只改 `lib/typography.ts`；将来切 D1-B（自托管 Noto Sans SC 子集，约 57 KB）走 `font-faces`，把 `text-font` 换成字体名即可。
+
+**已知限制**：本机渲染不受字形 hinting 控制，极小字号（<10px）会略糊；国际化的英文副标题留给 S4-2。
+
 ## S3-7 构建自证（已完成）
 
 `scripts/verify-build.mjs` 只做静态检查，不启浏览器，任何机器可重跑：

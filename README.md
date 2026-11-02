@@ -2,7 +2,7 @@
 
 一个收录中国城市轨道交通线路、并在地图上呈现的网页项目。目标是能快速查询各城市的地铁情况：线路走向、车站、换乘、里程。
 
-> 当前状态：**P0 打样中**。S0 探测（10 项）与 S1 数据管道（7 步）已完成，下一步 S2 数据建模。
+> 当前状态：**P0 打样中**。S0 探测（10 项）、S1 数据管道（7 步）、S2 数据建模（7 步，八项校验全过）已完成；下一步 S3 最小渲染纵切。
 > 数据管道现状：五省快照 → 287 条轨道关系 → 241 条归属定案，产物在 `data/processed/`。
 
 ## 范围
@@ -16,10 +16,10 @@
 
 | 层 | 选型 | 状态 |
 | --- | --- | --- |
-| 前端 | Next.js（SSG，便于单线路页被收录） | 未开工（S3 起） |
+| 前端 | Next.js 16.4.3（App Router + 静态导出） | 脚手架完成（S3-1），页面在 S3-3 接入 |
 | 地图渲染 | MapLibre GL JS 6.16.0 | 已实测：0 个 glyph 请求即可渲染中文 |
 | 底图 | **P0 极简自建灰底**（上海行政界 + 主水系，0.47 MB GeoJSON）；P1 换自托管 PMTiles 上海子集 | 已产出并截图验证 |
-| 线路数据 | GeoJSON（本站规模足够，不进 PMTiles） | 待 S2 |
+| 线路数据 | GeoJSON（本站规模足够，不进 PMTiles） | S2 完成：570 段区间 / 430 站 |
 | 检索 | MiniSearch + pinyin-pro | 待 S5 |
 | 数据管道 | Python 3.14 + pyosmium / geopandas / shapely / pyproj / pyogrio | **已完成 S1，`pipeline/run_s1.py` 一条命令可重建** |
 | 数据来源 | OSM 省级 PBF（`download.openstreetmap.fr`），Overpass 仅备选 | 已实测；9 个 Overpass 端点全部不可达 |

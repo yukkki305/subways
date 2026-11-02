@@ -11,6 +11,7 @@ cd E:\subway\web
 & E:\node\npm.cmd run dev               # 开发服务器 http://127.0.0.1:3210
 & E:\node\npm.cmd run build             # 静态导出到 web\out\
 & E:\node\npm.cmd run typecheck         # tsc --noEmit
+& E:\node\npm.cmd run verify            # 构建自证：18 项静态检查（S3-7）
 ```
 
 看导出结果（`next start` 不适用于静态导出）：
@@ -167,3 +168,20 @@ E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「�
 | 9.59（首屏） | 0 | 0 | 80 | 0 |
 | 11.2 | 57 | 0 | 74 | 228 |
 | 12.9 | 32 | 43 | 29 | 44 |
+
+## S3-7 构建自证（已完成）
+
+`scripts/verify-build.mjs` 只做静态检查，不启浏览器，任何机器可重跑：
+
+```powershell
+& E:\node\npm.cmd run build
+& E:\node\npm.cmd run verify      # 18 项，失败即 exit 1
+```
+
+覆盖：入口 HTML、无外部资源、6 个数据文件齐全、20 线/430 站/22 换乘/570 段、`meta.json` 计数与字节数自洽、车站坐标全在 WGS-84 上海视野内（防 GCJ-02 混入）、颜色为合法十六进制、总体积上限。
+
+浏览器端断言（图层顺序、首屏视野、点击/`Esc`/点空白/悬停、0 glyph 请求、0 个 4xx、0 个 JS 错误）记录在 [`docs/validation-s3.md`](../docs/validation-s3.md)。
+
+首屏 16 个请求、未压缩 3.98 MB、gzip 后约 **0.75 MB**。
+
+**已知**：`out/_next/static/media/` 里有 3.69 MB 的 maplibre 开发构建（`maplibre-gl-dev.mjs` 2.49 MB + worker-dev 1.20 MB），浏览器实测不会下载，但会被部署；后续可加清理步骤。

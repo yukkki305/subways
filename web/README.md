@@ -80,7 +80,7 @@ maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 - 视野用 `boundsOf(segment.geojson)` + `fitBounds(padding 72/96/48/48)`，不用底图范围（底图含整个长江口）
 - 自查钩子：`window.__map`（E2E 读相机/图层）、`window.__mapErrors`（收集 maplibre 报错）
 
-## S3-4 几何分层（已完成）
+## S3-4 站点与站名分层（已完成）
 
 站点从 `station.json`（430 条）转成 GeoJSON，三层压在线的上面：
 
@@ -108,3 +108,23 @@ maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 - 客户端组件才碰 `window` / WebGL；地图初始化放 `useEffect` 或 `next/dynamic({ ssr: false })`
 - 数据走 `fetch('/data/*.json')`，不要 `import` 进 bundle（1.8 MB 数据不该进 JS 包）
 - 站点/线路的颜色一律取自 `lines.json` 的 `colour`，不在前端硬编码
+
+## S3-5 点击详情（已完成）
+
+点站点圆点或站名 → 右侧抽屉显示该站详情；Esc、右上角 ×、点空白处均可关闭。
+
+| 交互 | 行为 |
+| --- | --- |
+| 点击 `station-dot` / `station-dot-transfer` / `station-label` | `queryRenderedFeatures(e.point, {layers: PICK_LAYERS})` 取 `properties.id`，命中即选中 |
+| 点空白 | `setSelectedId(null)` |
+| 悬停 | `mouseenter/mouseleave` 改手型 |
+| Esc | 关闭抽屉 |
+| 抽屉内点「同站名换乘」的对端站名 | `easeTo` 到该站并切换详情 |
+
+- 选中态写入 `selected` 空源，由 `station-selected` 图层画外圈（半径 z10 6 → z17 13），压在站名之下
+- 详情内容全部来自 `station.json` / `lines.json` / `transfer.json`，**前端不臆造**：`walk_minutes` 显示为「无可靠来源，一律留空」
+- 同名多站编号 `(1)(2)(3)` **跟着 station id 的后缀走**（`-2` → (2)），保证地图标签、抽屉标题、`站 id` 三处说的是同一个数字
+- 站序的上一站/下一站由 `lines.json` 的 `branch.stops` 按 `slot.seq` 取，环线首尾相接
+- `web/lib/dataset.ts` 是唯一的数据形状与派生逻辑（`displayNames` / `transfersOf` / `neighborsOf` / `stationsToGeoJSON`），`mapStyle.ts` 不再重复实现
+
+E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「人民广场」、3 条线路 chips、zoom 不变；点击「徐家汇」标签文字 → 抽屉「徐家汇(1)」；Esc 与点空白处均关闭；上海南站(1) 抽屉正确列出与 (2)(3) 的两条「出站换乘」、254 m / 188 m、medium 置信度。

@@ -8,62 +8,10 @@ export const PALETTE = {
   coastline: "#BFC9D2",
   district: "#DBD5C8",
   province: "#B4AC9C",
+  ink: "#2B2B2B",
 } as const;
 
 export type LineColors = Array<[string, string]>;
-
-/** 站点数据的原始形状（只列用到的字段） */
-export type StationRecord = {
-  id: string;
-  name: string;
-  name_en: string | null;
-  coord: [number, number];
-  lines: string[];
-  is_transfer: boolean;
-  merge?: { method?: string; spread_m?: number; needs_review?: boolean };
-};
-
-/** 站点对象数组 → GeoJSON（MapLibre 只吃 FeatureCollection） */
-export function stationsToGeoJSON(stations: StationRecord[]): GeoJSON.FeatureCollection {
-  // 同名多站（ADR R4 中 >300 m 不合并的那些）在地图上会显示成两个一样的名字，
-  // 加 (1)(2) 后缀区分；只改显示名，name 字段保持 OSM 原值。
-  const groups = new Map<string, StationRecord[]>();
-  for (const s of stations) {
-    const list = groups.get(s.name) ?? [];
-    list.push(s);
-    groups.set(s.name, list);
-  }
-  const display = new Map<string, string>();
-  for (const [name, list] of groups) {
-    if (list.length === 1) {
-      display.set(list[0].id, name);
-      continue;
-    }
-    // 按经度排序，保证每次渲染的编号一致
-    [...list]
-      .sort((a, b) => a.coord[0] - b.coord[0] || a.coord[1] - b.coord[1])
-      .forEach((s, i) => display.set(s.id, `${name}(${i + 1})`));
-  }
-
-  return {
-    type: "FeatureCollection",
-    features: stations.map((s) => ({
-      type: "Feature",
-      id: s.id,
-      geometry: { type: "Point", coordinates: s.coord },
-      properties: {
-        id: s.id,
-        name: s.name,
-        name_display: display.get(s.id) ?? s.name,
-        name_en: s.name_en,
-        is_transfer: s.is_transfer,
-        line_count: s.lines.length,
-        lines: s.lines.join(" "),
-        needs_review: s.merge?.needs_review ?? false,
-      },
-    })),
-  } as GeoJSON.FeatureCollection;
-}
 
 /** 把线数据里的 colour 拼成 MapLibre 的 match 表达式 */
 function colorExpression(lineColors: LineColors): unknown {
@@ -84,6 +32,7 @@ export function buildStyle(
       basemap: { type: "geojson", data: basemap, attribution: "© OpenStreetMap contributors (ODbL-1.0)" },
       segments: { type: "geojson", data: segments },
       stations: { type: "geojson", data: stations },
+      selected: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
     },
     layers: [
       {
@@ -177,6 +126,19 @@ export function buildStyle(
           "circle-color": "#FFFFFF",
           "circle-stroke-color": "#2B2B2B",
           "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 10, 1.3, 14, 1.9, 17, 2.4],
+        },
+      },
+
+      // ——— 选中站：外圈加粗描边，压在标签下面 ———
+      {
+        id: "station-selected",
+        type: "circle",
+        source: "selected",
+        paint: {
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 6, 14, 10, 17, 13],
+          "circle-color": "rgba(0, 0, 0, 0)",
+          "circle-stroke-color": PALETTE.ink,
+          "circle-stroke-width": 2.4,
         },
       },
 

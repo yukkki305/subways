@@ -246,10 +246,10 @@ z13 起站名改为「中文一行 + 英文小字一行」，中英写在**同�
 
 ```powershell
 & E:\node\npm.cmd run build
-& E:\node\npm.cmd run verify      # 20 项，失败即 exit 1
+& E:\node\npm.cmd run verify      # 21 项，失败即 exit 1
 ```
 
-覆盖：入口 HTML、无外部资源、6 个数据文件齐全、20 线/430 站/22 换乘/570 段、`meta.json` 计数与字节数自洽、车站坐标全在 WGS-84 上海视野内（防 GCJ-02 混入）、颜色为合法十六进制、总体积上限。
+覆盖：入口 HTML、无外部资源、7 个数据文件齐全（含 `sea.geojson`）、20 线/430 站/22 换乘/570 段、`meta.json` 计数与字节数自洽、车站坐标全在 WGS-84 上海视野内（防 GCJ-02 混入）、颜色为合法十六进制、总体积上限。
 
 浏览器端断言（图层顺序、首屏视野、点击/`Esc`/点空白/悬停、0 glyph 请求、0 个 4xx、0 个 JS 错误）记录在 [`docs/validation-s3.md`](../docs/validation-s3.md)。
 
@@ -266,3 +266,38 @@ z13 起站名改为「中文一行 + 英文小字一行」，中英写在**同�
 ```
 
 产物 **9.10 MB → 3.96 MB（34 个文件）**，gzip 约 0.89 MB；删光 `media/` 后实测 `loaded` 仍为真、589 段线路、80 个换乘点、0 报错。`verify-build.mjs` 已把「media/ 无 maplibre 残留」「无 -dev. 残留」「总体积 < 8 MB」列为断言。
+
+## S4-6 排版终校（已完成）
+
+字号、间距、圆角统一收到 `globals.css` 的 `:root` 变量里，改一处即可全局生效：
+
+| 变量 | 值 | 用途 |
+| --- | --- | --- |
+| `--fs-meta` | 10.5px | 页脚、表头、次要说明 |
+| `--fs-small` | 11.5px | 抽屉副标题、`dl.kv` |
+| `--fs-body` | 12.5px | 抽屉正文 |
+| `--fs-title` / `--fs-h2` | 15px / 17px | 页面标题 / 抽屉站名 |
+| `--sp-1..4` | 4 / 8 / 12 / 16px | 内边距与段间距 |
+| `--radius-sm/md/lg/pill` | 6 / 10 / 12 / 999px | 控件圆角 |
+
+具体修的四件事：
+
+1. **抽屉高度随内容走**：原来 `bottom: 56px` 固定撑到底，人民广场只有 3 行站序时会留一大片空白；改成 `max-height: calc(100% - 96px)`，实测 340×505。
+2. **站序表加内边距**：`th/td` 统一 `padding: 0 10px 5px 0` 与 `3px 10px 3px 0`，「位置」列 54px 右对齐 + `tabular-nums`，末列不留右边距 —— 修掉首版「16/28新闸路」黏连。
+3. **键盘可达**：`:where(button, a, [tabindex]):focus-visible` 加 2px 蓝色描边。
+4. **关掉 MapLibre 自带版权控件**：`attributionControl: false`。窄窗 876px 实测版权条 `[641,706,225,24]` 与页脚 `[0,708,876,20]` 重叠，用 CSS 抬高 `bottom` 会被 maplibre 自带样式压过；页脚胶囊已含「数据 © OpenStreetMap contributors（ODbL-1.0）」，合规信息不丢。
+
+## S4-7 S4 自证（已完成）
+
+```powershell
+& E:
+ode
+pm.cmd run build      # 4.05 MB / 34 个文件
+& E:
+ode
+pm.cmd run verify     # 21 项全过
+```
+
+浏览器端实测（876×740 窄窗，更严格）：21 层顺序正确、582+2+5=589 段、`line-color` 20 个 match 分支、点人民广场开抽屉、`Esc`/点空白都能关、hover 浮出「自然博物馆」、**glyph PBF 与字体文件各 0 次请求**、17 个资源 0 个 4xx、0 个 JS 错误。首屏未压缩 4.07 MB、gzip 后约 **0.90 MB**。
+
+完整记录见 [`docs/validation-s4.md`](../docs/validation-s4.md)。

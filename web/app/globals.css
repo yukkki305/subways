@@ -4,6 +4,24 @@
   --muted: #6b6b6b;
   --line: #dcd8d0;
   --panel: rgba(255, 255, 255, 0.86);
+
+  /* 字号阶梯（S4-6 终校）：10.5 元信息 / 11.5 辅助 / 12.5 正文 / 15 标题 / 17 面板主标题 */
+  --fs-meta: 10.5px;
+  --fs-small: 11.5px;
+  --fs-body: 12.5px;
+  --fs-title: 15px;
+  --fs-h2: 17px;
+
+  /* 圆角与间距，避免各处随手写 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -22,6 +40,13 @@ body {
   font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC",
     "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* 键盘用户也要看得见焦点（S4-6） */
+:where(button, a, [tabindex]):focus-visible {
+  outline: 2px solid #1f5fa8;
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .app-main,
@@ -45,28 +70,31 @@ body {
   background: rgba(255, 255, 255, 0.7) !important;
 }
 
+
+
 .maplibregl-ctrl-bottom-left {
   display: none; /* 比例尺改由我们自己的 footer 表达，避免左下角堆叠 */
 }
 
 .map-title {
   position: absolute;
-  top: 18px;
-  left: 20px;
+  top: 16px;
+  left: 16px;
   z-index: 2;
-  padding: 9px 14px 10px;
-  border-radius: 10px;
+  padding: 8px 13px 9px;
+  border-radius: var(--radius-md);
   background: var(--panel);
   backdrop-filter: blur(6px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-card);
   pointer-events: none;
 }
 
 .map-title h1 {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--fs-title);
   font-weight: 650;
-  letter-spacing: 0.02em;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
 /* ——— 加载 / 失败浮层（S3-6） ——— */
@@ -161,21 +189,21 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 14px;
+  bottom: 12px;
   z-index: 2;
   display: flex;
-  gap: 16px;
+  gap: var(--sp-2);
   align-items: center;
   justify-content: center;
-  font-size: 10.5px;
+  font-size: var(--fs-meta);
   color: var(--muted);
   pointer-events: none;
 }
 
 .map-footer span {
   background: rgba(255, 255, 255, 0.72);
-  padding: 3px 10px;
-  border-radius: 999px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 
@@ -190,15 +218,16 @@ body {
   position: absolute;
   top: 16px;
   right: 16px;
-  bottom: 56px;
   z-index: 4;
+  /* 高度随内容走，内容长了才滚动；不再固定撑到底部留一大片空白（S4-6） */
+  max-height: calc(100% - 96px);
   width: 340px;
   max-width: calc(100vw - 32px);
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07), 0 18px 48px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -214,13 +243,16 @@ body {
 
 .station-panel__head h2 {
   margin: 0;
-  font-size: 17px;
+  padding-right: var(--sp-2);
+  font-size: var(--fs-h2);
   font-weight: 650;
+  line-height: 1.25;
 }
 
 .station-panel__sub {
-  margin: 4px 0 0;
-  font-size: 11.5px;
+  margin: var(--sp-1) 0 0;
+  font-size: var(--fs-small);
+  line-height: 1.5;
   color: var(--muted);
 }
 
@@ -245,15 +277,16 @@ body {
 .station-panel__body {
   padding: 12px 16px 20px;
   overflow-y: auto;
-  font-size: 12.5px;
+  font-size: var(--fs-body);
+  line-height: 1.55;
 }
 
 .station-panel__body section + section {
-  margin-top: 16px;
+  margin-top: var(--sp-4);
 }
 
 .station-panel__body h3 {
-  margin: 0 0 8px;
+  margin: 0 0 var(--sp-2);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -275,7 +308,7 @@ body {
   align-items: center;
   gap: 5px;
   padding: 4px 9px 4px 7px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: #f4f2ec;
   font-size: 12px;
 }
@@ -302,13 +335,31 @@ table.seq th {
   text-align: left;
   font-weight: 500;
   color: var(--muted);
-  font-size: 10.5px;
-  padding-bottom: 4px;
+  font-size: var(--fs-meta);
+  padding: 0 10px 5px 0;
+  white-space: nowrap;
 }
 
 table.seq td {
-  padding: 3px 0;
+  padding: 3px 10px 3px 0;
   border-top: 1px solid #f0ece3;
+  vertical-align: top;
+}
+
+/* 位置一列右对齐、等宽数字，右边界与「上一站」留出呼吸（S4-6） */
+table.seq th:nth-child(2),
+table.seq td:nth-child(2) {
+  width: 54px;
+  padding-right: 12px;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 末列不加右边距，避免整表贴着抽屉内壁 */
+table.seq th:last-child,
+table.seq td:last-child {
+  padding-right: 0;
 }
 
 .num {
@@ -382,7 +433,8 @@ dl.kv {
   grid-template-columns: 72px 1fr;
   gap: 5px 10px;
   margin: 0;
-  font-size: 11.5px;
+  font-size: var(--fs-small);
+  line-height: 1.6;
 }
 
 dl.kv dt {

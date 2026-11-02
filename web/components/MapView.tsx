@@ -120,7 +120,8 @@ export default function MapView() {
           maxZoom: 17,
           dragRotate: false,
           pitchWithRotate: false,
-          attributionControl: { compact: true },
+          // 版权信息统一放在页脚胶囊里，避免右下角控件与页脚在窄屏重叠
+          attributionControl: false,
         });
         mapRef.current = map;
 

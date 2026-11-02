@@ -89,7 +89,20 @@ const total = files.reduce((a, f) => a + statSync(f).size, 0);
 const shipped = files.filter((f) => /\.(js|css|mjs|json|geojson|html)$/.test(f));
 let gz = 0;
 for (const f of shipped) gz += gzipSync(readFileSync(f)).length;
-check("静态导出总体积 < 12 MB", total < 12 * 1024 * 1024, `${(total / 1048576).toFixed(2)} MB（gzip 后约 ${(gz / 1048576).toFixed(2)} MB）`);
+// 8. 打包残留：Turbopack 会登记 maplibre 的所有变体，postbuild 必须清掉
+const mediaDir = join(ROOT, OUT, "_next", "static", "media");
+const mediaFiles = existsSync(mediaDir) ? readdirSync(mediaDir) : [];
+check(
+  "media/ 无 maplibre 副本残留",
+  mediaFiles.filter((n) => n.startsWith("maplibre-gl")).length === 0,
+  mediaFiles.length ? mediaFiles.join(" ") : "空目录",
+);
+check(
+  "无开发构建（-dev.）残留",
+  files.filter((f) => /-dev\.[\w-]+\.(mjs|js|css)$/.test(f)).length === 0,
+  "0 个",
+);
+check("静态导出总体积 < 8 MB", total < 8 * 1024 * 1024, `${(total / 1048576).toFixed(2)} MB（gzip 后约 ${(gz / 1048576).toFixed(2)} MB）`);
 
 const failed = checks.filter((c) => !c.ok);
 console.log(`\n共 ${checks.length} 项，失败 ${failed.length} 项。`);

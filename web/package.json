@@ -10,7 +10,9 @@
     "sync": "node scripts/sync-data.mjs",
     "predev": "node scripts/sync-data.mjs",
     "prebuild": "node scripts/sync-data.mjs",
-    "verify": "node scripts/verify-build.mjs"
+    "verify": "node scripts/verify-build.mjs",
+    "postbuild": "node scripts/prune-build.mjs",
+    "prune": "node scripts/prune-build.mjs"
   },
   "dependencies": {
     "maplibre-gl": "6.16.0",

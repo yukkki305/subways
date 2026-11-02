@@ -9,13 +9,13 @@
 $env:Path = 'E:\node;' + $env:Path
 cd E:\subway\web
 & E:\node\npm.cmd run build        # 3.7 s，prebuild 自动同步数据
-& E:\node\npm.cmd run verify       # 静态检查，18 项
+& E:\node\npm.cmd run verify       # 静态检查，20 项
 D:\python\python3.14.6\python.exe -m http.server 3210 --bind 127.0.0.1   # 在 web\out\ 下执行
 ```
 
 静态服务只为模拟「无 Next 运行时」的部署形态；真实托管需要开 gzip/brotli（下述体积按 gzip 另列）。
 
-## 2. 静态检查（`web/scripts/verify-build.mjs`，18 项全过）
+## 2. 静态检查（`web/scripts/verify-build.mjs`，20 项全过）
 
 | 检查项 | 结果 |
 | --- | --- |
@@ -31,9 +31,11 @@ D:\python\python3.14.6\python.exe -m http.server 3210 --bind 127.0.0.1   # 在 w
 | 车站坐标都在 WGS-84 上海视野内 | 通过（430/430） |
 | 线路颜色都是 6 位大写十六进制 | 通过（20/20） |
 | `meta.json` 带 `as_of` | 通过（20261101） |
-| 静态导出总体积 < 12 MB | 通过（9.10 MB；全量 gzip 约 2.11 MB） |
+| `media/` 无 maplibre 副本残留 | 通过（只剩 `icon.*.svg`） |
+| 无 `-dev.` 开发构建残留 | 通过（0 个） |
+| 静态导出总体积 < 8 MB | 通过（3.96 MB / 34 个文件；全量 gzip 约 0.89 MB） |
 
-最后一项的 9.10 MB 里有 **3.69 MB 是本次没有用到的 maplibre 开发构建**（见第 5 节），实际首屏不会下载。
+清理前后的对比：构建产物 **9.10 MB → 3.96 MB**，释放 **5.14 MB**（7 个文件，见第 5 节第 1 条）。
 
 ## 3. 浏览器端 E2E（Edge，1256×808，CDP 真实鼠标/键盘事件）
 
@@ -74,7 +76,10 @@ D:\python\python3.14.6\python.exe -m http.server 3210 --bind 127.0.0.1   # 在 w
 
 ## 5. 已知问题（不阻塞 S3 完成）
 
-1. **导出目录里有 3.69 MB 死资产**：`_next/static/media/` 下同时有 `maplibre-gl-dev.mjs`（2.49 MB）与 `maplibre-gl-worker-dev.mjs`（1.20 MB）。浏览器实测**一个都没下载**（worker 由 `setWorkerUrl("/vendor/…")` 指定），但会被一起部署。处理建议：构建后加一步清理，或改用显式 ESM 入口以避开 Turbopack 的资产登记。
+1. **~~导出目录里有 3.69 MB 死资产~~ → 已修复**：`_next/static/media/` 下曾有 `maplibre-gl-dev.mjs`（2.49 MB）、`maplibre-gl-worker-dev.mjs`（1.20 MB）、`maplibre-gl.mjs`（1.11 MB）、`maplibre-gl-worker.mjs`（0.52 MB）、`maplibre-gl.css`（0.07 MB）与两个 0 字节 `*-shared*.mjs`，合计 5.14 MB，浏览器一个都不下载（worker 由 `setWorkerUrl("/vendor/…")` 指定）。
+   处理：新增 `web/scripts/prune-build.mjs`，挂在 `postbuild` 上，删除 `media/` 下所有 `maplibre-gl*` 与 0 字节文件（`--all` 清空 media/、`--dry-run` 只报告）。
+   **删光验证**：把 `out/` 复制到 `E:\subway-data\prunetest`、清空 `media/` 后起服务，`loaded` 为真、589 段线路、80 个换乘点、`__mapErrors` 为空 —— 证明这些文件确实是死资产。
+   顺带补了 `web/app/icon.svg`，消掉最后一个 `favicon.ico` 404（清理后 E2E 的 4xx 为 **0**）。
 2. **静态服务没有 gzip**：本次 `python -m http.server` 直出原始字节，所以「3.98 MB」是未压缩值；真实托管开 gzip 后约 0.75 MB。
 3. **密集区标签仍有遮挡**：南京东路—外滩一带站距小，碰撞避让会让部分站名被吞（不是丢失，放大即出现）。
 4. **没有英文站名**：`name_en` 数据齐备，界面未开；留给 S5 的检索/多语言开关。

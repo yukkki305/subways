@@ -11,7 +11,7 @@ cd E:\subway\web
 & E:\node\npm.cmd run dev               # 开发服务器 http://127.0.0.1:3210
 & E:\node\npm.cmd run build             # 静态导出到 web\out\
 & E:\node\npm.cmd run typecheck         # tsc --noEmit
-& E:\node\npm.cmd run verify            # 构建自证：18 项静态检查（S3-7）
+& E:\node\npm.cmd run verify            # 构建自证：20 项静态检查（S3-7，含打包残留）
 ```
 
 看导出结果（`next start` 不适用于静态导出）：
@@ -175,7 +175,7 @@ E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「�
 
 ```powershell
 & E:\node\npm.cmd run build
-& E:\node\npm.cmd run verify      # 18 项，失败即 exit 1
+& E:\node\npm.cmd run verify      # 20 项，失败即 exit 1
 ```
 
 覆盖：入口 HTML、无外部资源、6 个数据文件齐全、20 线/430 站/22 换乘/570 段、`meta.json` 计数与字节数自洽、车站坐标全在 WGS-84 上海视野内（防 GCJ-02 混入）、颜色为合法十六进制、总体积上限。
@@ -184,4 +184,14 @@ E2E 实测（CDP 真实鼠标事件）：点击人民广场圆点 → 抽屉「�
 
 首屏 16 个请求、未压缩 3.98 MB、gzip 后约 **0.75 MB**。
 
-**已知**：`out/_next/static/media/` 里有 3.69 MB 的 maplibre 开发构建（`maplibre-gl-dev.mjs` 2.49 MB + worker-dev 1.20 MB），浏览器实测不会下载，但会被部署；后续可加清理步骤。
+**打包清理（已修）**：`out/_next/static/media/` 里 Turbopack 会登记 maplibre 的全部构建变体（dev 2.49 MB + worker-dev 1.20 MB + 生产 1.11 MB + worker 0.52 MB + css 0.07 MB + 两个 0 字节占位，共 5.14 MB），浏览器一个都不请求（worker 走 `setWorkerUrl("/vendor/…")`）。
+
+`scripts/prune-build.mjs` 挂在 `postbuild` 上自动清掉：
+
+```powershell
+& E:\node\npm.cmd run prune -- --dry-run   # 只报告
+& E:\node\npm.cmd run prune                # 删除 media/ 下 maplibre* 与 0 字节文件
+& E:\node\npm.cmd run prune -- --all       # 清空 media/（将来引入其它库时用）
+```
+
+产物 **9.10 MB → 3.96 MB（34 个文件）**，gzip 约 0.89 MB；删光 `media/` 后实测 `loaded` 仍为真、589 段线路、80 个换乘点、0 报错。`verify-build.mjs` 已把「media/ 无 maplibre 残留」「无 -dev. 残留」「总体积 < 8 MB」列为断言。

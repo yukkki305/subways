@@ -485,4 +485,8 @@ is_transfer = len(lines) >= 2 or name in TRANSFER_NAMES   # TRANSFER_NAMES 来�
 | `transfer.json` | 22 条（17,498 B） | **12 条**（10,032 B） |
 | 搜索索引 | 450 条 | **443 条**（423 站 + 20 线） |
 
+**顺带修掉的窄屏 bug**：`@media (max-width: 760px)` 里 `.search` 已让到 `top: 60px`，但抽屉仍是 `top: 16px`，
+696px 下会压住搜索框。补 `.station-panel { top: 104px; max-height: calc(100% - 184px); }`，
+线上复测（`getComputedStyle`）`panelTopStyle = "104px"`、标题 `[16,16,163,35]`、搜索 `[16,60,664,34]`、抽屉 `[340,104,340,487]`，互不重叠。
+
 `scripts/verify-build.mjs` 的断言同步改为 423 站 / 12 换乘；`npm run build && npm run verify` → 21 项全过、4.05 MB（gzip ≈ 0.91 MB）。

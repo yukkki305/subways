@@ -615,4 +615,10 @@ dl.kv dd {
     transform: none;
     max-width: none;
   }
+
+  /* 抽屉让开顶部标题与搜索框（搜索框 top 60 + 高 34 = bottom 94px） */
+  .station-panel {
+    top: 104px;
+    max-height: calc(100% - 184px);
+  }
 }

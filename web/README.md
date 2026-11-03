@@ -336,3 +336,15 @@ pm.cmd run verify     # 21 项全过
 
 1. **Esc 之后列表弹不出来** —— `setFocused(false)` 与 DOM 焦点不一致：输入框仍持有焦点，再 `focus()` 不触发 `onFocus`，于是「聚焦」状态永远为 false。改成 `active` 状态（聚焦或刚输入过即真）+ 外部点击时显式 `blur()`。
 2. **IME 拼到一半就搜** —— `composing` 用 state，`compositionstart` 与紧随的 `input` 在同一帧时读到旧值；改 `composingRef`。
+
+## S5-4 S5 自证（已完成）
+
+```powershell
+& E:\node\npm.cmd run test:search   # 22 条用例 + 性能断言
+& E:\node\npm.cmd run build         # 4.06 MB / 34 个文件
+& E:\node\npm.cmd run verify        # 21 项全过
+```
+
+浏览器端实测：搜索框顶部居中不压控件、`徐家` 出 3 条同名站、中文输入法组合期间不误触发、`Enter` 选中开抽屉、点线路结果框到整线并收抽屉、`Esc` 第一下只清搜索第二下才失焦。检索未引入任何运行时依赖，产物与 S4 持平（4.05 → 4.06 MB）。
+
+完整记录见 [`docs/validation-s5.md`](../docs/validation-s5.md)。

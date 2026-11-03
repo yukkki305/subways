@@ -391,3 +391,55 @@ python -m http.server 3210 --bind 127.0.0.1 -d E:\subway-data\s6test
 `out/` 含 `_next/`、`_not-found/`、`__next.*.txt` 等下划线路径，GitHub Pages 默认跑 Jekyll 会
 **忽略所有 `_` 开头的文件与目录** → JS/CSS 全 404、线上白屏。发布脚本必须在分支根目录写入空文件
 `.nojekyll`（S6-2 落地，见 `docs/probe/s6-hosting.md` 第四节）。
+
+## S6-2 发布流水线（已完成）
+
+站点已上线：**https://yukkki305.github.io/subways/**
+
+### 一条命令发布
+
+```powershell
+cd web
+npm run deploy              # 构建 + 发布
+npm run deploy -- --no-build # 复用现有 out/，只发布
+npm run deploy -- --dry-run  # 只准备 staging，不推送
+```
+
+`web/scripts/deploy.mjs` 做的事：
+
+1. `npm run build`（`--no-build` 跳过；构建链自带 `prebuild` 数据同步与 `postbuild` 死资产清理）
+2. 把 `out/` 复制到 `%TEMP%\subways-pages`，写入空 **`.nojekyll`**，校验 `404.html` 存在
+3. 在该目录 `git init -b gh-pages` + 提交（作者取仓库 `user.name`/`user.email`）
+4. `git push --force origin gh-pages:gh-pages`，失败按 0/15/30/60/120 s 退避重试
+
+**main 分支不受影响**：发布走临时仓库 + force push，`gh-pages` 每次都是完整快照，天然幂等。
+
+### GitHub Pages 配置（已启用）
+
+| 项 | 值 |
+| --- | --- |
+| URL | `https://yukkki305.github.io/subways/` |
+| Source | branch `gh-pages`，path `/` |
+| build_type | `legacy`（Jekyll 流程 + `.nojekyll` 短路） |
+| HTTPS | 强制开启 |
+| 首次构建 | commit `d26b9b4`，状态 `built`，耗时 **34.9 s** |
+
+### 线上实测（2026-11-03）
+
+| 项 | 结果 |
+| --- | --- |
+| `index.html` | 200 / 7,525 B / `<title>中国铁路图鉴 · 上海</title>` |
+| 资源（js/css） | 200，`application/javascript`、`text/css` |
+| `data/*.json` | 200，`application/json; charset=utf-8` |
+| `*.geojson` | 200，**`application/geo+json`** |
+| `vendor/maplibre-gl-worker.mjs` | 200，**`text/javascript`**（S6-0 的风险项已排除） |
+| 浏览器 E2E | 18 个请求 **0 个 ≥400**；`zoom 9.59`；`metro-line 582 + maglev 2 + apm 5 = 589`、`sea-fill 4`、`station-dot-transfer 80` |
+| 交互 | 点人民广场 → 抽屉「人民广场」；搜「陆家嘴」→ 2 条结果 |
+| 未知路径 | 返回 404（Pages 用 `404.html`） |
+
+截图：`E:\subway-data\preview\s6-2-live.png`。
+
+### 已知边界
+
+- 大陆访问速度未单独测（本机单请求最慢 1.17 s，属 Fastly 边缘节点正常范围）。
+- `gh-pages` 分支不在 `main` 的历史里，看提交要切分支。

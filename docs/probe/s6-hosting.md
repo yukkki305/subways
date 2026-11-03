@@ -114,3 +114,26 @@ GitHub Pages 的「Deploy from a branch」默认跑 Jekyll，而 **Jekyll 会忽
 | `npm run verify` | 21 项全过，4.06 MB |
 
 仍未验证、留到 S6-3：Pages 上的 `.mjs`/`.geojson` MIME、真实首屏耗时、`404.html` 行为。
+
+## 十、S6-2 发布落地（2026-11-03）
+
+发布脚本 `web/scripts/deploy.mjs` + `npm run deploy` 已落地，首次发布成功：
+
+| 项 | 结果 |
+| --- | --- |
+| `gh-pages` 提交 | `d26b9b4`（36 文件 / 4.06 MB，含 `.nojekyll`） |
+| Pages 启用 | 分支 `gh-pages`、path `/`、`https_enforced: true`、`build_type: legacy` |
+| 首次构建 | `status: built`，耗时 **34.9 s** |
+| 站点 | `https://yukkki305.github.io/subways/` → 200、标题正确 |
+
+线上 MIME 复核（S6-0 列出的风险项）：
+
+| 路径 | Content-Type |
+| --- | --- |
+| `_next/static/chunks/*.js` | `application/javascript; charset=utf-8` |
+| `_next/static/chunks/*.css` | `text/css; charset=utf-8` |
+| `data/station.json`、`data/meta.json` | `application/json; charset=utf-8` |
+| `data/segment.geojson`、`data/sea.geojson` | **`application/geo+json`** |
+| `vendor/maplibre-gl-worker.mjs` | **`text/javascript; charset=utf-8`** |
+
+浏览器实测：18 个请求 0 个 ≥400，地图与交互均正常（详见 `web/README.md` 的 S6-2 小节）。

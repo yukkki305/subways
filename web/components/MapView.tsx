@@ -4,8 +4,10 @@ import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import SearchBox from "@/components/SearchBox";
 import StationPanel from "@/components/StationPanel";
 import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
+import type { SearchHit } from "@/lib/search";
 import { FONT_STACK_CSS } from "../lib/typography";
 import {
   displayNames,
@@ -51,6 +53,7 @@ async function loadJson<T>(url: string): Promise<T> {
 export default function MapView() {
   const boxRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
+  const segmentsRef = useRef<GeoJSON.FeatureCollection | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [message, setMessage] = useState("");
   const [meta, setMeta] = useState<MetaFile | null>(null);
@@ -89,6 +92,47 @@ export default function MapView() {
     [dataset],
   );
 
+  /** 线路结果：把视野框到那条线（S5-3 会把站点定位换成 flyTo 动画） */
+  const focusLine = useCallback((lineId: string) => {
+    const map = mapRef.current;
+    const fc = segmentsRef.current;
+    if (!map || !fc) return;
+    let minX = Infinity;
+    let minY = Infinity;
+    let maxX = -Infinity;
+    let maxY = -Infinity;
+    for (const f of fc.features) {
+      if (f.properties?.line_id !== lineId || f.geometry.type !== "LineString") continue;
+      for (const [x, y] of f.geometry.coordinates as [number, number][]) {
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      }
+    }
+    if (!Number.isFinite(minX)) return;
+    map.fitBounds(
+      [
+        [minX, minY],
+        [maxX, maxY],
+      ],
+      { padding: { top: 96, bottom: 96, left: 64, right: 64 }, duration: 600 },
+    );
+  }, []);
+
+  const onSearchPick = useCallback(
+    (hit: SearchHit) => {
+      if (hit.kind === "line") {
+        // 跳到整条线时把站点抽屉收掉，否则面板还停在上一站，看起来像没响应
+        setSelectedId(null);
+        focusLine(hit.id);
+      } else {
+        pickStation(hit.id);
+      }
+    },
+    [focusLine, pickStation],
+  );
+
   useEffect(() => {
     let disposed = false;
 
@@ -124,6 +168,7 @@ export default function MapView() {
           attributionControl: false,
         });
         mapRef.current = map;
+        segmentsRef.current = segments;
 
         map.touchZoomRotate.disableRotation();
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
@@ -231,6 +276,8 @@ export default function MapView() {
       <header className="map-title">
         <h1>中国铁路图鉴 · 上海</h1>
       </header>
+
+      {dataset && <SearchBox stations={dataset.stations} lines={dataset.lines} onPick={onSearchPick} />}
 
       {(status === "loading" || status === "error") && (
         <div

@@ -11,7 +11,8 @@ cd E:\subway\web
 & E:\node\npm.cmd run dev               # 开发服务器 http://127.0.0.1:3210
 & E:\node\npm.cmd run build             # 静态导出到 web\out\
 & E:\node\npm.cmd run typecheck         # tsc --noEmit
-& E:\node\npm.cmd run verify            # 构建自证：20 项静态检查（S3-7，含打包残留）
+& E:\node\npm.cmd run verify            # 构建自证：21 项静态检查（S3-7 / S4-7，含打包残留）
+& E:\node\npm.cmd run test:search       # 检索内核用例（S5-1，22 条 + 性能断言）
 ```
 
 看导出结果（`next start` 不适用于静态导出）：
@@ -301,3 +302,37 @@ pm.cmd run verify     # 21 项全过
 浏览器端实测（876×740 窄窗，更严格）：21 层顺序正确、582+2+5=589 段、`line-color` 20 个 match 分支、点人民广场开抽屉、`Esc`/点空白都能关、hover 浮出「自然博物馆」、**glyph PBF 与字体文件各 0 次请求**、17 个资源 0 个 4xx、0 个 JS 错误。首屏未压缩 4.07 MB、gzip 后约 **0.90 MB**。
 
 完整记录见 [`docs/validation-s4.md`](../docs/validation-s4.md)。
+
+## S5-1 检索内核（已完成）
+
+`lib/search.ts` 是纯函数、无 DOM、无第三方依赖，前端和测试脚本共用：
+
+- `buildIndex(stations, lines)` → **450 条索引 = 430 站 + 20 线**
+- `search(index, query, limit = 8)` → 命中项带 `kind / id / title / subtitle / dots / score`
+- 匹配四类：中文（`人民`）、拼音全拼（`renmin`）、拼音首字母（`rmgc`）、英文与线路号（`people's square` / `2` / `line2` / `2haoxian`）
+- 打分 120 / 110 / 96 / 88 / 74 / 58 分档；同分依次比 换乘站 → 线路数 → 名字长度 → id
+- 拼音不引第三方库：`name_pinyin` 本身带声调（`ài guó lù`），NFD 去掉 `\p{M}` 后拼全拼与首字母
+
+用例与性能（`scripts/test-search.mjs`）：22 条断言全过，**p50 0.037 ms / p95 0.077 ms / max 0.225 ms**。
+
+## S5-2 搜索框（已完成）
+
+`components/SearchBox.tsx` + `MapView` 的落地逻辑：
+
+| 行为 | 实现 |
+| --- | --- |
+| 输入即搜 | 无防抖（索引 450 条，单次 <0.3 ms），但**中文输入法组合期间不检索** |
+| IME 处理 | `compositionstart/end` 用 **ref** 而不是 state —— 组合开始与随后 `input` 事件可能同帧到达，state 未重渲染时闭包里读到的是旧值 |
+| 选中站点 | 开抽屉 + `easeTo` 到站（z12.5） |
+| 选中线路 | 先收抽屉，再按该线全部 segment 的 bbox `fitBounds` |
+| Esc 分层 | 第一下只清搜索（输入框仍聚焦，可继续输入），第二下才失焦/关下拉 |
+| 结果行 | 线路色点 + 站名 + 拼音 · 英文副行，命中片段 `<mark>` 高亮，线路结果显示「线路」徽标 |
+| 无障碍 | `role=listbox/option`、`aria-expanded`、`aria-controls`、`aria-label` |
+| 空态 | 「未找到「x」，试试站名、拼音首字母或线路号」 |
+
+实测（1256×808）：搜索框 `448,16,360,34` 顶部居中；`lyl` → 龙阳路 + 龙耀路；`2号线` → 2 号线（含「线路」徽标）+ 12 号线；`xjh` → 徐家汇 (1)(2)(3)；`zzzz` → 空态；组合输入 `renmin` 期间下拉不出现、`compositionend` 后出「人民广场」；`Enter` 选中开抽屉；真实鼠标点线路结果 → 抽屉收起、`fitBounds` 到 2 号线（z10.57）。
+
+修掉的两个真 bug（都是自己写的）：
+
+1. **Esc 之后列表弹不出来** —— `setFocused(false)` 与 DOM 焦点不一致：输入框仍持有焦点，再 `focus()` 不触发 `onFocus`，于是「聚焦」状态永远为 false。改成 `active` 状态（聚焦或刚输入过即真）+ 外部点击时显式 `blur()`。
+2. **IME 拼到一半就搜** —— `composing` 用 state，`compositionstart` 与紧随的 `input` 在同一帧时读到旧值；改 `composingRef`。

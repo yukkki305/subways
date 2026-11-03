@@ -1,0 +1,54 @@
+{
+ "generated_at": "2026-11-03T15:09:32.592Z",
+ "snapshot_date": "20261101",
+ "data_as_of": "20261101",
+ "counts": {
+  "stations": 423,
+  "slots": 592,
+  "transfer_style_stations": 100,
+  "multi_line_stations": 83,
+  "needs_review": 43,
+  "split_groups": 8,
+  "transfer_candidates": 12,
+  "name_groups_multi": 133
+ },
+ "total_bytes": 1935686,
+ "files": [
+  {
+   "name": "lines.json",
+   "source": "data/processed/shanghai/lines.json",
+   "bytes": 42546,
+   "sha256_16": "61c3854f704538f7"
+  },
+  {
+   "name": "station.json",
+   "source": "data/processed/shanghai/station.json",
+   "bytes": 434587,
+   "sha256_16": "33fd2db3bf7b9819"
+  },
+  {
+   "name": "transfer.json",
+   "source": "data/processed/shanghai/transfer.json",
+   "bytes": 10032,
+   "sha256_16": "c96c646d61ee6cf1"
+  },
+  {
+   "name": "segment.geojson",
+   "source": "data/processed/shanghai/segment.geojson",
+   "bytes": 860797,
+   "sha256_16": "fb05ad9eeef3096f"
+  },
+  {
+   "name": "shanghai-basemap.geojson",
+   "source": "data/processed/basemap/shanghai-basemap.geojson",
+   "bytes": 495983,
+   "sha256_16": "8d0e625c1a247720"
+  },
+  {
+   "name": "sea.geojson",
+   "source": "data/processed/basemap/shanghai-sea.geojson",
+   "bytes": 91741,
+   "sha256_16": "605ae5bbbb924328"
+  }
+ ]
+}

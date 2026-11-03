@@ -1,0 +1,367 @@
+{
+ "city": "上海市",
+ "city_code": "sh",
+ "snapshot_date": "20261101",
+ "generated_at": "2026-11-03T22:36:50+08:00",
+ "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
+ "stats": {
+  "total": 12,
+  "by_type": {
+   "出站换乘": 10,
+   "通道": 2
+  },
+  "needs_review": 9
+ },
+ "transfers": [
+  {
+   "id": "sh-station-guo-jia-hui-zhan-zhong-xin--sh-station-guo-jia-hui-zhan-zhong-xin-2",
+   "name": "国家会展中心",
+   "station_a": "sh-station-guo-jia-hui-zhan-zhong-xin",
+   "station_b": "sh-station-guo-jia-hui-zhan-zhong-xin-2",
+   "lines_a": [
+    "sh-line-2"
+   ],
+   "lines_b": [
+    "sh-line-17"
+   ],
+   "coord_a": [
+    121.296487,
+    31.191228
+   ],
+   "coord_b": [
+    121.288714,
+    31.193814
+   ],
+   "dist_m": 794.4,
+   "type": "出站换乘",
+   "type_confidence": "low",
+   "type_note": "2 号线与 17 号线同名站相距约 793 m，疑似出站换乘；OSM 里 17 号线该站官方名为诸光路，待核对站位与站名",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-pu-dong-nan-lu--sh-station-pu-dong-nan-lu-2",
+   "name": "浦东南路",
+   "station_a": "sh-station-pu-dong-nan-lu",
+   "station_b": "sh-station-pu-dong-nan-lu-2",
+   "lines_a": [
+    "sh-line-2"
+   ],
+   "lines_b": [
+    "sh-line-14"
+   ],
+   "coord_a": [
+    121.511116,
+    31.235458
+   ],
+   "coord_b": [
+    121.508257,
+    31.240737
+   ],
+   "dist_m": 645.6,
+   "type": "出站换乘",
+   "type_confidence": "low",
+   "type_note": "2 号线与 14 号线同名站相距约 647 m，疑似出站换乘，待核对（也不排除 OSM 站位偏移）",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-lou-shan-guan-lu--sh-station-lou-shan-guan-lu-2",
+   "name": "娄山关路",
+   "station_a": "sh-station-lou-shan-guan-lu",
+   "station_b": "sh-station-lou-shan-guan-lu-2",
+   "lines_a": [
+    "sh-line-2"
+   ],
+   "lines_b": [
+    "sh-line-15"
+   ],
+   "coord_a": [
+    121.399187,
+    31.213135
+   ],
+   "coord_b": [
+    121.395198,
+    31.215227
+   ],
+   "dist_m": 445.3,
+   "type": "出站换乘",
+   "type_confidence": "low",
+   "type_note": "2 号线与 15 号线同名站相距约 445 m，疑似出站换乘，待核对",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-shang-hai-nan-zhan-2--sh-station-shang-hai-nan-zhan-3",
+   "name": "上海南站",
+   "station_a": "sh-station-shang-hai-nan-zhan-2",
+   "station_b": "sh-station-shang-hai-nan-zhan-3",
+   "lines_a": [
+    "sh-line-3"
+   ],
+   "lines_b": [
+    "sh-line-15"
+   ],
+   "coord_a": [
+    121.425986,
+    31.154963
+   ],
+   "coord_b": [
+    121.425708,
+    31.158876
+   ],
+   "dist_m": 434.7,
+   "type": "出站换乘",
+   "type_confidence": "medium",
+   "type_note": "15 号线站体在北广场一侧，与 1/3 号线需出站；待核对是否有连通通道",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-cao-yang-lu--sh-station-cao-yang-lu-2",
+   "name": "曹杨路",
+   "station_a": "sh-station-cao-yang-lu",
+   "station_b": "sh-station-cao-yang-lu-2",
+   "lines_a": [
+    "sh-line-11",
+    "sh-line-3",
+    "sh-line-4"
+   ],
+   "lines_b": [
+    "sh-line-14"
+   ],
+   "coord_a": [
+    121.412662,
+    31.240708
+   ],
+   "coord_b": [
+    121.417074,
+    31.241697
+   ],
+   "dist_m": 434.4,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "3/4/11 号线与 14 号线之间为站内通道；14 号线站体较深",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-shang-hai-huo-che-zhan--sh-station-shang-hai-huo-che-zhan-3",
+   "name": "上海火车站",
+   "station_a": "sh-station-shang-hai-huo-che-zhan",
+   "station_b": "sh-station-shang-hai-huo-che-zhan-3",
+   "lines_a": [
+    "sh-line-1"
+   ],
+   "lines_b": [
+    "sh-line-4"
+   ],
+   "coord_a": [
+    121.451206,
+    31.249111
+   ],
+   "coord_b": [
+    121.453995,
+    31.251296
+   ],
+   "dist_m": 359.5,
+   "type": "出站换乘",
+   "type_confidence": "high",
+   "type_note": "1 号线与 3/4 号线站体分离，需出站经地面换乘",
+   "walk_minutes": null,
+   "needs_review": false,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-lu-jia-zui--sh-station-lu-jia-zui-2",
+   "name": "陆家嘴",
+   "station_a": "sh-station-lu-jia-zui",
+   "station_b": "sh-station-lu-jia-zui-2",
+   "lines_a": [
+    "sh-line-2"
+   ],
+   "lines_b": [
+    "sh-line-14"
+   ],
+   "coord_a": [
+    121.49814,
+    31.240181
+   ],
+   "coord_b": [
+    121.497877,
+    31.236959
+   ],
+   "dist_m": 358.1,
+   "type": "出站换乘",
+   "type_confidence": "medium",
+   "type_note": "14 号线站体与 2 号线不连通，需出站换乘；待核对",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-shang-hai-huo-che-zhan--sh-station-shang-hai-huo-che-zhan-2",
+   "name": "上海火车站",
+   "station_a": "sh-station-shang-hai-huo-che-zhan",
+   "station_b": "sh-station-shang-hai-huo-che-zhan-2",
+   "lines_a": [
+    "sh-line-1"
+   ],
+   "lines_b": [
+    "sh-line-3"
+   ],
+   "coord_a": [
+    121.451206,
+    31.249111
+   ],
+   "coord_b": [
+    121.452386,
+    31.252058
+   ],
+   "dist_m": 345.5,
+   "type": "出站换乘",
+   "type_confidence": "high",
+   "type_note": "1 号线与 3/4 号线站体分离，需出站经地面换乘",
+   "walk_minutes": null,
+   "needs_review": false,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-gui-lin-lu--sh-station-gui-lin-lu-2",
+   "name": "桂林路",
+   "station_a": "sh-station-gui-lin-lu",
+   "station_b": "sh-station-gui-lin-lu-2",
+   "lines_a": [
+    "sh-line-9"
+   ],
+   "lines_b": [
+    "sh-line-15"
+   ],
+   "coord_a": [
+    121.414158,
+    31.176758
+   ],
+   "coord_b": [
+    121.411095,
+    31.177757
+   ],
+   "dist_m": 312.3,
+   "type": "通道",
+   "type_confidence": "low",
+   "type_note": "9 号线与 15 号线同名站，疑似站内通道，待核对是否需出站",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-shang-hai-nan-zhan--sh-station-shang-hai-nan-zhan-3",
+   "name": "上海南站",
+   "station_a": "sh-station-shang-hai-nan-zhan",
+   "station_b": "sh-station-shang-hai-nan-zhan-3",
+   "lines_a": [
+    "sh-line-1"
+   ],
+   "lines_b": [
+    "sh-line-15"
+   ],
+   "coord_a": [
+    121.425476,
+    31.156597
+   ],
+   "coord_b": [
+    121.425708,
+    31.158876
+   ],
+   "dist_m": 253.6,
+   "type": "出站换乘",
+   "type_confidence": "medium",
+   "type_note": "15 号线站体在北广场一侧，与 1/3 号线需出站；待核对是否有连通通道",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-shang-hai-nan-zhan--sh-station-shang-hai-nan-zhan-2",
+   "name": "上海南站",
+   "station_a": "sh-station-shang-hai-nan-zhan",
+   "station_b": "sh-station-shang-hai-nan-zhan-2",
+   "lines_a": [
+    "sh-line-1"
+   ],
+   "lines_b": [
+    "sh-line-3"
+   ],
+   "coord_a": [
+    121.425476,
+    31.156597
+   ],
+   "coord_b": [
+    121.425986,
+    31.154963
+   ],
+   "dist_m": 187.6,
+   "type": "出站换乘",
+   "type_confidence": "medium",
+   "type_note": "15 号线站体在北广场一侧，与 1/3 号线需出站；待核对是否有连通通道",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  },
+  {
+   "id": "sh-station-shang-hai-huo-che-zhan-2--sh-station-shang-hai-huo-che-zhan-3",
+   "name": "上海火车站",
+   "station_a": "sh-station-shang-hai-huo-che-zhan-2",
+   "station_b": "sh-station-shang-hai-huo-che-zhan-3",
+   "lines_a": [
+    "sh-line-3"
+   ],
+   "lines_b": [
+    "sh-line-4"
+   ],
+   "coord_a": [
+    121.452386,
+    31.252058
+   ],
+   "coord_b": [
+    121.453995,
+    31.251296
+   ],
+   "dist_m": 175.0,
+   "type": "出站换乘",
+   "type_confidence": "high",
+   "type_note": "1 号线与 3/4 号线站体分离，需出站经地面换乘",
+   "walk_minutes": null,
+   "needs_review": false,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "20261101"
+  }
+ ]
+}

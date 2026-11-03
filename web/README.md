@@ -498,7 +498,7 @@ is_transfer = len(lines) >= 2 or name in TRANSFER_NAMES   # TRANSFER_NAMES 来�
 | 项 | 落地 |
 | --- | --- |
 | 站内「关于」 | 页脚右侧 `关于` 按钮 → `components/AboutPanel.tsx`（`role="dialog"`、Esc 关闭、遮罩点击关闭）；写数据来源与快照日、规模、口径、地图说明、已知局限、许可与两个外链 |
-| Esc 分层 | 关于面板打开时 Esc 先关面板；否则关抽屉（`MapView` 的 keydown 里判断顺序） |
+| Esc 分层 | 关于面板打开时 Esc 先关面板；否则关抽屉（`MapView` 的 keydown 里判断顺序）。另修：搜索结果选中后 `SearchBox` 会 `blur()` 输入框——否则输入框仍持有焦点，第一次 Esc 被搜索框吃掉，抽屉关不掉（线上实测） |
 | 分享卡片 | `app/layout.tsx` 的 `openGraph` / `twitter`（`summary_large_image`）+ `public/og.jpg`（1200×630，79 KB） |
 | 可被索引 | `public/robots.txt`、`public/sitemap.xml`、`metadataBase` + `alternates.canonical` |
 | 截图归档 | `docs/screenshots/`：总览、市中心、站点详情、关于面板（README 复用） |

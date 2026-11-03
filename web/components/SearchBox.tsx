@@ -67,6 +67,10 @@ export default function SearchBox({ stations, lines, onPick }: Props) {
   const pick = (hit: SearchHit) => {
     onPick(hit);
     clear();
+    // 选完就把焦点还给地图：否则输入框仍持有焦点，
+    // 之后的 Esc 会被搜索框吃掉（S6-5 实测：抽屉关不掉）
+    setActive(false);
+    inputRef.current?.blur();
   };
 
   return (

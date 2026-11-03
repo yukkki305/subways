@@ -209,3 +209,23 @@ GZUPA 2020 站名比对（`docs/name-diff.md`）发现 OSM 有两处站名与 20
 
 > 说明：GZUPA 的坐标字段（`x`/`y` = GCJ-02、`wgs84_*` 偏约 900 m）不能用于定位，
 > 本表只依据站名，另以 OSM 侧站序与官方口径人工核对。详见 `docs/decisions/0002-gzupa-datum.md`。
+
+## 七、同名多站定案与 `is_transfer` 口径（S6-4，2026-11-03）
+
+`AGENTS.md` §12 的「16 组」是探针口径（按 `role=stop` 全部节点聚类），**建站后实际是 12 组**。
+逐组证据与决策见 `docs/split-groups-review.md` 与 `docs/decisions/0003-split-group-merges.md`。
+
+| 处理 | 组数 | 站名 |
+| --- | --- | --- |
+| 合并成单站（人工白名单） | 4 | 静安寺、南京西路、徐家汇、宜山路 |
+| 保持分裂，走 `transfer` | 8 | 国家会展中心、浦东南路、娄山关路、上海南站、曹杨路、上海火车站、陆家嘴、桂林路 |
+
+**连带修正 `is_transfer`**：原判定只看「被几条线引用」，导致 12 组分裂出的 29 站里有 27 站被画成普通小点。
+现改为 `len(lines) >= 2 or name in TRANSFER_NAMES`（`TRANSFER_NAMES` 取自 `11_build_transfers.py` 的 `GROUP_TYPES` 键）。
+改后 `is_transfer=true` 的站从 80 涨到 **100**。
+
+**仍待定案（P1）**：
+
+1. 12 条换乘里 9 条 `type_confidence` 为 medium/low（静安寺/南京西路/徐家汇合并后不再有 transfer，其余类型仍按 S2-5 的人工判定），需现场核对。
+2. 17 号线「国家会展中心」应改名「诸光路」（见第六节）。
+3. 上海南站、上海火车站、静安寺等 3 站组的三站结构是否长期保留，等 P1 接官方数据后复核。

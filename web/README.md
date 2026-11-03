@@ -84,7 +84,7 @@ maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 
 ## S3-4 站点与站名分层（已完成）
 
-站点从 `station.json`（430 条）转成 GeoJSON，三层压在线的上面：
+站点从 `station.json`（423 条）转成 GeoJSON，三层压在线的上面：
 
 | 图层 | 类型 | 阈值 | 说明 |
 | --- | --- | --- | --- |
@@ -250,7 +250,7 @@ z13 起站名改为「中文一行 + 英文小字一行」，中英写在**同�
 & E:\node\npm.cmd run verify      # 21 项，失败即 exit 1
 ```
 
-覆盖：入口 HTML、无外部资源、7 个数据文件齐全（含 `sea.geojson`）、20 线/430 站/22 换乘/570 段、`meta.json` 计数与字节数自洽、车站坐标全在 WGS-84 上海视野内（防 GCJ-02 混入）、颜色为合法十六进制、总体积上限。
+覆盖：入口 HTML、无外部资源、7 个数据文件齐全（含 `sea.geojson`）、20 线/423 站/12 换乘/570 段、`meta.json` 计数与字节数自洽、车站坐标全在 WGS-84 上海视野内（防 GCJ-02 混入）、颜色为合法十六进制、总体积上限。
 
 浏览器端断言（图层顺序、首屏视野、点击/`Esc`/点空白/悬停、0 glyph 请求、0 个 4xx、0 个 JS 错误）记录在 [`docs/validation-s3.md`](../docs/validation-s3.md)。
 
@@ -307,7 +307,7 @@ pm.cmd run verify     # 21 项全过
 
 `lib/search.ts` 是纯函数、无 DOM、无第三方依赖，前端和测试脚本共用：
 
-- `buildIndex(stations, lines)` → **450 条索引 = 430 站 + 20 线**
+- `buildIndex(stations, lines)` → **443 条索引 = 423 站 + 20 线**
 - `search(index, query, limit = 8)` → 命中项带 `kind / id / title / subtitle / dots / score`
 - 匹配四类：中文（`人民`）、拼音全拼（`renmin`）、拼音首字母（`rmgc`）、英文与线路号（`people's square` / `2` / `line2` / `2haoxian`）
 - 打分 120 / 110 / 96 / 88 / 74 / 58 分档；同分依次比 换乘站 → 线路数 → 名字长度 → id
@@ -458,3 +458,31 @@ npm run deploy -- --dry-run  # 只准备 staging，不推送
 | 窄屏 696（修复后） | 搜索框落到 `top:60px`，与标题分离、下拉正常 ✅ |
 
 **修掉的真 bug**：`@media (max-width: 760px)` 里 `.search` 只做了左右拉伸，没给标题让位 —— 手机竖屏会压住站点标题。修复为 `top: 60px`。
+
+## S6-4 同名站定案（数据口径变更）
+
+`AGENTS.md` §12 原先的「>300 m 的 16 组同名站」是**探针口径**（按 `role=stop` 全部节点聚类），
+建站后实际只有 **12 组**。逐组证据见 `docs/split-groups-review.md`，决策见 `docs/decisions/0003-split-group-merges.md`。
+
+| 处理 | 组数 | 站名 |
+| --- | --- | --- |
+| 合并成单站 | 4 | 静安寺、南京西路、徐家汇、宜山路 |
+| 保持分裂 + `transfer` | 8 | 国家会展中心、浦东南路、娄山关路、上海南站、曹杨路、上海火车站、陆家嘴、桂林路 |
+
+同时修正 `is_transfer` 判定（原先只看被几条线引用，导致 12 组分裂出的 27 站画成普通小点）：
+
+```python
+is_transfer = len(lines) >= 2 or name in TRANSFER_NAMES   # TRANSFER_NAMES 来自 11_build_transfers.py 的 GROUP_TYPES
+```
+
+数据与前端随之变化：
+
+| 指标 | 改前 | 改后 |
+| --- | --- | --- |
+| `station.json` | 430 站 | **423 站**（434,587 B） |
+| `is_transfer` | 80 | **100** |
+| 待复核 / 分裂组 | 54 / 12 | 43 / 8 |
+| `transfer.json` | 22 条（17,498 B） | **12 条**（10,032 B） |
+| 搜索索引 | 450 条 | **443 条**（423 站 + 20 线） |
+
+`scripts/verify-build.mjs` 的断言同步改为 423 站 / 12 换乘；`npm run build && npm run verify` → 21 项全过、4.05 MB（gzip ≈ 0.91 MB）。

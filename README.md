@@ -19,7 +19,7 @@
 | 前端 | Next.js 16.4.3（App Router + 静态导出） | S3 完成：地图 + 站点详情 + 视觉打磨 + 构建自证 |
 | 地图渲染 | MapLibre GL JS 6.16.0 | 已实测：0 个 glyph 请求即可渲染中文 |
 | 底图 | **P0 极简自建灰底**（上海行政界 + 主水系，0.47 MB GeoJSON）；P1 换自托管 PMTiles 上海子集 | 已产出并截图验证 |
-| 线路数据 | GeoJSON（本站规模足够，不进 PMTiles） | S2 完成：570 段区间 / 430 站 |
+| 线路数据 | GeoJSON（本站规模足够，不进 PMTiles） | S2 完成：570 段区间 / 423 站（S6-4 合并 4 组同名枢纽后） |
 | 检索 | 自写 `web/lib/search.ts`（中文 / 拼音全拼 / 首字母 / 英文 / 线路号，450 条索引） | 纯函数、零依赖，22 条用例 + p50 0.039 ms |
 | 数据管道 | Python 3.14 + pyosmium / geopandas / shapely / pyproj / pyogrio | **已完成 S1，`pipeline/run_s1.py` 一条命令可重建** |
 | 数据来源 | OSM 省级 PBF（`download.openstreetmap.fr`），Overpass 仅备选 | 已实测；9 个 Overpass 端点全部不可达 |

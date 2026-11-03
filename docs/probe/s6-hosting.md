@@ -98,3 +98,19 @@ GitHub Pages 的「Deploy from a branch」默认跑 Jekyll，而 **Jekyll 会忽
 
 - 仓库 **没有 LICENSE**。项目定位是作品集且数据为 ODbL，建议加 `LICENSE`（代码用 MIT，数据另注 ODbL），否则外人无法判断可否复用。
 - `has_pages = false`，S6-2 首次启用后需回填本文件。
+
+## 九、S6-1 落地复测（2026-11-03）
+
+子路径适配已落地并按 `/subways/` 本地自测：
+
+| 项 | 结果 |
+| --- | --- |
+| `next.config.ts` | `basePath: "/subways"` + `env.NEXT_PUBLIC_BASE_PATH` |
+| 资源引用 | `index.html` 内全部变为 `/subways/_next/...` |
+| 数据与 worker | `${BASE}/data/*.json`、`${BASE}/vendor/maplibre-gl-worker.mjs` |
+| 本地子路径实测 | 18 个请求全在 `/subways/` 下，**0 个 4xx**；`loaded: true`、`zoom 9.59` |
+| 图层计数 | `metro-line 582 + maglev 2 + apm 5 = 589`、`sea-fill 4`、`station-dot-transfer 80` |
+| worker MIME | 本地 `text/javascript`（Pages 侧待 S6-3 复核） |
+| `npm run verify` | 21 项全过，4.06 MB |
+
+仍未验证、留到 S6-3：Pages 上的 `.mjs`/`.geojson` MIME、真实首屏耗时、`404.html` 行为。

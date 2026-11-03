@@ -348,3 +348,46 @@ pm.cmd run verify     # 21 项全过
 浏览器端实测：搜索框顶部居中不压控件、`徐家` 出 3 条同名站、中文输入法组合期间不误触发、`Enter` 选中开抽屉、点线路结果框到整线并收抽屉、`Esc` 第一下只清搜索第二下才失焦。检索未引入任何运行时依赖，产物与 S4 持平（4.05 → 4.06 MB）。
 
 完整记录见 [`docs/validation-s5.md`](../docs/validation-s5.md)。
+
+## S6-1 子路径适配（已完成）
+
+发布目标是 GitHub Pages 项目站点 `https://yukkki305.github.io/subways/`，
+站点挂在 `/subways` 子路径下，因此构建必须带前缀，否则线上所有资源 404。
+
+| 改动 | 位置 | 说明 |
+| --- | --- | --- |
+| `basePath: "/subways"` | `next.config.ts` | Next 自动给 `_next/` 资源加前缀 |
+| `env.NEXT_PUBLIC_BASE_PATH` | `next.config.ts` | 供客户端代码拼接运行时 URL |
+| `const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""` | `components/MapView.tsx` | 数据请求 `${BASE}/data/*.json`、worker `${BASE}/vendor/maplibre-gl-worker.mjs` |
+
+**本地开发/预览地址随之变化**：`npm run dev` 与 `python -m http.server` 都要带 `/subways/`。
+
+### 本地按子路径自测（已实测）
+
+```powershell
+# 把 out/ 放到子路径目录，再以父目录起静态服务
+New-Item -ItemType Directory -Force E:\subway-data\s6test\subways | Out-Null
+Copy-Item out\* E:\subway-data\s6test\subways\ -Recurse -Force
+New-Item -ItemType File -Force E:\subway-data\s6test\subways\.nojekyll | Out-Null
+python -m http.server 3210 --bind 127.0.0.1 -d E:\subway-data\s6test
+# 打开 http://127.0.0.1:3210/subways/
+```
+
+实测结果（2026-11-03）：
+
+| 项 | 结果 |
+| --- | --- |
+| 页面与资源 | 18 个请求，全部在 `/subways/` 下，**0 个 4xx** |
+| 地图 | `loaded: true`、首屏 `zoom 9.59` |
+| 图层计数 | `metro-line 582 + maglev 2 + apm 5 = 589`、`sea-fill 4`、`station-dot-transfer 80` |
+| worker MIME | `text/javascript`（本地服务；Pages 上待 S6-3 复核） |
+| 交互 | 点人民广场 → 抽屉「人民广场」正常 |
+| `npm run verify` | 21 项全过，产物 4.06 MB |
+
+截图：`E:\subway-data\preview\s6-1-subpath.png`。
+
+### 发布时必须带 `.nojekyll`
+
+`out/` 含 `_next/`、`_not-found/`、`__next.*.txt` 等下划线路径，GitHub Pages 默认跑 Jekyll 会
+**忽略所有 `_` 开头的文件与目录** → JS/CSS 全 404、线上白屏。发布脚本必须在分支根目录写入空文件
+`.nojekyll`（S6-2 落地，见 `docs/probe/s6-hosting.md` 第四节）。

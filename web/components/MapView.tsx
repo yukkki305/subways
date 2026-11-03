@@ -20,7 +20,13 @@ import {
 
 // Next 打包会把 maplibre 的 worker URL 算错（浏览器报 "Worker failed to load"），
 // 这里指向 sync-data 拷进 public/vendor 的原文件。
-maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
+/**
+ * S6-1：站点发布在 GitHub Pages 的项目子路径下（`/subways/`），
+ * 所有运行时请求都必须带此前缀，否则线上 404。
+ */
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+maplibregl.setWorkerUrl(`${BASE}/vendor/maplibre-gl-worker.mjs`);
 
 type LinesFile = { lines: Line[] };
 type StationFile = { stations: Station[] };
@@ -139,13 +145,13 @@ export default function MapView() {
     async function boot() {
       try {
         const [basemap, sea, segments, linesFile, stationFile, transferFile, metaFile] = await Promise.all([
-          loadJson<GeoJSON.FeatureCollection>("/data/shanghai-basemap.geojson"),
-          loadJson<GeoJSON.FeatureCollection>("/data/sea.geojson"),
-          loadJson<GeoJSON.FeatureCollection>("/data/segment.geojson"),
-          loadJson<LinesFile>("/data/lines.json"),
-          loadJson<StationFile>("/data/station.json"),
-          loadJson<TransferFile>("/data/transfer.json"),
-          loadJson<MetaFile>("/data/meta.json").catch(() => null),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/shanghai-basemap.geojson`),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/sea.geojson`),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/segment.geojson`),
+          loadJson<LinesFile>(`${BASE}/data/lines.json`),
+          loadJson<StationFile>(`${BASE}/data/station.json`),
+          loadJson<TransferFile>(`${BASE}/data/transfer.json`),
+          loadJson<MetaFile>(`${BASE}/data/meta.json`).catch(() => null),
         ]);
         if (disposed || !boxRef.current) return;
 

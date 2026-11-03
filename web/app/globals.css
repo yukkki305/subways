@@ -606,7 +606,9 @@ dl.kv dd {
 }
 
 @media (max-width: 760px) {
+  /* 窄屏：搜索框铺满一行，但要给左上角标题让位，否则两者重叠（S6-3 实测 696px 会压住标题） */
   .search {
+    top: 60px;
     width: auto;
     left: 16px;
     right: 16px;

@@ -1,0 +1,283 @@
+{
+  "sources": {
+    "osm": "省级 PBF 快照 20261101",
+    "gzupa": "GZUPA subway-traffic-data-set 2020-12-31（仅站名，坐标不可用）"
+  },
+  "coverage_lines": [
+    "sh-line-1",
+    "sh-line-10",
+    "sh-line-11",
+    "sh-line-12",
+    "sh-line-13",
+    "sh-line-16",
+    "sh-line-17",
+    "sh-line-18",
+    "sh-line-2",
+    "sh-line-3",
+    "sh-line-4",
+    "sh-line-5",
+    "sh-line-6",
+    "sh-line-7",
+    "sh-line-8",
+    "sh-line-9",
+    "sh-line-maglev",
+    "sh-line-pujiang"
+  ],
+  "method": "站名集合比对；归一化仅用于疑似改名提示",
+  "totals": {
+    "same_count": 417,
+    "only_osm": 47,
+    "only_gzupa": 16,
+    "osm": 464,
+    "gz": 435,
+    "hints": 4
+  },
+  "lines": {
+    "sh-line-1": {
+      "osm_count": 28,
+      "gzupa_count": 28,
+      "same_count": 27,
+      "only_osm": [
+        "一大会址·黄陂南路"
+      ],
+      "only_gzupa": [
+        "黄陂南路"
+      ],
+      "rename_hints": [
+        {
+          "osm": "一大会址·黄陂南路",
+          "gzupa": "黄陂南路"
+        }
+      ]
+    },
+    "sh-line-2": {
+      "osm_count": 31,
+      "gzupa_count": 31,
+      "same_count": 26,
+      "only_osm": [
+        "浦东1号2号航站楼",
+        "张江高科",
+        "浦东南路",
+        "国家会展中心",
+        "蟠祥路・国家会计学院"
+      ],
+      "only_gzupa": [
+        "东昌路",
+        "张江高科(新)",
+        "张江高科(旧）",
+        "徐泾东",
+        "浦东国际机场"
+      ],
+      "rename_hints": [
+        {
+          "osm": "张江高科",
+          "gzupa": "张江高科(新)"
+        }
+      ]
+    },
+    "sh-line-3": {
+      "osm_count": 29,
+      "gzupa_count": 29,
+      "same_count": 29,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-4": {
+      "osm_count": 26,
+      "gzupa_count": 27,
+      "same_count": 25,
+      "only_osm": [
+        "向城路"
+      ],
+      "only_gzupa": [
+        "浦电路"
+      ],
+      "rename_hints": []
+    },
+    "sh-line-5": {
+      "osm_count": 19,
+      "gzupa_count": 20,
+      "same_count": 19,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-6": {
+      "osm_count": 28,
+      "gzupa_count": 28,
+      "same_count": 28,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-7": {
+      "osm_count": 33,
+      "gzupa_count": 33,
+      "same_count": 33,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-8": {
+      "osm_count": 30,
+      "gzupa_count": 30,
+      "same_count": 30,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-9": {
+      "osm_count": 34,
+      "gzupa_count": 35,
+      "same_count": 33,
+      "only_osm": [
+        "上海松江站"
+      ],
+      "only_gzupa": [
+        "松江南站",
+        "金吉路"
+      ],
+      "rename_hints": []
+    },
+    "sh-line-10": {
+      "osm_count": 37,
+      "gzupa_count": 37,
+      "same_count": 36,
+      "only_osm": [
+        "一大会址·新天地"
+      ],
+      "only_gzupa": [
+        "新天地"
+      ],
+      "rename_hints": [
+        {
+          "osm": "一大会址·新天地",
+          "gzupa": "新天地"
+        }
+      ]
+    },
+    "sh-line-11": {
+      "osm_count": 40,
+      "gzupa_count": 32,
+      "same_count": 32,
+      "only_osm": [
+        "康恒路",
+        "上海赛车场",
+        "昌吉东路",
+        "上海汽车城",
+        "安亭",
+        "兆丰路",
+        "光明路",
+        "花桥"
+      ],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-12": {
+      "osm_count": 32,
+      "gzupa_count": 32,
+      "same_count": 32,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-13": {
+      "osm_count": 31,
+      "gzupa_count": 31,
+      "same_count": 30,
+      "only_osm": [
+        "一大会址·新天地"
+      ],
+      "only_gzupa": [
+        "新天地"
+      ],
+      "rename_hints": [
+        {
+          "osm": "一大会址·新天地",
+          "gzupa": "新天地"
+        }
+      ]
+    },
+    "sh-line-16": {
+      "osm_count": 13,
+      "gzupa_count": 13,
+      "same_count": 13,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    },
+    "sh-line-17": {
+      "osm_count": 14,
+      "gzupa_count": 13,
+      "same_count": 12,
+      "only_osm": [
+        "国家会展中心",
+        "西岑"
+      ],
+      "only_gzupa": [
+        "诸光路"
+      ],
+      "rename_hints": []
+    },
+    "sh-line-18": {
+      "osm_count": 31,
+      "gzupa_count": 8,
+      "same_count": 5,
+      "only_osm": [
+        "下沙",
+        "鹤涛路",
+        "康桥",
+        "莲溪路",
+        "北中路",
+        "芳芯路",
+        "龙阳路",
+        "迎春路",
+        "杨高中路",
+        "民生路",
+        "昌邑路",
+        "丹阳路",
+        "平凉路",
+        "江浦公园",
+        "江浦路",
+        "抚顺路",
+        "国权路",
+        "复旦大学",
+        "上海财经大学",
+        "殷高路",
+        "长江南路",
+        "通南路",
+        "长江西路",
+        "爱辉路",
+        "呼兰路",
+        "康文路"
+      ],
+      "only_gzupa": [
+        "下盐路",
+        "沪南公路",
+        "鹤立西路"
+      ],
+      "rename_hints": []
+    },
+    "sh-line-maglev": {
+      "osm_count": 2,
+      "gzupa_count": 2,
+      "same_count": 1,
+      "only_osm": [
+        "浦东1号2号航站楼"
+      ],
+      "only_gzupa": [
+        "浦东国际机场"
+      ],
+      "rename_hints": []
+    },
+    "sh-line-pujiang": {
+      "osm_count": 6,
+      "gzupa_count": 6,
+      "same_count": 6,
+      "only_osm": [],
+      "only_gzupa": [],
+      "rename_hints": []
+    }
+  }
+}

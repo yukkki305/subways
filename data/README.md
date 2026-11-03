@@ -10,7 +10,7 @@
 | 文件 | 内容 | 来源 | 许可 | 数据截止（`as_of`） | 生成脚本 |
 | --- | --- | --- | --- | --- | --- |
 | `data/processed/basemap/shanghai-basemap.geojson` | 上海底图 22 个要素：16 个区界、市界、淀山湖、长江口/吴淞江/黄浦江中心线、海岸线 | OSM，经 `download.openstreetmap.fr` 五省省级 extract（关系 `913067` `1122227` `9392345` `9064903` + `waterway=river` 与 `natural=coastline` 的 way） | **ODbL-1.0** © OpenStreetMap contributors | **2026-11-01** 00:27–00:28 GMT | `pipeline/03_extract_basemap.py` |
-| `data/processed/basemap/shanghai-sea.geojson` | 五省 PBF 的 `natural=coastline`（上海 130 / 江苏 42 / 浙江 433 条视野内），`pipeline/14_extract_sea.py` 生成，24,829.3 km²、1 个面、76 个岛洞 | ODbL-1.0 | 2026-11-01 00:27–00:28 GMT |
+| `data/processed/basemap/shanghai-sea.geojson` | S4-4 海面：五省 PBF 的 `natural=coastline`（上海 130 / 江苏 42 / 浙江 433 条视野内）polygonize 后取反，24,829.3 km²、1 个面、76 个岛洞 | OSM，`pipeline/14_extract_sea.py` | **ODbL-1.0** | 2026-11-01 00:27–00:28 GMT | `pipeline/14_extract_sea.py` |
 | `data/processed/relation-index.json` | 287 条轨道关系的清单与三重指纹（标签 / 成员 / 站序），含 `city` `province` 归属回填 | 同上，取自关系标签与成员节点 | **ODbL-1.0** | 2026-11-01 | `pipeline/04_track.py` |
 | `data/processed/attribution-report.json` | 归属判定报告：每省的省面来源与面积、每个关系的逐站归属、未命中计数、flags | 由上面两份派生（OSM 几何 + OSM 关系） | **ODbL-1.0** | 2026-11-01 | `pipeline/05_attribution.py` |
 | `data/snapshots/20261101/manifest.json` | 快照元数据：五个 PBF 的 URL、字节数、sha256、`Last-Modified`、下载时间 | 直接记录 `download.openstreetmap.fr` 的响应头与文件哈希 | **ODbL-1.0** | 2026-11-01 00:27–00:28 GMT | `pipeline/01_fetch_snapshot.py` |
@@ -26,6 +26,8 @@
 | `docs/mappings/transfer-decisions.md` | S2-5 换乘判定表：口径、统计、按站距降序的 22 条明细、待人工确认清单 | 由 `transfer.json` 渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/11_build_transfers.py` |
 | `data/manual/shanghai-lines.csv` | S2-6 人工属性表：20 条线路的开通日、官方里程、运营机构、官方色名，含 `source`/`source_url`/`note` | **百度百科**词条的结构化字段（`dateOfOpening` / `lineLength` / `operatingOrganization` / 标志色）；仅取事实性字段，不转载条目正文 | 各词条版权归百度百科；本项目只保存事实性字段并逐条标注 URL | 2026-11-01 | 人工维护（初稿脚本 `E:\subway-data\probe16\mk_manual_lines.py`，仓库外） |
 | `docs/colors.md` | S2-6 线路配色表：最终色、官图色名、来源三态、与 OSM 的欧氏距离、未核实原因 | 颜色来源 = 官方线路图 JPEG 采样（`shmetro.com`，2025-12-26）与 OSM `colour` 标签 | ODbL-1.0（OSM 部分）；官方线路图仅提取色值，不搬运图形 | 2026-11-01（图 2025-12-26） | `pipeline/12_build_attributes.py` |
+| `data/processed/name-diff.json` | S5-4 追补：OSM（2026-11）↔ GZUPA（2020-12）的 **站名集合**差异，18 条线、同名 417 / 仅 OSM 47 / 仅 GZUPA 16 / 疑似改名 4 | OSM 部分同上；GZUPA 部分取自 `GZUPA/subway-traffic-data-set` 的 `shanghai_Layer_2020.shp`，**只取站名，不用其坐标**（`x/y` 是 GCJ-02、`wgs84_*` 偏移约 900 m，见 `docs/decisions/0002-gzupa-datum.md`） | ODbL-1.0（OSM）+ GZUPA 仓库许可 | OSM 2026-11-01；GZUPA 2020-12-31 | `pipeline/15_compare_names.py` |
+| `docs/name-diff.md` | 上面那份差异清单的人可读视图（逐线表格 + 疑似改名表 + 仅单边有站列表） | 由 `name-diff.json` 渲染 | 同上 | 同上 | `pipeline/15_compare_names.py` |
 
 **仓库外、不进 git：**
 

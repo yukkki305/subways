@@ -11,12 +11,12 @@
 
 | 项 | 值 |
 | --- | --- |
-| 站点总数 | 430 |
+| 站点总数 | 423 |
 | slot（线路×站次） | 592 |
-| 多线站 | 80 |
-| 待复核站 | 54 |
-| 同名分裂组 | 12 |
-| 换乘候选 | 22 |
+| 多线站 | 83 |
+| 待复核站 | 43 |
+| 同名分裂组 | 8 |
+| 换乘候选 | 12 |
 
 ## 同名多站名的判定
 
@@ -29,11 +29,11 @@
 | 上海南站 | 上海市 | 3 | 3 | 435.9 | `split_review` | 是 | 15号线、1号线、3号线 |
 | 上海火车站 | 上海市 | 3 | 3 | 359.6 | `split_review` | 是 | 1号线、3号线、4号线 |
 | 陆家嘴 | 上海市 | 2 | 2 | 359.1 | `split_review` | 是 | 14号线、2号线 |
-| 静安寺 | 上海市 | 3 | 3 | 325.1 | `split_review` | 是 | 14号线、2号线、7号线 |
-| 南京西路 | 上海市 | 3 | 3 | 322.1 | `split_review` | 是 | 12号线、13号线、2号线 |
-| 宜山路 | 上海市 | 3 | 2 | 319.9 | `split_review` | 是 | 3号线、4号线、9号线 |
+| 静安寺 | 上海市 | 3 | 1 | 325.1 | `manual_merge` | 否 | 14号线、2号线、7号线 |
+| 南京西路 | 上海市 | 3 | 1 | 322.1 | `manual_merge` | 否 | 12号线、13号线、2号线 |
+| 宜山路 | 上海市 | 3 | 1 | 319.9 | `manual_merge` | 否 | 3号线、4号线、9号线 |
 | 桂林路 | 上海市 | 2 | 2 | 311.9 | `split_review` | 是 | 15号线、9号线 |
-| 徐家汇 | 上海市 | 4 | 3 | 301.3 | `split_review` | 是 | 11号线、1号线、9号线 |
+| 徐家汇 | 上海市 | 4 | 1 | 301.3 | `manual_merge` | 否 | 11号线、1号线、9号线 |
 | 龙阳路 | 上海市 | 5 | 1 | 297.0 | `auto_review` | 是 | 16号线、18号线、2号线、7号线、磁浮线 |
 | 陕西南路 | 上海市 | 4 | 1 | 262.9 | `auto_review` | 是 | 10号线、12号线、1号线 |
 | 华夏中路 | 上海市 | 2 | 1 | 262.6 | `auto_review` | 是 | 13号线、16号线 |
@@ -168,17 +168,7 @@
 | `sh-station-shang-hai-huo-che-zhan` | `sh-station-shang-hai-huo-che-zhan-3` | 359.6 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
 | `sh-station-lu-jia-zui` | `sh-station-lu-jia-zui-2` | 359.1 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
 | `sh-station-shang-hai-huo-che-zhan` | `sh-station-shang-hai-huo-che-zhan-2` | 346.4 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-jing-an-si-2` | `sh-station-jing-an-si-3` | 325.1 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-nan-jing-xi-lu-2` | `sh-station-nan-jing-xi-lu-3` | 322.1 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
 | `sh-station-gui-lin-lu` | `sh-station-gui-lin-lu-2` | 311.9 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-xu-jia-hui` | `sh-station-xu-jia-hui-2` | 301.3 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-nan-jing-xi-lu` | `sh-station-nan-jing-xi-lu-2` | 291.3 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-xu-jia-hui` | `sh-station-xu-jia-hui-3` | 273.5 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-yi-shan-lu` | `sh-station-yi-shan-lu-2` | 255.0 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
 | `sh-station-shang-hai-nan-zhan` | `sh-station-shang-hai-nan-zhan-3` | 254.4 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-nan-jing-xi-lu` | `sh-station-nan-jing-xi-lu-3` | 241.9 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-jing-an-si` | `sh-station-jing-an-si-3` | 217.3 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
 | `sh-station-shang-hai-nan-zhan` | `sh-station-shang-hai-nan-zhan-2` | 188.1 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
 | `sh-station-shang-hai-huo-che-zhan-2` | `sh-station-shang-hai-huo-che-zhan-3` | 174.9 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-xu-jia-hui-2` | `sh-station-xu-jia-hui-3` | 157.3 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |
-| `sh-station-jing-an-si` | `sh-station-jing-an-si-2` | 153.9 | 同名但站距 >300 m，ADR R4 判为不合并，候选换乘 |

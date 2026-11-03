@@ -2,20 +2,28 @@
   "city": "上海市",
   "city_code": "sh",
   "snapshot_date": "20261101",
-  "generated_at": "2026-11-01T22:56:53+08:00",
+  "generated_at": "2026-11-03T22:36:36+08:00",
   "rules": "docs/decisions/0001-modeling-rules.md（R4 车站合并、R2 ID）",
   "merge_policy": {
     "merge_m": 150.0,
     "review_m": 300.0,
-    "note": "站名 + 城市为主键；跨城同名不合并；>300 m 不合并改走 transfer"
+    "note": "站名 + 城市为主键；跨城同名不合并；>300 m 默认不合并改走 transfer；人工白名单（FORCE_MERGE）强制并站",
+    "force_merge": [
+      "南京西路",
+      "宜山路",
+      "徐家汇",
+      "静安寺"
+    ],
+    "is_transfer_rule": "多线站 ∪ 有换乘记录的站（站名命中 11_build_transfers.py 的 GROUP_TYPES）"
   },
   "counts": {
-    "stations": 430,
+    "stations": 423,
     "slots": 592,
-    "multi_line_stations": 80,
-    "needs_review": 54,
-    "split_groups": 12,
-    "transfer_candidates": 22,
+    "transfer_style_stations": 100,
+    "multi_line_stations": 83,
+    "needs_review": 43,
+    "split_groups": 8,
+    "transfer_candidates": 12,
     "name_groups_multi": 133
   },
   "transfer_candidates": [
@@ -76,20 +84,6 @@
       "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
     },
     {
-      "station_a": "sh-station-jing-an-si-2",
-      "station_b": "sh-station-jing-an-si-3",
-      "name": "静安寺",
-      "dist_m": 325.1,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-nan-jing-xi-lu-2",
-      "station_b": "sh-station-nan-jing-xi-lu-3",
-      "name": "南京西路",
-      "dist_m": 322.1,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
       "station_a": "sh-station-gui-lin-lu",
       "station_b": "sh-station-gui-lin-lu-2",
       "name": "桂林路",
@@ -97,52 +91,10 @@
       "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
     },
     {
-      "station_a": "sh-station-xu-jia-hui",
-      "station_b": "sh-station-xu-jia-hui-2",
-      "name": "徐家汇",
-      "dist_m": 301.3,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-nan-jing-xi-lu",
-      "station_b": "sh-station-nan-jing-xi-lu-2",
-      "name": "南京西路",
-      "dist_m": 291.3,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-xu-jia-hui",
-      "station_b": "sh-station-xu-jia-hui-3",
-      "name": "徐家汇",
-      "dist_m": 273.5,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-yi-shan-lu",
-      "station_b": "sh-station-yi-shan-lu-2",
-      "name": "宜山路",
-      "dist_m": 255.0,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
       "station_a": "sh-station-shang-hai-nan-zhan",
       "station_b": "sh-station-shang-hai-nan-zhan-3",
       "name": "上海南站",
       "dist_m": 254.4,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-nan-jing-xi-lu",
-      "station_b": "sh-station-nan-jing-xi-lu-3",
-      "name": "南京西路",
-      "dist_m": 241.9,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-jing-an-si",
-      "station_b": "sh-station-jing-an-si-3",
-      "name": "静安寺",
-      "dist_m": 217.3,
       "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
     },
     {
@@ -157,20 +109,6 @@
       "station_b": "sh-station-shang-hai-huo-che-zhan-3",
       "name": "上海火车站",
       "dist_m": 174.9,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-xu-jia-hui-2",
-      "station_b": "sh-station-xu-jia-hui-3",
-      "name": "徐家汇",
-      "dist_m": 157.3,
-      "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
-    },
-    {
-      "station_a": "sh-station-jing-an-si",
-      "station_b": "sh-station-jing-an-si-2",
-      "name": "静安寺",
-      "dist_m": 153.9,
       "reason": "同名但站距 >300 m，ADR R4 判为不合并，候选换乘"
     }
   ],
@@ -1002,7 +940,7 @@
       "branches": [
         "sh-line-14-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-14",
@@ -4035,7 +3973,7 @@
       "branches": [
         "sh-line-9-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-9",
@@ -4074,7 +4012,7 @@
       "branches": [
         "sh-line-15-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-15",
@@ -4241,7 +4179,7 @@
       "branches": [
         "sh-line-2-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-2",
@@ -4280,7 +4218,7 @@
       "branches": [
         "sh-line-17-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-17",
@@ -7507,16 +7445,20 @@
       "name_pinyin": "jìng ān sì",
       "city": "上海市",
       "coord": [
-        121.4422,
-        31.225336
+        121.442283,
+        31.224771
       ],
       "lines": [
-        "sh-line-2"
+        "sh-line-14",
+        "sh-line-2",
+        "sh-line-7"
       ],
       "branches": [
-        "sh-line-2-main"
+        "sh-line-14-main",
+        "sh-line-2-main",
+        "sh-line-7-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-2",
@@ -7527,36 +7469,7 @@
             121.4422,
             31.225336
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-jing-an-si-2",
-      "name": "静安寺",
-      "name_en": "Jing'an Temple",
-      "name_pinyin": "jìng ān sì",
-      "city": "上海市",
-      "coord": [
-        121.443812,
-        31.22521
-      ],
-      "lines": [
-        "sh-line-7"
-      ],
-      "branches": [
-        "sh-line-7-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-7",
           "branch": "sh-line-7-main",
@@ -7566,36 +7479,7 @@
             121.443812,
             31.22521
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-jing-an-si-3",
-      "name": "静安寺",
-      "name_en": "Jing'an Temple",
-      "name_pinyin": "jìng ān sì",
-      "city": "上海市",
-      "coord": [
-        121.440838,
-        31.223767
-      ],
-      "lines": [
-        "sh-line-14"
-      ],
-      "branches": [
-        "sh-line-14-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-14",
           "branch": "sh-line-14-main",
@@ -7608,10 +7492,10 @@
         }
       ],
       "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
+        "method": "manual_merge",
+        "slot_count": 3,
+        "spread_m": 325.1,
+        "needs_review": false
       },
       "source": "OpenStreetMap（省级 PBF）",
       "source_license": "ODbL-1.0",
@@ -9242,7 +9126,7 @@
       "branches": [
         "sh-line-2-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-2",
@@ -9281,7 +9165,7 @@
       "branches": [
         "sh-line-15-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-15",
@@ -9449,7 +9333,7 @@
       "branches": [
         "sh-line-2-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-2",
@@ -9488,7 +9372,7 @@
       "branches": [
         "sh-line-14-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-14",
@@ -10145,16 +10029,20 @@
       "name_pinyin": "nán jīng xī lù",
       "city": "上海市",
       "coord": [
-        121.456011,
-        31.23185
+        121.456269,
+        31.230587
       ],
       "lines": [
+        "sh-line-12",
+        "sh-line-13",
         "sh-line-2"
       ],
       "branches": [
+        "sh-line-12-main",
+        "sh-line-13-main",
         "sh-line-2-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-2",
@@ -10165,36 +10053,7 @@
             121.456011,
             31.23185
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-nan-jing-xi-lu-2",
-      "name": "南京西路",
-      "name_en": "West Nanjing Road",
-      "name_pinyin": "nán jīng xī lù",
-      "city": "上海市",
-      "coord": [
-        121.454816,
-        31.229438
-      ],
-      "lines": [
-        "sh-line-12"
-      ],
-      "branches": [
-        "sh-line-12-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-12",
           "branch": "sh-line-12-main",
@@ -10204,36 +10063,7 @@
             121.454816,
             31.229438
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-nan-jing-xi-lu-3",
-      "name": "南京西路",
-      "name_en": "West Nanjing Road",
-      "name_pinyin": "nán jīng xī lù",
-      "city": "上海市",
-      "coord": [
-        121.45798,
-        31.230473
-      ],
-      "lines": [
-        "sh-line-13"
-      ],
-      "branches": [
-        "sh-line-13-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-13",
           "branch": "sh-line-13-main",
@@ -10246,10 +10076,10 @@
         }
       ],
       "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
+        "method": "manual_merge",
+        "slot_count": 3,
+        "spread_m": 322.1,
+        "needs_review": false
       },
       "source": "OpenStreetMap（省级 PBF）",
       "source_license": "ODbL-1.0",
@@ -10774,7 +10604,7 @@
       "branches": [
         "sh-line-2-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-2",
@@ -10813,7 +10643,7 @@
       "branches": [
         "sh-line-14-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-14",
@@ -11953,7 +11783,7 @@
       "branches": [
         "sh-line-1-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-1",
@@ -11992,7 +11822,7 @@
       "branches": [
         "sh-line-3-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-3",
@@ -12031,7 +11861,7 @@
       "branches": [
         "sh-line-4-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-4",
@@ -12148,7 +11978,7 @@
       "branches": [
         "sh-line-1-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-1",
@@ -12187,7 +12017,7 @@
       "branches": [
         "sh-line-3-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-3",
@@ -12226,7 +12056,7 @@
       "branches": [
         "sh-line-15-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-15",
@@ -15696,16 +15526,21 @@
       "name_pinyin": "xú jiā huì",
       "city": "上海市",
       "coord": [
-        121.433879,
-        31.195084
+        121.432261,
+        31.1963
       ],
       "lines": [
-        "sh-line-1"
+        "sh-line-1",
+        "sh-line-11",
+        "sh-line-9"
       ],
       "branches": [
-        "sh-line-1-main"
+        "sh-line-1-main",
+        "sh-line-11-b1",
+        "sh-line-11-main",
+        "sh-line-9-main"
       ],
-      "is_transfer": false,
+      "is_transfer": true,
       "slots": [
         {
           "line": "sh-line-1",
@@ -15716,36 +15551,7 @@
             121.433879,
             31.195084
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-xu-jia-hui-2",
-      "name": "徐家汇",
-      "name_en": "Xujiahui",
-      "name_pinyin": "xú jiā huì",
-      "city": "上海市",
-      "coord": [
-        121.432372,
-        31.197467
-      ],
-      "lines": [
-        "sh-line-9"
-      ],
-      "branches": [
-        "sh-line-9-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-9",
           "branch": "sh-line-9-main",
@@ -15755,37 +15561,7 @@
             121.432372,
             31.197467
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-xu-jia-hui-3",
-      "name": "徐家汇",
-      "name_en": "Xujiahui",
-      "name_pinyin": "xú jiā huì",
-      "city": "上海市",
-      "coord": [
-        121.431396,
-        31.196325
-      ],
-      "lines": [
-        "sh-line-11"
-      ],
-      "branches": [
-        "sh-line-11-b1",
-        "sh-line-11-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-11",
           "branch": "sh-line-11-main",
@@ -15808,10 +15584,10 @@
         }
       ],
       "merge": {
-        "method": "split_review",
-        "slot_count": 2,
-        "spread_m": 0.0,
-        "needs_review": true
+        "method": "manual_merge",
+        "slot_count": 4,
+        "spread_m": 301.3,
+        "needs_review": false
       },
       "source": "OpenStreetMap（省级 PBF）",
       "source_license": "ODbL-1.0",
@@ -16569,16 +16345,18 @@
       "name_pinyin": "yí shān lù",
       "city": "上海市",
       "coord": [
-        121.422764,
-        31.188524
+        121.422762,
+        31.18776
       ],
       "lines": [
         "sh-line-3",
-        "sh-line-4"
+        "sh-line-4",
+        "sh-line-9"
       ],
       "branches": [
         "sh-line-3-main",
-        "sh-line-4-main"
+        "sh-line-4-main",
+        "sh-line-9-main"
       ],
       "is_transfer": true,
       "slots": [
@@ -16601,36 +16379,7 @@
             121.422534,
             31.189102
           ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 2,
-        "spread_m": 135.8,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "20261101"
-    },
-    {
-      "id": "sh-station-yi-shan-lu-2",
-      "name": "宜山路",
-      "name_en": "Yishan Road",
-      "name_pinyin": "yí shān lù",
-      "city": "上海市",
-      "coord": [
-        121.422757,
-        31.186231
-      ],
-      "lines": [
-        "sh-line-9"
-      ],
-      "branches": [
-        "sh-line-9-main"
-      ],
-      "is_transfer": false,
-      "slots": [
+        },
         {
           "line": "sh-line-9",
           "branch": "sh-line-9-main",
@@ -16643,10 +16392,10 @@
         }
       ],
       "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
+        "method": "manual_merge",
+        "slot_count": 3,
+        "spread_m": 319.9,
+        "needs_review": false
       },
       "source": "OpenStreetMap（省级 PBF）",
       "source_license": "ODbL-1.0",

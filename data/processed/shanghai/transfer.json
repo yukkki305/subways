@@ -2,15 +2,15 @@
  "city": "上海市",
  "city_code": "sh",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-01T22:56:53+08:00",
+ "generated_at": "2026-11-03T22:36:50+08:00",
  "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
  "stats": {
-  "total": 22,
+  "total": 12,
   "by_type": {
    "出站换乘": 10,
-   "通道": 12
+   "通道": 2
   },
-  "needs_review": 10
+  "needs_review": 9
  },
  "transfers": [
   {
@@ -248,64 +248,6 @@
    "as_of": "20261101"
   },
   {
-   "id": "sh-station-jing-an-si-2--sh-station-jing-an-si-3",
-   "name": "静安寺",
-   "station_a": "sh-station-jing-an-si-2",
-   "station_b": "sh-station-jing-an-si-3",
-   "lines_a": [
-    "sh-line-7"
-   ],
-   "lines_b": [
-    "sh-line-14"
-   ],
-   "coord_a": [
-    121.443812,
-    31.22521
-   ],
-   "coord_b": [
-    121.440838,
-    31.223767
-   ],
-   "dist_m": 325.4,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "2/7/14 号线共用站体，站厅层与站台层之间为站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-nan-jing-xi-lu-2--sh-station-nan-jing-xi-lu-3",
-   "name": "南京西路",
-   "station_a": "sh-station-nan-jing-xi-lu-2",
-   "station_b": "sh-station-nan-jing-xi-lu-3",
-   "lines_a": [
-    "sh-line-12"
-   ],
-   "lines_b": [
-    "sh-line-13"
-   ],
-   "coord_a": [
-    121.454816,
-    31.229438
-   ],
-   "coord_b": [
-    121.45798,
-    31.230473
-   ],
-   "dist_m": 322.6,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "2/12/13 号线站体相连，站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
    "id": "sh-station-gui-lin-lu--sh-station-gui-lin-lu-2",
    "name": "桂林路",
    "station_a": "sh-station-gui-lin-lu",
@@ -328,123 +270,6 @@
    "type": "通道",
    "type_confidence": "low",
    "type_note": "9 号线与 15 号线同名站，疑似站内通道，待核对是否需出站",
-   "walk_minutes": null,
-   "needs_review": true,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-xu-jia-hui--sh-station-xu-jia-hui-2",
-   "name": "徐家汇",
-   "station_a": "sh-station-xu-jia-hui",
-   "station_b": "sh-station-xu-jia-hui-2",
-   "lines_a": [
-    "sh-line-1"
-   ],
-   "lines_b": [
-    "sh-line-9"
-   ],
-   "coord_a": [
-    121.433879,
-    31.195084
-   ],
-   "coord_b": [
-    121.432372,
-    31.197467
-   ],
-   "dist_m": 300.7,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "1/9/11 号线共用枢纽，站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-nan-jing-xi-lu--sh-station-nan-jing-xi-lu-2",
-   "name": "南京西路",
-   "station_a": "sh-station-nan-jing-xi-lu",
-   "station_b": "sh-station-nan-jing-xi-lu-2",
-   "lines_a": [
-    "sh-line-2"
-   ],
-   "lines_b": [
-    "sh-line-12"
-   ],
-   "coord_a": [
-    121.456011,
-    31.23185
-   ],
-   "coord_b": [
-    121.454816,
-    31.229438
-   ],
-   "dist_m": 290.7,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "2/12/13 号线站体相连，站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-xu-jia-hui--sh-station-xu-jia-hui-3",
-   "name": "徐家汇",
-   "station_a": "sh-station-xu-jia-hui",
-   "station_b": "sh-station-xu-jia-hui-3",
-   "lines_a": [
-    "sh-line-1"
-   ],
-   "lines_b": [
-    "sh-line-11"
-   ],
-   "coord_a": [
-    121.433879,
-    31.195084
-   ],
-   "coord_b": [
-    121.431396,
-    31.196325
-   ],
-   "dist_m": 273.7,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "1/9/11 号线共用枢纽，站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-yi-shan-lu--sh-station-yi-shan-lu-2",
-   "name": "宜山路",
-   "station_a": "sh-station-yi-shan-lu",
-   "station_b": "sh-station-yi-shan-lu-2",
-   "lines_a": [
-    "sh-line-3",
-    "sh-line-4"
-   ],
-   "lines_b": [
-    "sh-line-9"
-   ],
-   "coord_a": [
-    121.422764,
-    31.188524
-   ],
-   "coord_b": [
-    121.422757,
-    31.186231
-   ],
-   "dist_m": 254.2,
-   "type": "通道",
-   "type_confidence": "medium",
-   "type_note": "3/4 号线与 9 号线之间为站内通道；通道较长，建议现场核对步行时间",
    "walk_minutes": null,
    "needs_review": true,
    "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
@@ -476,64 +301,6 @@
    "type_note": "15 号线站体在北广场一侧，与 1/3 号线需出站；待核对是否有连通通道",
    "walk_minutes": null,
    "needs_review": true,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-nan-jing-xi-lu--sh-station-nan-jing-xi-lu-3",
-   "name": "南京西路",
-   "station_a": "sh-station-nan-jing-xi-lu",
-   "station_b": "sh-station-nan-jing-xi-lu-3",
-   "lines_a": [
-    "sh-line-2"
-   ],
-   "lines_b": [
-    "sh-line-13"
-   ],
-   "coord_a": [
-    121.456011,
-    31.23185
-   ],
-   "coord_b": [
-    121.45798,
-    31.230473
-   ],
-   "dist_m": 241.9,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "2/12/13 号线站体相连，站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-jing-an-si--sh-station-jing-an-si-3",
-   "name": "静安寺",
-   "station_a": "sh-station-jing-an-si",
-   "station_b": "sh-station-jing-an-si-3",
-   "lines_a": [
-    "sh-line-2"
-   ],
-   "lines_b": [
-    "sh-line-14"
-   ],
-   "coord_a": [
-    121.4422,
-    31.225336
-   ],
-   "coord_b": [
-    121.440838,
-    31.223767
-   ],
-   "dist_m": 217.0,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "2/7/14 号线共用站体，站厅层与站台层之间为站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
    "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
    "source_license": "ODbL-1.0",
    "as_of": "20261101"
@@ -590,64 +357,6 @@
    "type": "出站换乘",
    "type_confidence": "high",
    "type_note": "1 号线与 3/4 号线站体分离，需出站经地面换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-xu-jia-hui-2--sh-station-xu-jia-hui-3",
-   "name": "徐家汇",
-   "station_a": "sh-station-xu-jia-hui-2",
-   "station_b": "sh-station-xu-jia-hui-3",
-   "lines_a": [
-    "sh-line-9"
-   ],
-   "lines_b": [
-    "sh-line-11"
-   ],
-   "coord_a": [
-    121.432372,
-    31.197467
-   ],
-   "coord_b": [
-    121.431396,
-    31.196325
-   ],
-   "dist_m": 157.1,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "1/9/11 号线共用枢纽，站内通道换乘",
-   "walk_minutes": null,
-   "needs_review": false,
-   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
-   "source_license": "ODbL-1.0",
-   "as_of": "20261101"
-  },
-  {
-   "id": "sh-station-jing-an-si--sh-station-jing-an-si-2",
-   "name": "静安寺",
-   "station_a": "sh-station-jing-an-si",
-   "station_b": "sh-station-jing-an-si-2",
-   "lines_a": [
-    "sh-line-2"
-   ],
-   "lines_b": [
-    "sh-line-7"
-   ],
-   "coord_a": [
-    121.4422,
-    31.225336
-   ],
-   "coord_b": [
-    121.443812,
-    31.22521
-   ],
-   "dist_m": 154.2,
-   "type": "通道",
-   "type_confidence": "high",
-   "type_note": "2/7/14 号线共用站体，站厅层与站台层之间为站内通道换乘",
    "walk_minutes": null,
    "needs_review": false,
    "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",

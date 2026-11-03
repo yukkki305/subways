@@ -50,8 +50,8 @@ const segment = JSON.parse(readFileSync(join(dataDir, "segment.geojson"), "utf8"
 const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 
 check("线路 20 条", lines.lines.length === 20, `${lines.lines.length}`);
-check("车站 430 座", station.stations.length === 430, `${station.stations.length}`);
-check("换乘 22 条", transfer.transfers.length === 22, `${transfer.transfers.length}`);
+check("车站 423 座", station.stations.length === 423, `${station.stations.length}`);
+check("换乘 12 条", transfer.transfers.length === 12, `${transfer.transfers.length}`);
 check("区间 570 段", segment.features.length === 570, `${segment.features.length}`);
 check(
   "meta.json 计数与文件一致",
@@ -70,7 +70,7 @@ check("meta.json 记录的字节数与实际一致", shaMismatch.length === 0, `
 // 4. 坐标全部落在上海视野内（WGS-84，防 GCJ-02 混入）
 const visible = (lon, lat) => lon > 120.7 && lon < 123.4 && lat > 30.5 && lat < 32.0;
 const badCoord = station.stations.filter((s) => !visible(s.coord[0], s.coord[1]));
-check("车站坐标均在 WGS-84 上海视野内", badCoord.length === 0, badCoord.length ? `${badCoord.length} 个越界` : "430/430");
+check("车站坐标均在 WGS-84 上海视野内", badCoord.length === 0, badCoord.length ? `${badCoord.length} 个越界` : `${station.stations.length}/${station.stations.length}`);
 
 // 5. 颜色全部为合法十六进制
 const badColour = lines.lines.filter((l) => !/^#[0-9A-F]{6}$/.test(l.colour));

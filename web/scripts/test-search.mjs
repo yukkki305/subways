@@ -82,7 +82,7 @@ for (const c of cases) {
   });
 }
 
-// ---- 性能：430 站 + 20 线，单次查询应当远低于一帧 ----
+// ---- 性能：423 站 + 20 线，单次查询应当远低于一帧 ----
 const probes = ["人民", "renmin", "rmgc", "南", "路", "line", "2", "x", "龙阳路", "shanghai"];
 const timings = [];
 for (let i = 0; i < 400; i += 1) {

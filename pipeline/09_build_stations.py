@@ -44,8 +44,26 @@ CITY_CODE = "sh"
 MERGE_M = 150.0      # 合并阈值
 REVIEW_M = 300.0     # 超过即不合并
 
+# 人工白名单：同一座车站/枢纽，跨度虽 >300 m 仍并成一站（决策见 docs/split-groups-review.md）
+FORCE_MERGE = {"静安寺", "南京西路", "徐家汇", "宜山路"}
+
 # 上海市外的站（当前只有 11 号线花桥支线 3 站），省 → 地级市
 PROVINCE_TO_CITY = {"江苏省": "苏州市", "浙江省": "嘉兴市", "安徽省": "宣城市"}
+
+
+def transfer_names() -> set[str]:
+    """换乘站名清单，直接取 11_build_transfers.py 的 GROUP_TYPES，避免两处硬编码漂移。"""
+    import importlib.util
+
+    path = Path(__file__).resolve().parent / "11_build_transfers.py"
+    spec = importlib.util.spec_from_file_location("build_transfers", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return set(mod.GROUP_TYPES)
+
+
+# 换乘站名（S6-4 决策 D1：换乘样式 = 多线站 ∪ 有换乘记录的站）
+TRANSFER_NAMES = transfer_names()
 
 
 def hav_m(a: tuple[float, float], b: tuple[float, float]) -> float:
@@ -173,7 +191,11 @@ def main() -> int:
             for j in range(i + 1, n):
                 spread_all = max(spread_all, hav_m(members[i]["coord"], members[j]["coord"]))
 
-        if spread_all <= MERGE_M:
+        if name in FORCE_MERGE and n > 1:
+            # 人工白名单优先：同站体跨长途也并成一座车站
+            clusters = {0: list(range(n))}
+            method, needs_review = "manual_merge", False
+        elif spread_all <= MERGE_M:
             clusters = {0: list(range(n))}
             method, needs_review = "auto_150", False
         elif spread_all <= REVIEW_M:
@@ -215,7 +237,7 @@ def main() -> int:
                     "coord": [round(lon, 6), round(lat, 6)],
                     "lines": lines_set,
                     "branches": sorted({m["branch"] for m in ms}),
-                    "is_transfer": len(lines_set) >= 2,
+                    "is_transfer": len(lines_set) >= 2 or name in TRANSFER_NAMES,
                     "slots": [
                         {
                             "line": m["line"],
@@ -289,12 +311,15 @@ def main() -> int:
         "merge_policy": {
             "merge_m": MERGE_M,
             "review_m": REVIEW_M,
-            "note": "站名 + 城市为主键；跨城同名不合并；>300 m 不合并改走 transfer",
+            "note": "站名 + 城市为主键；跨城同名不合并；>300 m 默认不合并改走 transfer；人工白名单（FORCE_MERGE）强制并站",
+            "force_merge": sorted(FORCE_MERGE),
+            "is_transfer_rule": "多线站 ∪ 有换乘记录的站（站名命中 11_build_transfers.py 的 GROUP_TYPES）",
         },
         "counts": {
             "stations": len(stations),
             "slots": len(slots),
-            "multi_line_stations": sum(1 for s in stations if s["is_transfer"]),
+            "transfer_style_stations": sum(1 for s in stations if s["is_transfer"]),
+            "multi_line_stations": sum(1 for s in stations if len(s["lines"]) > 1),
             "needs_review": sum(1 for s in stations if s["merge"]["needs_review"]),
             "split_groups": sum(1 for d in decisions if d["stations"] > 1),
             "transfer_candidates": len(transfer_candidates),

@@ -4,6 +4,7 @@ import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import AboutPanel from "@/components/AboutPanel";
 import SearchBox from "@/components/SearchBox";
 import StationPanel from "@/components/StationPanel";
 import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
@@ -65,6 +66,7 @@ export default function MapView() {
   const [meta, setMeta] = useState<MetaFile | null>(null);
   const [dataset, setDataset] = useState<Dataset | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   const selected = useMemo(
     () => dataset?.stations.find((s) => s.id === selectedId) ?? null,
@@ -269,11 +271,16 @@ export default function MapView() {
   useEffect(() => {
     if (!selected) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedId(null);
+      if (e.key !== "Escape") return;
+      if (aboutOpen) {
+        setAboutOpen(false);
+        return;
+      }
+      setSelectedId(null);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [selected]);
+  }, [selected, aboutOpen]);
 
   return (
     <div className="map-shell">
@@ -313,6 +320,8 @@ export default function MapView() {
         />
       )}
 
+      {aboutOpen && <AboutPanel onClose={() => setAboutOpen(false)} />}
+
       <footer className="map-footer">
         <span>
           {meta
@@ -321,6 +330,14 @@ export default function MapView() {
           <i>·</i> 数据 © OpenStreetMap contributors（ODbL-1.0）
           <i>·</i> 个人作品集项目，数据仅供参考
         </span>
+        <button
+          type="button"
+          className="about-button"
+          onClick={() => setAboutOpen(true)}
+          aria-label="关于这张地图与数据说明"
+        >
+          关于
+        </button>
       </footer>
     </div>
   );

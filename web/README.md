@@ -490,3 +490,18 @@ is_transfer = len(lines) >= 2 or name in TRANSFER_NAMES   # TRANSFER_NAMES 来�
 线上复测（`getComputedStyle`）`panelTopStyle = "104px"`、标题 `[16,16,163,35]`、搜索 `[16,60,664,34]`、抽屉 `[340,104,340,487]`，互不重叠。
 
 `scripts/verify-build.mjs` 的断言同步改为 423 站 / 12 换乘；`npm run build && npm run verify` → 21 项全过、4.05 MB（gzip ≈ 0.91 MB）。
+
+## S6-5 作品集化（关于面板 / 元信息 / 叙事）
+
+目标：让陌生人 30 秒内知道这是什么、可信在哪。只动叙事与元信息，不改功能与数据。
+
+| 项 | 落地 |
+| --- | --- |
+| 站内「关于」 | 页脚右侧 `关于` 按钮 → `components/AboutPanel.tsx`（`role="dialog"`、Esc 关闭、遮罩点击关闭）；写数据来源与快照日、规模、口径、地图说明、已知局限、许可与两个外链 |
+| Esc 分层 | 关于面板打开时 Esc 先关面板；否则关抽屉（`MapView` 的 keydown 里判断顺序） |
+| 分享卡片 | `app/layout.tsx` 的 `openGraph` / `twitter`（`summary_large_image`）+ `public/og.jpg`（1200×630，79 KB） |
+| 可被索引 | `public/robots.txt`、`public/sitemap.xml`、`metadataBase` + `alternates.canonical` |
+| 截图归档 | `docs/screenshots/`：总览、市中心、站点详情、关于面板（README 复用） |
+| 校验口径调整 | `verify-build.mjs` 的「无外部资源」断言细化：只查 `script[src]` / `img[src]` / 资源类 `link[href]`，允许 `canonical`、`author` 与外链 `<a>` |
+
+线上核验：`og:image = https://yukkki305.github.io/subways/og.jpg`、`twitter:card = summary_large_image`、`canonical` 正确；`/robots.txt`、`/sitemap.xml`、`/og.jpg` 均 200。

@@ -33,7 +33,22 @@ function walk(dir, acc = []) {
 // 1. 入口与导出模式
 const html = mustRead(join(OUT, "index.html")).toString("utf8");
 check("index.html 存在且含标题", html.includes("中国铁路图鉴"), `${html.length} B`);
-check("页面没有指向外部站点的资源", !/(src|href)="https?:\/\//.test(html), "只有同源资源");
+// 只断言「资源」同源：script[src] / img[src] / link[rel=stylesheet|preload|modulepreload|icon|manifest]
+// 允许 <link rel="canonical|author"> 等元信息用绝对 URL（S6-5）
+const SITE_ORIGIN = "https://yukkki305.github.io/subways/";
+const RESOURCE_RELS = /^(stylesheet|preload|modulepreload|icon|shortcut|apple-touch-icon|manifest)$/i;
+const externalResources = [...html.matchAll(/<script[^>]+src="(https?:\/\/[^"]+)"/gi)]
+  .map((m) => m[1])
+  .concat([...html.matchAll(/<img[^>]+src="(https?:\/\/[^"]+)"/gi)].map((m) => m[1]))
+  .concat(
+    [...html.matchAll(/<link[^>]+>/gi)]
+      .map((m) => m[0])
+      .filter((tag) => RESOURCE_RELS.test((tag.match(/rel="([^"]+)"/i) ?? [])[1] ?? ""))
+      .map((tag) => (tag.match(/href="(https?:\/\/[^"]+)"/i) ?? [])[1])
+      .filter(Boolean),
+  )
+  .filter((u) => !u.startsWith(SITE_ORIGIN));
+check("页面资源全部同源", externalResources.length === 0, externalResources.slice(0, 3).join(", ") || "外链仅限元信息");
 
 // 2. 数据文件齐全（含 S4-4 的海面）
 const dataDir = join(ROOT, OUT, "data");

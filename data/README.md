@@ -16,6 +16,7 @@
 | `data/snapshots/20261101/manifest.json` | 快照元数据：五个 PBF 的 URL、字节数、sha256、`Last-Modified`、下载时间 | 直接记录 `download.openstreetmap.fr` 的响应头与文件哈希 | **ODbL-1.0** | 2026-11-01 00:27–00:28 GMT | `pipeline/01_fetch_snapshot.py` |
 | `data/snapshots/20261101/*.osm.pbf.sha256` | 五个 PBF 的校验和（每份一行） | 本地计算，用于复核快照未被替换 | — | 2026-11-01 | `pipeline/01_fetch_snapshot.py` |
 | `docs/conflicts.md` | 归属冲突与待定项：跨省关系逐站列表、46 条未定关系明细 | 由 `attribution-report.json` 渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/05_attribution.py` |
+| `data/manual/guangzhou/lines.csv` | 广州 19 条线路的开通日期、官方里程、运营单位、色名 | 百度百科信息框（开通日期/全长/运营机构/标志色） | 事实性字段，随 ODbL 衍生物使用；10 号线开通日期与 OSM `start_date` 互证 | 2026-11-04 | 人工整理 |
 | `data/manual/guangzhou/colours.json` | 广州 19 条线路的颜色口径与英文名 | 百度百科「标志色」字段 + OSM `colour` | 事实性字段，按 ODbL 与 OSM 一致；色名来自百科 | 2026-11-04 | 人工整理 |
 | `data/manual/shanghai-relation-mapping.csv` | S2-2 的关系映射表：上海子集 65 条关系 + 人工判定列（`decide` / `target_line` / `target_branch` / `note`） | 前 12 列由 `relation-index.json` 导出；后 4 列人工填写；`hint` 列是机器提示 | **ODbL-1.0**（OSM 衍生） | 数据基准 2026-11-01；判定日期见 `note` | `pipeline/06_export_mapping.py` |
 | `docs/mappings/shanghai-relations.md` | 上面那份 CSV 的人可读视图（判定汇总 + 待决策 + 丢弃理由 + 全部明细） | 由 CSV 渲染 | **ODbL-1.0** | 同 CSV | `pipeline/07_check_mapping.py --write-md` |

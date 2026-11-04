@@ -91,12 +91,12 @@ P1a-1 这 2.1 天是**一次性**投入，P1b 之后每城都能直接 `run_city
 | --- | --- | --- |
 | 5.0 前置 | 3 组换乘候选（白云文化广场 390.3 m / 南村万博 352.3 m / 磨碟沙 337.0 m）、20 组 150–300 m 待复核；`gz bbox` 是省域尺度，320 站 0 出框，G3 的白名单不需要 | 含在 `27d4674` |
 | 5.1 换乘 | `data/manual/guangzhou/transfers.json` + `transfer.json` 3 条（通道 low/medium/medium）；顺带修 `11` 读各城人工表 | `27d4674` |
-| 5.2 颜色 | 19 条线 OSM `colour` 无冲突；百科「标志色」19/19 与 OSM 一致 → 不覆盖，标 `colour_verified=false`；`12` 改为按城读 `colours.json` 与 `lines.csv` | 本轮 |
+| 5.2 颜色 | 19 条线 OSM `colour` 无冲突；百科「标志色」19/19 与 OSM 一致 → 不覆盖，标 `colour_verified=false`；`12` 改为按城读 `colours.json` 与 `lines.csv` | `298e5ca` |
+| 5.3 属性 | `data/manual/guangzhou/lines.csv` 19 行：开通日期（百科信息框，10 号线与 OSM `start_date` 互证）、官方里程、运营单位（10/12/18 补「运营单位」字段）、色名；18/19 条里程差在 ±5% 内，12 号线 −7.8% 属口径差 | 本轮 |
 
 | 剩余阻塞 | 说明 |
 | --- | --- |
-| 5.3 属性 | `data/manual/guangzhou/lines.csv` 未建（开通年 / 官方里程 / 运营机构），目前 `opened`、`length_km_official` 为 `null` |
-| 5.4 校验 | `13_validate.py` 尚未对广州跑过；`from`/`to` 缺失的 3 个 branch、11 号线环线判定待处理 |
+| 5.4 校验 | `13_validate.py` 尚未对广州跑过；`from`/`to` 缺失的 3 个 branch（gz-line-11-main、gz-line-12-main、gz-line-12-b1）、11 号线环线判定待处理 |
 | P1a-6 | 三城校验 |
 
 ## 七、复现命令

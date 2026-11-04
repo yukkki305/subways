@@ -20,20 +20,28 @@ from __future__ import annotations
 
 import csv
 import json
+import os
+import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-CSV_PATH = REPO / "data" / "manual" / "shanghai-relation-mapping.csv"
-INDEX = REPO / "data" / "processed" / "relation-index.json"
-OUT = REPO / "data" / "processed" / "shanghai" / "lines.json"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-CITY = "上海市"
-CITY_CODE = "sh"
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+CSV_PATH = P.manual_mapping_csv
+INDEX = P.relation_index_global()
+OUT = P.lines_json
+
+CITY = CFG.city
 
 # 环线的起点站由人工指定（ADR R3）；站序会旋转到从 loop_start 开始
-LOOP_START = {"sh-line-4": "宜山路"}
+LOOP_START = dict(CFG.loop_start)
 
 # 线路名固定写法：站名不带「站」，线路名不带城市前缀（AGENTS.md 第 9 节）
 NAME_OVERRIDE = {

@@ -17,12 +17,21 @@
 from __future__ import annotations
 
 import json
+import sys
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 from pyproj import Geod
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
+
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
 GEOD = Geod(ellps="WGS84")
 
 
@@ -32,9 +41,9 @@ def geodesic_m(a, b) -> float:
     return d
 
 
-STATIONS = REPO / "data" / "processed" / "shanghai" / "station.json"
-OUT = REPO / "data" / "processed" / "shanghai" / "transfer.json"
-DOC = REPO / "docs" / "mappings" / "transfer-decisions.md"
+STATIONS = P.station_json
+OUT = P.transfer_json
+DOC = P.docs_transfer_md
 
 TYPES = ("同站", "通道", "出站换乘")
 

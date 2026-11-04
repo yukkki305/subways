@@ -13,8 +13,19 @@
   "city_admin_id": 913067,
   "city_names_fallback": [],
   "pbfs": [
-    "shanghai"
+    "shanghai",
+    "jiangsu",
+    "zhejiang",
+    "anhui",
+    "shandong"
   ],
+  "pbf_provinces": {
+    "shanghai": "上海市",
+    "jiangsu": "江苏省",
+    "zhejiang": "浙江省",
+    "anhui": "安徽省",
+    "shandong": "山东省"
+  },
   "network": [
     "上海地铁"
   ],
@@ -43,7 +54,7 @@
     31.95
   ],
   "km_per_deg": [
-    95.2,
+    95.3,
     111.0
   ],
   "line_count_expected": 20,
@@ -79,5 +90,43 @@
   "data_dir": "data/processed/shanghai",
   "web": {
     "city_label": "上海"
-  }
+  },
+  "extra_province_l4": {
+    "江苏省": 913012,
+    "浙江省": 553302,
+    "安徽省": 913011,
+    "山东省": 913006
+  },
+  "required_provinces": [
+    "上海市",
+    "江苏省",
+    "浙江省"
+  ],
+  "province_l5_union": {
+    "江苏省": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  },
+  "snapshot": "20261101",
+  "ref_to_line": {
+    "磁浮": "sh-line-maglev",
+    "浦江": "sh-line-pujiang"
+  },
+  "stop_bbox_whitelist": [
+    "兆丰路",
+    "光明路",
+    "花桥"
+  ]
 }

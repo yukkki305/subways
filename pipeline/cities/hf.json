@@ -15,6 +15,9 @@
   "pbfs": [
     "anhui"
   ],
+  "pbf_provinces": {
+    "anhui": "安徽省"
+  },
   "network": [
     "合肥轨道交通"
   ],
@@ -57,5 +60,8 @@
   "data_dir": "data/processed/hefei",
   "web": {
     "city_label": "合肥"
-  }
+  },
+  "snapshot": "20261101",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": []
 }

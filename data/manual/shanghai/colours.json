@@ -1,0 +1,34 @@
+{
+  "colour_override": {
+    "sh-line-2": [
+      "#80BE23",
+      52203,
+      48.1
+    ],
+    "sh-line-4": [
+      "#451D83",
+      56296,
+      38.0
+    ],
+    "sh-line-5": [
+      "#944D9A",
+      44290,
+      48.5
+    ],
+    "sh-line-14": [
+      "#62601F",
+      38143,
+      49.0
+    ]
+  },
+  "colour_unverified": {
+    "sh-line-10": "淡紫在官图上面积太小，色簇与 13 号线粉、4 号线紫混在一起",
+    "sh-line-16": "水绿细线，采样簇落到 8 号线蓝上",
+    "sh-line-maglev": "青绿短直线，与 12 号线深绿难分",
+    "sh-line-pujiang": "灰色线，与站名/底图灰无法区分"
+  },
+  "name_en": {
+    "sh-line-maglev": "Maglev Line",
+    "sh-line-pujiang": "Pujiang Line"
+  }
+}

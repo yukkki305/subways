@@ -23,7 +23,10 @@
 
 from __future__ import annotations
 
+import argparse
 import json
+import os
+import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -35,39 +38,31 @@ from shapely import contains_xy
 from shapely.geometry import LineString
 from shapely.ops import polygonize, unary_union
 
-SNAPSHOT = Path(r"E:\subway-data\snapshots\20261101")
-PBFS = {
-    "shanghai": SNAPSHOT / "shanghai-latest.osm.pbf",
-    "jiangsu": SNAPSHOT / "jiangsu-latest.osm.pbf",
-    "zhejiang": SNAPSHOT / "zhejiang-latest.osm.pbf",
-    "anhui": SNAPSHOT / "anhui-latest.osm.pbf",
-    "shandong": SNAPSHOT / "shandong-latest.osm.pbf",
-}
-RAW = Path(r"E:\subway\data\raw\transit-relations.json")
-INDEX = Path(r"E:\subway\data\processed\relation-index.json")
-OUT_REPORT = Path(r"E:\subway\data\processed\attribution-report.json")
-OUT_CONFLICTS = Path(r"E:\subway\docs\conflicts.md")
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
+
+CITY = os.environ.get("SUBWAY_CITY", "sh")  # 由 --city / 环境变量覆盖；上海沿用 P0 的全局产物位置
+CFG = load_city(CITY)
+P = Paths(CFG)
+
+SNAPSHOT = P.snapshot_dir(CFG.snapshot)
+# PBF 名 -> 省份名来自配置；PBFS 保留「省份名 -> 路径」的旧形状供扫描使用
+PROVINCE_OF_EXTRACT = dict(CFG.pbf_provinces)
+PBFS = {PROVINCE_OF_EXTRACT[pbf]: P.pbf(pbf, CFG.snapshot) for pbf in CFG.pbfs}
+RAW = P.raw_transit()
+INDEX = P.relation_index_global()
+OUT_REPORT = P.attribution_report_global()
+OUT_CONFLICTS = P.doc("conflicts.md")
 
 # 关系 id -> 省份名（L4），用 id 而不是名字匹配，避免同名歧义
-# 上海 / 江苏 / 浙江是归属目标；安徽 / 山东是为让江苏、安徽共边 way 齐全而下载的邻省
-PROVINCE_L4 = {
-    913067: "上海市",
-    913012: "江苏省",
-    553302: "浙江省",
-    913011: "安徽省",
-    913006: "山东省",
-}
+PROVINCE_L4 = CFG.province_faces
 # 必须在场且闭合的省面（否则无法给这一带的线路定归属）
-REQUIRED_PROVINCES = ("上海市", "江苏省", "浙江省")
-PROVINCE_OF_EXTRACT = {"shanghai": "上海市", "jiangsu": "江苏省", "zhejiang": "浙江省",
-                       "anhui": "安徽省", "shandong": "山东省"}
-# 江苏省 L4 拼不闭合时的兜底：用这 13 个地级市并集代表江苏省（名称固定，不随数据变化）
-JIANGSU_L5_UNION = True
-JIANGSU_CITY_NAMES = (
-    "南京市", "无锡市", "徐州市", "常州市", "苏州市", "南通市",
-    "连云港市", "淮安市", "盐城市", "扬州市", "镇江市", "泰州市", "宿迁市",
-)
-KM = 95.3 * 111.0  # 31°N 附近：1° 经 → 95.3 km，1° 纬 → 111.0 km
+REQUIRED_PROVINCES = tuple(CFG.must_close_provinces)
+# 某些省 L4 拼不闭合时的兜底：用固定名称表里的地级市并集代表该省
+L5_UNION_NAMES = {prov: tuple(names) for prov, names in CFG.province_l5_union.items()}
+L5_UNION_PROVINCE = {name: prov for prov, names in L5_UNION_NAMES.items() for name in names}
+KM = CFG.km_lon * CFG.km_lat  # 本纬度下 1°×(1°) 的平方公里数
 
 
 def log(msg: str) -> None:
@@ -195,15 +190,17 @@ def main() -> int:
         if b["closed"]:
             prov_geoms[name] = b["geom"]
 
-    if JIANGSU_L5_UNION and "江苏省" not in prov_geoms:
-        js = [x for x in built.values()
-              if x.get("level") == "5" and x["closed"] and x["name"] in JIANGSU_CITY_NAMES]
-        if js:
-            union = unary_union([x["geom"] for x in js])
-            prov_geoms["江苏省"] = union
-            have = {x["name"] for x in js}
-            log(f"[省面] 江苏省（兜底：地级市并集 {len(js)}/{len(JIANGSU_CITY_NAMES)} 个）"
-                f"{area_km2(union):,.1f} km²；缺 {[n for n in JIANGSU_CITY_NAMES if n not in have]}")
+    for prov, names in L5_UNION_NAMES.items():
+        if prov in prov_geoms:
+            continue
+        parts = [x for x in built.values()
+                 if x.get("level") == "5" and x["closed"] and x["name"] in names]
+        if parts:
+            union = unary_union([x["geom"] for x in parts])
+            prov_geoms[prov] = union
+            have = {x["name"] for x in parts}
+            log(f"[省面] {prov}（兜底：地级市并集 {len(parts)}/{len(names)} 个）"
+                f"{area_km2(union):,.1f} km²；缺 {[n for n in names if n not in have]}")
 
     # 江苏只靠「地级市并集」会有缺口（南通、盐城的市面本身拼不闭合），
     # 所以江苏另配一份固定名称表：市名命中即判江苏省，不依赖省面几何。
@@ -221,16 +218,22 @@ def main() -> int:
             continue  # 未闭合的市面不参与判定，避免假内/假外
         pt = shapely.point_on_surface(b["geom"])
         prov = next((pn for pn, pg in prov_items_sorted if pg.contains(pt)), None)
-        if prov is None and b["name"] in JIANGSU_CITY_NAMES:
-            prov = "江苏省"
+        if prov is None and b["name"] in L5_UNION_PROVINCE:
+            prov = L5_UNION_PROVINCE[b["name"]]
         if prov is None:
             continue  # 落在五省之外（河南等）的市，本次不参与
         prev = city_geoms.get(b["name"])
         if prev is None or area_km2(b["geom"]) > area_km2(prev["geom"]):
             city_geoms[b["name"]] = {"geom": b["geom"], "province": prov, "id": rid}
-    city_geoms["上海市"] = {"geom": prov_geoms["上海市"], "province": "上海市", "id": 913067}
-    log(f"[市面] 可用地级市 {len(city_geoms) - 1} 个 + 上海市；"
-        f"江苏缺 {[n for n in JIANGSU_CITY_NAMES if n not in city_geoms]}")
+    if CFG.city_admin_level == 4:
+        # 直辖市：城市面就是省面
+        city_geoms[CFG.city] = {"geom": prov_geoms[CFG.province], "province": CFG.province,
+                                "id": CFG.city_admin_id}
+    elif CFG.city not in city_geoms:
+        log(f"!! 城市面 {CFG.city}（L5 {CFG.city_admin_id}）没拼出来，停下")
+        return 4
+    fallback_missing = [n for names in L5_UNION_NAMES.values() for n in names if n not in city_geoms]
+    log(f"[市面] 可用市面 {len(city_geoms)} 个（含 {CFG.city}）；兜底名单里未用上的 {fallback_missing}")
 
     # ---------- 3. 逐关系归属 ----------
     city_items = sorted(city_geoms.items())
@@ -482,8 +485,21 @@ def write_conflicts(report: dict) -> None:
     L.append("- 江苏省 L4 关系缺 11 个与山东/安徽的共边 way（未下载那两省），自拼只有 309.4 km²，故改用并集。")
     L.append("- 未闭合的市面不参与判定（避免假内假外），这类城市在「未定城市」里列出。")
     L.append("- 上海 P0 只需上海市定案；苏浙其他城市已随 L5 自动得到，供 P1 使用。")
+    # 生成段只覆盖「一～五」；「六、七…」是人工维护的台账，重跑时必须原样保留
+    manual_tail = ""
+    if OUT_CONFLICTS.exists():
+        old_lines = OUT_CONFLICTS.read_text(encoding="utf-8").splitlines()
+        for i, line in enumerate(old_lines):
+            if line.startswith(("## 六", "## 七", "## 八", "## 九", "## 十")):
+                manual_tail = "\n".join(old_lines[i:])
+                break
+    body = "\n".join(L).rstrip("\n")
+    if manual_tail:
+        body += "\n\n" + manual_tail
     OUT_CONFLICTS.parent.mkdir(parents=True, exist_ok=True)
-    OUT_CONFLICTS.write_text("\n".join(L) + "\n", encoding="utf-8")
+    OUT_CONFLICTS.write_text(body + "\n", encoding="utf-8")
+    if manual_tail:
+        log(f"   （保留了人工维护段，{len(manual_tail.splitlines())} 行）")
 
 
 if __name__ == "__main__":

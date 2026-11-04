@@ -22,12 +22,20 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-RAW = Path(r"E:\subway\data\raw\transit-relations.json")
-OUT = Path(r"E:\subway\data\processed\relation-index.json")
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
+
+CITY = os.environ.get("SUBWAY_CITY", "sh")  # 由 --city / 环境变量覆盖；只有上海沿用 P0 的全局清单位置
+CFG = load_city(CITY)
+P = Paths(CFG)
+RAW = P.raw_transit()
+OUT = P.relation_index_global()
 
 # OSM 的 route 值 -> 本项目的制式（AGENTS.md 第 8 节枚举 + 轨道制式外的两种单列）
 ROUTE_TO_TYPE = {
@@ -36,11 +44,8 @@ ROUTE_TO_TYPE = {
     "monorail": "monorail",
     "tram": "tram",
 }
-# 按 ref 单条覆盖：磁浮是独立制式、浦江线是胶轮捷运，OSM 标签容易一刀切错
-REF_TO_TYPE = {
-    "磁浮": "maglev",
-    "浦江": "apm",
-}
+# 按 ref 单条覆盖：来自城市配置（上海：磁浮是独立制式、浦江线是胶轮捷运）
+REF_TO_TYPE = dict(CFG.ref_overrides)
 # 这些标签变化属于「噪音」，不进 tag_hash，避免每次快照都报变更
 NOISE_TAG_PREFIXES = ("payment:", "opening_", "check_")
 
@@ -183,12 +188,21 @@ def diff_index(prev_rel: dict, new_rel: dict) -> dict:
 
 
 def main() -> int:
+    global CFG, P, RAW, OUT, REF_TO_TYPE
     ap = argparse.ArgumentParser()
     ap.add_argument("--raw", default=str(RAW), help="S1-3 产物路径（默认 data/raw/transit-relations.json）")
     ap.add_argument("--out", default=str(OUT), help="输出的清单路径")
     ap.add_argument("--prev", default=str(OUT), help="上一份清单路径（默认读 OUT 自身）")
     ap.add_argument("--no-prev", action="store_true", help="不做变更检测")
+    ap.add_argument("--city", default=CITY, help="城市码（默认 sh，见 pipeline/cities/*.json）")
     args = ap.parse_args()
+
+    if args.city != CITY:
+        CFG = load_city(args.city)
+        P = Paths(CFG)
+        RAW = P.raw_transit()
+        OUT = P.relation_index_global()
+        REF_TO_TYPE = dict(CFG.ref_overrides)
 
     raw_path = Path(args.raw)
     if not raw_path.exists():

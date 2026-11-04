@@ -15,6 +15,8 @@
 from __future__ import annotations
 
 import json
+import sys
+import os
 import time
 from pathlib import Path
 
@@ -26,11 +28,18 @@ from shapely.ops import polygonize, unary_union
 from shapely import transform as shp_transform
 
 REPO = Path(r"E:\subway")
-SNAP = Path(r"E:\subway-data\snapshots\20261101")
-OUT = REPO / "data" / "processed" / "basemap" / "shanghai-sea.geojson"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-PROVINCES = ["shanghai", "jiangsu", "zhejiang", "anhui", "shandong"]
-SCENE_BBOX = (120.70, 30.55, 123.40, 31.95)  # lon_min, lat_min, lon_max, lat_max
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+SNAP = P.snapshot_dir(CFG.snapshot)
+OUT = P.sea_geojson
+
+PROVINCES = list(CFG.pbfs)
+SCENE_BBOX = CFG.scene_bbox_tuple  # lon_min, lat_min, lon_max, lat_max
 SIMPLIFY_M = 60.0
 AS_OF = "20261101"
 

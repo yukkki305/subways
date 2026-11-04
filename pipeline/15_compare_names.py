@@ -16,6 +16,8 @@
 from __future__ import annotations
 
 import json
+import sys
+import os
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -23,16 +25,29 @@ from pathlib import Path
 import geopandas as gpd
 
 REPO = Path(r"E:\subway")
-LINES_JSON = REPO / "data" / "processed" / "shanghai" / "lines.json"
-GZUPA_SHP = Path(
-    r"E:\subway-data\probe16\gzupa\out\1_subway_point\shanghai\shanghai_Layer_2020.shp"
-)
-OUT_JSON = REPO / "data" / "processed" / "name-diff.json"
-OUT_MD = REPO / "docs" / "name-diff.md"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-LINE_MAP = {f"line{i}": f"sh-line-{i}" for i in range(1, 19)}
-LINE_MAP["浦江线"] = "sh-line-pujiang"
-LINE_MAP["磁悬浮"] = "sh-line-maglev"
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+LINES_JSON = REPO / "data" / "processed" / "shanghai" / "lines.json"
+GZUPA_SHP = P.gzupa_shp(2020)
+OUT_JSON = P.name_diff()
+OUT_MD = P.doc("name-diff.md")
+
+# GZUPA 的 line 取值 → 本城 line_id（数字自动映射，例外来自配置 ref_to_line 的反向）
+LINE_MAP = {}
+for lid in (CFG.line_ids or []):
+    tail = lid[len(CFG.line_id_prefix):]
+    if tail.isdigit():
+        LINE_MAP[f"line{tail}"] = lid
+for ref, lid in CFG.ref_to_line.items():
+    LINE_MAP[ref] = lid
+    if not ref.endswith("线"):
+        LINE_MAP[ref + "线"] = lid   # GZUPA 有的写「浦江」、有的写「浦江线」
+LINE_MAP.setdefault("磁悬浮", CFG.ref_to_line.get("磁浮", ""))
 
 PREFIXES = ("一大会址·", "一大会址", "中共一大纪念馆·")
 

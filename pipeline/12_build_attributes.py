@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import csv
 import json
+import sys
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -34,10 +36,17 @@ def to_metric(geom):
         geom, lambda c: np.stack(TF.transform(c[..., 0], c[..., 1]), axis=-1))
 
 REPO = Path(__file__).resolve().parent.parent
-LINES = REPO / "data" / "processed" / "shanghai" / "lines.json"
-SEGS = REPO / "data" / "processed" / "shanghai" / "segment.geojson"
-MANUAL = REPO / "data" / "manual" / "shanghai-lines.csv"
-DOC = REPO / "docs" / "colors.md"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
+
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+LINES = P.lines_json
+SEGS = P.segment_geojson
+MANUAL = P.manual_lines_csv
+DOC = P.docs_colors_md
 
 # 官图采样结果（%TEMP%\shmetro-map 的 metroView.jpg，5497×7693，2025-12-26）
 # 每条：官图色、采样像素数、与 OSM 的欧氏距离

@@ -38,6 +38,9 @@
   "pbfs": [
     "guangdong"
   ],
+  "pbf_provinces": {
+    "guangdong": "广东省"
+  },
   "network": [
     "广州地铁"
   ],
@@ -103,5 +106,13 @@
   "data_dir": "data/processed/guangzhou",
   "web": {
     "city_label": "广州"
-  }
+  },
+  "snapshot": "p1a-20261103",
+  "ref_to_line": {
+    "APM": "gz-line-apm",
+    "广州APM": "gz-line-apm",
+    "广佛线": "gz-line-gfl",
+    "GF": "gz-line-gfl"
+  },
+  "stop_bbox_whitelist": []
 }

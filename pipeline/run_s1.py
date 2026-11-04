@@ -32,12 +32,15 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 PY = sys.executable
 
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402  (需要先改 sys.path)
+
 # (步骤号, 脚本, 一句话说明, 产物「存在即说明跑过」的路径)
 STEPS: list[tuple[str, str | None, str, Path | None]] = [
     ("S1-1", None, "目录与环境（.gitignore / .gitkeep / 本 README）", None),
     ("S1-2", "01_fetch_snapshot.py", "下载五省 PBF 并写 manifest + sha256", REPO / "data" / "snapshots"),
     ("S1-3", "02_extract_transit.py", "扫关系/way/节点，抽轨道关系", REPO / "data" / "raw" / "transit-relations.json"),
-    ("S1-4", "03_extract_basemap.py", "抽上海底图要素（行政界 / 水系 / 海岸线）", REPO / "data" / "processed" / "basemap" / "shanghai-basemap.geojson"),
+    ("S1-4", "03_extract_basemap.py", "抽底图要素（仅上海；其它城跳过）", REPO / "data" / "processed" / "basemap" / "shanghai-basemap.geojson"),
     ("S1-5", "04_track.py", "生成关系清单与三重指纹", REPO / "data" / "processed" / "relation-index.json"),
     ("S1-6", "05_attribution.py", "点面判定归属，回填 city / province", REPO / "data" / "processed" / "attribution-report.json"),
     ("S1-7", None, "汇总与提交（人工：核对 data/README.md 三问表 + 提交）", REPO / "data" / "README.md"),
@@ -72,7 +75,7 @@ def pick_steps(only: str | None, frm: str | None) -> list[tuple[str, str, str, P
     return RUNNABLE  # type: ignore[return-value]
 
 
-def run_one(sid: str, script: str, desc: str) -> float:
+def run_one(sid: str, script: str, desc: str, city: str) -> float:
     path = REPO / "pipeline" / script
     if not path.exists():
         sys.exit(f"脚本不存在：{path}")
@@ -81,13 +84,14 @@ def run_one(sid: str, script: str, desc: str) -> float:
     t0 = time.perf_counter()
     env = dict(os.environ)
     env["PYTHONUTF8"] = "1"  # 否则 Windows 控制台中文乱码
+    env["SUBWAY_CITY"] = city
     proc = subprocess.run([PY, str(path)], cwd=str(REPO), env=env)
     dt = time.perf_counter() - t0
     if proc.returncode != 0:
         sys.stderr.write(
             f"\n[失败] {sid} 退出码 {proc.returncode}，耗时 {dt:.1f} s。\n"
             f"  先看这一步的报错，再看 {path.name} 顶部的注释；\n"
-            f"  修复后从这一步重跑：run_s1.py --only {sid}\n"
+            f"  修复后从这一步重跑：run_s1.py --only {sid} --city {city}\n"
         )
         sys.exit(proc.returncode)
     print(f"--- {sid} 完成，{dt:.1f} s ---")
@@ -99,7 +103,10 @@ def main() -> int:
     ap.add_argument("--only", help="只跑这一步，如 S1-5")
     ap.add_argument("--from", dest="frm", help="从这一步往后跑，如 S1-4")
     ap.add_argument("--list", action="store_true", help="列出步骤表与产物状态")
+    ap.add_argument("--city", default="sh", help="城市代码（sh/gz/cd/hf），默认 sh")
     args = ap.parse_args()
+
+    cfg = load_city(args.city)
 
     if args.list:
         show_list()
@@ -108,11 +115,15 @@ def main() -> int:
     steps = pick_steps(args.only, args.frm)
     print(f"解释器：{PY}")
     print(f"仓库：{REPO}")
+    print(f"城市：{cfg.code} {cfg.city}（{cfg.province}）")
     print(f"计划执行：{', '.join(s[0] for s in steps)}")
 
     total = 0.0
     for sid, script, desc, _out in steps:
-        total += run_one(sid, script, desc)  # type: ignore[arg-type]
+        if sid == "S1-4" and cfg.code != "sh":
+            print(f"\n=== {sid} 跳过 === 底图只做上海（见 ADR 0004 的 D4），{cfg.code} 不跑 03")
+            continue
+        total += run_one(sid, script, desc, cfg.code)  # type: ignore[arg-type]
 
     print(f"\n全部完成，总耗时 {total:.1f} s。")
     print("接下来（S1-7）：核对 data/README.md 三问表的数字与日期，然后")

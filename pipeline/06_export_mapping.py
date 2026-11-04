@@ -18,16 +18,24 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-INDEX = REPO / "data" / "processed" / "relation-index.json"
-OUT_CSV = REPO / "data" / "manual" / "shanghai-relation-mapping.csv"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-PROVINCE_KEY = "shanghai"
-CITY = "上海市"
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+INDEX = P.relation_index_global()
+OUT_CSV = P.manual_mapping_csv
+
+PROVINCE_KEY = CFG.pbfs[0]
+CITY = CFG.city
 
 TYPE_ORDER = ["metro", "apm", "maglev", "lrt", "tram", "monorail"]
 TYPE_LABEL = {

@@ -19,6 +19,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -30,12 +31,26 @@ from pyproj import Transformer
 from shapely.geometry import LineString, MultiPolygon, Polygon, box, mapping
 from shapely.ops import polygonize, unary_union
 
-SNAPSHOT = Path(r"E:\subway-data\snapshots\20261101")
-SH_PBF = SNAPSHOT / "shanghai-latest.osm.pbf"
-JS_PBF = SNAPSHOT / "jiangsu-latest.osm.pbf"
-OUT = Path(r"E:\subway\data\processed\basemap\shanghai-basemap.geojson")
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-SHANGHAI_L4 = 913067
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+if CFG.code != "sh":
+    raise SystemExit(
+        f"底图（S1-4）目前只做上海（P0 的精细底图：16 区界 + 淀山湖 + 长江/吴淞江/黄浦江 + 海岸线）。"
+        f"当前城市 {CFG.code} 未定义水系与区界关系清单，按计划留给 P1b（见 docs/decisions/0004-city-config.md 的 D4）。"
+    )
+
+SNAPSHOT = P.snapshot_dir(CFG.snapshot)
+SH_PBF = P.pbf("shanghai", CFG.snapshot)
+JS_PBF = P.pbf("jiangsu", CFG.snapshot)
+OUT = P.basemap_geojson
+
+SHANGHAI_L4 = CFG.city_admin_id
 SHANGHAI_DISTRICTS = {
     1673543: "嘉定区", 3292751: "奉贤区", 3292750: "崇明区", 1278188: "徐汇区",
     398886: "普陀区", 398350: "杨浦区", 3293722: "松江区", 398348: "浦东新区",
@@ -44,7 +59,7 @@ SHANGHAI_DISTRICTS = {
 }
 WATER_RELS = {1122227: ("淀山湖", "lake", 0.05)}  # 关系 id -> (名, 类型, 最小部件 km²)
 CENTERLINE_RELS = {9392345: "长江", 9064903: "吴淞江"}  # waterway 关系，取成员 way 拼中心线
-SCENE_BBOX = (120.70, 30.55, 123.40, 31.95)
+SCENE_BBOX = CFG.scene_bbox_tuple
 SIMPLIFY_M = 25.0      # 面要素简化容差（米）
 LINE_SIMPLIFY_M = 8.0  # 线要素容差更小，避免窄河道出现锯齿
 

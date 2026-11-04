@@ -241,6 +241,20 @@ class Paths:
     def manual_slug(self) -> str:
         return MANUAL_SLUG.get(self.code, Path(self.cfg.data_dir).name)
 
+    @property
+    def manual_dir(self) -> Path:
+        """`data/manual/`，分城按子目录放（`data/manual/<slug>/`）。"""
+        return MANUAL
+
+    @property
+    def manual_city_dir(self) -> Path:
+        """`data/manual/<slug>/`：本城的人工核对表（合并白名单、换乘类型、颜色、官方里程）。"""
+        return MANUAL / self.manual_slug
+
+    def manual_city_file(self, name: str) -> Path:
+        """`data/manual/<slug>/<name>`，如 `transfers.json`。"""
+        return self.manual_city_dir / name
+
     def manual_file(self, suffix: str) -> Path:
         """`data/manual/<slug>-<suffix>`，如 `shanghai-lines.csv`。"""
         return MANUAL / f"{self.manual_slug}-{suffix}"

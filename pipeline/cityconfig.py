@@ -59,11 +59,18 @@ SCHEMA: dict[str, str] = {
     "province": "省份全名，如「广东省」",
     "province_l4": "省份 admin_level=4 的关系 id",
     "province_face": "省份面的取法：{mode: l4|l5_union, names?: [地级市名]}",
+    "extra_province_l4": "本城数据还涉及的其它省份 → 该省 admin_level=4 关系 id（归属与边界用）",
+    "required_provinces": "归属检查里必须闭合的省份名清单（缺了直接报错；不给则只要求本省）",
     "city": "城市名（用于 OSM network / 归属判定），如「广州市」",
     "city_admin_level": "城市面的 admin_level（4=直辖市，5=地级市）",
     "city_admin_id": "城市面的关系 id",
     "city_names_fallback": "城市名兜底白名单（省面拼不闭合时用），可为空数组",
     "pbfs": "需要的省级 PBF 名（不含 .osm.pbf），按读取顺序",
+    "pbf_provinces": "PBF 名 → 省份名（归属与边界用），键必须与 pbfs 一致",
+    "province_l5_union": "某些省 L4 拼不闭合时，用这些地级市并集代替 {省名: [市名]}",
+    "snapshot": "默认快照键（即 snapshots/<key> 与 data/snapshots/<key> 的目录名）",
+    "ref_to_line": "非数字 ref → line_id 的映射（如 磁浮/浦江/APM/广佛线）；数字 ref 自动推导",
+    "stop_bbox_whitelist": "允许落在 bbox 外的站名白名单（如跨省延伸段）",
     "network": "OSM network 标签取值，用于把关系筛到本城",
     "route_scope": "制式范围：{routes: [...], ref_overrides: {ref: type}, exclude_refs: [...]}",
     "bbox": "采集矩形框 [西, 南, 东, 北]",
@@ -89,6 +96,7 @@ REQUIRED = [
     "city_admin_level",
     "city_admin_id",
     "pbfs",
+    "pbf_provinces",
     "network",
     "route_scope",
     "bbox",
@@ -101,6 +109,12 @@ REQUIRED = [
 
 OPTIONAL_DEFAULTS: dict[str, Any] = {
     "city_names_fallback": [],
+    "extra_province_l4": {},
+    "required_provinces": None,
+    "province_l5_union": {},
+    "snapshot": "20261101",
+    "ref_to_line": {},
+    "stop_bbox_whitelist": [],
     "line_ids": None,
     "loop_start": {},
     "line_names": {},
@@ -209,10 +223,63 @@ def validate(raw: dict[str, Any], source: str = "<memory>") -> list[str]:
     if not isinstance(cnf, list) or not all(isinstance(n, str) and n for n in cnf):
         _reject("city_names_fallback: 必须是非空字符串数组（可为空数组）", errors)
 
+    # extra_province_l4 / required_provinces
+    extra_prov = raw.get("extra_province_l4", {})
+    if not isinstance(extra_prov, dict):
+        _reject("extra_province_l4: 必须是对象 {省名: 关系 id}", errors)
+    else:
+        for prov, pid in extra_prov.items():
+            if not isinstance(prov, str) or not prov:
+                _reject("extra_province_l4: 键必须是非空省份名", errors)
+            elif not _is_int(pid) or pid <= 0:
+                _reject(f"extra_province_l4[{prov}]: 必须是正整数关系 id", errors)
+        if raw.get("province") in extra_prov:
+            _reject("extra_province_l4: 不要重复本省（本省用 province_l4）", errors)
+
+    req_prov = raw.get("required_provinces")
+    if req_prov is not None:
+        if not isinstance(req_prov, list) or not req_prov or not all(isinstance(n, str) and n for n in req_prov):
+            _reject("required_provinces: 必须是非空省份名数组，或省略", errors)
+        elif isinstance(extra_prov, dict):
+            known = {raw.get("province")} | set(extra_prov)
+            unknown = [n for n in req_prov if n not in known]
+            if unknown:
+                _reject(f"required_provinces: 这些省份没在 province / extra_province_l4 里出现：{', '.join(unknown)}", errors)
+
     # pbfs / network
     pbfs = raw["pbfs"]
     if not isinstance(pbfs, list) or not pbfs or not all(isinstance(p, str) and p for p in pbfs):
         _reject("pbfs: 至少要有一个非空字符串", errors)
+    pbf_prov = raw.get("pbf_provinces", {})
+    if not isinstance(pbf_prov, dict):
+        _reject("pbf_provinces: 必须是对象 {pbf 名: 省份名}", errors)
+    else:
+        if isinstance(pbfs, list):
+            missing = [p for p in pbfs if p not in pbf_prov]
+            if missing:
+                _reject(f"pbf_provinces: 这些 PBF 没给省份：{', '.join(missing)}", errors)
+            extra_p = [k for k in pbf_prov if k not in pbfs]
+            if extra_p:
+                _reject(f"pbf_provinces: 这些 PBF 不在 pbfs 里：{', '.join(extra_p)}", errors)
+        for k, v in pbf_prov.items():
+            if not isinstance(v, str) or not v:
+                _reject(f"pbf_provinces[{k}]: 必须是非空省份名", errors)
+
+    l5u = raw.get("province_l5_union", {})
+    if not isinstance(l5u, dict):
+        _reject("province_l5_union: 必须是对象 {省名: [地级市名]}", errors)
+    else:
+        known_provs = {raw.get("province")} | set(extra_prov if isinstance(extra_prov, dict) else {})
+        for prov, names in l5u.items():
+            if prov not in known_provs:
+                _reject(f"province_l5_union[{prov}]: 该省不在 province / extra_province_l4 里", errors)
+            if not isinstance(names, list) or not names or not all(isinstance(n, str) and n for n in names):
+                _reject(f"province_l5_union[{prov}]: 必须是非空地级市名数组", errors)
+
+    snap = raw.get("snapshot")
+    if not isinstance(snap, str) or not snap:
+        _reject("snapshot: 必须是非空字符串（快照目录名）", errors)
+
     net = raw["network"]
     if not isinstance(net, list) or not net or not all(isinstance(p, str) and p for p in net):
         _reject("network: 至少要有一个非空字符串", errors)
@@ -266,6 +333,21 @@ def validate(raw: dict[str, Any], source: str = "<memory>") -> list[str]:
             bad = [s for s in line_ids if not s.startswith(prefix)]
             if bad:
                 _reject(f"line_ids: 这些不以 {prefix} 开头：{', '.join(bad[:5])}", errors)
+
+    r2l = raw.get("ref_to_line", {})
+    if not isinstance(r2l, dict):
+        _reject("ref_to_line: 必须是对象 {ref: line_id}", errors)
+    else:
+        ids = set(line_ids or [])
+        for ref, lid in r2l.items():
+            if not isinstance(ref, str) or not ref:
+                _reject("ref_to_line: 键必须是非空字符串", errors)
+            if ids and lid not in ids:
+                _reject(f"ref_to_line[{ref}]: {lid} 不在 line_ids 里", errors)
+
+    wl = raw.get("stop_bbox_whitelist", [])
+    if not isinstance(wl, list) or not all(isinstance(s, str) and s for s in wl):
+        _reject("stop_bbox_whitelist: 必须是非空字符串数组（可为空）", errors)
 
     for key in ("loop_start", "line_names"):
         val = raw.get(key, {})
@@ -321,6 +403,13 @@ class CityConfig:
     data_dir: str
     web: dict[str, Any]
     city_names_fallback: list[str] = field(default_factory=list)
+    extra_province_l4: dict[str, int] = field(default_factory=dict)
+    required_provinces: list[str] | None = None
+    pbf_provinces: dict[str, str] = field(default_factory=dict)
+    ref_to_line: dict[str, str] = field(default_factory=dict)
+    stop_bbox_whitelist: list[str] = field(default_factory=list)
+    province_l5_union: dict[str, list[str]] = field(default_factory=dict)
+    snapshot: str = "20261101"
     line_ids: list[str] | None = None
     loop_start: dict[str, str] = field(default_factory=dict)
     line_names: dict[str, str] = field(default_factory=dict)
@@ -358,6 +447,19 @@ class CityConfig:
         return list(self.route_scope.get("exclude_refs") or [])
 
     @property
+    def province_faces(self) -> dict[int, str]:
+        """admin_level=4 关系 id → 省份名（本省 + extra_province_l4 的并集）。"""
+        faces = {int(self.province_l4): self.province}
+        for prov, pid in self.extra_province_l4.items():
+            faces[int(pid)] = prov
+        return faces
+
+    @property
+    def must_close_provinces(self) -> list[str]:
+        """归属检查里必须闭合的省份；默认只要求本省。"""
+        return list(self.required_provinces or [self.province])
+
+    @property
     def line_id_prefix(self) -> str:
         return f"{self.id_prefix}-line-"
 
@@ -378,7 +480,14 @@ class CityConfig:
             "city_admin_level": self.city_admin_level,
             "city_admin_id": self.city_admin_id,
             "city_names_fallback": self.city_names_fallback,
+            "extra_province_l4": self.extra_province_l4,
+            "required_provinces": self.required_provinces,
             "pbfs": self.pbfs,
+            "pbf_provinces": self.pbf_provinces,
+            "province_l5_union": self.province_l5_union,
+            "snapshot": self.snapshot,
+            "ref_to_line": self.ref_to_line,
+            "stop_bbox_whitelist": self.stop_bbox_whitelist,
             "network": self.network,
             "route_scope": self.route_scope,
             "bbox": self.bbox,

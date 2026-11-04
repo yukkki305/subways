@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -20,16 +21,22 @@ import numpy as np
 from pyproj import Geod
 
 REPO = Path(__file__).resolve().parent.parent
-PY = sys.executable
-SH = REPO / "data" / "processed" / "shanghai"
-LINES = SH / "lines.json"
-STATIONS = SH / "station.json"
-SEGMENTS = SH / "segment.geojson"
-TRANSFERS = SH / "transfer.json"
-DOC = REPO / "docs" / "validation-s2.md"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-BBOX = (120.8, 30.6, 122.2, 31.9)          # [minx, miny, maxx, maxy]
-WHITELIST = {"兆丰路", "光明路", "花桥"}      # 苏州 11 号线昆山段（ADR R8 第 2 项）
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+PY = sys.executable
+LINES = P.lines_json
+STATIONS = P.station_json
+SEGMENTS = P.segment_geojson
+TRANSFERS = P.transfer_json
+DOC = P.doc("validation-s2.md")
+
+BBOX = CFG.bbox_tuple                        # 采集矩形框（config 的 bbox）
+WHITELIST = set(CFG.stop_bbox_whitelist)    # 允许落在 bbox 外的站（跨省延伸段）
 HEX = re.compile(r"^#[0-9A-F]{6}$")
 GEOD = Geod(ellps="WGS84")
 

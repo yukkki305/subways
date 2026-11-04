@@ -213,3 +213,44 @@
 
 **实测**：`paths.py --check` 通过 15 项必需产物；20 个路径方法对上海全部命中已存在文件
 （含 `docs/mappings/shanghai-relations.md`、`docs/colors.md`、GZUPA shapefile）。
+
+## 九、脚本改造（P1a-1.3）
+
+15 个编号脚本全部改成「配置驱动」：头部统一 `sys.path.insert` + `from cityconfig import load_city` + `from paths import Paths`，城市由 `SUBWAY_CITY` 环境变量（默认 `sh`）决定。业务逻辑一行未改，只把常量换成 `CFG.*` / `P.*` / `data/manual/<slug>/*.json`。
+
+### 9.1 配置层新增的 7 个字段
+
+| 字段 | 用途 | 上海取值 |
+|---|---|---|
+| `extra_province_l4` | 本城数据会碰到的邻省 L4 id | 江苏 913012 / 浙江 553302 / 安徽 913011 / 山东 913006 |
+| `required_provinces` | 必须闭合的省（否则归属不可信） | 上海 / 江苏 / 浙江 |
+| `pbf_provinces` | `pbfs` 的文件名 → 省名 | shanghai→上海市 … shandong→山东省 |
+| `province_l5_union` | L4 拼不闭合时用「地级市并集」 | `{"江苏省": 13 个市}` |
+| `snapshot` | 快照键 | `20261101` |
+| `ref_to_line` | 非数字 ref → line_id | 磁浮→maglev、浦江→pujiang |
+| `stop_bbox_whitelist` | 允许越出包围盒的站 | 兆丰路 / 光明路 / 花桥 |
+
+### 9.2 人工核对表外置
+
+`data/manual/<slug>/` 下四份 JSON，全部由脚本里原有常量**导出**生成（不手抄）：
+
+- `merge.json`：`force_merge`（4 组同名枢纽）+ `province_to_city`
+- `transfers.json`：`GROUP_TYPES`（12 组换乘类型与置信度）
+- `colours.json`：`colour_override` / `colour_unverified` / `name_en`
+- `official-km.json`：`OFFICIAL_KM`
+
+### 9.3 上海回归（逐字节）
+
+改完后重跑 02→15，全部产物与改造前**逐字节一致**（只有 `generated_at` 不同）：
+transit-relations.json（287 关系）、shanghai-basemap.geojson（22 要素 / 495,983 B）、shanghai-sea.geojson（24,829.3 km² / 91,741 B）、relation-index.json、attribution-report.json、conflicts.md、lines.json（42,546 B）、station.json（434,587 B）、segment.geojson（570 段）、transfer.json（10,032 B）、name-diff.json（18 线 / 同名 417）、colors.md、station-merge-decisions.md、transfer-decisions.md。
+`13_validate.py --rerun` 八项全过，其中第 8 项「重跑 5 个脚本后 4 份产物差异 0」。
+
+### 9.4 三个真问题
+
+1. `05` 原来直接覆盖 `docs/conflicts.md`，会冲掉人工追加的「六、七、」两节 → 改为写出前先把人工段原样拼回。
+2. `Paths.manual_file()` 是旧的 `<slug>-<suffix>` 形态，与新的目录形态不同 → 补 `manual_city_file()`，`09` 改用后者；首版漏改使 `FORCE_MERGE` 白名单失效（站数 423→430）。
+3. `km_per_deg` 若改成 31.2°N 的真值 95.2，上海面积会从 16,229.5 掉到 16,212.5 km²，与已发布的台账/文档数字不符 → 上海保留 P0 的 95.3，真值只给新城市用（广州 102.4）。
+
+### 9.5 `run_s1.py --city`
+
+新增 `--city`（默认 `sh`），透传 `SUBWAY_CITY`；非上海的 S1-4 直接跳过并打印理由（底图只做上海，见 D4）。实测：`run_s1.py --city gz --only S1-4` → 打印跳过、退出码 0。

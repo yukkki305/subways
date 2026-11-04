@@ -24,6 +24,8 @@
 from __future__ import annotations
 
 import json
+import sys
+import os
 import math
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -32,23 +34,31 @@ from pathlib import Path
 from pypinyin import Style, lazy_pinyin
 
 REPO = Path(__file__).resolve().parent.parent
-LINES = REPO / "data" / "processed" / "shanghai" / "lines.json"
-RAW = REPO / "data" / "raw" / "transit-relations.json"
-ATTR = REPO / "data" / "processed" / "attribution-report.json"
-OUT = REPO / "data" / "processed" / "shanghai" / "station.json"
-MD = REPO / "docs" / "mappings" / "station-merge-decisions.md"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-CITY_DEFAULT = "上海市"
-CITY_CODE = "sh"
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+LINES = P.lines_json
+RAW = P.raw_transit()
+ATTR = P.attribution_report()
+OUT = P.station_json
+MD = P.docs_station_merge_md
+
+CITY_DEFAULT = CFG.city
 
 MERGE_M = 150.0      # 合并阈值
 REVIEW_M = 300.0     # 超过即不合并
 
 # 人工白名单：同一座车站/枢纽，跨度虽 >300 m 仍并成一站（决策见 docs/split-groups-review.md）
-FORCE_MERGE = {"静安寺", "南京西路", "徐家汇", "宜山路"}
+_merge_path = P.manual_city_file("merge.json")
+_merge_cfg = json.loads(_merge_path.read_text(encoding="utf-8")) if _merge_path.exists() else {}
+FORCE_MERGE = set(_merge_cfg.get("force_merge", []))
 
 # 上海市外的站（当前只有 11 号线花桥支线 3 站），省 → 地级市
-PROVINCE_TO_CITY = {"江苏省": "苏州市", "浙江省": "嘉兴市", "安徽省": "宣城市"}
+PROVINCE_TO_CITY = dict(_merge_cfg.get("province_to_city", {}))
 
 
 def transfer_names() -> set[str]:

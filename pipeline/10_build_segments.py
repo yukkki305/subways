@@ -18,16 +18,25 @@ from __future__ import annotations
 import argparse
 import heapq
 import json
+import sys
+import os
 import math
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-RAW = REPO / "data" / "raw" / "transit-relations.json"
-LINES = REPO / "data" / "processed" / "shanghai" / "lines.json"
-STATIONS = REPO / "data" / "processed" / "shanghai" / "station.json"
-OUT = REPO / "data" / "processed" / "shanghai" / "segment.geojson"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
+
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+RAW = P.raw_transit()
+LINES = P.lines_json
+STATIONS = P.station_json
+OUT = P.segment_geojson
 
 R_EARTH = 6371008.8
 SOURCE = "OpenStreetMap（省级 PBF）"

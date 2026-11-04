@@ -390,3 +390,23 @@ PBF 在仓库外 `E:\subway-data\snapshots\<key>\`，清单与 sha256 在仓库�
 - 文件一律 **UTF-8 无 BOM**（PowerShell 5.1 的 `Set-Content -Encoding UTF8` 会写 BOM，Python 侧读到会异常）
 - 坐标一律 `[经度, 纬度]`（GeoJSON 顺序），全链路 WGS-84 / EPSG:4326
 - 中间产物里的时间戳字段不得参与算指纹，否则重跑不可比
+
+## 脚本改造（P1a-1.3）
+
+15 个编号脚本全部由配置驱动，城市通过环境变量选择：
+
+```powershell
+$env:PYTHONUTF8 = '1'
+$env:SUBWAY_CITY = 'sh'      # sh / gz / cd / hf，默认 sh
+E:\subway-data\venv\Scripts\python.exe pipeline\09_build_stations.py
+```
+
+| 变更 | 说明 |
+|---|---|
+| 头部 | 每个脚本统一 `sys.path.insert` + `load_city(SUBWAY_CITY)` + `Paths(CFG)` |
+| 常量 | 全部换成 `CFG.*`（城市/省份/包围盒/km/线路清单/ref 映射/白名单）与 `P.*`（路径） |
+| 人工表 | `data/manual/<slug>/{merge,transfers,colours,official-km}.json`，脚本不再内嵌 |
+| 底图 | `03_extract_basemap.py` 只做上海；其它城市直接 `SystemExit` 并说明理由 |
+| 编排 | `run_s1.py --city gz` 会跳过 S1-4 |
+
+**回归**：改完重跑 02→15，上海全部产物与改造前逐字节一致（仅 `generated_at` 变化），`13_validate.py --rerun` 八项全过。细节见 `docs/decisions/0004-city-config.md` 第九节。

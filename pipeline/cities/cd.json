@@ -15,6 +15,9 @@
   "pbfs": [
     "sichuan"
   ],
+  "pbf_provinces": {
+    "sichuan": "四川省"
+  },
   "network": [
     "成都地铁"
   ],
@@ -67,5 +70,8 @@
   "data_dir": "data/processed/chengdu",
   "web": {
     "city_label": "成都"
-  }
+  },
+  "snapshot": "p1a-20261103",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": []
 }

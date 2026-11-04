@@ -22,19 +22,39 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-CSV_DEFAULT = REPO / "data" / "manual" / "shanghai-relation-mapping.csv"
-MD_OUT = REPO / "docs" / "mappings" / "shanghai-relations.md"
-INDEX = REPO / "data" / "processed" / "relation-index.json"
+sys.path.insert(0, str(Path(__file__).parent))
+from cityconfig import load_city  # noqa: E402
+from paths import Paths  # noqa: E402
 
-EXPECTED_LINES = [f"sh-line-{i}" for i in range(1, 19)] + ["sh-line-pujiang", "sh-line-maglev"]
+CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
+CFG = load_city(CITY_CODE)
+P = Paths(CFG)
+CSV_DEFAULT = P.manual_mapping_csv
+MD_OUT = P.docs_relations_md
+INDEX = P.relation_index_global()
+
+EXPECTED_LINES = list(CFG.line_ids or [])
+
+
+def _ref_to_line() -> dict[str, str]:
+    """数字 ref（"1"）自动映射到 <prefix><n>；非数字 ref 由配置 ref_to_line 给。"""
+    out = {}
+    for lid in EXPECTED_LINES:
+        tail = lid[len(CFG.line_id_prefix):]
+        if tail.isdigit():
+            out[tail] = lid
+    out.update(CFG.ref_to_line)
+    return out
 DECIDES = {"保留", "合并", "丢弃"}
 
 # ref → line id：只用于把「待决策」的行归到线路上（11 号线待用户定，故也在此表）
-REF_TO_LINE = {str(i): f"sh-line-{i}" for i in range(1, 19)}
+REF_TO_LINE = _ref_to_line()
 REF_TO_LINE.update({"浦江": "sh-line-pujiang", "磁浮": "sh-line-maglev"})
 
 

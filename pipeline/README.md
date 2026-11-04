@@ -443,3 +443,21 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_city.py --city gz --to S1-6 
 
 文档输出按城命名：广州写 `docs/mappings/station-merge-decisions-gz.md`、`transfer-decisions-gz.md`、`colors-gz.md`；
 上海保持 `station-merge-decisions.md` / `transfer-decisions.md` / `colors.md` 不变。
+
+## 回归测试（P1a-1.6）
+
+```powershell
+$env:PYTHONUTF8 = '1'
+E:\subway-data\venv\Scripts\python.exe pipeline\regression.py          # 只比对
+E:\subway-data\venv\Scripts\python.exe pipeline\regression.py --run    # 先跑 S1-5→S2-7 再比对
+```
+
+判据：把产物里的 ISO 时间戳与「耗时 N s」归一化后取 sha256，与 `git` 上一版（默认 `HEAD`）比。
+`--baseline HEAD~1` 可指定参考点，`--list` 只列纳入回归的文件。
+
+纳入回归的 17 项：`data/raw/transit-relations.json`（仓库外不入 git，自动跳过）、
+`relation-index`、`attribution-report`、`lines/station/transfer/segment`、`basemap/sea`、
+`docs/{conflicts,validation-s2,colors,station-merge-decisions,transfer-decisions,shanghai-relations,name-diff}.md`、`name-diff.json`。
+
+负例实测：手工把某站名加个后缀 → 报 `[不一致] station.json` 并打印首个差异行，退出码 1；
+还原后回到 16/16 一致。改文档标题这类**有意的语义变化**需要提交新版本作为基线，否则会被判失败（这是设计意图）。

@@ -366,3 +366,17 @@ if len(distinct_cities) > 1 and len(distinct_provs) <= 1 and CFG.city in distinc
 **文档按城命名**（同批修）：`09` → `docs/mappings/station-merge-decisions-<code>.md`、`11` → `transfer-decisions-<code>.md`、
 `12` → `colors-<code>.md`；上海保留原名（`station-merge-decisions.md` / `transfer-decisions.md` / `colors.md`），
 否则跑广州会覆盖上海的合并决策表（实测 diff 88 增 / 151 删）。
+
+## 十三、上海回归脚本化（P1a-1.6）
+
+改造前靠人工跑一遍 + 看 `git diff`，但产物是 40 万字节级 JSON，diff 读不出语义差异。
+
+`pipeline/regression.py` 的做法：
+
+1. **时间戳归一化**：把 ISO-8601 时间与「耗时 N s」替换成占位符，其余逐字符保留；
+2. **与 git 比**：`git show <baseline>:<path>` 取上一版，取 sha256 比对；
+3. **失败要给线索**：不一致时打印首个差异行（不是只报个哈希不同）；
+4. `--run` 先跑 `run_city.py --city sh --from S1-5 --to S2-7`，再比对，一条命令完成「重跑 + 验收」。
+
+17 项纳入回归（含 `data/raw/transit-relations.json`，但它被 gitignore，脚本会自动跳过并计数）。
+首次运行抓出两处**有意的**变化：`validation-s2.md` 多了第 8 项（此前那条没跑），`shanghai-relations.md` 标题从「上海」变「上海市」（07 的多城化修正）。这两处提交后即成为新基线。

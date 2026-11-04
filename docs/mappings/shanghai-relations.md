@@ -1,10 +1,10 @@
-# 上海关系映射表（S2-2）
+# 上海市关系映射表（S2-2）
 
 > 本文件由 `pipeline/07_check_mapping.py --write-md` 从 `data/manual/shanghai-relation-mapping.csv` 渲染，**请勿手改**；改 CSV 后重跑。
 
 ## 汇总
 
-- 上海子集关系 **65** 条 → 保留 **23**、合并 **29**、丢弃 **13**、待决策 **0**
+- 本城子集关系 **65** 条 → 保留 **23**、合并 **29**、丢弃 **13**、待决策 **0**
 - 产出 **20** 条 line / **23** 个 branch（含 `-main` 与支线）
 - 规则依据：`docs/decisions/0001-modeling-rules.md` 的 R1（线路与支线）、R2（ID）、R3（环线）
 

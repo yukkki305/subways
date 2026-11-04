@@ -516,8 +516,8 @@ P0 时三个脚本都把上海写死；做 P1a 多城时它们必须回答同样
 & E:\node\npm.cmd run sync        -- --city gz      # 同步广州产物
 & E:\node\npm.cmd run test:search -- --city gz      # 广州检索用例（自动按数据生成）
 & E:\node\npm.cmd run verify      -- --city gz      # 校验广州构建
-& E:\node\npm.cmd run build       -- --city gz      # 构建（basePath 不变）
-SUBWAY_WEB_CITY=gz & E:\node\npm.cmd run sync       # 等价的环境变量写法
+$env:SUBWAY_WEB_CITY = "gz"; & E:\node\npm.cmd run build   # 构建（basePath 不变；prebuild 会同步该城数据）
+# 注意：next build 不接受 --city，构建时请用环境变量，三个 node 脚本才支持 --city
 ```
 
 不指定时默认 `sh`，**上海的行为与产物不变**（P0 回归基线仍然成立）。

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "code": "sh",
+  "name": "上海市",
+  "id_prefix": "sh",
+  "province": "上海市",
+  "province_l4": 913067,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "上海市",
+  "city_admin_level": 4,
+  "city_admin_id": 913067,
+  "city_names_fallback": [],
+  "pbfs": [
+    "shanghai"
+  ],
+  "network": [
+    "上海地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {
+      "磁浮": "maglev",
+      "浦江": "apm"
+    },
+    "exclude_refs": []
+  },
+  "bbox": [
+    120.8,
+    30.6,
+    122.2,
+    31.9
+  ],
+  "scene_bbox": [
+    120.7,
+    30.55,
+    123.4,
+    31.95
+  ],
+  "km_per_deg": [
+    95.2,
+    111.0
+  ],
+  "line_count_expected": 20,
+  "line_ids": [
+    "sh-line-1",
+    "sh-line-2",
+    "sh-line-3",
+    "sh-line-4",
+    "sh-line-5",
+    "sh-line-6",
+    "sh-line-7",
+    "sh-line-8",
+    "sh-line-9",
+    "sh-line-10",
+    "sh-line-11",
+    "sh-line-12",
+    "sh-line-13",
+    "sh-line-14",
+    "sh-line-15",
+    "sh-line-16",
+    "sh-line-17",
+    "sh-line-18",
+    "sh-line-pujiang",
+    "sh-line-maglev"
+  ],
+  "loop_start": {
+    "sh-line-4": "宜山路"
+  },
+  "line_names": {
+    "sh-line-pujiang": "浦江线",
+    "sh-line-maglev": "磁浮线"
+  },
+  "data_dir": "data/processed/shanghai",
+  "web": {
+    "city_label": "上海"
+  }
+}

@@ -316,6 +316,35 @@ S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度
 | 归属表仍有 >5 个上海站判为界外 | 停下查边界是否缺部件（崇明 / 长兴 / 横沙） |
 | 底图简化后仍 >5 MB | 停下，缩小水系抽取范围 |
 
+## 城市配置（P1a-1.1）
+
+P0 只做上海，多个脚本把「上海」「sh-」「shanghai」写死在常量里。P1a 起，城市相关的
+事实集中到 `pipeline/cities/<code>.json`，由 `pipeline/cityconfig.py` 加载校验：
+
+```powershell
+$env:PYTHONUTF8 = '1'
+E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --list
+E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --check        # 全部
+E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --check gz     # 单城
+E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --show gz      # 含派生字段
+E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --schema       # 字段说明
+```
+
+| 城市 | 文件 | 省份 L4 | 城市面 | 线路 | 说明 |
+| --- | --- | --- | --- | --- | --- |
+| 上海 sh | `cities/sh.json` | 913067 | L4 913067 | 20 | 回归基准 |
+| 广州 gz | `cities/gz.json` | 911844（**不闭合**） | L5 3287346 | 19 | 省面走 21 市并集；有轨电车按 `ref` 排除 |
+| 成都 cd | `cities/cd.json` | 913068（闭合） | L5 2110264 | 16 | |
+| 合肥 hf | `cities/hf.json` | 913011（闭合） | L5 3288965 | 8 | |
+
+校验规则（`load_city()` 时执行，错误一次性全部列出）：必填字段齐全、无未知字段、
+`bbox`/`scene_bbox` 西<东 南<北、`km_per_deg` 为正、`line_ids` 与 `line_count_expected`
+一致且前缀匹配、`province_face` 模式与 `names` 匹配、`route_scope` 的 route/类型合法。
+
+**分工**：配置只放机器可读的事实；要人判断的东西（同名站合并白名单、换乘类型、
+颜色覆盖、官方里程）在 `data/manual/<city>/`，不进配置。决策见
+`docs/decisions/0004-city-config.md`。
+
 ## 编码约定
 
 - 文件一律 **UTF-8 无 BOM**（PowerShell 5.1 的 `Set-Content -Encoding UTF8` 会写 BOM，Python 侧读到会异常）

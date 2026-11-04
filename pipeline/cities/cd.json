@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "code": "cd",
+  "name": "成都市",
+  "id_prefix": "cd",
+  "province": "四川省",
+  "province_l4": 913068,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "成都市",
+  "city_admin_level": 5,
+  "city_admin_id": 2110264,
+  "city_names_fallback": [],
+  "pbfs": [
+    "sichuan"
+  ],
+  "network": [
+    "成都地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    103.0,
+    30.0,
+    104.9,
+    31.4
+  ],
+  "scene_bbox": [
+    102.6,
+    29.7,
+    105.3,
+    31.7
+  ],
+  "km_per_deg": [
+    95.8,
+    111.0
+  ],
+  "line_count_expected": 16,
+  "line_ids": [
+    "cd-line-1",
+    "cd-line-2",
+    "cd-line-3",
+    "cd-line-4",
+    "cd-line-5",
+    "cd-line-6",
+    "cd-line-7",
+    "cd-line-8",
+    "cd-line-9",
+    "cd-line-10",
+    "cd-line-13",
+    "cd-line-17",
+    "cd-line-18",
+    "cd-line-19",
+    "cd-line-27",
+    "cd-line-30"
+  ],
+  "loop_start": {
+    "cd-line-7": "崔家店"
+  },
+  "line_names": {},
+  "data_dir": "data/processed/chengdu",
+  "web": {
+    "city_label": "成都"
+  }
+}

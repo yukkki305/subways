@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "code": "hf",
+  "name": "合肥市",
+  "id_prefix": "hf",
+  "province": "安徽省",
+  "province_l4": 913011,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "合肥市",
+  "city_admin_level": 5,
+  "city_admin_id": 3288965,
+  "city_names_fallback": [],
+  "pbfs": [
+    "anhui"
+  ],
+  "network": [
+    "合肥轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    116.7,
+    31.0,
+    117.9,
+    32.6
+  ],
+  "scene_bbox": [
+    116.4,
+    30.7,
+    118.2,
+    32.9
+  ],
+  "km_per_deg": [
+    94.6,
+    111.0
+  ],
+  "line_count_expected": 8,
+  "line_ids": [
+    "hf-line-1",
+    "hf-line-2",
+    "hf-line-3",
+    "hf-line-4",
+    "hf-line-5",
+    "hf-line-6",
+    "hf-line-7",
+    "hf-line-8"
+  ],
+  "loop_start": {},
+  "line_names": {},
+  "data_dir": "data/processed/hefei",
+  "web": {
+    "city_label": "合肥"
+  }
+}

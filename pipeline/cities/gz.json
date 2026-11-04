@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "code": "gz",
+  "name": "广州市",
+  "id_prefix": "gz",
+  "province": "广东省",
+  "province_l4": 911844,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "广州市",
+      "深圳市",
+      "珠海市",
+      "汕头市",
+      "佛山市",
+      "韶关市",
+      "湛江市",
+      "肇庆市",
+      "江门市",
+      "茂名市",
+      "惠州市",
+      "梅州市",
+      "汕尾市",
+      "河源市",
+      "阳江市",
+      "清远市",
+      "东莞市",
+      "中山市",
+      "潮州市",
+      "揭阳市",
+      "云浮市"
+    ]
+  },
+  "city": "广州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3287346,
+  "city_names_fallback": [],
+  "pbfs": [
+    "guangdong"
+  ],
+  "network": [
+    "广州地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail"
+    ],
+    "ref_overrides": {
+      "APM": "apm"
+    },
+    "exclude_refs": [
+      "THP1",
+      "THP2",
+      "THZ1"
+    ]
+  },
+  "bbox": [
+    112.9,
+    22.5,
+    114.1,
+    23.95
+  ],
+  "scene_bbox": [
+    112.6,
+    22.2,
+    114.4,
+    24.3
+  ],
+  "km_per_deg": [
+    102.4,
+    111.0
+  ],
+  "line_count_expected": 19,
+  "line_ids": [
+    "gz-line-1",
+    "gz-line-2",
+    "gz-line-3",
+    "gz-line-4",
+    "gz-line-5",
+    "gz-line-6",
+    "gz-line-7",
+    "gz-line-8",
+    "gz-line-9",
+    "gz-line-10",
+    "gz-line-11",
+    "gz-line-12",
+    "gz-line-13",
+    "gz-line-14",
+    "gz-line-18",
+    "gz-line-21",
+    "gz-line-22",
+    "gz-line-apm",
+    "gz-line-gfl"
+  ],
+  "loop_start": {
+    "gz-line-11": "琶洲"
+  },
+  "line_names": {
+    "gz-line-apm": "APM线",
+    "gz-line-gfl": "广佛线"
+  },
+  "data_dir": "data/processed/guangzhou",
+  "web": {
+    "city_label": "广州"
+  }
+}

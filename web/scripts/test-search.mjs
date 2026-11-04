@@ -12,17 +12,35 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { buildIndex, search } from "../lib/search.ts";
+import { cityLabel, loadCity, parseCityArg } from "./city.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dataDir = resolve(here, "../../data/processed/shanghai");
+// P1a-1.5：城市由 --city / SUBWAY_WEB_CITY 决定，默认 sh；数据目录取城市配置里的 data_dir
+const { city } = parseCityArg(process.argv.slice(2));
+const cfg = loadCity(city);
+const dataDir = resolve(resolve(here, "../.."), cfg.data_dir);
 
-const stationsFile = JSON.parse(readFileSync(resolve(dataDir, "station.json"), "utf8"));
-const linesFile = JSON.parse(readFileSync(resolve(dataDir, "lines.json"), "utf8"));
+function readJson(file) {
+  try {
+    return JSON.parse(readFileSync(file, "utf8"));
+  } catch (err) {
+    console.error(`[失败] 读不到 ${file}`);
+    console.error(`       该城还没跑完数据管道，先执行：python pipeline/run_city.py --city ${cfg.code}`);
+    console.error(`       原始错误：${err.message}`);
+    process.exit(1);
+  }
+}
+
+const stationsFile = readJson(resolve(dataDir, "station.json"));
+const linesFile = readJson(resolve(dataDir, "lines.json"));
 
 const index = buildIndex(stationsFile.stations, linesFile.lines);
 
-/** @type {{q: string, expectTitle?: string, expectKind?: "station"|"line", minResults?: number, maxResults?: number, note?: string}[]} */
-const cases = [
+/**
+ * 上海：P0 期间固化的 22 条用例（中文子串 / 全拼 / 首字母 / 线路号 / 同名多站 / 空输入）。
+ * 这些站名是上海专有的，换成别的城市会全部失败 —— 所以只在 sh 上跑。
+ */
+const SH_CASES = [
   { q: "人民", expectTitle: "人民广场", note: "中文子串" },
   { q: "renmin", expectTitle: "人民广场", note: "拼音全拼" },
   { q: "rmgc", expectTitle: "人民广场", note: "拼音首字母" },
@@ -46,6 +64,50 @@ const cases = [
   { q: "zzzz", maxResults: 0, note: "无结果" },
   { q: "   ", maxResults: 0, note: "空输入" },
 ];
+
+/**
+ * 其它城：不写死站名，直接从该城产物里取几座真实车站/线路生成用例。
+ * 这样新城市无需人工编写用例，也能验证「中文、全拼、首字母、线路号」四类匹配。
+ */
+function buildGenericCases(stations, lines) {
+  const strip = (s) => s.normalize("NFD").replace(/\p{M}/gu, "");
+  const picked = [];
+  const seen = new Set();
+  for (const st of stations) {
+    const base = String(st.name ?? "").replace(/\((\d+)\)$/, "");
+    if (!base || seen.has(base)) continue;
+    seen.add(base);
+    picked.push(st);
+    if (picked.length >= 3) break;
+  }
+  const out = [];
+  for (const st of picked) {
+    const base = String(st.name).replace(/\((\d+)\)$/, "");
+    out.push({ q: base, expectTitle: base, note: "中文整名" });
+    const py = String(st.name_pinyin ?? "").trim();
+    if (py) {
+      const full = strip(py).toLowerCase().replace(/[^a-z]/g, "");
+      if (full) out.push({ q: full, expectTitle: base, note: "拼音全拼" });
+      const initials = strip(py)
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((w) => w[0])
+        .join("");
+      if (initials.length >= 2) out.push({ q: initials, expectTitle: base, note: "拼音首字母" });
+    }
+  }
+  const line = lines[0];
+  if (line) {
+    out.push({ q: String(line.name), expectTitle: line.name, expectKind: "line", note: "线路名" });
+    const digits = String(line.name).match(/\d+/)?.[0];
+    if (digits) out.push({ q: `${digits}号线`, expectTitle: line.name, expectKind: "line", note: "线路号" });
+  }
+  out.push({ q: "zzzz", maxResults: 0, note: "无结果" });
+  out.push({ q: "   ", maxResults: 0, note: "空输入" });
+  return out;
+}
+
+const cases = cfg.code === "sh" ? SH_CASES : buildGenericCases(stationsFile.stations, linesFile.lines);
 
 let failed = 0;
 const rows = [];
@@ -82,7 +144,7 @@ for (const c of cases) {
   });
 }
 
-// ---- 性能：423 站 + 20 线，单次查询应当远低于一帧 ----
+// ---- 性能：本城全部站点 + 线路，单次查询应当远低于一帧 ----
 const probes = ["人民", "renmin", "rmgc", "南", "路", "line", "2", "x", "龙阳路", "shanghai"];
 const timings = [];
 for (let i = 0; i < 400; i += 1) {
@@ -96,7 +158,7 @@ const p50 = timings[Math.floor(timings.length * 0.5)];
 const p95 = timings[Math.floor(timings.length * 0.95)];
 const max = timings[timings.length - 1];
 
-console.log(`检索用例（索引 ${index.entries.length} 条 = ${stationsFile.stations.length} 站 + ${linesFile.lines.length} 线）\n`);
+console.log(`检索用例 · ${cityLabel(cfg)}（${cfg.code}）｜索引 ${index.entries.length} 条 = ${stationsFile.stations.length} 站 + ${linesFile.lines.length} 线\n`);
 console.table(rows);
 console.log(
   `性能：400 次查询 p50 ${p50.toFixed(3)} ms / p95 ${p95.toFixed(3)} ms / max ${max.toFixed(3)} ms`,

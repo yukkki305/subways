@@ -307,3 +307,40 @@ python pipeline/run_city.py --list                # 步骤表 + 映射表状态
 
 `run_city.py --city sh --from S1-5 --to S2-7` 全程 60.5 s，八项校验全过；
 `data/processed` 与 `docs/` 下所有产物与基线只差时间戳（10 行增删）。
+
+## 十一、前端脚本多城化（P1a-1.5）
+
+P0 的三个 web 脚本（`sync-data.mjs` / `test-search.mjs` / `verify-build.mjs`）把上海写死在路径与断言里。
+多城之后它们统一读 `pipeline/cities/<code>.json`（新增 `web/scripts/city.mjs` 作为解析层），
+城市由 `--city <code>` 或环境变量 `SUBWAY_WEB_CITY` 指定，默认 `sh`。
+
+### 11.1 三个脚本的取值来源
+
+| 脚本 | 从配置取什么 |
+|---|---|
+| `sync-data.mjs` | `data_dir`（产物目录）、`code`（上海走精细底图+海面，其它城走 `<data_dir>/basemap\|sea.geojson` 可缺）、`web.city_label` |
+| `test-search.mjs` | `data_dir`；用例：上海用固化 22 条，其它城按产物现生成 |
+| `verify-build.mjs` | `line_count_expected`、`line_ids`、`scene_bbox`、`city` |
+
+### 11.2 meta.json 升级为「自述文件」
+
+`web/public/data/meta.json` 原来只有快照与 `station.json` 的 counts；现在补：
+`city_code` / `city` / `city_label`，以及 `counts.lines` / `counts.transfers` / `counts.segments`。
+`verify-build.mjs` 因此能：不带 `--city` 时按 `meta.city_code` 校验；带 `--city` 时校验一致性 ——
+避免「用上海的 `out/` 去校验广州配置」这种假通过。
+
+### 11.3 断言从「上海数字」变成「城市配置」
+
+| 原断言 | 现断言 |
+|---|---|
+| 线路 20 条 / 车站 423 座 / 换乘 12 条 / 区间 570 段 | 线路数对照 `line_count_expected`；线路 id 集合对照 `line_ids`；后三者对照 `meta.counts` |
+| 车站坐标在 `120.7–123.4 / 30.5–32.0` | 车站坐标在 `scene_bbox` 内 |
+| 数据文件清单写死 6 个 | 以 `meta.files` 为准（核心 4 个必须存在） |
+
+断言数 21 → 23（新增「meta 城市一致」「meta 登记文件存在」两条）。上海实测仍全过、产物 4.15 MB。
+
+### 11.4 失败信息
+
+- 城市配置缺失 / `code` 与文件名不符 → 报错并列出可用城市（`cd / gz / hf / sh`）。
+- 产物缺失 → `sync` 列出缺哪几个文件，并提示 `python pipeline/run_city.py --city <code>`；
+  `test:search` 读不到 `station.json` 时同样提示，不抛 ENOENT 堆栈。

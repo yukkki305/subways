@@ -5,7 +5,12 @@ import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import { join, relative } from "node:path";
 
-const OUT = process.argv[2] ?? "out";
+import { loadCity, parseCityArg, sceneBbox } from "./city.mjs";
+
+// 用法：node scripts/verify-build.mjs [outDir] [--city <code>]
+// 城市优先取 --city，其次读 out/data/meta.json 里的 city_code（构建产物自己说了算）
+const { city: cityArg, rest: args } = parseCityArg(process.argv.slice(2));
+const OUT = args.find((a) => !a.startsWith("--")) ?? "out";
 const ROOT = process.cwd();
 const checks = [];
 
@@ -50,11 +55,20 @@ const externalResources = [...html.matchAll(/<script[^>]+src="(https?:\/\/[^"]+)
   .filter((u) => !u.startsWith(SITE_ORIGIN));
 check("页面资源全部同源", externalResources.length === 0, externalResources.slice(0, 3).join(", ") || "外链仅限元信息");
 
-// 2. 数据文件齐全（含 S4-4 的海面）
+// 2. 数据文件齐全：以 meta.json 记录的清单为准（多城时底图/海面可有可无）
 const dataDir = join(ROOT, OUT, "data");
-const dataFiles = ["lines.json", "station.json", "transfer.json", "segment.geojson", "shanghai-basemap.geojson", "sea.geojson", "meta.json"];
-for (const f of dataFiles) {
+const metaPath = join(dataDir, "meta.json");
+if (!existsSync(metaPath)) throw new Error("缺少 out/data/meta.json（先跑 npm run build，prebuild 会同步数据）");
+const meta = JSON.parse(readFileSync(metaPath, "utf8"));
+const CORE_FILES = ["lines.json", "station.json", "transfer.json", "segment.geojson"];
+for (const f of CORE_FILES) {
   check(`data/${f} 存在`, existsSync(join(dataDir, f)));
+}
+const CITY_CODE = cityArg || meta.city_code || "sh";
+const cfg = loadCity(CITY_CODE);
+check("meta.json 的城市与本次校验一致", meta.city_code === cfg.code, `${meta.city_code} / ${meta.city_label ?? ""}`);
+for (const f of meta.files ?? []) {
+  check(`data/${f.name} 存在（meta 登记）`, existsSync(join(dataDir, f.name)));
 }
 
 // 3. 数据自洽
@@ -62,19 +76,30 @@ const lines = JSON.parse(readFileSync(join(dataDir, "lines.json"), "utf8"));
 const station = JSON.parse(readFileSync(join(dataDir, "station.json"), "utf8"));
 const transfer = JSON.parse(readFileSync(join(dataDir, "transfer.json"), "utf8"));
 const segment = JSON.parse(readFileSync(join(dataDir, "segment.geojson"), "utf8"));
-const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 
-check("线路 20 条", lines.lines.length === 20, `${lines.lines.length}`);
-check("车站 423 座", station.stations.length === 423, `${station.stations.length}`);
-check("换乘 12 条", transfer.transfers.length === 12, `${transfer.transfers.length}`);
-check("区间 570 段", segment.features.length === 570, `${segment.features.length}`);
+check(
+  `线路 ${cfg.line_count_expected} 条（城市配置）`,
+  lines.lines.length === cfg.line_count_expected,
+  `${lines.lines.length}（配置 ${cfg.line_count_expected}）`,
+);
+const lineIds = new Set(lines.lines.map((l) => l.id));
+const missingIds = cfg.line_ids.filter((id) => !lineIds.has(id));
+const extraIds = [...lineIds].filter((id) => !cfg.line_ids.includes(id));
+check(
+  "线路 id 与城市配置一致",
+  missingIds.length === 0 && extraIds.length === 0,
+  missingIds.length || extraIds.length
+    ? `缺 ${missingIds.slice(0, 3).join(",") || "-"} / 多 ${extraIds.slice(0, 3).join(",") || "-"}`
+    : `${lineIds.size} 个`,
+);
 check(
   "meta.json 计数与文件一致",
   meta.counts?.stations === station.stations.length &&
-    meta.counts?.transfer_candidates === transfer.transfers.length &&
-    meta.total_bytes ===
-      meta.files.reduce((a, f) => a + f.bytes, 0),
-  `站 ${meta.counts?.stations} / 换乘候选 ${meta.counts?.transfer_candidates} / ${meta.total_bytes} B`,
+    meta.counts?.lines === lines.lines.length &&
+    meta.counts?.transfers === transfer.transfers.length &&
+    meta.counts?.segments === segment.features.length &&
+    meta.total_bytes === meta.files.reduce((a, f) => a + f.bytes, 0),
+  `线路 ${meta.counts?.lines} / 站 ${meta.counts?.stations} / 区间 ${meta.counts?.segments} / 换乘 ${meta.counts?.transfers} / ${meta.total_bytes} B`,
 );
 const shaMismatch = meta.files.filter((f) => {
   const buf = readFileSync(join(dataDir, f.name));
@@ -82,14 +107,19 @@ const shaMismatch = meta.files.filter((f) => {
 });
 check("meta.json 记录的字节数与实际一致", shaMismatch.length === 0, `${meta.files.length} 个文件`);
 
-// 4. 坐标全部落在上海视野内（WGS-84，防 GCJ-02 混入）
-const visible = (lon, lat) => lon > 120.7 && lon < 123.4 && lat > 30.5 && lat < 32.0;
+// 4. 坐标全部落在该城视野内（WGS-84，防 GCJ-02 混入）
+const bb = sceneBbox(cfg);
+const visible = (lon, lat) => lon > bb.west && lon < bb.east && lat > bb.south && lat < bb.north;
 const badCoord = station.stations.filter((s) => !visible(s.coord[0], s.coord[1]));
-check("车站坐标均在 WGS-84 上海视野内", badCoord.length === 0, badCoord.length ? `${badCoord.length} 个越界` : `${station.stations.length}/${station.stations.length}`);
+check(
+  `车站坐标均在 WGS-84 ${cfg.city}视野内`,
+  badCoord.length === 0,
+  badCoord.length ? `${badCoord.length} 个越界：${badCoord.slice(0, 2).map((s) => s.name).join(",")}` : `${station.stations.length}/${station.stations.length}`,
+);
 
 // 5. 颜色全部为合法十六进制
 const badColour = lines.lines.filter((l) => !/^#[0-9A-F]{6}$/.test(l.colour));
-check("线路颜色为 6 位大写十六进制", badColour.length === 0, badColour.map((l) => `${l.id}:${l.colour}`).join(" ") || "20/20");
+check("线路颜色为 6 位大写十六进制", badColour.length === 0, badColour.map((l) => `${l.id}:${l.colour}`).join(" ") || `${lines.lines.length}/${lines.lines.length}`);
 
 // 6. 交付物里的许可与截止日期
 check(

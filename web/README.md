@@ -11,7 +11,8 @@ cd E:\subway\web
 & E:\node\npm.cmd run dev               # 开发服务器 http://127.0.0.1:3210
 & E:\node\npm.cmd run build             # 静态导出到 web\out\
 & E:\node\npm.cmd run typecheck         # tsc --noEmit
-& E:\node\npm.cmd run verify            # 构建自证：21 项静态检查（S3-7 / S4-7，含打包残留）
+& E:\node\npm.cmd run verify            # 构建自证：23 项静态检查（S3-7 / S4-7 / P1a-1.5，含打包残留）
+& E:\node\npm.cmd run sync -- --city gz    # 换一座城（数据管道的产物必须先生成）
 & E:\node\npm.cmd run test:search       # 检索内核用例（S5-1，22 条 + 性能断言）
 ```
 
@@ -505,3 +506,32 @@ is_transfer = len(lines) >= 2 or name in TRANSFER_NAMES   # TRANSFER_NAMES 来�
 | 校验口径调整 | `verify-build.mjs` 的「无外部资源」断言细化：只查 `script[src]` / `img[src]` / 资源类 `link[href]`，允许 `canonical`、`author` 与外链 `<a>` |
 
 线上核验：`og:image = https://yukkki305.github.io/subways/og.jpg`、`twitter:card = summary_large_image`、`canonical` 正确；`/robots.txt`、`/sitemap.xml`、`/og.jpg` 均 200。
+
+## 前端脚本多城化（P1a-1.5）
+
+P0 时三个脚本都把上海写死；做 P1a 多城时它们必须回答同样三个问题：**跑哪座城、产物在哪、该城的视野与线路清单是什么**。
+现在统一从数据管道的单一事实源 `pipeline/cities/<code>.json` 取，前端脚本不再各自维护城市常量。
+
+```powershell
+& E:\node\npm.cmd run sync        -- --city gz      # 同步广州产物
+& E:\node\npm.cmd run test:search -- --city gz      # 广州检索用例（自动按数据生成）
+& E:\node\npm.cmd run verify      -- --city gz      # 校验广州构建
+& E:\node\npm.cmd run build       -- --city gz      # 构建（basePath 不变）
+SUBWAY_WEB_CITY=gz & E:\node\npm.cmd run sync       # 等价的环境变量写法
+```
+
+不指定时默认 `sh`，**上海的行为与产物不变**（P0 回归基线仍然成立）。
+
+| 文件 | 改动 |
+|---|---|
+| `scripts/city.mjs`（新） | `parseCityArg` / `loadCity` / `dataSources` / `cityLabel` / `sceneBbox`；从 `pipeline/cities/<code>.json` 读，缺配置或 code 与文件名不符时报错并列出可用城市 |
+| `scripts/sync-data.mjs` | 产物清单由 `dataSources(cfg)` 生成（上海：精细底图 + 海面；其它城：`<data_dir>/basemap.geojson`、`sea.geojson`，可缺）；`meta.json` 增加 `city_code` / `city` / `city_label`，`counts` 补 `lines` / `transfers` / `segments` |
+| `scripts/test-search.mjs` | 数据目录取 `cfg.data_dir`；上海保留原 22 条固化用例，其它城按数据现生成（中文整名、全拼、首字母、线路名、线路号、空输入、无结果） |
+| `scripts/verify-build.mjs` | 数据文件以 `meta.files` 为准；线路数、线路 id、坐标视野全部对照城市配置；断言 21 → **23 项** |
+
+两条防错设计：
+
+- **meta.json 自己说是哪座城**：`verify` 不带 `--city` 时读 `meta.city_code` 判断，带 `--city` 时校验两者一致 —— 防止「拿上海的 `out/` 校验广州配置」这种假通过。
+- **缺数据时给人话**：`sync` 缺产物时列出缺哪几个文件并提示先跑 `python pipeline/run_city.py --city <code>`；`test:search` 读不到 `station.json` 时同样提示，不会抛 ENOENT 堆栈。
+
+实测（P1a-1.5）：上海 `sync` 幂等、`test:search` 22 条全过（p50 0.079 ms）、`build` + `verify` **23 项全过 / 4.15 MB**；`--city gz`、`--city cd` 在数据未生成时给出明确缺文件清单（退出码 1）；`--city xyz` 报「没有城市配置」并列出 `cd / gz / hf / sh`。

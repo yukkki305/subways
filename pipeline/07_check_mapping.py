@@ -58,7 +58,7 @@ REF_TO_LINE = _ref_to_line()
 REF_TO_LINE.update({"浦江": "sh-line-pujiang", "磁浮": "sh-line-maglev"})
 
 
-def write_md(rows, by_line, branch_stops, pending, sh_total) -> Path:
+def write_md(rows, by_line, branch_stops, pending, sh_total, csv_path: Path) -> Path:
     """把 CSV（含人工判定）重渲成人可读文档。单一事实来源仍是 CSV。"""
     keeps = [r for r in rows if r["decide"] == "保留"]
     merges = [r for r in rows if r["decide"] == "合并"]
@@ -68,14 +68,14 @@ def write_md(rows, by_line, branch_stops, pending, sh_total) -> Path:
         merged_under[r["target_branch"]].append(r)
 
     out: list[str] = [
-        "# 上海关系映射表（S2-2）",
+        f"# {CFG.name}关系映射表（S2-2）",
         "",
         "> 本文件由 `pipeline/07_check_mapping.py --write-md` 从 "
-        "`data/manual/shanghai-relation-mapping.csv` 渲染，**请勿手改**；改 CSV 后重跑。",
+        f"`{csv_path.relative_to(REPO).as_posix()}` 渲染，**请勿手改**；改 CSV 后重跑。",
         "",
         "## 汇总",
         "",
-        f"- 上海子集关系 **{sh_total}** 条 → 保留 **{len(keeps)}**、合并 **{len(merges)}**、丢弃 **{len(drops)}**、待决策 **{len(pending)}**",
+        f"- 本城子集关系 **{sh_total}** 条 → 保留 **{len(keeps)}**、合并 **{len(merges)}**、丢弃 **{len(drops)}**、待决策 **{len(pending)}**",
         f"- 产出 **{len(by_line)}** 条 line / **{sum(len(v) for v in by_line.values())}** 个 branch（含 `-main` 与支线）",
         "- 规则依据：`docs/decisions/0001-modeling-rules.md` 的 R1（线路与支线）、R2（ID）、R3（环线）",
         "",
@@ -132,7 +132,20 @@ def main() -> int:
     csv_path = Path(args.csv)
     rows = list(csv.DictReader(csv_path.open(encoding="utf-8")))
     index = json.loads(INDEX.read_text(encoding="utf-8"))
-    sh = [r for r in index["relations"] if "shanghai" in (r.get("provinces") or [])]
+    scope_path = csv_path.with_suffix(".meta.json")
+    scope_ids: list[str] | None = None
+    if scope_path.exists():
+        meta = json.loads(scope_path.read_text(encoding="utf-8"))
+        if meta.get("city_code") == CFG.code:
+            scope_ids = [str(x) for x in meta.get("scope_ids") or []]
+    by_id = {str(r["id"]): r for r in index["relations"]}
+    if scope_ids is not None:
+        # 首选口径：06 导出的范围清单（sidecar），多城后才靠得住
+        sh = [by_id[i] for i in scope_ids if i in by_id]
+    elif CFG.code == "sh":
+        sh = [r for r in index["relations"] if "shanghai" in (r.get("provinces") or [])]
+    else:
+        sh = list(index["relations"])
     stops_of = {str(r["id"]): set(r.get("stop_names") or []) for r in sh}
 
     errors: list[str] = []
@@ -140,7 +153,14 @@ def main() -> int:
 
     # 1 行数
     if len(rows) != len(sh):
-        errors.append(f"行数 {len(rows)} ≠ S1-5 上海子集 {len(sh)}")
+        errors.append(f"行数 {len(rows)} ≠ S1-5 本城子集 {len(sh)}")
+
+    # 1b 每行都必须在范围清单里
+    if scope_ids is not None:
+        allowed_ids = {str(x) for x in scope_ids}
+        extra = [r["relation_id"] for r in rows if r["relation_id"] not in allowed_ids]
+        if extra:
+            errors.append(f"映射表里有 {len(extra)} 行不在本城范围内（例：{extra[0]}）")
 
     # 2 取值合法 + 待决策统计
     pending = [r for r in rows if not r["decide"].strip()]
@@ -221,7 +241,7 @@ def main() -> int:
             print(f"  {r['relation_id']:>9}  ref={r['ref']:<4} {r['name']}  （{r['unique_stops']} 站，{r['city'] or '归属空'}）")
 
     if args.write_md:
-        md_path = write_md(rows, by_line, branch_stops, pending, len(sh))
+        md_path = write_md(rows, by_line, branch_stops, pending, len(sh), csv_path)
         print()
         print(f"重渲 {md_path.relative_to(REPO)}")
 

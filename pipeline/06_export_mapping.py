@@ -21,6 +21,7 @@ import json
 import os
 import sys
 from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -198,6 +199,24 @@ def main() -> int:
         writer.writerows(rows)
 
     by_type = Counter(r["transit_type"] for r in rows)
+    # 把本次导出的关系集合写进 sidecar，供 07 校验「行数」与「每行都在范围内」。
+    # 没有 sidecar 时 07 退回按省面/城市子集推断——多城之后那种推断不可靠。
+    scope_path = OUT_CSV.with_suffix(".meta.json")
+    scope_path.write_text(
+        json.dumps(
+            {
+                "city_code": CFG.code,
+                "generated_at": datetime.now().isoformat(timespec="seconds"),
+                "scope_ids": [str(r["id"]) for r in rels],
+                "allowed_cities": sorted(allowed),
+            },
+            ensure_ascii=False,
+            indent=1,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
     print(f"写出 {OUT_CSV.relative_to(REPO)}：{len(rows)} 行 × {len(FIELDS)} 列（后 4 列留空）")
     print("按制式：" + "、".join(f"{TYPE_LABEL.get(t, t)} {n}" for t, n in by_type.items()))
     print("按归属市：" + "、".join(f"{k} {v}" for k, v in Counter(r["city"] or "(空)" for r in rows).most_common()))

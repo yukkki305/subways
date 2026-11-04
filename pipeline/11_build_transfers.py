@@ -78,6 +78,25 @@ GROUP_TYPES: dict[str, dict] = {
 }
 
 
+def _manual_types() -> dict[str, dict]:
+    """读 data/manual/<slug>/transfers.json 的 group_types（多城化的唯一事实源）。
+
+    文件不存在时返回空字典，由脚本内的 GROUP_TYPES 字面量兜底——这样上海在
+    手工表缺失时也不会退化成「没有判定」。
+    """
+    path = P.manual_city_file("transfers.json")
+    if not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    data = doc.get("group_types") or {}
+    if not isinstance(data, dict):
+        raise SystemExit(f"[错误] {path} 的 group_types 不是对象")
+    return data
+
+
+GROUP_TYPES.update(_manual_types())
+
+
 def main() -> int:
     st = json.loads(STATIONS.read_text(encoding="utf-8"))
     by_id = {s["id"]: s for s in st["stations"]}

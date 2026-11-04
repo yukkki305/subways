@@ -51,9 +51,10 @@ SNAPSHOT = P.snapshot_dir(CFG.snapshot)
 PROVINCE_OF_EXTRACT = dict(CFG.pbf_provinces)
 PBFS = {PROVINCE_OF_EXTRACT[pbf]: P.pbf(pbf, CFG.snapshot) for pbf in CFG.pbfs}
 RAW = P.raw_transit()
-INDEX = P.relation_index_global()
-OUT_REPORT = P.attribution_report_global()
-OUT_CONFLICTS = P.doc("conflicts.md")
+_IS_LEGACY = CFG.code == "sh"  # 全局审计文件（关系清单 / 归属报告 / conflicts.md）只归上海
+INDEX = P.relation_index_global() if _IS_LEGACY else P.relation_index()
+OUT_REPORT = P.attribution_report_global() if _IS_LEGACY else P.attribution_report()
+OUT_CONFLICTS = P.doc("conflicts.md") if _IS_LEGACY else P.doc(f"conflicts-{CFG.code}.md")
 
 # 关系 id -> 省份名（L4），用 id 而不是名字匹配，避免同名歧义
 PROVINCE_L4 = CFG.province_faces

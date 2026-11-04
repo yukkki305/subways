@@ -35,7 +35,7 @@ CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
 CFG = load_city(CITY_CODE)
 P = Paths(CFG)
 CSV_PATH = P.manual_mapping_csv
-INDEX = P.relation_index_global()
+INDEX = P.relation_index_global() if CFG.code == "sh" else P.relation_index()  # 全局清单只归上海，其它城读本城子集
 OUT = P.lines_json
 
 CITY = CFG.city

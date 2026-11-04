@@ -81,6 +81,7 @@ SCHEMA: dict[str, str] = {
     "loop_start": "环线起点站名 {line_id: 站名}",
     "line_names": "线路显示名的例外 {line_id: 名称}",
     "data_dir": "产物目录，相对仓库根，如 data/processed/shanghai",
+    "worksheet_cities": "映射表要覆盖的其它城市（跨城线对端，如 苏州市 / 佛山市）",
     "web": "前端需要的信息 {city_label}",
 }
 
@@ -115,6 +116,7 @@ OPTIONAL_DEFAULTS: dict[str, Any] = {
     "snapshot": "20261101",
     "ref_to_line": {},
     "stop_bbox_whitelist": [],
+    "worksheet_cities": [],
     "line_ids": None,
     "loop_start": {},
     "line_names": {},
@@ -177,6 +179,12 @@ def validate(raw: dict[str, Any], source: str = "<memory>") -> list[str]:
     unknown = sorted(set(raw) - set(SCHEMA))
     if unknown:
         _reject(f"未知字段（拼错了？）：{', '.join(unknown)}", errors)
+
+    _wc = raw.get("worksheet_cities")
+    if _wc is not None and (
+        not isinstance(_wc, list) or not all(isinstance(x, str) and x for x in _wc)
+    ):
+        _reject("worksheet_cities: 必须是非空城市名数组", errors)
 
     missing = [k for k in REQUIRED if k not in raw]
     if missing:
@@ -409,6 +417,7 @@ class CityConfig:
     ref_to_line: dict[str, str] = field(default_factory=dict)
     stop_bbox_whitelist: list[str] = field(default_factory=list)
     province_l5_union: dict[str, list[str]] = field(default_factory=dict)
+    worksheet_cities: list[str] = field(default_factory=list)
     snapshot: str = "20261101"
     line_ids: list[str] | None = None
     loop_start: dict[str, str] = field(default_factory=dict)

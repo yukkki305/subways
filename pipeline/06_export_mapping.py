@@ -31,7 +31,7 @@ from paths import Paths  # noqa: E402
 CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
 CFG = load_city(CITY_CODE)
 P = Paths(CFG)
-INDEX = P.relation_index_global()
+INDEX = P.relation_index_global() if CFG.code == "sh" else P.relation_index()  # 全局清单只归上海，其它城读本城子集
 OUT_CSV = P.manual_mapping_csv
 
 PROVINCE_KEY = CFG.pbfs[0]
@@ -121,7 +121,36 @@ def main() -> int:
             )
 
     index = json.loads(INDEX.read_text(encoding="utf-8"))
-    rels = [r for r in index["relations"] if PROVINCE_KEY in (r.get("provinces") or [])]
+    # 映射表只覆盖「本城 + 跨城对端市」的关系：
+    # 上海取 上海市 + 苏州市（11 号线花桥段），广州取 广州市 + 佛山市（广佛线 / 7 号线顺德段）。
+    # 省内其它城市（深圳、东莞…）由各自的城市任务处理，不在这里出现。
+    allowed = {CITY, *CFG.worksheet_cities}
+    in_prov = [r for r in index["relations"] if PROVINCE_KEY in (r.get("provinces") or [])]
+
+    def _nets(rec: dict) -> set[str]:
+        raw = rec.get("network")
+        if isinstance(raw, str):
+            return {raw}
+        return set(raw or [])
+
+    attributed = [r for r in in_prov if (r.get("city") or "")]
+    if not attributed:
+        # 过渡规则：归属步骤还没给本城回填 city 时（上海目前的状况），
+        # 退回「省面内全收」的老行为，避免把该要的关系漏掉。
+        rels = in_prov
+        if len(in_prov):
+            print(f"   [过滤] {PROVINCE_KEY} 内 {len(in_prov)} 条，city 尚未回填 → 全收")
+    else:
+        rels = [
+            r
+            for r in in_prov
+            if (r.get("city") or "") in allowed
+            or (not (r.get("city") or "") and _nets(r) & set(CFG.network))
+        ]
+        print(
+            f"   [过滤] {PROVINCE_KEY} 内 {len(in_prov)} 条，保留 {len(rels)} 条"
+            f"（{', '.join(sorted(allowed))}）"
+        )
     rels.sort(key=sort_key)
 
     ref_count = Counter(r.get("ref") for r in rels if r.get("ref"))

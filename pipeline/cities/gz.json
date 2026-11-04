@@ -114,5 +114,14 @@
     "广佛线": "gz-line-gfl",
     "GF": "gz-line-gfl"
   },
-  "stop_bbox_whitelist": []
+  "stop_bbox_whitelist": [],
+  "province_l5_union": {
+    "广东省": [
+      "广州市",
+      "佛山市"
+    ]
+  },
+  "worksheet_cities": [
+    "佛山市"
+  ]
 }

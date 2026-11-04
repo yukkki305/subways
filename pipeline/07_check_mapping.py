@@ -37,7 +37,7 @@ CFG = load_city(CITY_CODE)
 P = Paths(CFG)
 CSV_DEFAULT = P.manual_mapping_csv
 MD_OUT = P.docs_relations_md
-INDEX = P.relation_index_global()
+INDEX = P.relation_index_global() if CFG.code == "sh" else P.relation_index()  # 全局清单只归上海，其它城读本城子集
 
 EXPECTED_LINES = list(CFG.line_ids or [])
 

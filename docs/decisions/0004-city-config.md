@@ -254,3 +254,56 @@ transit-relations.json（287 关系）、shanghai-basemap.geojson（22 要素 / 
 ### 9.5 `run_s1.py --city`
 
 新增 `--city`（默认 `sh`），透传 `SUBWAY_CITY`；非上海的 S1-4 直接跳过并打印理由（底图只做上海，见 D4）。实测：`run_s1.py --city gz --only S1-4` → 打印跳过、退出码 0。
+
+## 十、全链路编排（P1a-1.4）
+
+新增 `pipeline/run_city.py`：一条命令跑完某城的 S1 → S2，直到校验。
+
+```
+python pipeline/run_city.py --city gz             # 全链路
+python pipeline/run_city.py --city sh --from S1-5 # 从某步起
+python pipeline/run_city.py --city gz --to S1-6   # 只跑到归属
+python pipeline/run_city.py --list                # 步骤表 + 映射表状态
+```
+
+步骤表 13 步：S1-2 / S1-3 / S1-4（仅上海）/ S1-5 / S1-6 / S2-2a / S2-2b / S2-2c / S2-3 / S2-4 / S2-5 / S2-6 / S2-7，每步注入 `SUBWAY_CITY`。
+
+### 10.1 人工闸门
+
+`S2-2a`（06 生成映射骨架）之后会检查 `data/manual/<slug>/relation-mapping.csv` 里还有多少行没填 `decide`：
+有空白行就**停下**、退出码 3，并打印「填哪一列、填完用哪条命令继续」。
+映射表已判定完时，默认**跳过** S2-2a，避免 06 的 `--force` 守卫覆盖人工成果（要强制重出骨架用 `--with-skeleton`）。
+
+### 10.2 全局审计文件只归上海
+
+跑广州时发现：04/05 会把 `data/processed/relation-index.json`、`attribution-report.json`、`docs/conflicts.md` 当成全局文件写，结果**上海基线被覆盖**（并把 287 条上海关系标成 removed）。
+修法：这三个路径只在 `code == "sh"` 时用全局位置，其它城写本城子集：
+
+| 产物 | 上海 | 其它城 |
+|---|---|---|
+| 关系清单 | `data/processed/relation-index.json` | `data/processed/<city>/relation-index.json` |
+| 归属报告 | `data/processed/attribution-report.json` | `data/processed/<city>/attribution-report.json` |
+| 冲突台账 | `docs/conflicts.md` | `docs/conflicts-<code>.md` |
+
+06/07/08 读清单时同理（上海读全局，其它城读本城子集）。实测：跑完广州后上海三个文件的 sha256 不变。
+
+### 10.3 映射表的城市范围
+
+`06` 只导出「本城 + 跨城对端市」的关系，而不是整个省的关系。
+新增配置字段 `worksheet_cities`（可选，城市名数组）：上海 = `["苏州市"]`，广州 = `["佛山市"]`，成都/合肥为空。
+过滤规则：`city ∈ {本城, worksheet_cities}`，或 `city` 为空且 `network` 命中 `CFG.network`；
+若整份清单还没有回填 `city`（上海目前的状况），退回「省面全收」，保证 65 行不变。
+
+实测：广东省内 256 条 → 广州保留 **91 条**（广州市 79 + 佛山市 12），香港/深圳/东莞的全部被排除。
+
+### 10.4 广州的省面取舍
+
+广东省 L4（`911844`）194/197 way，缺广西/湖南/江西/福建共边，**永远拼不闭合**。
+因此 gz 配置：不设 `required_provinces`（不要求省面闭合），改设
+`province_l5_union: {"广东省": ["广州市", "佛山市"]}` —— 省名由市名表给出，归属判定只用这两个闭合的市面。
+随之补了 `province_l5_union` 的空值语义：允许某省只登记目标市，不要求登记该省全部地级市。
+
+### 10.5 上海回归
+
+`run_city.py --city sh --from S1-5 --to S2-7` 全程 60.5 s，八项校验全过；
+`data/processed` 与 `docs/` 下所有产物与基线只差时间戳（10 行增删）。

@@ -410,3 +410,26 @@ E:\subway-data\venv\Scripts\python.exe pipeline\09_build_stations.py
 | 编排 | `run_s1.py --city gz` 会跳过 S1-4 |
 
 **回归**：改完重跑 02→15，上海全部产物与改造前逐字节一致（仅 `generated_at` 变化），`13_validate.py --rerun` 八项全过。细节见 `docs/decisions/0004-city-config.md` 第九节。
+
+## 一条命令跑一座城（P1a-1.4）
+
+`run_city.py` 把「取数 → 建模 → 校验」串起来，加新城市就用它：
+
+```powershell
+$env:PYTHONUTF8 = '1'
+E:\subway-data\venv\Scripts\python.exe pipeline\run_city.py --list             # 步骤表
+E:\subway-data\venv\Scripts\python.exe pipeline\run_city.py --city gz          # 广州全链路
+E:\subway-data\venv\Scripts\python.exe pipeline\run_city.py --city sh --from S1-5
+E:\subway-data\venv\Scripts\python.exe pipeline\run_city.py --city gz --to S1-6  # 只到归属
+```
+
+| 特点 | 说明 |
+|---|---|
+| 步骤表 | 13 步：S1-2…S1-6、S2-2a…S2-7；每步注入 `SUBWAY_CITY` |
+| 人工闸门 | 06 生成映射骨架后若还有空 `decide`，**停下**（退出码 3）并打印怎么填、怎么续跑 |
+| 跳过骨架 | 映射表已判定完时自动跳过 06，防止 `--force` 覆盖人工成果 |
+| 底图 | 只在上海跑 S1-4，其它城打印跳过 |
+| 全局文件 | 关系清单 / 归属报告 / `conflicts.md` 只归上海；其它城写 `data/processed/<city>/` 与 `docs/conflicts-<code>.md` |
+| 城市范围 | 06 只导出本城 + `worksheet_cities`（上海含苏州、广州含佛山），不导出整省 |
+
+广州实测：`--to S2-2a` 跑到骨架（91 行）后停在闸门，退出码 3；上海 `--from S1-5 --to S2-7` 60.5 s，八项校验全过，产物与基线只差时间戳。细节见 `docs/decisions/0004-city-config.md` 第十节。

@@ -10,7 +10,7 @@
 用法：
     $env:PYTHONUTF8 = '1'
     E:\\subway-data\\venv\\Scripts\\python.exe pipeline\\02_extract_transit.py
-    ... 02_extract_transit.py --provinces shanghai
+    ... 02_extract_transit.py --provinces guangdong
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ import osmium
 ROUTE_KINDS = ("subway", "monorail", "light_rail", "tram")
 # 只统计不产出（AGENTS 第 2 节：市域/城际不进 v1 主线）
 STATS_ONLY_KINDS = ("train", "tram_stop")
-REPO = Path(r"E:\subway")
+REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).parent))
 from cityconfig import load_city  # noqa: E402
 from paths import Paths  # noqa: E402
@@ -37,7 +37,7 @@ CITY_CODE = os.environ.get("SUBWAY_CITY", "sh")
 CFG = load_city(CITY_CODE)
 P = Paths(CFG)
 SNAP = P.snapshot_dir(CFG.snapshot)
-OUT_DEFAULT = REPO / "data" / "raw" / "transit-relations.json"
+OUT_DEFAULT = P.raw_transit()
 
 # 站名优先级：name:zh > name > name:en
 NAME_KEYS = ("name:zh", "name", "name:en")
@@ -257,7 +257,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     # 2026-11-01 扩到 5 省：江苏 L4 省界缺与山东/安徽共边的 way，且宁滁线、宁马线在安徽一侧
     parser.add_argument("--provinces", nargs="+",
-                        default=["shanghai", "jiangsu", "zhejiang", "anhui", "shandong"])
+                        default=list(CFG.pbfs))
     parser.add_argument("--out", default=str(OUT_DEFAULT))
     args = parser.parse_args()
 

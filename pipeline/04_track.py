@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 from collections import Counter
 from datetime import datetime
@@ -35,7 +36,7 @@ CITY = os.environ.get("SUBWAY_CITY", "sh")  # 由 --city / 环境变量覆盖；
 CFG = load_city(CITY)
 P = Paths(CFG)
 RAW = P.raw_transit()
-OUT = P.relation_index_global()
+OUT = P.relation_index_global() if CFG.code == "sh" else P.relation_index()  # 全局清单只归上海
 
 # OSM 的 route 值 -> 本项目的制式（AGENTS.md 第 8 节枚举 + 轨道制式外的两种单列）
 ROUTE_TO_TYPE = {
@@ -201,7 +202,7 @@ def main() -> int:
         CFG = load_city(args.city)
         P = Paths(CFG)
         RAW = P.raw_transit()
-        OUT = P.relation_index_global()
+        OUT = P.relation_index_global() if CFG.code == "sh" else P.relation_index()
         REF_TO_TYPE = dict(CFG.ref_overrides)
 
     raw_path = Path(args.raw)

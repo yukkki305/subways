@@ -259,13 +259,26 @@ class Paths:
         """`data/manual/<slug>-<suffix>`，如 `shanghai-lines.csv`。"""
         return MANUAL / f"{self.manual_slug}-{suffix}"
 
+    def manual_any(self, name: str) -> Path:
+        """人工表的统一入口：**已有的旧位置优先**，否则用分城目录。
+
+        上海的表是 P0 时期落在 `data/manual/<slug>-<name>` 的（如
+        `shanghai-lines.csv`、`shanghai-relation-mapping.csv`），为了不搬迁、
+        不破坏 P1a-1.6 的回归，这里先看旧名；新城市（gz/cd/hf）直接用
+        `data/manual/<slug>/<name>`。
+        """
+        legacy = self.manual_file(name)
+        if legacy.exists():
+            return legacy
+        return self.manual_city_file(name)
+
     @property
     def manual_lines_csv(self) -> Path:
-        return self.manual_file("lines.csv")
+        return self.manual_any("lines.csv")
 
     @property
     def manual_mapping_csv(self) -> Path:
-        return self.manual_file("relation-mapping.csv")
+        return self.manual_any("relation-mapping.csv")
 
     # --- 前端产物 ---------------------------------------------------------
 

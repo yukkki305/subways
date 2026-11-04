@@ -67,21 +67,43 @@ COLOUR_UNVERIFIED = {
 
 NAME_EN = {"sh-line-maglev": "Maglev Line", "sh-line-pujiang": "Pujiang Line"}
 
+# 「OSM 未经官图核实、但已用第二来源（百科色名）核对过」：城市没有可采样的官方线路图时用
+# 值 = line_id → 说明；最终 colour_source 标 OSM、colour_verified=false
+COLOUR_CONFIRMED: dict[str, str] = {}
+
+
+def _manual_json(name: str) -> dict:
+    """读 data/manual/<slug>/<name>，缺失时返回空 dict（其它城的人工表是逐步补齐的）。"""
+    path = P.manual_city_file(name)
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+_manual_colours = _manual_json("colours.json")
+COLOUR_OVERRIDE.update(_manual_colours.get("colour_override", {}))
+COLOUR_UNVERIFIED.update(_manual_colours.get("colour_unverified", {}))
+COLOUR_CONFIRMED.update(_manual_colours.get("colour_confirmed_osm", {}))
+NAME_EN.update(_manual_colours.get("name_en", {}))
+
 
 def main() -> int:
     lines = json.loads(LINES.read_text(encoding="utf-8"))
     segs = json.loads(SEGS.read_text(encoding="utf-8"))
-    manual = {}
-    with MANUAL.open(encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
-            manual[row["line_id"]] = row
+    manual: dict[str, dict] = {}
+    if MANUAL.exists():
+        with MANUAL.open(encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                manual[row["line_id"]] = row
+    else:
+        print(f"[提示] 人工线路表 {MANUAL} 不存在：opened / length_km_official / operator 留空，颜色仍按 colours.json")
 
     # 1) 几何长度：按线取并集
     by_line: dict[str, list] = {}
     for f in segs["features"]:
         by_line.setdefault(f["properties"]["line_id"], []).append(shape(f["geometry"]))
 
-    stats = {"adopted": 0, "verified": 0, "unverified": 0}
+    stats = {"adopted": 0, "verified": 0, "unverified": 0, "confirmed": 0}
     for ln in lines["lines"]:
         lid = ln["id"]
         geoms = by_line.get(lid, [])
@@ -108,7 +130,9 @@ def main() -> int:
         else:
             ln["operator_source"] = "OSM（人工表未提供）"
 
-        ln["colour_official_name"] = m.get("colour_name") or None
+        ln["colour_official_name"] = (m.get("colour_name")
+                                       or _manual_colours.get("_colour_official_name", {}).get(lid)
+                                       or None)
         ln["colour"] = (ln["colour"] or "").upper()
         if lid in COLOUR_OVERRIDE:
             hexs, px, dist = COLOUR_OVERRIDE[lid]
@@ -124,12 +148,17 @@ def main() -> int:
             ln["colour_verified"] = False
             ln["colour_note"] = COLOUR_UNVERIFIED[lid]
             stats["unverified"] += 1
+        elif lid in COLOUR_CONFIRMED:
+            ln["colour_source"] = "OSM（无官图，经百科色名核对）"
+            ln["colour_verified"] = False
+            ln["colour_note"] = COLOUR_CONFIRMED[lid]
+            stats["confirmed"] += 1
         else:
             ln["colour_source"] = "OSM（与官图采样一致）"
             ln["colour_verified"] = True
             stats["verified"] += 1
 
-        ln["name_en_route"] = ln.get("name_en")
+        ln["name_en_route"] = ln.get("name_en_route") or ln.get("name_en")
         ln["name_en"] = NAME_EN.get(lid) or "Line " + ln["name"].replace("号线", "")
 
     lines["generated_at"] = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
@@ -142,12 +171,21 @@ def main() -> int:
         return (l["type"] != "metro", int(digits) if digits else 99, l["name"])
 
     rows = sorted(lines["lines"], key=sort_key)
-    out = [
-        "# 线路颜色（S2-6）",
-        "",
-        "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**；",
-        "> 官图采样自 `shmetro.com` 的官方线路图 JPEG（5497×7693，`Last-Modified: 2025-12-26 14:45:39 GMT`），",
-        "> 取高饱和像素的色簇，与 OSM 颜色比欧氏距离，>30 视为不一致。",
+    if CFG.code == "sh":
+        out = [
+            "# 线路颜色（S2-6）",
+            "",
+            "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**；",
+            "> 官图采样自 `shmetro.com` 的官方线路图 JPEG（5497×7693，`Last-Modified: 2025-12-26 14:45:39 GMT`），",
+            "> 取高饱和像素的色簇，与 OSM 颜色比欧氏距离，>30 视为不一致。",
+        ]
+    else:
+        out = ["# 线路颜色（S2-6）", "", "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。", ""]
+        out += [
+            f"> {CFG.name}没有可采样的官方线路图（官网不提供静态线路图），颜色沿用 OSM；",
+            "> 已用百度百科「标志色」逐条核对，与 OSM 色相一致的不覆盖、只标 `colour_verified=false`。",
+        ]
+    out += [
         "",
         "| 线路 | 最终色 | 官图色名 | 来源 | 与 OSM 距离 | 备注 |",
         "| --- | --- | --- | --- | ---: | --- |",
@@ -156,15 +194,24 @@ def main() -> int:
         dist = ln.get("colour_osm_dist")
         out.append(f'| {ln["name"]} | `{ln["colour"]}` | {ln.get("colour_official_name") or "—"} | '
                    f'{ln["colour_source"]} | {dist if dist is not None else "—"} | {ln.get("colour_note") or ""} |')
-    out += ["", f"**统计**：官图替代 {stats['adopted']} 条、与官图一致 {stats['verified']} 条、"
-                f"官图无法分辨 {stats['unverified']} 条（保留 OSM 并标 `colour_verified=false`）。"]
+    if stats["confirmed"]:
+        stat_line = (f"**统计**：官图替代 {stats['adopted']} 条、与官图一致 {stats['verified']} 条、"
+                     f"官图无法分辨 {stats['unverified']} 条、无官图经百科核对 {stats['confirmed']} 条"
+                     f"（后两类保留 OSM 并标 `colour_verified=false`）。")
+    else:
+        stat_line = (f"**统计**：官图替代 {stats['adopted']} 条、与官图一致 {stats['verified']} 条、"
+                     f"官图无法分辨 {stats['unverified']} 条（保留 OSM 并标 `colour_verified=false`）。")
+    out += ["", stat_line]
     DOC.parent.mkdir(parents=True, exist_ok=True)
     DOC.write_text("\n".join(out) + "\n", encoding="utf-8")
 
     # 3) 校验 + 报告
     errs = []
+    required = ["colour", "name_en"]
+    if manual:
+        required += ["opened", "length_km_official"]
     for ln in lines["lines"]:
-        for k in ("colour", "opened", "length_km", "length_km_official", "name_en"):
+        for k in required:
             if ln.get(k) in (None, ""):
                 errs.append(f'{ln["id"]} 缺 {k}')
         if ln["colour"] and not ln["colour"].startswith("#"):
@@ -181,7 +228,7 @@ def main() -> int:
     if errs:
         print("[失败] 缺字段:", errs)
         return 1
-    print("[通过] 20 条线路属性齐全")
+    print(f"[通过] {len(lines['lines'])} 条线路属性齐全")
     return 0
 
 

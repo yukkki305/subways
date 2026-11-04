@@ -316,6 +316,19 @@ S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度
 | 归属表仍有 >5 个上海站判为界外 | 停下查边界是否缺部件（崇明 / 长兴 / 横沙） |
 | 底图简化后仍 >5 MB | 停下，缩小水系抽取范围 |
 
+## 属性补全的多城口径（P1a-5）
+
+`12_build_attributes.py` 按城读人工表，缺表不崩：
+
+| 文件 | 用途 | 缺失时 |
+| --- | --- | --- |
+| `data/manual/<slug>/lines.csv` | `opened` / `length_km_official` / `operator` / 官图色名 | 这几个字段留 `null`（颜色照常处理） |
+| `data/manual/<slug>/colours.json` | `colour_override` / `colour_unverified` / `colour_confirmed_osm` / `name_en` | 回退到脚本内上海字面量 |
+
+`colour_confirmed_osm` 是新增的第四态：**该城没有可采样的官方线路图，但已用第二来源（百度百科「标志色」）逐条核对过** → 颜色沿用 OSM，记 `colour_source: "OSM（无官图，经百科色名核对）"`、`colour_verified: false`。
+
+`08_build_lines.py` 的 `norm_name()` 会剥掉线路名前缀（`地铁` / `轨道交通` / `轻轨` / 城市名），广州 OSM 的「地铁 1号线」因此变成「1号线」；像「12号线东段」这种区段命名用 `NAME_OVERRIDE` 显式指定。
+
 ## 城市配置（P1a-1.1）
 
 P0 只做上海，多个脚本把「上海」「sh-」「shanghai」写死在常量里。P1a 起，城市相关的

@@ -47,16 +47,25 @@ LOOP_START = dict(CFG.loop_start)
 NAME_OVERRIDE = {
     "sh-line-pujiang": "浦江线",
     "sh-line-maglev": "磁浮线",
+    # 广州 12 号线在 OSM 里按区段命名为「12号线东段」；我们建的是整条 12 号线（东段 + 西北段支线）
+    "gz-line-12": "12号线",
 }
 
 # OSM 关系名里混着服务等级（「16号线普通车」），线路名要剥掉
 SERVICE_WORDS = ("普通车", "大站车", "直达车", "大站快车", "区间车")
+
+# OSM 里各城线路名前缀不统一（广州「地铁 1号线」、成都「成都地铁1号线」），
+# 按 AGENTS.md 第 9 节，线路名不带城市前缀，统一剥掉
+NAME_PREFIXES = ("地铁", "轨道交通", "轻轨", CFG.name, CFG.city)
 
 
 def norm_name(raw: str) -> str:
     s = (raw or "").split("：")[0].strip()
     for w in SERVICE_WORDS:
         s = s.replace(w, "")
+    for pfx in NAME_PREFIXES:
+        if pfx and s.startswith(pfx):
+            s = s[len(pfx):]
     return s.strip()
 
 

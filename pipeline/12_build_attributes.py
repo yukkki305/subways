@@ -46,7 +46,8 @@ P = Paths(CFG)
 LINES = P.lines_json
 SEGS = P.segment_geojson
 MANUAL = P.manual_lines_csv
-DOC = P.docs_colors_md
+DOC = (P.docs_colors_md if CFG.code == "sh"
+       else P.doc(f"colors-{CFG.code}.md"))
 
 # 官图采样结果（%TEMP%\shmetro-map 的 metroView.jpg，5497×7693，2025-12-26）
 # 每条：官图色、采样像素数、与 OSM 的欧氏距离

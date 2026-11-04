@@ -45,7 +45,8 @@ LINES = P.lines_json
 RAW = P.raw_transit()
 ATTR = P.attribution_report()
 OUT = P.station_json
-MD = P.docs_station_merge_md
+MD = (P.docs_station_merge_md if CFG.code == "sh"
+      else P.doc(f"mappings/station-merge-decisions-{CFG.code}.md"))
 
 CITY_DEFAULT = CFG.city
 

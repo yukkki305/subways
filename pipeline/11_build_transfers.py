@@ -43,7 +43,8 @@ def geodesic_m(a, b) -> float:
 
 STATIONS = P.station_json
 OUT = P.transfer_json
-DOC = P.docs_transfer_md
+DOC = (P.docs_transfer_md if CFG.code == "sh"
+       else P.doc(f"mappings/transfer-decisions-{CFG.code}.md"))
 
 TYPES = ("同站", "通道", "出站换乘")
 

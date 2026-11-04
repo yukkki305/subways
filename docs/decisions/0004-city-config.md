@@ -344,3 +344,25 @@ P0 的三个 web 脚本（`sync-data.mjs` / `test-search.mjs` / `verify-build.mj
 - 城市配置缺失 / `code` 与文件名不符 → 报错并列出可用城市（`cd / gz / hf / sh`）。
 - 产物缺失 → `sync` 列出缺哪几个文件，并提示 `python pipeline/run_city.py --city <code>`；
   `test:search` 读不到 `station.json` 时同样提示，不抛 ENOENT 堆栈。
+
+## 十二、同省跨市归属与按城文档（P1a-2 补记）
+
+**问题**：`05_attribution.py` 只在「跨省」时写 `conflicts`；同省跨市（广州 7 号线顺德段 7 站属佛山）不进清单，
+`09_build_stations.py` 的 `per_stop_city()` 只能读 `conflicts`，于是那 7 站退回 `CITY_DEFAULT`（广州市）。
+
+**修法**：`05` 里 `cross_city` 冲突的触发条件改为
+
+```python
+if len(distinct_cities) > 1 and len(distinct_provs) <= 1 and CFG.city in distinct_cities:
+```
+
+- 加 `distinct_provs <= 1`：跨省关系仍走原来的 `cross_province` 分支，避免重复。
+- 加 `CFG.city in distinct_cities`：只记**本城参与的**关系，别的城市的跨市线（如浙江杭州↔绍兴、江苏南京↔镇江）不写进本城审计文件——上海产物因此逐字节不变。
+- 注意不能写成 `city == CFG.city`：广佛线 15 站中佛山占多数，主城市是佛山市，会被误排除。
+
+**结果（广州）**：`station.json` 的城市分布 `{广州市: 298, 佛山市: 22}`（15 广佛线 + 7 号线 7 站），
+与 `attribution-report.json` 的 `stops_by_city` 对得上；上海重跑 05+09 只差时间戳。
+
+**文档按城命名**（同批修）：`09` → `docs/mappings/station-merge-decisions-<code>.md`、`11` → `transfer-decisions-<code>.md`、
+`12` → `colors-<code>.md`；上海保留原名（`station-merge-decisions.md` / `transfer-decisions.md` / `colors.md`），
+否则跑广州会覆盖上海的合并决策表（实测 diff 88 增 / 151 删）。

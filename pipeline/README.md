@@ -433,3 +433,13 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_city.py --city gz --to S1-6 
 | 城市范围 | 06 只导出本城 + `worksheet_cities`（上海含苏州、广州含佛山），不导出整省 |
 
 广州实测：`--to S2-2a` 跑到骨架（91 行）后停在闸门，退出码 3；上海 `--from S1-5 --to S2-7` 60.5 s，八项校验全过，产物与基线只差时间戳。细节见 `docs/decisions/0004-city-config.md` 第十节。
+
+### 同省跨市的逐站归属（P1a-2 补记）
+
+`05_attribution.py` 对「同一省、不同地级市」的关系也写 `cross_city` 冲突，条件是
+`len(distinct_cities) > 1 and len(distinct_provs) <= 1 and CFG.city in distinct_cities`：
+前两个条件把跨省关系留给 `cross_province`，第三个条件保证只记本城参与的关系（上海产物不变）。
+`09_build_stations.py` 读这些条目把每站落到正确的地级市；广州实测 `佛山市 22 站`（15 广佛线 + 7 号线顺德段 7 站）。
+
+文档输出按城命名：广州写 `docs/mappings/station-merge-decisions-gz.md`、`transfer-decisions-gz.md`、`colors-gz.md`；
+上海保持 `station-merge-decisions.md` / `transfer-decisions.md` / `colors.md` 不变。

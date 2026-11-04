@@ -301,7 +301,10 @@ def main() -> int:
                 "by_province": dict(c_prov),
                 "stops": [f"{s['name'] or '(无名)'} → {p or '(未命中)'}" for s, p in zip(stops, stop_prov)],
             })
-        if len(distinct_cities) > 1 and not conflicts:
+        # 同省跨市的关系也要逐站记城市，否则下游只能退回 CITY_DEFAULT（广州 7 号线顺德段曾因此判错）。
+        # 跨省关系已由上面的 cross_province 分支记录，这里只补「同省多市」，以免改变上海（上海只有跨省）的产物。
+        # 只为本城自己的线路记录（别的城市的跨市线不写进本城审计文件，保上海产物不变）
+        if len(distinct_cities) > 1 and len(distinct_provs) <= 1 and CFG.city in distinct_cities:
             conflicts.append({
                 "type": "cross_city", "id": rid, "name": irec.get("name"),
                 "by_city": dict(c_city),

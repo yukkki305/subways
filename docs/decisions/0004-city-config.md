@@ -190,3 +190,26 @@
 - 负例（10 条，全部报错且指出字段）：缺必填、未知字段、`bbox` 西>东、`line_ids` 与数量不符、非法 `route`、`ref_overrides` 类型错、`l5_union` 缺 `names`、`km_per_deg` 为负、`loop_start` 值非字符串、`web` 缺 `city_label`。
 - CLI 级负例：往 `pipeline/cities/` 放一份缺 `km_per_deg` 的 `zz.json` → `--check zz` 退出码 **1** 并打印缺失字段；删除后恢复 4/4 通过。
 - `--show` 额外输出派生字段（`line_id_prefix`、`pbf_filenames`、`bbox_tuple`、`km_per_deg` 换算值）。
+
+## 八、路径层（P1a-1.2，2026-11-04）
+
+新增 `pipeline/paths.py`：`Paths(load_city(code))` 给出该城全部 20 个路径，业务脚本
+只调函数不拼字符串（改造在 P1a-1.3）。
+
+| 能力 | 方法 | 备注 |
+| --- | --- | --- |
+| 城市产物 | `lines_json` / `station_json` / `transfer_json` / `segment_geojson` | `data/processed/<city>/` |
+| 底图与海面 | `basemap_geojson` / `sea_geojson` | 上海走共享 `data/processed/basemap/`，其它城走 `<city>/basemap/` |
+| 清单与归属 | `relation_index()` / `attribution_report()` / `name_diff()` | 上海沿用 P0 全局位置 |
+| 人工表 | `manual_lines_csv` / `manual_mapping_csv` | `data/manual/<slug>-*.csv` |
+| 文档产物 | `docs_relations_md` / `docs_station_merge_md` / `docs_transfer_md` / `docs_colors_md` | 全局文档不带城市前缀 |
+| 快照 | `pbf(province, key)` / `pbfs(key)` / `snapshot_manifest(key)` / `snapshot_sha(province, key)` | PBF 在仓库外、清单在仓库内 |
+| 外部语料 | `gzupa_shp(year)` | 可用 `SUBWAY_GZUPA` 覆盖 |
+
+**为什么上海不搬目录**：`attribution-report.json`、`relation-index.json`、
+`data/processed/basemap/*.geojson` 现在是全局位置。如果这一步就搬进
+`data/processed/shanghai/`，P1a-1.6 的「产物逐字节不变」会变成「产物搬家」两件事混在一起，
+没法判断回归是路径改了还是逻辑改了。所以先让 `Paths` 对上海返回原地路径，搬迁留到 P1b。
+
+**实测**：`paths.py --check` 通过 15 项必需产物；20 个路径方法对上海全部命中已存在文件
+（含 `docs/mappings/shanghai-relations.md`、`docs/colors.md`、GZUPA shapefile）。

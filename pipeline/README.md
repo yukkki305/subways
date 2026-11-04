@@ -345,6 +345,46 @@ E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --schema       # �
 颜色覆盖、官方里程）在 `data/manual/<city>/`，不进配置。决策见
 `docs/decisions/0004-city-config.md`。
 
+## 路径层（P1a-1.2）
+
+所有「文件放哪儿」由 `pipeline/paths.py` 统一给出，业务脚本不再自己拼字符串：
+
+```python
+from cityconfig import load_city
+from paths import Paths
+
+p = Paths(load_city("sh"))
+p.lines_json          # data/processed/shanghai/lines.json
+p.station_json
+p.transfer_json
+p.segment_geojson
+p.basemap_geojson     # data/processed/basemap/shanghai-basemap.geojson
+p.sea_geojson
+p.relation_index()    # 上海沿用 P0 的全局位置
+p.attribution_report()
+p.manual_lines_csv    # data/manual/shanghai-lines.csv
+p.docs_colors_md      # docs/colors.md
+p.pbf("shanghai", "20261101")
+p.snapshot_manifest("20261101")   # 仓库内 data/snapshots/<key>/manifest.json
+```
+
+命令行可当检查表用：
+
+```powershell
+E:\subway-data\venv\Scripts\python.exe pipeline\paths.py --roots
+E:\subway-data\venv\Scripts\python.exe pipeline\paths.py --show sh    # 逐项标 [有]/[缺]/[—]
+E:\subway-data\venv\Scripts\python.exe pipeline\paths.py --check      # 上海回归基准的 15 项必需产物
+```
+
+两条布局约定（P1a 期间）：
+
+| 情况 | 规则 | 原因 |
+| --- | --- | --- |
+| 上海 `sh` | `attribution-report.json` / `relation-index.json` / `basemap/*.geojson` **沿用 P0 的共享位置**，不进 `data/processed/shanghai/` | 让 P1a-1.6「上海产物逐字节不变」成立；P1b 再统一搬迁 |
+| 其它城 | 一律 `data/processed/<city>/`，底图与海面放 `<city>/basemap/` | 避免多城互相覆盖 |
+
+PBF 在仓库外 `E:\subway-data\snapshots\<key>\`，清单与 sha256 在仓库内 `data/snapshots\<key>\`，同一个 `key` 对齐；两个根都能用环境变量覆盖（`SUBWAY_SNAPSHOTS` / `SUBWAY_DATA_ROOT`，GZUPA 用 `SUBWAY_GZUPA`）。
+
 ## 编码约定
 
 - 文件一律 **UTF-8 无 BOM**（PowerShell 5.1 的 `Set-Content -Encoding UTF8` 会写 BOM，Python 侧读到会异常）

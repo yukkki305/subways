@@ -33,9 +33,11 @@ LINES = P.lines_json
 STATIONS = P.station_json
 SEGMENTS = P.segment_geojson
 TRANSFERS = P.transfer_json
-DOC = P.doc("validation-s2.md")
+DOC = (P.doc("validation-s2.md") if CFG.code == "sh"
+       else P.doc(f"validation-s2-{CFG.code}.md"))   # 每城一份，避免覆盖上海
 
 BBOX = CFG.bbox_tuple                        # 采集矩形框（config 的 bbox）
+EXPECTED_LINES = len(CFG.line_ids)            # 该城应有线路数（来自城市配置）
 WHITELIST = set(CFG.stop_bbox_whitelist)    # 允许落在 bbox 外的站（跨省延伸段）
 HEX = re.compile(r"^#[0-9A-F]{6}$")
 GEOD = Geod(ellps="WGS84")
@@ -69,13 +71,13 @@ class Report:
 
 def check_1(lines, rep):
     ls = lines["lines"]
-    ok = len(ls) == 20
+    ok = len(ls) == EXPECTED_LINES
     bad = [l["id"] for l in ls if l.get("stop_count_total", 0) < 2]
     mains = {l["id"]: [b["id"] for b in l["branches"] if b["is_main"]] for l in ls}
     bad_main = {k: v for k, v in mains.items() if len(v) != 1}
     ok = ok and not bad and not bad_main
     rep.add(1, "line 数 / 站数 / 每线唯一 main",
-            ok, f"line={len(ls)}（应为 20）；站数<2 的 {len(bad)} 条；main 不唯一的 {len(bad_main)} 条")
+            ok, f"line={len(ls)}（应为 {EXPECTED_LINES}）；站数<2 的 {len(bad)} 条；main 不唯一的 {len(bad_main)} 条")
     return ok
 
 
@@ -86,7 +88,7 @@ def check_2(stations, rep):
         inside = BBOX[0] <= lon <= BBOX[2] and BBOX[1] <= lat <= BBOX[3]
         if not inside and s["name"] not in WHITELIST:
             bad.append((s["id"], s["name"], s["coord"]))
-    rep.add(2, "站坐标在上海包围盒内或命中白名单", not bad,
+    rep.add(2, f"站坐标在{CFG.name}采集框内或命中白名单", not bad,
             f"越界且不在白名单 {len(bad)} 个{('：' + str(bad[:3])) if bad else ''}")
     return not bad
 
@@ -197,7 +199,7 @@ def check_7(lines, stations, rep):
         if not (s.get("name_pinyin") or "").strip():
             bad.append((s["id"], "name_pinyin 为空"))
     rep.add(7, "颜色为 #RRGGBB、站名拼音非空", not bad,
-            f"20 条线路 + {len(stations['stations'])} 站核对，问题 {len(bad)} 处" + (f"：{bad[:3]}" if bad else ""))
+            f"{len(lines['lines'])} 条线路 + {len(stations['stations'])} 站核对，问题 {len(bad)} 处" + (f"：{bad[:3]}" if bad else ""))
     return not bad
 
 
@@ -249,7 +251,7 @@ def main() -> int:
 
     notes = [
         f"- 站数 {len(stations['stations'])}、站次 {sum(len(s['slots']) for s in stations['stations'])}、"
-        f"区间 {len(segs['features'])}、换乘 {len(transfers['transfers'])}、线路 20 / 支线 23。",
+        f"区间 {len(segs['features'])}、换乘 {len(transfers['transfers'])}、线路 {len(lines['lines'])} / 支线 {sum(len(l['branches']) for l in lines['lines'])}。",
         "- 站坐标包围盒外的白名单：兆丰路、光明路、花桥（苏州 11 号线昆山段，属苏州市）。",
         "- `walk_minutes` 全为 `null`（ADR R7：无可靠来源不估算）；换乘类型为人工判定（ADR R5）。",
         "- 已知缺口：2 号线实测 61.69 vs 官方 66 km（−6.5%）、浦江线 −5.1%，按 ADR R7 只记录；"

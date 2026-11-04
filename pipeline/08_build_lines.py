@@ -138,8 +138,9 @@ def main() -> int:
                     "is_main": branch_id == f"{line_id}-main",
                     "is_loop": is_loop,
                     "loop_start": loop_start,
-                    "from": None if is_loop else rd(rec, "from"),
-                    "to": None if is_loop else rd(rec, "to"),
+                    # 广州等地 OSM 关系常没有 from/to 标签，用站序首末站兜底（环线仍为 None）
+                    "from": None if is_loop else (rd(rec, "from") or stops[0]),
+                    "to": None if is_loop else (rd(rec, "to") or stops[-1]),
                     "ref": rd(rec, "ref"),
                     "stop_count": len(stops),
                     "stops": stops,

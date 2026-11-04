@@ -1,0 +1,4287 @@
+{
+ "snapshot_date": "p1a-20261103",
+ "generated_at": "2026-11-04T22:35:20+08:00",
+ "method": {
+  "city": "admin_level=5 地级市面点面判定（上海用 admin_level=4 上海市面）",
+  "province": "城市命中即得省；未命中城市时退回省面（上海/浙江/安徽用 L4，江苏 = 13 地级市并集）",
+  "why_jiangsu_union": "江苏省 L4 关系 374 个 way 齐全但仍拼不闭合（自拼只有 309.4 km² / 23 个碎片），改用地级市（L5）并集 + 13 市固定名称表",
+  "known_gaps": "南通市、盐城市的市面本身拼不闭合，两市内的站目前判不出归属（在 conflicts.md 列出）",
+  "note": "几何只做判定，城市名来自 OSM L5 名称，不由几何发明；未命中一律 null + flag"
+ },
+ "boundaries": {
+  "广东省": {
+   "area_km2": 11288.0,
+   "parts": 1
+  }
+ },
+ "city_polygons": {
+  "广州市": {
+   "id": 3287346,
+   "province": "广东省",
+   "area_km2": 7399.2
+  },
+  "佛山市": {
+   "id": 3464719,
+   "province": "广东省",
+   "area_km2": 3889.6
+  }
+ },
+ "checks": {
+  "shanghai_stops_inside": 0,
+  "shanghai_stops_outside": 0,
+  "shanghai_stops_outside_sample": [],
+  "shanghai_stops_outside_unattributed": 0
+ },
+ "counts": {
+  "relations_total": 256,
+  "by_province": {
+   "广东省": 91,
+   "(未定)": 165
+  },
+  "by_city": {
+   "广州市": 79,
+   "(未定)": 165,
+   "佛山市": 12
+  },
+  "flags": {
+   "stops_unmatched": 159,
+   "no_resolved_stops": 6
+  }
+ },
+ "conflicts": [
+  {
+   "type": "cross_city",
+   "id": 2646091,
+   "name": "地铁 广佛线：沥滘 → 新城东",
+   "by_city": {
+    "广州市": 10,
+    "佛山市": 15
+   },
+   "stops": [
+    "沥滘 → 广州市",
+    "南洲 → 广州市",
+    "石溪 → 广州市",
+    "燕岗 → 广州市",
+    "沙园 → 广州市",
+    "沙涌 → 广州市",
+    "鹤洞 → 广州市",
+    "西塱 → 广州市",
+    "菊树 → 广州市",
+    "龙溪 → 广州市",
+    "金融高新区 → 佛山市",
+    "千灯湖 → 佛山市",
+    "𧒽岗 → 佛山市",
+    "南桂路 → 佛山市",
+    "桂城 → 佛山市",
+    "朝安 → 佛山市",
+    "普君北路 → 佛山市",
+    "祖庙 → 佛山市",
+    "同济路 → 佛山市",
+    "季华园 → 佛山市",
+    "魁奇路 → 佛山市",
+    "澜石 → 佛山市",
+    "世纪莲 → 佛山市",
+    "东平 → 佛山市",
+    "新城东 → 佛山市"
+   ]
+  },
+  {
+   "type": "cross_city",
+   "id": 7520751,
+   "name": "地铁 7号线：美的大道 → 燕山",
+   "by_city": {
+    "佛山市": 7,
+    "广州市": 20
+   },
+   "stops": [
+    "美的大道 → 佛山市",
+    "北滘公园 → 佛山市",
+    "美的 → 佛山市",
+    "南涌 → 佛山市",
+    "锦龙 → 佛山市",
+    "陈村 → 佛山市",
+    "陈村北 → 佛山市",
+    "大洲 → 广州市",
+    "广州南站 → 广州市",
+    "石壁 → 广州市",
+    "谢村 → 广州市",
+    "钟村 → 广州市",
+    "汉溪长隆 → 广州市",
+    "南村万博 → 广州市",
+    "员岗 → 广州市",
+    "板桥 → 广州市",
+    "大学城南 → 广州市",
+    "深井 → 广州市",
+    "长洲 → 广州市",
+    "裕丰围 → 广州市",
+    "大沙东 → 广州市",
+    "姬堂 → 广州市",
+    "加庄 → 广州市",
+    "科丰路 → 广州市",
+    "萝岗 → 广州市",
+    "水西 → 广州市",
+    "燕山 → 广州市"
+   ]
+  },
+  {
+   "type": "cross_city",
+   "id": 7520752,
+   "name": "地铁 7号线：燕山 → 美的大道",
+   "by_city": {
+    "广州市": 20,
+    "佛山市": 7
+   },
+   "stops": [
+    "燕山 → 广州市",
+    "水西 → 广州市",
+    "萝岗 → 广州市",
+    "科丰路 → 广州市",
+    "加庄 → 广州市",
+    "姬堂 → 广州市",
+    "大沙东 → 广州市",
+    "裕丰围 → 广州市",
+    "长洲 → 广州市",
+    "深井 → 广州市",
+    "大学城南 → 广州市",
+    "板桥 → 广州市",
+    "员岗 → 广州市",
+    "南村万博 → 广州市",
+    "汉溪长隆 → 广州市",
+    "钟村 → 广州市",
+    "谢村 → 广州市",
+    "石壁 → 广州市",
+    "广州南站 → 广州市",
+    "大洲 → 广州市",
+    "陈村北 → 佛山市",
+    "陈村 → 佛山市",
+    "锦龙 → 佛山市",
+    "南涌 → 佛山市",
+    "美的 → 佛山市",
+    "北滘公园 → 佛山市",
+    "美的大道 → 佛山市"
+   ]
+  },
+  {
+   "type": "cross_city",
+   "id": 7944797,
+   "name": "地铁 广佛线：新城东 → 沥滘",
+   "by_city": {
+    "佛山市": 15,
+    "广州市": 10
+   },
+   "stops": [
+    "新城东 → 佛山市",
+    "东平 → 佛山市",
+    "世纪莲 → 佛山市",
+    "澜石 → 佛山市",
+    "魁奇路 → 佛山市",
+    "季华园 → 佛山市",
+    "同济路 → 佛山市",
+    "祖庙 → 佛山市",
+    "普君北路 → 佛山市",
+    "朝安 → 佛山市",
+    "桂城 → 佛山市",
+    "南桂路 → 佛山市",
+    "𧒽岗 → 佛山市",
+    "千灯湖 → 佛山市",
+    "金融高新区 → 佛山市",
+    "龙溪 → 广州市",
+    "菊树 → 广州市",
+    "西塱 → 广州市",
+    "鹤洞 → 广州市",
+    "沙涌 → 广州市",
+    "沙园 → 广州市",
+    "燕岗 → 广州市",
+    "石溪 → 广州市",
+    "南洲 → 广州市",
+    "沥滘 → 广州市"
+   ]
+  },
+  {
+   "type": "cross_city",
+   "id": 13604443,
+   "name": "地铁 2号线：广州南站 → 南庄",
+   "by_city": {
+    "广州市": 1,
+    "佛山市": 16
+   },
+   "stops": [
+    "广州南站 → 广州市",
+    "林岳东 → 佛山市",
+    "林岳西 → 佛山市",
+    "石洲 → 佛山市",
+    "仙涌 → 佛山市",
+    "花卉世界 → 佛山市",
+    "登洲 → 佛山市",
+    "湾华 → 佛山市",
+    "石梁 → 佛山市",
+    "魁奇路 → 佛山市",
+    "沙岗 → 佛山市",
+    "石湾 → 佛山市",
+    "张槎 → 佛山市",
+    "智慧新城 → 佛山市",
+    "绿岛湖 → 佛山市",
+    "湖涌 → 佛山市",
+    "南庄 → 佛山市"
+   ]
+  },
+  {
+   "type": "cross_city",
+   "id": 13604444,
+   "name": "地铁 2号线：南庄 → 广州南站",
+   "by_city": {
+    "佛山市": 16,
+    "广州市": 1
+   },
+   "stops": [
+    "南庄 → 佛山市",
+    "湖涌 → 佛山市",
+    "绿岛湖 → 佛山市",
+    "智慧新城 → 佛山市",
+    "张槎 → 佛山市",
+    "石湾 → 佛山市",
+    "沙岗 → 佛山市",
+    "魁奇路 → 佛山市",
+    "石梁 → 佛山市",
+    "湾华 → 佛山市",
+    "登洲 → 佛山市",
+    "花卉世界 → 佛山市",
+    "仙涌 → 佛山市",
+    "石洲 → 佛山市",
+    "林岳西 → 佛山市",
+    "林岳东 → 佛山市",
+    "广州南站 → 广州市"
+   ]
+  }
+ ],
+ "relations": [
+  {
+   "id": 1526269,
+   "name": "地铁 APM线：林和西 → 广州塔",
+   "transit_type": "apm",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 2926506,
+   "name": "輕鐵751綫 Light Rail 751 (天逸 Tin Yat → 友愛 Yau Oi)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 22,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 22,
+   "flags": [
+    "stops_unmatched:22"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2929802,
+   "name": "輕鐵751P綫 Light Rail 751P (天逸 Tin Yat → 天水圍 Tin Shui Wai)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 9,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 9,
+   "flags": [
+    "stops_unmatched:9"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2941692,
+   "name": "輕鐵705綫 Light Rail 705 (天水圍循環綫 Tin Shui Wai Circular)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2941790,
+   "name": "Light Rail 706 輕鐵706綫 (天水圍循環綫 Tin Shui Wai Circular)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2942633,
+   "name": "輕鐵761P綫 Light Rail 761P (元朗 Yuen Long → 天逸 Tin Yat)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 3515354,
+   "name": "輕鐵505綫 Light Rail 505 (兆康 Siu Hong → 三聖 Sam Shing)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 3679916,
+   "name": "輕鐵507綫 Light Rail 507 (屯門碼頭 Tuen Mun Ferry Pier → 田景 Tin King)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 3680161,
+   "name": "輕鐵610綫 Light Rail 610 (屯門碼頭 Tuen Mun Ferry Pier → 元朗 Yuen Long)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 3680323,
+   "name": "輕鐵614綫 Light Rail 614 (元朗 Yuen Long → 屯門碼頭 Tuen Mun Ferry Pier)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 24,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 24,
+   "flags": [
+    "stops_unmatched:24"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 3680520,
+   "name": "Light Rail 615 (元朗 Yuen Long → 屯門碼頭 Tuen Mun Ferry Pier)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5955256,
+   "name": "輕鐵614P綫 Light Rail 614P (兆康 Siu Hong → 屯門碼頭 Tuen Mun Ferry Pier)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5955257,
+   "name": "輕鐵614P綫 Light Rail 614P (屯門碼頭 Tuen Mun Ferry Pier → 兆康 Siu Hong)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5955258,
+   "name": "輕鐵615P綫 Light Rail 615P (兆康 Siu Hong → 屯門碼頭 Tuen Mun Ferry Pier)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5955259,
+   "name": "輕鐵615P綫 Light Rail 615P (屯門碼頭 Tuen Mun Ferry Pier → 兆康 Siu Hong)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6481282,
+   "name": "輕鐵505綫 Light Rail 505 (三聖 Sam Shing → 兆康 Siu Hong)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6481316,
+   "name": "輕鐵507綫 Light Rail 507 (田景 Tin King → 屯門碼頭 Tuen Mun Ferry Pier)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6481420,
+   "name": "輕鐵610綫 Light Rail 610 (元朗 Yuen Long → 屯門碼頭 Tuen Mun Ferry Pier)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6481434,
+   "name": "輕鐵615綫 Light Rail 615 (屯門碼頭 Tuen Mun Ferry Pier → 元朗 Yuen Long)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6485194,
+   "name": "輕鐵614綫 Light Rail 614 (屯門碼頭 Tuen Mun Ferry Pier → 元朗 Yuen Long)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 24,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 24,
+   "flags": [
+    "stops_unmatched:24"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6485218,
+   "name": "輕鐵751綫 Light Rail 751 (友愛 Yau Oi → 天逸 Tin Yat)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 23,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 23,
+   "flags": [
+    "stops_unmatched:23"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6485219,
+   "name": "輕鐵751P綫 Light Rail 751P (天水圍 Tin Shui Wai → 天逸 Tin Yat)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 9,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 9,
+   "flags": [
+    "stops_unmatched:9"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6485221,
+   "name": "輕鐵761P綫 Light Rail 761P (天逸 Tin Yat → 元朗 Yuen Long)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7420348,
+   "name": "海珠有轨1号线：广州塔 -> 万胜围",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7420349,
+   "name": "海珠有轨1号线：万胜围 -> 广州塔",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9611404,
+   "name": "地铁 APM线：广州塔 → 林和西",
+   "transit_type": "apm",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9736634,
+   "name": "APM T2: to concourse",
+   "transit_type": "apm",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10402162,
+   "name": "氹仔線 Linha da Taipa（氹仔碼頭 Terminal Marítimo da Taipa → 媽閣 Barra）",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10402173,
+   "name": "氹仔線 Linha da Taipa（媽閣 Barra → 氹仔碼頭 Terminal Marítimo da Taipa）",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 11291841,
+   "name": "黄埔有轨电车1号线：地铁香雪站 → 新丰路",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "广州市": 19
+   },
+   "stops_by_province": {
+    "广东省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11291842,
+   "name": "黄埔有轨电车1号线：新丰路 → 地铁香雪站",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 19,
+   "stops_by_city": {
+    "广州市": 19
+   },
+   "stops_by_province": {
+    "广东省": 19
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12619403,
+   "name": "輕鐵751P綫 Light Rail 751P (天逸 Tin Yat → 兆康 Siu Hong)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13103097,
+   "name": "轻轨 南海有轨电车1号线：𧒽岗 → 林岳东",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "佛山市": 15
+   },
+   "stops_by_province": {
+    "广东省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13103098,
+   "name": "轻轨 南海有轨电车1号线：林岳东 → 𧒽岗",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "佛山市": 15
+   },
+   "stops_by_province": {
+    "广东省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13386796,
+   "name": "",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14244774,
+   "name": "香港國際機場旅客捷運系統 Hong Kong International Airport Automated People Mover",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14244775,
+   "name": "香港國際機場旅客捷運系統 Hong Kong International Airport Automated People Mover",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14244776,
+   "name": "APM T1: Midfield Concourse => West Hall",
+   "transit_type": "apm",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14244777,
+   "name": "APM T1: West Hall => Midfield Concourse",
+   "transit_type": "apm",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14244778,
+   "name": "APM T1: Midfield Concourse => East Hall",
+   "transit_type": "apm",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14244779,
+   "name": "APM T1: East Hall => Midfield Concourse",
+   "transit_type": "apm",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14594829,
+   "name": "深圳有轨电车：清湖 → 新澜",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14594830,
+   "name": "深圳有轨电车：新澜 → 清湖",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14594831,
+   "name": "深圳有轨电车：清湖 → 下围",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14594832,
+   "name": "深圳有轨电车：下围 → 清湖",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17581553,
+   "name": "APM T2: from concourse",
+   "transit_type": "apm",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17814455,
+   "name": "华为松山湖有轨电车1号线",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17814719,
+   "name": "华为松山湖有轨电车3号线",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 17814720,
+   "name": "华为松山湖有轨电车2号线",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18238277,
+   "name": "澳門輕軌石排灣線 Linha de Seac Pai Van（石排灣 Seac Pai Van → 協和醫院 Hospital Union）",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18238278,
+   "name": "澳門輕軌石排灣線 Linha de Seac Pai Van（協和醫院 Hospital Union → 石排灣 Seac Pai Van）",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18361945,
+   "name": "橫琴線 Linha de Hengqin (橫琴 Hengqin → 蓮花 Lótus)",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18361946,
+   "name": "橫琴線 Linha de Hengqin （蓮花 Lótus → 橫琴 Hengqin）",
+   "transit_type": "lrt",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 19382699,
+   "name": "黄埔有轨电车2号线：开源大道东 → 地铁香雪站",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19382702,
+   "name": "黄埔有轨电车2号线：地铁香雪站 → 开源大道东",
+   "transit_type": "lrt",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13042022,
+   "name": "",
+   "transit_type": "monorail",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 15061611,
+   "name": "轻轨 坪山云巴1号线: 比亚迪北 -> 坪山高铁站",
+   "transit_type": "monorail",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 15061612,
+   "name": "轻轨 坪山云巴1号线: 坪山高铁站 -> 比亚迪北",
+   "transit_type": "monorail",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18610083,
+   "name": "清远长隆磁浮旅游专线: 长隆森林王国 → 清远长隆",
+   "transit_type": "monorail",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18610084,
+   "name": "清远长隆磁浮旅游专线: 清远长隆 → 长隆森林王国",
+   "transit_type": "monorail",
+   "province": null,
+   "city": null,
+   "stops_total": 3,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 3,
+   "flags": [
+    "stops_unmatched:3"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 269669,
+   "name": "港鐵荃灣綫 MTR Tsuen Wan Line (南行 Southbound)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 269672,
+   "name": "港鐵將軍澳綫 MTR Tseung Kwan O Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 272125,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 444000,
+   "name": "地铁 3号线：天河客运站 → 海傍",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 2287554,
+   "name": "地铁 1号线：罗湖 → 机场东",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 30,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 30,
+   "flags": [
+    "stops_unmatched:30"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2287559,
+   "name": "地铁 3号线: 福保 → 坪地六联",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 38,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 38,
+   "flags": [
+    "stops_unmatched:38"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2287563,
+   "name": "地铁 4号线：福田口岸 -> 牛湖",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 23,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 23,
+   "flags": [
+    "stops_unmatched:23"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2646091,
+   "name": "地铁 广佛线：沥滘 → 新城东",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "广州市": 10,
+    "佛山市": 15
+   },
+   "stops_by_province": {
+    "广东省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 2752374,
+   "name": "地铁 2号线：湾厦 → 莲塘",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 27,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 27,
+   "flags": [
+    "stops_unmatched:27"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 2752389,
+   "name": "地铁 5号线：赤湾 → 大剧院",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 37,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 37,
+   "flags": [
+    "stops_unmatched:37"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4248589,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4248590,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4248591,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4248592,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4250432,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4250433,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4250434,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4250435,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4264526,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4264527,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4432665,
+   "name": "港鐵港島綫 MTR Island Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4432666,
+   "name": "港鐵港島綫 MTR Island Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4709540,
+   "name": "港鐵迪士尼綫 (下) MTR Disneyland Resort Line (南行 Southbound)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4709541,
+   "name": "港鐵迪士尼綫 (上) MTR Disneyland Resort Line (北行 Northbound)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5317238,
+   "name": "機場快綫 Airport Express",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5317239,
+   "name": "機場快綫 Airport Express",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5317704,
+   "name": "東涌綫 Tung Chung Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 8,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 8,
+   "flags": [
+    "stops_unmatched:8"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5317706,
+   "name": "東涌綫 Tung Chung Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 8,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 8,
+   "flags": [
+    "stops_unmatched:8"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 5454434,
+   "name": "地铁 4号线：南沙客运港 -> 黄村",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "广州市": 23
+   },
+   "stops_by_province": {
+    "广东省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6102298,
+   "name": "港鐵屯馬綫 MTR Tuen Ma Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 27,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 27,
+   "flags": [
+    "stops_unmatched:27"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6102299,
+   "name": "港鐵屯馬綫 MTR Tuen Ma Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 27,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 27,
+   "flags": [
+    "stops_unmatched:27"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6450277,
+   "name": "地铁 11号线: 红岭南 → 碧头",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 22,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 22,
+   "flags": [
+    "stops_unmatched:22"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6452935,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6502861,
+   "name": "地铁 2号线：东莞火车站 → 虎门火车站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6582965,
+   "name": "港鐵屯馬綫 MTR Tuen Ma Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6582966,
+   "name": "港鐵屯馬綫 MTR Tuen Ma Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587827,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587828,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 12,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 12,
+   "flags": [
+    "stops_unmatched:12"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587829,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 9,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 9,
+   "flags": [
+    "stops_unmatched:9"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587831,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587832,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587833,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 10,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 10,
+   "flags": [
+    "stops_unmatched:10"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587845,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 8,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 8,
+   "flags": [
+    "stops_unmatched:8"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587847,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587848,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587849,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 9,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 9,
+   "flags": [
+    "stops_unmatched:9"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587852,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 8,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 8,
+   "flags": [
+    "stops_unmatched:8"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6587853,
+   "name": "港鐵東鐵綫 MTR East Rail Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 10,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 10,
+   "flags": [
+    "stops_unmatched:10"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6658068,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6658069,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 4,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 4,
+   "flags": [
+    "stops_unmatched:4"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6658070,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 14,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 14,
+   "flags": [
+    "stops_unmatched:14"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6663509,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6663510,
+   "name": "港鐵觀塘綫 MTR Kwun Tong Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6723725,
+   "name": "東涌綫 Tung Chung Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 6,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 6,
+   "flags": [
+    "stops_unmatched:6"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6723726,
+   "name": "東涌綫 Tung Chung Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 6,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 6,
+   "flags": [
+    "stops_unmatched:6"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6728311,
+   "name": "地铁 14号线：镇龙 -> 新和",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6728313,
+   "name": "地铁 13号线：天河公园 → 新沙",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "广州市": 15
+   },
+   "stops_by_province": {
+    "广东省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6781618,
+   "name": "地铁 7号线: 深大丽湖 → 太安",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 29,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 29,
+   "flags": [
+    "stops_unmatched:29"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6827211,
+   "name": "南港島綫 South Island Line (金鐘 Admiralty → 海怡半島 South Horizons)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 6827212,
+   "name": "南港島綫 South Island Line (海怡半島 South Horizons → 金鐘 Admiralty)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7285815,
+   "name": "地铁 6号线：香雪 → 浔峰岗",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "广州市": 32
+   },
+   "stops_by_province": {
+    "广东省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7285816,
+   "name": "地铁 6号线：浔峰岗 → 香雪",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "广州市": 32
+   },
+   "stops_by_province": {
+    "广东省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7390450,
+   "name": "地铁 2号线：广州南站 -> 嘉禾望岗",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "广州市": 24
+   },
+   "stops_by_province": {
+    "广东省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7390451,
+   "name": "地铁 2号线：嘉禾望岗 -> 广州南站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "广州市": 24
+   },
+   "stops_by_province": {
+    "广东省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7422204,
+   "name": "地铁 8号线：滘心 → 万胜围",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "广州市": 28
+   },
+   "stops_by_province": {
+    "广东省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7422205,
+   "name": "地铁 8号线：万胜围 → 滘心",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "广州市": 28
+   },
+   "stops_by_province": {
+    "广东省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7480669,
+   "name": "地铁 1号线：西塱 -> 广州东站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "广州市": 16
+   },
+   "stops_by_province": {
+    "广东省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7480670,
+   "name": "地铁 1号线：广州东站 -> 西塱",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "广州市": 16
+   },
+   "stops_by_province": {
+    "广东省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7483883,
+   "name": "地铁 5号线：滘口 → 黄埔新港",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "广州市": 30
+   },
+   "stops_by_province": {
+    "广东省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7483884,
+   "name": "地铁 5号线：黄埔新港 → 滘口",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "广州市": 30
+   },
+   "stops_by_province": {
+    "广东省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7520751,
+   "name": "地铁 7号线：美的大道 → 燕山",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "佛山市": 7,
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7520752,
+   "name": "地铁 7号线：燕山 → 美的大道",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 27,
+   "stops_by_city": {
+    "广州市": 20,
+    "佛山市": 7
+   },
+   "stops_by_province": {
+    "广东省": 27
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7713527,
+   "name": "地铁 4号线：牛湖 → 福田口岸",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 23,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 23,
+   "flags": [
+    "stops_unmatched:23"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7895352,
+   "name": "地铁 13号线：新沙 → 天河公园",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "广州市": 15
+   },
+   "stops_by_province": {
+    "广东省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913935,
+   "name": "地铁 1号线：机场东 → 罗湖",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 30,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 30,
+   "flags": [
+    "stops_unmatched:30"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 7935591,
+   "name": "地铁 9号线：飞鹅岭 -> 高增",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "广州市": 11
+   },
+   "stops_by_province": {
+    "广东省": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7944797,
+   "name": "地铁 广佛线：新城东 → 沥滘",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "佛山市": 15,
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7986214,
+   "name": "地铁 2号线：虎门火车站 → 东莞火车站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 15,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 15,
+   "flags": [
+    "stops_unmatched:15"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 8338723,
+   "name": "地铁 14号线：乐嘉路 → 东风",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8338724,
+   "name": "地铁 14号线：东风 → 乐嘉路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8338725,
+   "name": "地铁 14号线快车：乐嘉路 → 东风",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "广州市": 13
+   },
+   "stops_by_province": {
+    "广东省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8338726,
+   "name": "地铁 14号线快车：东风 → 乐嘉路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "广州市": 13
+   },
+   "stops_by_province": {
+    "广东省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8378350,
+   "name": "地铁 14号线：新和 -> 镇龙",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9171918,
+   "name": "地铁 21号线：天河公园 → 增城广场",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9318441,
+   "name": "地铁 11号线: 碧头 → 红岭南",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 22,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 22,
+   "flags": [
+    "stops_unmatched:22"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9347613,
+   "name": "地铁 21号线快车：天河公园 → 增城广场",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9347614,
+   "name": "地铁 21号线快车：增城广场 → 天河公园",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9349489,
+   "name": "地铁 21号线：增城广场 → 天河公园",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9607953,
+   "name": "地铁 4号线：黄村 -> 南沙客运港",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "广州市": 23
+   },
+   "stops_by_province": {
+    "广东省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9622750,
+   "name": "地铁 2号线：莲塘 → 湾厦",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 27,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 27,
+   "flags": [
+    "stops_unmatched:27"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9629865,
+   "name": "地铁 7号线: 太安 → 深大丽湖",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 29,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 29,
+   "flags": [
+    "stops_unmatched:29"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9629886,
+   "name": "地铁 3号线: 坪地六联 → 福保",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 38,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 38,
+   "flags": [
+    "stops_unmatched:38"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9645951,
+   "name": "地铁 5号线：大剧院 → 赤湾",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 37,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 37,
+   "flags": [
+    "stops_unmatched:37"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9699771,
+   "name": "地铁 9号线：前湾 → 文锦",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9736530,
+   "name": "港鐵荃灣綫 MTR Tsuen Wan Line (北行 Northbound)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9736602,
+   "name": "港鐵將軍澳綫 MTR Tseung Kwan O Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9736610,
+   "name": "港鐵將軍澳綫 MTR Tseung Kwan O Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9736611,
+   "name": "港鐵將軍澳綫 MTR Tseung Kwan O Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9841060,
+   "name": "地铁 3号线：海傍 → 天河客运站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9841061,
+   "name": "地铁 3号线：机场北 → 海傍",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "广州市": 28
+   },
+   "stops_by_province": {
+    "广东省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9841062,
+   "name": "地铁 3号线：海傍 → 机场北",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 28,
+   "stops_by_city": {
+    "广州市": 28
+   },
+   "stops_by_province": {
+    "广东省": 28
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9924026,
+   "name": "地铁 9号线：高增 -> 飞鹅岭",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "广州市": 11
+   },
+   "stops_by_province": {
+    "广东省": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11583141,
+   "name": "地铁 6号线：松岗 → 科学馆",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 27,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 27,
+   "flags": [
+    "stops_unmatched:27"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 11583148,
+   "name": "地铁 6号线：科学馆 → 松岗",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 27,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 27,
+   "flags": [
+    "stops_unmatched:27"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 11583538,
+   "name": "地铁 10号线：福田口岸 → 双拥街",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 24,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 24,
+   "flags": [
+    "stops_unmatched:24"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 11583621,
+   "name": "地铁 10号线：双拥街 → 福田口岸",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 24,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 24,
+   "flags": [
+    "stops_unmatched:24"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13163410,
+   "name": "深圳地铁",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13163478,
+   "name": "地铁 9号线：文锦 → 前湾",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13176925,
+   "name": "地铁 2&8号线：溪涌 → 赤湾",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 43,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 43,
+   "flags": [
+    "stops_unmatched:43"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13176926,
+   "name": "地铁 2&8号线：赤湾 → 溪涌",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 43,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 43,
+   "flags": [
+    "stops_unmatched:43"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13239400,
+   "name": "地铁 18号线快车：万顷沙 -> 冼村",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "广州市": 6
+   },
+   "stops_by_province": {
+    "广东省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13239401,
+   "name": "地铁 18号线：冼村 -> 万顷沙",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13239410,
+   "name": "地铁 18号线快车：冼村 -> 万顷沙",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "广州市": 6
+   },
+   "stops_by_province": {
+    "广东省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13239411,
+   "name": "地铁 18号线：万顷沙 -> 冼村",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13352937,
+   "name": "港鐵將軍澳綫 MTR Tseung Kwan O Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 6,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 6,
+   "flags": [
+    "stops_unmatched:6"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13352938,
+   "name": "港鐵將軍澳綫 MTR Tseung Kwan O Line",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 6,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 6,
+   "flags": [
+    "stops_unmatched:6"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13604443,
+   "name": "地铁 2号线：广州南站 → 南庄",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 17,
+   "stops_by_city": {
+    "广州市": 1,
+    "佛山市": 16
+   },
+   "stops_by_province": {
+    "广东省": 17
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13604444,
+   "name": "地铁 2号线：南庄 → 广州南站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 17,
+   "stops_by_city": {
+    "佛山市": 16,
+    "广州市": 1
+   },
+   "stops_by_province": {
+    "广东省": 17
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13620409,
+   "name": "地铁 20号线: 会展城 → 机场北",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13620410,
+   "name": "地铁 20号线: 机场北 → 会展城",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 5,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 5,
+   "flags": [
+    "stops_unmatched:5"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 13987999,
+   "name": "地铁 22号线：芳村 → 番禺广场",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13988000,
+   "name": "地铁 22号线：番禺广场 → 芳村",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 14752075,
+   "name": "地铁 14号线: 岗厦北 -> 沙田",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 18,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 18,
+   "flags": [
+    "stops_unmatched:18"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14764337,
+   "name": "地铁 14号线: 沙田 -> 岗厦北",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 18,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 18,
+   "flags": [
+    "stops_unmatched:18"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14944727,
+   "name": "地铁 12号线: 松岗 → 左炮台东",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 39,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 39,
+   "flags": [
+    "stops_unmatched:39"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14944728,
+   "name": "地铁 12号线: 左炮台东 → 松岗",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 39,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 39,
+   "flags": [
+    "stops_unmatched:39"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14953715,
+   "name": "地铁 6号线支线：深理工 -> 光明城",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 14953716,
+   "name": "地铁 6号线支线：光明城 -> 深理工",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 15054264,
+   "name": "地铁 3号线：顺德学院站 → 佛山大学",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 37,
+   "stops_by_city": {
+    "佛山市": 37
+   },
+   "stops_by_province": {
+    "广东省": 37
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15054271,
+   "name": "地铁 3号线：佛山大学 → 顺德学院站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 37,
+   "stops_by_city": {
+    "佛山市": 37
+   },
+   "stops_by_province": {
+    "广东省": 37
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15059916,
+   "name": "地铁 16号线: 田心 → 园山西坑",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 15059917,
+   "name": "地铁 16号线: 园山西坑 → 田心",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18132492,
+   "name": "地铁 11号线：外环",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "广州市": 30
+   },
+   "stops_by_province": {
+    "广东省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18132493,
+   "name": "地铁 11号线：内环",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "广州市": 30
+   },
+   "stops_by_province": {
+    "广东省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18470804,
+   "name": "深圳地铁13号线: 深圳湾口岸 → 李松蓢",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18470805,
+   "name": "深圳地铁13号线: 李松蓢 → 深圳湾口岸",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18523160,
+   "name": "广州地铁22号线（番禺广场方向）",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 18523161,
+   "name": "广州地铁22号线（白云机场方向）",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 19283541,
+   "name": "地铁 10号线：西塱 → 杨箕东",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "广州市": 12
+   },
+   "stops_by_province": {
+    "广东省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19283542,
+   "name": "地铁 10号线：杨箕东 → 西塱",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "广州市": 12
+   },
+   "stops_by_province": {
+    "广东省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19283546,
+   "name": "地铁 12号线东段：二沙岛 → 大学城南",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19283547,
+   "name": "地铁 12号线东段：大学城南 → 二沙岛",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19283548,
+   "name": "地铁 12号线西段：广州体育馆 → 浔峰岗",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19283549,
+   "name": "地铁 12号线西段：浔峰岗 → 广州体育馆",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19902978,
+   "name": "地铁 1号线：梅塘 → 东莞西站",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 19902979,
+   "name": "地铁 1号线：东莞西站 → 梅塘",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20401317,
+   "name": "東鐵綫 East Rail Line (旺角東 Mong Kok East → 落馬洲 Lok Ma Chau)",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 11,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 11,
+   "flags": [
+    "stops_unmatched:11"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20996095,
+   "name": "地铁 3号线：佛山西站 → 顺德学院站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "佛山市": 32
+   },
+   "stops_by_province": {
+    "广东省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 20996096,
+   "name": "地铁 3号线：顺德学院站 → 佛山西站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "佛山市": 32
+   },
+   "stops_by_province": {
+    "广东省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21045037,
+   "name": "深圳地铁13号线: 后海 → 德雅路",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21045038,
+   "name": "深圳地铁13号线: 德雅路 → 后海",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 16,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 16,
+   "flags": [
+    "stops_unmatched:16"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21301401,
+   "name": "地铁 4号线：新造 -> 黄村",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301402,
+   "name": "地铁 4号线：黄村 -> 新造",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301934,
+   "name": "地铁 3号线：嘉禾望岗 → 体育西路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301935,
+   "name": "地铁 3号线：机场北 → 大石",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "广州市": 21
+   },
+   "stops_by_province": {
+    "广东省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301936,
+   "name": "地铁 3号线：机场北 → 番禺广场",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "广州市": 24
+   },
+   "stops_by_province": {
+    "广东省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301937,
+   "name": "地铁 3号线：同和 → 体育西路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 7,
+   "stops_by_city": {
+    "广州市": 7
+   },
+   "stops_by_province": {
+    "广东省": 7
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301938,
+   "name": "地铁 3号线：体育西路 → 同和",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 7,
+   "stops_by_city": {
+    "广州市": 7
+   },
+   "stops_by_province": {
+    "广东省": 7
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301939,
+   "name": "地铁 3号线：体育西路 → 永泰",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301940,
+   "name": "地铁 3号线：永泰 → 体育西路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 8,
+   "stops_by_city": {
+    "广州市": 8
+   },
+   "stops_by_province": {
+    "广东省": 8
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301941,
+   "name": "地铁 3号线：白云大道北 → 体育西路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 9,
+   "stops_by_city": {
+    "广州市": 9
+   },
+   "stops_by_province": {
+    "广东省": 9
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301942,
+   "name": "地铁 3号线：机场北 → 体育西路",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "广州市": 14
+   },
+   "stops_by_province": {
+    "广东省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301943,
+   "name": "地铁 3号线：嘉禾望岗 → 番禺广场",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301944,
+   "name": "地铁 3号线：嘉禾望岗 → 海傍",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "广州市": 24
+   },
+   "stops_by_province": {
+    "广东省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301945,
+   "name": "地铁 3号线：体育西路 → 嘉禾望岗",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "广州市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301946,
+   "name": "地铁 3号线：体育西路 → 机场北",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "广州市": 14
+   },
+   "stops_by_province": {
+    "广东省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301947,
+   "name": "地铁 3号线：大石 → 机场北",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "广州市": 21
+   },
+   "stops_by_province": {
+    "广东省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301948,
+   "name": "地铁 3号线：番禺广场 → 机场北",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "广州市": 24
+   },
+   "stops_by_province": {
+    "广东省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301949,
+   "name": "地铁 3号线：大石 → 天河客运站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "广州市": 13
+   },
+   "stops_by_province": {
+    "广东省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301950,
+   "name": "地铁 3号线：番禺广场 → 天河客运站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "广州市": 16
+   },
+   "stops_by_province": {
+    "广东省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301951,
+   "name": "地铁 3号线：天河客运站 → 大石",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "广州市": 13
+   },
+   "stops_by_province": {
+    "广东省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301952,
+   "name": "地铁 3号线：天河客运站 → 番禺广场",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "广州市": 16
+   },
+   "stops_by_province": {
+    "广东省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301993,
+   "name": "地铁 3号线：厦滘 → 天河客运站",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "广州市": 12
+   },
+   "stops_by_province": {
+    "广东省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21301994,
+   "name": "地铁 3号线：厦滘 → 机场北",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 20,
+   "stops_by_city": {
+    "广州市": 20
+   },
+   "stops_by_province": {
+    "广东省": 20
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21381271,
+   "name": "地铁 2&8号线：赤湾 → 溪涌",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 37,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 37,
+   "flags": [
+    "stops_unmatched:37"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21381272,
+   "name": "地铁 2&8号线：赤湾 → 溪涌",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 33,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 33,
+   "flags": [
+    "stops_unmatched:33"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21381273,
+   "name": "晨曦特快：湾厦 → 溪涌",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 13,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 13,
+   "flags": [
+    "stops_unmatched:13"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21381274,
+   "name": "地铁 8号线：溪涌 → 深外高中",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21381275,
+   "name": "地铁 8号线：深外高中 → 溪涌",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 7,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 7,
+   "flags": [
+    "stops_unmatched:7"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21395022,
+   "name": "地铁 11号线: 碧头 → 红岭南",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 17,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 17,
+   "flags": [
+    "stops_unmatched:17"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 21433548,
+   "name": "地铁 8号线：聚龙 → 万胜围",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "广州市": 23
+   },
+   "stops_by_province": {
+    "广东省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 21433549,
+   "name": "地铁 8号线：万胜围 → 聚龙",
+   "transit_type": "metro",
+   "province": "广东省",
+   "city": "广州市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "广州市": 23
+   },
+   "stops_by_province": {
+    "广东省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 3263757,
+   "name": "香港電車跑馬地至堅尼地城 Hong Kong Tramways Happy Valley to Kennedy Town",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 31,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 31,
+   "flags": [
+    "stops_unmatched:31"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088000,
+   "name": "香港電車跑馬地至堅尼地城 Hong Kong Tramways Happy Valley to Kennedy Town",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 33,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 33,
+   "flags": [
+    "stops_unmatched:33"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088086,
+   "name": "香港電車銅鑼灣至石塘咀 Hong Kong Tramways Causeway Bay to Shek Tong Tsui",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 26,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 26,
+   "flags": [
+    "stops_unmatched:26"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088087,
+   "name": "香港電車銅鑼灣至石塘咀 Hong Kong Tramways Causeway Bay to Shek Tong Tsui",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 25,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 25,
+   "flags": [
+    "stops_unmatched:25"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088262,
+   "name": "香港電車筲箕灣至堅尼地城 Hong Kong Tramways Shau Kei Wan to Kennedy Town",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 51,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 51,
+   "flags": [
+    "stops_unmatched:51"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088263,
+   "name": "香港電車筲箕灣至堅尼地城 Hong Kong Tramways Shau Kei Wan to Kennedy Town",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 54,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 54,
+   "flags": [
+    "stops_unmatched:54"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088321,
+   "name": "香港電車筲箕灣至上環 Hong Kong Tramways Shau Kei Wan to Sheung Wan",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 40,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 40,
+   "flags": [
+    "stops_unmatched:40"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088368,
+   "name": "香港電車筲箕灣至上環 Hong Kong Tramways Shau Kei Wan to Sheung Wan",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 41,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 41,
+   "flags": [
+    "stops_unmatched:41"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088457,
+   "name": "香港電車北角至石塘咀 Hong Kont Tramways North Point to Shek Tong Tsui",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 33,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 33,
+   "flags": [
+    "stops_unmatched:33"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088481,
+   "name": "香港電車北角至石塘咀 Hong Kont Tramways North Point to Shek Tong Tsui",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 32,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 32,
+   "flags": [
+    "stops_unmatched:32"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088517,
+   "name": "香港電車筲箕灣至跑馬地 Hong Kong Tramways Shau Kei Wan to Happy Valley",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 31,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 31,
+   "flags": [
+    "stops_unmatched:31"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 4088518,
+   "name": "香港電車筲箕灣至跑馬地 Hong Kong Tramways Shau Kei Wan to Happy Valley",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 30,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 30,
+   "flags": [
+    "stops_unmatched:30"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10519278,
+   "name": "有轨 高明区现代有轨电车示范线：智湖 -> 沧江路",
+   "transit_type": "tram",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "佛山市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10519279,
+   "name": "有轨 高明区现代有轨电车示范线：沧江路 -> 智湖",
+   "transit_type": "tram",
+   "province": "广东省",
+   "city": "佛山市",
+   "stops_total": 10,
+   "stops_by_city": {
+    "佛山市": 10
+   },
+   "stops_by_province": {
+    "广东省": 10
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  }
+ ]
+}

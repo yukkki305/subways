@@ -27,6 +27,12 @@ import {
  */
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
+/**
+ * P1a-6.1：数据产物按城市分目录（`public/data/<code>/`）。
+ * 6.2 会把它改成按路由参数传入；在此之前固定为上海，保证单城可用。
+ */
+const CITY_CODE = "sh";
+
 maplibregl.setWorkerUrl(`${BASE}/vendor/maplibre-gl-worker.mjs`);
 
 type LinesFile = { lines: Line[] };
@@ -147,13 +153,13 @@ export default function MapView() {
     async function boot() {
       try {
         const [basemap, sea, segments, linesFile, stationFile, transferFile, metaFile] = await Promise.all([
-          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/shanghai-basemap.geojson`),
-          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/sea.geojson`),
-          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/segment.geojson`),
-          loadJson<LinesFile>(`${BASE}/data/lines.json`),
-          loadJson<StationFile>(`${BASE}/data/station.json`),
-          loadJson<TransferFile>(`${BASE}/data/transfer.json`),
-          loadJson<MetaFile>(`${BASE}/data/meta.json`).catch(() => null),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${CITY_CODE}/basemap.geojson`),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${CITY_CODE}/sea.geojson`),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${CITY_CODE}/segment.geojson`),
+          loadJson<LinesFile>(`${BASE}/data/${CITY_CODE}/lines.json`),
+          loadJson<StationFile>(`${BASE}/data/${CITY_CODE}/station.json`),
+          loadJson<TransferFile>(`${BASE}/data/${CITY_CODE}/transfer.json`),
+          loadJson<MetaFile>(`${BASE}/data/${CITY_CODE}/meta.json`).catch(() => null),
         ]);
         if (disposed || !boxRef.current) return;
 

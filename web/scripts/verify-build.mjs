@@ -56,19 +56,20 @@ const externalResources = [...html.matchAll(/<script[^>]+src="(https?:\/\/[^"]+)
 check("页面资源全部同源", externalResources.length === 0, externalResources.slice(0, 3).join(", ") || "外链仅限元信息");
 
 // 2. 数据文件齐全：以 meta.json 记录的清单为准（多城时底图/海面可有可无）
-const dataDir = join(ROOT, OUT, "data");
+// P1a-6.1：产物按城市分目录 out/data/<code>/，默认校验上海
+const CITY_CODE = cityArg || "sh";
+const dataDir = join(ROOT, OUT, "data", CITY_CODE);
 const metaPath = join(dataDir, "meta.json");
-if (!existsSync(metaPath)) throw new Error("缺少 out/data/meta.json（先跑 npm run build，prebuild 会同步数据）");
+if (!existsSync(metaPath)) throw new Error(`缺少 out/data/${CITY_CODE}/meta.json（先跑 npm run build，prebuild 会同步数据）`);
 const meta = JSON.parse(readFileSync(metaPath, "utf8"));
 const CORE_FILES = ["lines.json", "station.json", "transfer.json", "segment.geojson"];
 for (const f of CORE_FILES) {
-  check(`data/${f} 存在`, existsSync(join(dataDir, f)));
+  check(`data/${CITY_CODE}/${f} 存在`, existsSync(join(dataDir, f)));
 }
-const CITY_CODE = cityArg || meta.city_code || "sh";
 const cfg = loadCity(CITY_CODE);
 check("meta.json 的城市与本次校验一致", meta.city_code === cfg.code, `${meta.city_code} / ${meta.city_label ?? ""}`);
 for (const f of meta.files ?? []) {
-  check(`data/${f.name} 存在（meta 登记）`, existsSync(join(dataDir, f.name)));
+  check(`data/${CITY_CODE}/${f.name} 存在（meta 登记）`, existsSync(join(dataDir, f.name)));
 }
 
 // 3. 数据自洽

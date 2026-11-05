@@ -535,3 +535,31 @@ $env:SUBWAY_WEB_CITY = "gz"; & E:\node\npm.cmd run build   # 构建（basePath �
 - **缺数据时给人话**：`sync` 缺产物时列出缺哪几个文件并提示先跑 `python pipeline/run_city.py --city <code>`；`test:search` 读不到 `station.json` 时同样提示，不会抛 ENOENT 堆栈。
 
 实测（P1a-1.5）：上海 `sync` 幂等、`test:search` 22 条全过（p50 0.079 ms）、`build` + `verify` **23 项全过 / 4.15 MB**；`--city gz`、`--city cd` 在数据未生成时给出明确缺文件清单（退出码 1）；`--city xyz` 报「没有城市配置」并列出 `cd / gz / hf / sh`。
+
+## 数据目录多城化（P1a-6.1）
+
+四城要同时上线，数据不能再摊在 `public/data/` 根下（文件名会互相覆盖，也无法按城懒加载）。
+现在每个城市一个子目录，另有一份城市清单：
+
+```
+web/public/data/
+├── cities.json          [{code,label,city,lines,stations,segments,transfers,snapshot_date,has_basemap,has_sea,bytes}]
+├── sh/  meta.json  lines.json  station.json  transfer.json  segment.geojson  basemap.geojson  sea.geojson
+├── gz/  meta.json  lines.json  station.json  transfer.json  segment.geojson
+├── cd/  …（同上，暂无常驻底图）
+└── hf/  …（同上）
+```
+
+| 改动 | 说明 |
+|---|---|
+| `scripts/sync-data.mjs` | 输出改到 `public/data/<code>/`；新增 `--all`（`npm run sync:all`）一次同步四城；`prebuild` 改为 `--all`，保证构建产物四个城市都齐 |
+| `cities.json` | 按 `code` 合并已有条目，`--city gz` 不会把上海的记录冲掉；`has_basemap`/`has_sea` 由实际同步到哪些文件决定 |
+| 底图文件名 | 各城统一叫 `basemap.geojson` / `sea.geojson`（上海的精细底图源文件名仍是 `shanghai-basemap.geojson`，复制时改名） |
+| `scripts/verify-build.mjs` | 读 `out/data/<code>/meta.json`，默认 `sh`；断言文案带城市前缀（`data/sh/lines.json`） |
+| `components/MapView.tsx` | 七条 `loadJson` 改 `/data/${CITY_CODE}/…`；`CITY_CODE` 暂时常量为 `"sh"`，6.2 改成按路由传入 |
+
+实测（P1a-6.1）：`sync --all` 四城 **18 个文件 / 4.71 MB**；`build` + `verify` **23 项全过**，`out/data/` 下 `cd / gz / hf / sh` + `cities.json` 齐全，总体积 **7.14 MB（gzip ≈1.27 MB）**；
+本地按子路径起服务后上海页面 20 线 / 423 站正常渲染，`/subways/data/cities.json` 返回四城条目，`/subways/data/gz/lines.json` 等三城数据均 200（`gz/basemap.geojson` 404，属预期——6.4 才补非上海底图）。
+
+**注意**：`public/data/` 已进 `.gitignore`，是构建期产物；切换目录结构后旧的扁平文件必须删掉，否则会被一起打进 `out/`（本次已删 7 个）。
+

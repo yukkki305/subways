@@ -84,8 +84,9 @@ export function dataSources(cfg) {
     { rel: `${dir}/segment.geojson`, name: "segment.geojson" },
   ];
   // 底图与海面：上海是 P0 精细版（共享目录），其它城为可选（<data_dir>/basemap|sea.geojson）
+  // P1a-6.1：产物目录按城市分开后，文件在各自目录里统一叫 basemap.geojson / sea.geojson
   if (cfg.code === "sh") {
-    list.push({ rel: "data/processed/basemap/shanghai-basemap.geojson", name: "shanghai-basemap.geojson" });
+    list.push({ rel: "data/processed/basemap/shanghai-basemap.geojson", name: "basemap.geojson" });
     list.push({ rel: "data/processed/basemap/shanghai-sea.geojson", name: "sea.geojson" });
   } else {
     list.push({ rel: `${dir}/basemap.geojson`, name: "basemap.geojson", optional: true });

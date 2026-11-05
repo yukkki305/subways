@@ -171,17 +171,22 @@ def main() -> int:
         return (l["type"] != "metro", int(digits) if digits else 99, l["name"])
 
     rows = sorted(lines["lines"], key=sort_key)
+
+    # 上海沿用 P0 原文案（回归要求逐字节一致）；其它城标题带城市名，并说明无官图的原因
     if CFG.code == "sh":
+        title = "# 线路颜色（S2-6）"
         out = [
-            "# 线路颜色（S2-6）",
+            title,
             "",
             "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**；",
             "> 官图采样自 `shmetro.com` 的官方线路图 JPEG（5497×7693，`Last-Modified: 2025-12-26 14:45:39 GMT`），",
             "> 取高饱和像素的色簇，与 OSM 颜色比欧氏距离，>30 视为不一致。",
         ]
     else:
-        out = ["# 线路颜色（S2-6）", "", "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。", ""]
-        out += [
+        out = [
+            f"# 线路颜色 · {CFG.name}（S2-6）",
+            "",
+            "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。",
             f"> {CFG.name}没有可采样的官方线路图（官网不提供静态线路图），颜色沿用 OSM；",
             "> 已用百度百科「标志色」逐条核对，与 OSM 色相一致的不覆盖、只标 `colour_verified=false`。",
         ]

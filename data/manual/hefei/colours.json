@@ -1,0 +1,36 @@
+{
+ "_comment": "合肥官网（hefei.gov.cn 线路图页）被 WAF 拦截、无可采样的官方线路图，颜色沿用 OSM；已用百度百科「标志色」逐条核对：7/8 一致，5 号线不一致（碧山青 vs 黄绿），保留 OSM 标未核实。",
+ "colour_override": {},
+ "colour_unverified": {
+  "hf-line-5": "百科标志色「碧山青」（青绿）与 OSM #C1D522（黄绿）不一致；无官图可采样，保留 OSM 待核"
+ },
+ "colour_confirmed_osm": {
+  "hf-line-1": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「中国红」与 OSM #F50000 一致",
+  "hf-line-2": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「群青蓝」与 OSM #006BFA 一致",
+  "hf-line-3": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「翠微绿」与 OSM #098137 一致",
+  "hf-line-4": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「瑶光橙」与 OSM #FF850D 一致",
+  "hf-line-6": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「丁香紫」与 OSM #C99FCD 一致",
+  "hf-line-7": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「银杏黄」与 OSM #F1CC40 一致",
+  "hf-line-8": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「湖波蓝」与 OSM #64AEE3 一致"
+ },
+ "name_en": {
+  "hf-line-1": "Line 1",
+  "hf-line-2": "Line 2",
+  "hf-line-3": "Line 3",
+  "hf-line-4": "Line 4",
+  "hf-line-5": "Line 5",
+  "hf-line-6": "Line 6",
+  "hf-line-7": "Line 7",
+  "hf-line-8": "Line 8"
+ },
+ "_colour_official_name": {
+  "hf-line-1": "中国红",
+  "hf-line-2": "群青蓝",
+  "hf-line-3": "翠微绿",
+  "hf-line-4": "瑶光橙",
+  "hf-line-5": "碧山青",
+  "hf-line-6": "丁香紫",
+  "hf-line-7": "银杏黄",
+  "hf-line-8": "湖波蓝"
+ }
+}

@@ -2,7 +2,7 @@
  "city": "合肥市",
  "city_code": "hf",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-05T20:14:53+08:00",
+ "generated_at": "2026-11-05T20:38:49+08:00",
  "rules": "docs/decisions/0001-modeling-rules.md（R1 线路与支线、R2 ID、R3 环线）",
  "mapping_table": "data/manual/shanghai-relation-mapping.csv",
  "counts": {
@@ -18,7 +18,7 @@
    "name": "1号线",
    "name_en": "Line 1",
    "colour": "#F50000",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -86,9 +86,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": "Hefei Metro Line 1: Zhangwa→Jiulianwei"
+   "colour_official_name": "中国红",
+   "colour_verified": false,
+   "name_en_route": "Hefei Metro Line 1: Zhangwa→Jiulianwei",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「中国红」与 OSM #F50000 一致"
   },
   {
    "id": "hf-line-2",
@@ -96,7 +97,7 @@
    "name": "2号线",
    "name_en": "Line 2",
    "colour": "#006BFA",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -173,9 +174,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": "Hefei Metro Line 2: Nangang→Sanshibu"
+   "colour_official_name": "群青蓝",
+   "colour_verified": false,
+   "name_en_route": "Hefei Metro Line 2: Nangang→Sanshibu",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「群青蓝」与 OSM #006BFA 一致"
   },
   {
    "id": "hf-line-3",
@@ -183,7 +185,7 @@
    "name": "3号线",
    "name_en": "Line 3",
    "colour": "#098137",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -265,9 +267,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": null
+   "colour_official_name": "翠微绿",
+   "colour_verified": false,
+   "name_en_route": "Line 3",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「翠微绿」与 OSM #098137 一致"
   },
   {
    "id": "hf-line-4",
@@ -275,7 +278,7 @@
    "name": "4号线",
    "name_en": "Line 4",
    "colour": "#FF850D",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -351,9 +354,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": "Hefei Metro Line 4: Shaomaigang→Zongbaoqu"
+   "colour_official_name": "瑶光橙",
+   "colour_verified": false,
+   "name_en_route": "Hefei Metro Line 4: Shaomaigang→Zongbaoqu",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「瑶光橙」与 OSM #FF850D 一致"
   },
   {
    "id": "hf-line-5",
@@ -361,7 +365,7 @@
    "name": "5号线",
    "name_en": "Line 5",
    "colour": "#C1D522",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（官图未核实）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -436,9 +440,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": "Hefei Metro Line 5: Guiyanglu→Jiqiaolu"
+   "colour_official_name": "碧山青",
+   "colour_verified": false,
+   "name_en_route": "Hefei Metro Line 5: Guiyanglu→Jiqiaolu",
+   "colour_note": "百科标志色「碧山青」（青绿）与 OSM #C1D522（黄绿）不一致；无官图可采样，保留 OSM 待核"
   },
   {
    "id": "hf-line-6",
@@ -446,7 +451,7 @@
    "name": "6号线",
    "name_en": "Line 6",
    "colour": "#C99FCD",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -509,9 +514,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": "Hefei Metro Line 6 (Eastbound)"
+   "colour_official_name": "丁香紫",
+   "colour_verified": false,
+   "name_en_route": "Hefei Metro Line 6 (Eastbound)",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「丁香紫」与 OSM #C99FCD 一致"
   },
   {
    "id": "hf-line-7",
@@ -519,7 +525,7 @@
    "name": "7号线",
    "name_en": "Line 7",
    "colour": "#F1CC40",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -575,9 +581,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": "Hefei Metro Line 7 (Eastbound)"
+   "colour_official_name": "银杏黄",
+   "colour_verified": false,
+   "name_en_route": "Hefei Metro Line 7 (Eastbound)",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「银杏黄」与 OSM #F1CC40 一致"
   },
   {
    "id": "hf-line-8",
@@ -585,7 +592,7 @@
    "name": "8号线",
    "name_en": "Line 8",
    "colour": "#64AEE3",
-   "colour_source": "OSM（与官图采样一致）",
+   "colour_source": "OSM（无官图，经百科色名核对）",
    "type": "metro",
    "operator": "合肥轨道交通集团有限公司",
    "opened": null,
@@ -637,9 +644,10 @@
    "length_diff_pct": null,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
-   "colour_official_name": null,
-   "colour_verified": true,
-   "name_en_route": null
+   "colour_official_name": "湖波蓝",
+   "colour_verified": false,
+   "name_en_route": "Line 8",
+   "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「湖波蓝」与 OSM #64AEE3 一致"
   }
  ],
  "attribute_rules": "ADR R6（颜色官图为准）/ R7（里程双轨、属性走人工表）"

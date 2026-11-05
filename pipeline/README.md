@@ -370,7 +370,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --schema       # �
 | 上海 sh | `cities/sh.json` | 913067 | L4 913067 | 20 | 回归基准 |
 | 广州 gz | `cities/gz.json` | 911844（**不闭合**） | L5 3287346 | 19 | 省面走 21 市并集；有轨电车按 `ref` 排除 |
 | 成都 cd | `cities/cd.json` | 913068（闭合） | L5 2110264 | 16 | |
-| 合肥 hf | `cities/hf.json` | 913011（闭合） | L5 3288965 | 8 | |
+| 合肥 hf | `cities/hf.json` | 913011（闭合） | L5 3288965 | 8 | 映射 18 行：保留 9 / 合并 9（4 号线双交路成 `-main` + `-b1`） |
 
 校验规则（`load_city()` 时执行，错误一次性全部列出）：必填字段齐全、无未知字段、
 `bbox`/`scene_bbox` 西<东 南<北、`km_per_deg` 为正、`line_ids` 与 `line_count_expected`

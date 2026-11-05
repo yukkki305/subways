@@ -1,6 +1,6 @@
 {
   "snapshot_date": "p1a-20261103",
-  "generated_at": "2026-11-04T21:57:18+08:00",
+  "generated_at": "2026-11-05T20:59:16+08:00",
   "source": "https://download.openstreetmap.fr/extracts/asia/china/",
   "source_notes": "download.openstreetmap.fr 省级 extract，日更；整档非增量",
   "license": "ODbL-1.0",
@@ -18,6 +18,20 @@
       "elapsed_s": 0.0,
       "avg_bytes_per_s": null,
       "local_path": "E:\\subway-data\\snapshots\\p1a-20261103\\guangdong-latest.osm.pbf"
+    },
+    {
+      "name": "sichuan-latest.osm.pbf",
+      "upstream_changed": false,
+      "note": null,
+      "province": "sichuan",
+      "url": "https://download.openstreetmap.fr/extracts/asia/china/sichuan-latest.osm.pbf",
+      "bytes": 117721804,
+      "sha256": "30c85429307e531f195c9b1045c07325323e08d22398d750e95dd908f5efcd8b",
+      "last_modified": "Thu, 05 Nov 2026 00:21:15 GMT",
+      "downloaded_at": "2026-11-05T20:59:16+08:00",
+      "elapsed_s": 0.0,
+      "avg_bytes_per_s": null,
+      "local_path": "E:\\subway-data\\snapshots\\p1a-20261103\\sichuan-latest.osm.pbf"
     }
   ],
   "skipped_by_size_rule": []

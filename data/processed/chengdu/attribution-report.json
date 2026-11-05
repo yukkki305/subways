@@ -1,0 +1,1112 @@
+{
+ "snapshot_date": "p1a-20261103",
+ "generated_at": "2026-11-05T21:01:39+08:00",
+ "method": {
+  "city": "admin_level=5 地级市面点面判定（上海用 admin_level=4 上海市面）",
+  "province": "城市命中即得省；未命中城市时退回省面（上海/浙江/安徽用 L4，江苏 = 13 地级市并集）",
+  "why_jiangsu_union": "江苏省 L4 关系 374 个 way 齐全但仍拼不闭合（自拼只有 309.4 km² / 23 个碎片），改用地级市（L5）并集 + 13 市固定名称表",
+  "known_gaps": "南通市、盐城市的市面本身拼不闭合，两市内的站目前判不出归属（在 conflicts.md 列出）",
+  "note": "几何只做判定，城市名来自 OSM L5 名称，不由几何发明；未命中一律 null + flag"
+ },
+ "boundaries": {
+  "四川省": {
+   "area_km2": 486579.1,
+   "parts": 4
+  }
+ },
+ "city_polygons": {
+  "甘孜藏族自治州 དཀར་མཛེས་བོད་རིགས་རང་སྐྱོང་ཁུལ།": {
+   "id": 2049312,
+   "province": "四川省",
+   "area_km2": 150266.1
+  },
+  "成都市": {
+   "id": 2110264,
+   "province": "四川省",
+   "area_km2": 14344.1
+  },
+  "阿坝藏族羌族自治州 རྔ་བ་བོད་རིགས་ཆ་བ༹ང་རིགས་རང་སྐྱོང་ཁུལ་": {
+   "id": 2110265,
+   "province": "四川省",
+   "area_km2": 84606.5
+  },
+  "攀枝花市": {
+   "id": 2785689,
+   "province": "四川省",
+   "area_km2": 7154.7
+  },
+  "凉山彝族自治州 ꆃꎭꆈꌠꊨꏦꏱꅉꍏ": {
+   "id": 2785750,
+   "province": "四川省",
+   "area_km2": 58727.7
+  },
+  "绵阳市": {
+   "id": 2787464,
+   "province": "四川省",
+   "area_km2": 20526.5
+  },
+  "德阳市": {
+   "id": 2787561,
+   "province": "四川省",
+   "area_km2": 5941.5
+  },
+  "广元市": {
+   "id": 2787606,
+   "province": "四川省",
+   "area_km2": 16620.3
+  },
+  "巴中市": {
+   "id": 2787658,
+   "province": "四川省",
+   "area_km2": 12476.3
+  },
+  "达州市": {
+   "id": 2787741,
+   "province": "四川省",
+   "area_km2": 16726.0
+  },
+  "广安市": {
+   "id": 2787851,
+   "province": "四川省",
+   "area_km2": 6334.1
+  },
+  "南充市": {
+   "id": 2787937,
+   "province": "四川省",
+   "area_km2": 12566.4
+  },
+  "遂宁市": {
+   "id": 2788710,
+   "province": "四川省",
+   "area_km2": 5329.3
+  },
+  "资阳市": {
+   "id": 2788724,
+   "province": "四川省",
+   "area_km2": 5719.9
+  },
+  "泸州市": {
+   "id": 2789344,
+   "province": "四川省",
+   "area_km2": 12000.2
+  },
+  "内江市": {
+   "id": 2789481,
+   "province": "四川省",
+   "area_km2": 5334.2
+  },
+  "雅安市": {
+   "id": 2789731,
+   "province": "四川省",
+   "area_km2": 14946.6
+  },
+  "乐山市": {
+   "id": 2789892,
+   "province": "四川省",
+   "area_km2": 12566.2
+  },
+  "眉山市": {
+   "id": 2789926,
+   "province": "四川省",
+   "area_km2": 7094.4
+  },
+  "自贡市": {
+   "id": 2791218,
+   "province": "四川省",
+   "area_km2": 4317.4
+  },
+  "宜宾市": {
+   "id": 2791229,
+   "province": "四川省",
+   "area_km2": 13005.4
+  }
+ },
+ "checks": {
+  "shanghai_stops_inside": 969,
+  "shanghai_stops_outside": 0,
+  "shanghai_stops_outside_sample": [],
+  "shanghai_stops_outside_unattributed": 0
+ },
+ "counts": {
+  "relations_total": 55,
+  "by_province": {
+   "四川省": 51,
+   "(未定)": 4
+  },
+  "by_city": {
+   "成都市": 49,
+   "资阳市": 2,
+   "(未定)": 4
+  },
+  "flags": {
+   "no_resolved_stops": 4
+  }
+ },
+ "conflicts": [
+  {
+   "type": "cross_city",
+   "id": 11516374,
+   "name": "成都市域铁路S3资阳线: 资阳北站 → 福田",
+   "by_city": {
+    "资阳市": 5,
+    "成都市": 1
+   },
+   "stops": [
+    "资阳北站 → 资阳市",
+    "宝台 → 资阳市",
+    "苌弘广场 → 资阳市",
+    "幸福大道 → 资阳市",
+    "资阳临空 → 资阳市",
+    "福田 → 成都市"
+   ]
+  },
+  {
+   "type": "cross_city",
+   "id": 18168582,
+   "name": "成都市域铁路S3资阳线: 福田 → 资阳北站",
+   "by_city": {
+    "成都市": 1,
+    "资阳市": 5
+   },
+   "stops": [
+    "福田 → 成都市",
+    "资阳临空 → 资阳市",
+    "幸福大道 → 资阳市",
+    "苌弘广场 → 资阳市",
+    "宝台 → 资阳市",
+    "资阳北站 → 资阳市"
+   ]
+  }
+ ],
+ "relations": [
+  {
+   "id": 12893893,
+   "name": "天府机场APM: 1号航站楼 => 2号航站楼",
+   "transit_type": "monorail",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "成都市": 2
+   },
+   "stops_by_province": {
+    "四川省": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12896377,
+   "name": "天府机场APM: 2号航站楼 => 1号航站楼",
+   "transit_type": "monorail",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 2,
+   "stops_by_city": {
+    "成都市": 2
+   },
+   "stops_by_province": {
+    "四川省": 2
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 2381768,
+   "name": "成都地铁1号线: 五根松 => 韦家碾",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "成都市": 24
+   },
+   "stops_by_province": {
+    "四川省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 2474349,
+   "name": "成都地铁2号线: 犀浦 → 龙泉驿",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "成都市": 33
+   },
+   "stops_by_province": {
+    "四川省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6385133,
+   "name": "成都地铁4号线: 万盛 => 西河",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "成都市": 30
+   },
+   "stops_by_province": {
+    "四川省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 6517083,
+   "name": "成都地铁3号线: 成都医学院 => 双流西站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 37,
+   "stops_by_city": {
+    "成都市": 37
+   },
+   "stops_by_province": {
+    "四川省": 37
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913593,
+   "name": "成都地铁7号线: 内环",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "成都市": 31
+   },
+   "stops_by_province": {
+    "四川省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913594,
+   "name": "成都地铁10号线: 武侯祠站 → 新平",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "成都市": 18
+   },
+   "stops_by_province": {
+    "四川省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7913598,
+   "name": "成都地铁1号线 :韦家碾 => 五根松",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "成都市": 24
+   },
+   "stops_by_province": {
+    "四川省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8297136,
+   "name": "成都地铁7号线: 外环",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "成都市": 31
+   },
+   "stops_by_province": {
+    "四川省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8297247,
+   "name": "成都地铁1号线: 韦家碾 => 科学城",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "成都市": 33
+   },
+   "stops_by_province": {
+    "四川省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8297265,
+   "name": "成都地铁3号线: 双流西站 => 成都医学院",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 37,
+   "stops_by_city": {
+    "成都市": 37
+   },
+   "stops_by_province": {
+    "四川省": 37
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8298109,
+   "name": "成都地铁2号线: 龙泉驿 → 犀浦",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "成都市": 33
+   },
+   "stops_by_province": {
+    "四川省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8298131,
+   "name": "成都地铁4号线: 西河 => 万盛",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 30,
+   "stops_by_city": {
+    "成都市": 30
+   },
+   "stops_by_province": {
+    "四川省": 30
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8298253,
+   "name": "成都地铁10号线: 新平 → 武侯祠站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "成都市": 18
+   },
+   "stops_by_province": {
+    "四川省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 8303538,
+   "name": "成都地铁1号线: 科学城 => 韦家碾",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "成都市": 33
+   },
+   "stops_by_province": {
+    "四川省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9627519,
+   "name": "成都地铁9号线: 金融城东 → 黄田坝",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "成都市": 13
+   },
+   "stops_by_province": {
+    "四川省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9627850,
+   "name": "成都地铁6号线: 望丛祠 => 兰家沟",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 56,
+   "stops_by_city": {
+    "成都市": 56
+   },
+   "stops_by_province": {
+    "四川省": 56
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9627905,
+   "name": "成都地铁5号线: 华桂路 => 回龙",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 41,
+   "stops_by_city": {
+    "成都市": 41
+   },
+   "stops_by_province": {
+    "四川省": 41
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9761272,
+   "name": "成都地铁8号线: 桂龙路 → 龙港",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "成都市": 32
+   },
+   "stops_by_province": {
+    "四川省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9851799,
+   "name": "成都地铁17号线: 九江北 → 高洪",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "成都市": 21
+   },
+   "stops_by_province": {
+    "四川省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9869750,
+   "name": "成都地铁18号线: 火车南站 => 天府机场北",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "成都市": 13
+   },
+   "stops_by_province": {
+    "四川省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10526315,
+   "name": "成都地铁5号线: 回龙 => 华桂路",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 41,
+   "stops_by_city": {
+    "成都市": 41
+   },
+   "stops_by_province": {
+    "四川省": 41
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11516374,
+   "name": "成都市域铁路S3资阳线: 资阳北站 → 福田",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "资阳市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "资阳市": 5,
+    "成都市": 1
+   },
+   "stops_by_province": {
+    "四川省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11528274,
+   "name": "成都地铁13号线: 龙安 → 瓦窑滩",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "成都市": 21
+   },
+   "stops_by_province": {
+    "四川省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11697794,
+   "name": "成都地铁18号线: 天府机场北 => 火车南站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "成都市": 13
+   },
+   "stops_by_province": {
+    "四川省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11807052,
+   "name": "成都地铁10号线: 花桥 → 武侯祠站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "成都市": 15
+   },
+   "stops_by_province": {
+    "四川省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11807053,
+   "name": "成都地铁10号线: 武侯祠站 → 花桥",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 15,
+   "stops_by_city": {
+    "成都市": 15
+   },
+   "stops_by_province": {
+    "四川省": 15
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12038668,
+   "name": "成都地铁6号线: 兰家沟 => 望丛祠",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 56,
+   "stops_by_city": {
+    "成都市": 56
+   },
+   "stops_by_province": {
+    "四川省": 56
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12086371,
+   "name": "成都地铁8号线: 龙港 → 桂龙路",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 32,
+   "stops_by_city": {
+    "成都市": 32
+   },
+   "stops_by_province": {
+    "四川省": 32
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12094622,
+   "name": "成都地铁9号线: 黄田坝 → 金融城东",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 13,
+   "stops_by_city": {
+    "成都市": 13
+   },
+   "stops_by_province": {
+    "四川省": 13
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12095437,
+   "name": "成都地铁17号线: 高洪 → 九江北",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "成都市": 21
+   },
+   "stops_by_province": {
+    "四川省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12123402,
+   "name": "成都地铁27号线: 石佛 => 蜀鑫路",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 22,
+   "stops_by_city": {
+    "成都市": 22
+   },
+   "stops_by_province": {
+    "四川省": 22
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13367599,
+   "name": "成都地铁18号线快线: 天府机场北 => 火车南站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 4,
+   "stops_by_city": {
+    "成都市": 4
+   },
+   "stops_by_province": {
+    "四川省": 4
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13367600,
+   "name": "成都地铁18号线快线: 火车南站 => 天府机场北",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 4,
+   "stops_by_city": {
+    "成都市": 4
+   },
+   "stops_by_province": {
+    "四川省": 4
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16494768,
+   "name": "成都地铁19号线: 天府站 => 金星",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "成都市": 18
+   },
+   "stops_by_province": {
+    "四川省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16494854,
+   "name": "成都地铁19号线: 金星 => 天府站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 18,
+   "stops_by_city": {
+    "成都市": 18
+   },
+   "stops_by_province": {
+    "四川省": 18
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16764492,
+   "name": "成都地铁19号线: 金星 => 天府机场北",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "成都市": 23
+   },
+   "stops_by_province": {
+    "四川省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16764493,
+   "name": "成都地铁19号线: 天府机场北 => 金星",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 23,
+   "stops_by_city": {
+    "成都市": 23
+   },
+   "stops_by_province": {
+    "四川省": 23
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16764494,
+   "name": "双机场直达车: 天府机场1号2号航站楼 => 双流机场2航站楼东",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 3,
+   "stops_by_city": {
+    "成都市": 3
+   },
+   "stops_by_province": {
+    "四川省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 16764495,
+   "name": "双机场直达车: 双流机场2航站楼东 => 天府机场1号2号航站楼",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 3,
+   "stops_by_city": {
+    "成都市": 3
+   },
+   "stops_by_province": {
+    "四川省": 3
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18168582,
+   "name": "成都市域铁路S3资阳线: 福田 → 资阳北站",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "资阳市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "成都市": 1,
+    "资阳市": 5
+   },
+   "stops_by_province": {
+    "四川省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 18436260,
+   "name": "成都地铁27号线: 蜀鑫路 => 石佛",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 22,
+   "stops_by_city": {
+    "成都市": 22
+   },
+   "stops_by_province": {
+    "四川省": 22
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19206257,
+   "name": "眉山城际线",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 19252990,
+   "name": "成都地铁17号线（高洪方向）",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 19252991,
+   "name": "成都地铁17号线（机投桥方向）",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 19970753,
+   "name": "成都地铁30号线: 龙泉驿火车站南 → 双流机场2航站楼东",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "成都市": 24
+   },
+   "stops_by_province": {
+    "四川省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19970754,
+   "name": "成都地铁30号线: 双流机场2航站楼东 → 龙泉驿火车站南",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 24,
+   "stops_by_city": {
+    "成都市": 24
+   },
+   "stops_by_province": {
+    "四川省": 24
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19975015,
+   "name": "成都地铁13号线: 瓦窑滩 → 龙安",
+   "transit_type": "metro",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "成都市": 21
+   },
+   "stops_by_province": {
+    "四川省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9321938,
+   "name": "成都有轨电车蓉2号线: 成都西站 => 郫县西站",
+   "transit_type": "tram",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 22,
+   "stops_by_city": {
+    "成都市": 22
+   },
+   "stops_by_province": {
+    "四川省": 22
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10490620,
+   "name": "成都有轨电车蓉2号线: 郫县西站 => 成都西站",
+   "transit_type": "tram",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 22,
+   "stops_by_city": {
+    "成都市": 22
+   },
+   "stops_by_province": {
+    "四川省": 22
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10490761,
+   "name": "成都有轨电车蓉2号线（支线）: 新业路 => 仁和",
+   "transit_type": "tram",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "成都市": 14
+   },
+   "stops_by_province": {
+    "四川省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 10490762,
+   "name": "成都有轨电车蓉2号线（支线）: 新业路 => 仁和",
+   "transit_type": "tram",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "成都市": 14
+   },
+   "stops_by_province": {
+    "四川省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 20736864,
+   "name": "都江堰M-TR旅游客运专线都江堰支线",
+   "transit_type": "tram",
+   "province": null,
+   "city": null,
+   "stops_total": 0,
+   "stops_by_province": {},
+   "stops_by_city": {},
+   "stops_unmatched": 0,
+   "flags": [
+    "no_resolved_stops"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 20736865,
+   "name": "都江堰M-TR旅游客运专线",
+   "transit_type": "tram",
+   "province": "四川省",
+   "city": "成都市",
+   "stops_total": 6,
+   "stops_by_city": {
+    "成都市": 6
+   },
+   "stops_by_province": {
+    "四川省": 6
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  }
+ ]
+}

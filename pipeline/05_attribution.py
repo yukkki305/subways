@@ -437,7 +437,9 @@ def write_conflicts(report: dict) -> None:
     L.append(f"- 关系 {report['counts']['relations_total']} 条；按省 {report['counts']['by_province']}")
     L.append(f"- 按市（前 12）{dict(sorted(report['counts']['by_city'].items(), key=lambda kv: -kv[1])[:12])}")
     L.append(f"- 标记 {report['counts']['flags']}")
-    L.append(f"- 上海关系内站点：市内 {report['checks']['shanghai_stops_inside']}，"
+    # 上海沿用 P0 原文案（回归逐字节一致）；其它城换成实际城市名
+    check_label = "上海" if _IS_LEGACY else CFG.name
+    L.append(f"- {check_label}关系内站点：市内 {report['checks']['shanghai_stops_inside']}，"
              f"市外 {report['checks']['shanghai_stops_outside']}"
              f"（其中界外且未定 {report['checks']['shanghai_stops_outside_unattributed']}）")
     L.append("")
@@ -490,11 +492,18 @@ def write_conflicts(report: dict) -> None:
     L.append("")
     L.append("## 五、口径")
     L.append("")
-    L.append("- 市：`admin_level=5` 地级市面（上海用 `admin_level=4` 上海市面）点面判定，并用 `contains_xy` 批量算。")
-    L.append("- 省：城市命中即得省；城市未命中时退回省面（上海/浙江 L4，江苏 = 13 地级市并集）。")
-    L.append("- 江苏省 L4 关系缺 11 个与山东/安徽的共边 way（未下载那两省），自拼只有 309.4 km²，故改用并集。")
-    L.append("- 未闭合的市面不参与判定（避免假内假外），这类城市在「未定城市」里列出。")
-    L.append("- 上海 P0 只需上海市定案；苏浙其他城市已随 L5 自动得到，供 P1 使用。")
+    if _IS_LEGACY:
+        L.append("- 市：`admin_level=5` 地级市面（上海用 `admin_level=4` 上海市面）点面判定，并用 `contains_xy` 批量算。")
+        L.append("- 省：城市命中即得省；城市未命中时退回省面（上海/浙江 L4，江苏 = 13 地级市并集）。")
+        L.append("- 江苏省 L4 关系缺 11 个与山东/安徽的共边 way（未下载那两省），自拼只有 309.4 km²，故改用并集。")
+        L.append("- 未闭合的市面不参与判定（避免假内假外），这类城市在「未定城市」里列出。")
+        L.append("- 上海 P0 只需上海市定案；苏浙其他城市已随 L5 自动得到，供 P1 使用。")
+    else:
+        L.append(f"- 市：`admin_level={CFG.city_admin_level}` 城市面点面判定，并用 `contains_xy` 批量算。")
+        L.append(f"- 省：城市命中即得省；城市未命中时退回省面（{CFG.province} L4"
+                 + ("，江苏省用 13 地级市并集" if CFG.province == "江苏省" else "，广东省用广州+佛山并集" if CFG.province == "广东省" else "") + "）。")
+        L.append(f"- 未闭合的市面不参与判定（避免假内假外），这类城市在「未定城市」里列出。")
+        L.append(f"- 只校验「{CFG.city}」自己的线路：本城关系的站在省外或界外未定的，会触发失败触发器。")
     # 生成段只覆盖「一～五」；「六、七…」是人工维护的台账，重跑时必须原样保留
     manual_tail = ""
     if OUT_CONFLICTS.exists():

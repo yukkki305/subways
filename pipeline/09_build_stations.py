@@ -145,10 +145,12 @@ def main() -> int:
             if rec is None:
                 errors.append(f"{br['id']} 的 kept 关系 {rel_id} 不在 raw 里")
                 continue
-            # raw 里按成员顺序排好的 stop（只取 stop* 角色）
+            # 与 04 同口径：rec["stops"] 已经是「可乘降」集合，只排除 inactive_stop。
+            # 不能再用 role.startswith("stop") 过滤 —— 成都有若干站位节点 role 为空字符串
+            # （如 30 号线 府城桥 / 金融城北 / 益州大道），会被误删。
             raw_stops = [
                 s for s in rec.get("stops") or []
-                if any(str(r).startswith("stop") for r in (s.get("roles") or []))
+                if s.get("resolved") and "inactive_stop" not in (s.get("roles") or [])
             ]
             by_name: dict[str, list[dict]] = defaultdict(list)
             for s in raw_stops:

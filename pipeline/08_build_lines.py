@@ -178,7 +178,7 @@ def main() -> int:
                 "city": CITY,
                 "name": name,
                 "name_en": rd(tags, "name:en"),
-                "colour": rd(main_rec, "colour"),
+                "colour": (rd(main_rec, "colour") or None) and str(rd(main_rec, "colour")).upper(),
                 "colour_source": "osm",
                 "type": main_rec.get("transit_type"),
                 "operator": rd(main_rec, "operator"),

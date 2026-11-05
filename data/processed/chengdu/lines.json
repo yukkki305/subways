@@ -1,0 +1,1226 @@
+{
+  "city": "成都市",
+  "city_code": "cd",
+  "snapshot_date": "p1a-20261103",
+  "generated_at": "2026-11-05T22:25:51+08:00",
+  "rules": "docs/decisions/0001-modeling-rules.md（R1 线路与支线、R2 ID、R3 环线）",
+  "mapping_table": "data/manual/shanghai-relation-mapping.csv",
+  "counts": {
+    "lines": 16,
+    "branches": 17,
+    "stations_sum_by_branch": 470,
+    "stations_unique_by_line": 448
+  },
+  "lines": [
+    {
+      "id": "cd-line-1",
+      "city": "成都市",
+      "name": "1号线",
+      "name_en": "Chengdu Metro Line 1: Weijianian => Science City",
+      "colour": "#10069F",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 2,
+      "stop_count_total": 35,
+      "branches": [
+        {
+          "id": "cd-line-1-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "韦家碾",
+          "to": "科学城",
+          "ref": "1",
+          "stop_count": 33,
+          "stops": [
+            "韦家碾",
+            "升仙湖",
+            "火车北站",
+            "人民北路",
+            "文殊院",
+            "骡马市",
+            "天府广场",
+            "锦江宾馆",
+            "华西坝",
+            "省体育馆",
+            "倪家桥",
+            "桐梓林",
+            "火车南站",
+            "高新",
+            "金融城",
+            "孵化园",
+            "锦城广场",
+            "世纪城",
+            "天府三街",
+            "天府五街",
+            "华府大道",
+            "四河",
+            "华阳",
+            "海昌路",
+            "广福",
+            "红石公园",
+            "麓湖",
+            "武汉路",
+            "天府公园",
+            "西博城",
+            "广州路",
+            "兴隆湖",
+            "科学城"
+          ],
+          "stops_by_city": {
+            "成都市": 33
+          },
+          "relation_ids": {
+            "kept": "8297247",
+            "merged": [
+              "8303538"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 科学城 => 韦家碾"
+          ]
+        },
+        {
+          "id": "cd-line-1-b1",
+          "is_main": false,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "五根松",
+          "to": "韦家碾",
+          "ref": "1",
+          "stop_count": 24,
+          "stops": [
+            "五根松",
+            "广都",
+            "四河",
+            "华府大道",
+            "天府五街",
+            "天府三街",
+            "世纪城",
+            "锦城广场",
+            "孵化园",
+            "金融城",
+            "高新",
+            "火车南站",
+            "桐梓林",
+            "倪家桥",
+            "省体育馆",
+            "华西坝",
+            "锦江宾馆",
+            "天府广场",
+            "骡马市",
+            "文殊院",
+            "人民北路",
+            "火车北站",
+            "升仙湖",
+            "韦家碾"
+          ],
+          "stops_by_city": {
+            "成都市": 24
+          },
+          "relation_ids": {
+            "kept": "2381768",
+            "merged": [
+              "7913598"
+            ]
+          },
+          "service_levels": [
+            "成都地铁 :韦家碾 => 五根松"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-2",
+      "city": "成都市",
+      "name": "2号线",
+      "name_en": "Chengdu Metro Line 2: Xipu → Longquanyi",
+      "colour": "#FF5C39",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 33,
+      "branches": [
+        {
+          "id": "cd-line-2-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "犀浦",
+          "to": "龙泉驿",
+          "ref": "2",
+          "stop_count": 33,
+          "stops": [
+            "犀浦",
+            "天河路",
+            "百草路",
+            "金周路",
+            "金科北路",
+            "迎宾大道",
+            "茶店子客运站",
+            "羊犀立交",
+            "一品天下",
+            "蜀汉路东",
+            "白果林",
+            "中医大·省医院",
+            "通惠门",
+            "人民公园",
+            "天府广场",
+            "春熙路",
+            "东门大桥",
+            "牛王庙",
+            "牛市口",
+            "东大路",
+            "塔子山公园",
+            "成都东客站",
+            "成渝立交",
+            "惠王陵",
+            "洪河",
+            "成都行政学院",
+            "龙泉驿火车站",
+            "大面铺",
+            "连山坡",
+            "界牌",
+            "书房",
+            "龙平路",
+            "龙泉驿"
+          ],
+          "stops_by_city": {
+            "成都市": 33
+          },
+          "relation_ids": {
+            "kept": "2474349",
+            "merged": [
+              "8298109"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 龙泉驿 → 犀浦"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-3",
+      "city": "成都市",
+      "name": "3号线",
+      "name_en": "Chengdu Metro Line 3: Chengdu Medical College => Shuangliu West",
+      "colour": "#D40F7D",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 37,
+      "branches": [
+        {
+          "id": "cd-line-3-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "成都医学院",
+          "to": "双流西站",
+          "ref": "3",
+          "stop_count": 37,
+          "stops": [
+            "成都医学院",
+            "石油大学",
+            "钟楼",
+            "马超西路",
+            "团结新区",
+            "锦水河",
+            "三河场",
+            "金华寺东路",
+            "植物园",
+            "军区总医院",
+            "熊猫大道",
+            "动物园",
+            "昭觉寺南路",
+            "驷马桥",
+            "李家沱",
+            "前锋路",
+            "红星桥",
+            "市二医院",
+            "春熙路",
+            "新南门",
+            "磨子桥",
+            "省体育馆",
+            "衣冠庙",
+            "高升桥",
+            "红牌楼",
+            "太平园",
+            "川藏立交",
+            "武侯立交",
+            "武青南路",
+            "双凤桥",
+            "龙桥路",
+            "航都大街",
+            "迎春桥",
+            "东升",
+            "双流广场",
+            "三里坝",
+            "双流西站"
+          ],
+          "stops_by_city": {
+            "成都市": 37
+          },
+          "relation_ids": {
+            "kept": "6517083",
+            "merged": [
+              "8297265"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 双流西站 => 成都医学院"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-4",
+      "city": "成都市",
+      "name": "4号线",
+      "name_en": "Chengdu Metro Line 4: Wansheng => Xihe",
+      "colour": "#44AF52",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 30,
+      "branches": [
+        {
+          "id": "cd-line-4-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "万盛",
+          "to": "西河",
+          "ref": "4",
+          "stop_count": 30,
+          "stops": [
+            "万盛",
+            "杨柳河",
+            "凤溪河",
+            "南熏大道",
+            "光华公园",
+            "涌泉",
+            "凤凰大街",
+            "马厂坝",
+            "非遗博览园",
+            "蔡桥",
+            "中坝",
+            "成都西站",
+            "清江西路",
+            "文化宫",
+            "西南财大",
+            "草堂北路",
+            "中医大·省医院",
+            "宽窄巷子",
+            "骡马市",
+            "太升南路",
+            "市二医院",
+            "玉双路",
+            "双桥路",
+            "万年场",
+            "槐树店",
+            "来龙",
+            "十陵",
+            "成都大学",
+            "明蜀王陵",
+            "西河"
+          ],
+          "stops_by_city": {
+            "成都市": 30
+          },
+          "relation_ids": {
+            "kept": "6385133",
+            "merged": [
+              "8298131"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 西河 => 万盛"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-5",
+      "city": "成都市",
+      "name": "5号线",
+      "name_en": "Chengdu Metro Line 5: Huagui Road => Huilong",
+      "colour": "#BB29BB",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 41,
+      "branches": [
+        {
+          "id": "cd-line-5-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "华桂路",
+          "to": "回龙",
+          "ref": "5",
+          "stop_count": 41,
+          "stops": [
+            "华桂路",
+            "柏水场",
+            "廖家湾",
+            "北部商贸城",
+            "幸福桥",
+            "九道堰",
+            "杜家碾",
+            "大丰",
+            "石犀公园",
+            "皇花园",
+            "陆家桥",
+            "泉水路",
+            "洞子口",
+            "福宁路",
+            "五块石",
+            "赛云台",
+            "北站西二路",
+            "西北桥",
+            "花牌坊",
+            "抚琴",
+            "中医大·省医院",
+            "青羊宫",
+            "省骨科医院",
+            "高升桥",
+            "科园",
+            "九兴大道",
+            "神仙树",
+            "石羊立交",
+            "市一医院",
+            "交子大道",
+            "锦城大道",
+            "锦城湖",
+            "大源",
+            "民乐",
+            "骑龙",
+            "警官学院",
+            "二江寺",
+            "南湖立交",
+            "怡心湖",
+            "龙马路",
+            "回龙"
+          ],
+          "stops_by_city": {
+            "成都市": 41
+          },
+          "relation_ids": {
+            "kept": "9627905",
+            "merged": [
+              "10526315"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 回龙 => 华桂路"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-6",
+      "city": "成都市",
+      "name": "6号线",
+      "name_en": "Chengdu Metro Line 6: Wangcongci => Lanjiagou",
+      "colour": "#B36924",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": "成都轨道交通集团有限公司",
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 56,
+      "branches": [
+        {
+          "id": "cd-line-6-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "望丛祠",
+          "to": "兰家沟",
+          "ref": "6",
+          "stop_count": 56,
+          "stops": [
+            "望丛祠",
+            "和平街",
+            "郫筒",
+            "蜀新大道",
+            "檬梓",
+            "尚锦路",
+            "红高路",
+            "天宇路",
+            "犀浦",
+            "兴业北街",
+            "梓潼宫",
+            "侯家桥",
+            "兴盛",
+            "青杠",
+            "西华大道",
+            "金府",
+            "星河",
+            "西南交大",
+            "沙湾",
+            "西北桥",
+            "人民北路",
+            "梁家巷",
+            "前锋路",
+            "建设北路",
+            "新鸿路",
+            "玉双路",
+            "牛王庙",
+            "顺江路",
+            "三官堂",
+            "东光",
+            "琉璃场",
+            "琉三路",
+            "金石路",
+            "金融城东",
+            "中和",
+            "张家寺",
+            "陆肖",
+            "观东",
+            "新通大道",
+            "新川路",
+            "龙灯山",
+            "蒲草塘",
+            "万安",
+            "麓山大道",
+            "沈阳路",
+            "青岛路",
+            "昌公堰",
+            "杭州路",
+            "天府商务区",
+            "西博城",
+            "秦皇寺",
+            "松林",
+            "芦角",
+            "钓鱼嘴",
+            "回龙",
+            "兰家沟"
+          ],
+          "stops_by_city": {
+            "成都市": 56
+          },
+          "relation_ids": {
+            "kept": "9627850",
+            "merged": [
+              "12038668"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 兰家沟 => 望丛祠"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-7",
+      "city": "成都市",
+      "name": "7号线",
+      "name_en": "Chengdu Metro Line 7: Inner Loop",
+      "colour": "#6AD1E3",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 31,
+      "branches": [
+        {
+          "id": "cd-line-7-main",
+          "is_main": true,
+          "is_loop": true,
+          "loop_start": "崔家店",
+          "from": null,
+          "to": null,
+          "ref": "7",
+          "stop_count": 31,
+          "stops": [
+            "崔家店",
+            "双店路",
+            "槐树店",
+            "迎晖路",
+            "成都东客站",
+            "大观",
+            "狮子山",
+            "四川师大",
+            "琉璃场",
+            "三瓦窑",
+            "火车南站",
+            "神仙树",
+            "高朋大道",
+            "太平园",
+            "武侯大道",
+            "龙爪堰",
+            "东坡路",
+            "文化宫",
+            "金沙博物馆",
+            "一品天下",
+            "茶店子",
+            "花照壁",
+            "西南交大",
+            "九里堤",
+            "北站西二路",
+            "火车北站",
+            "驷马桥",
+            "府青路",
+            "八里庄",
+            "二仙桥",
+            "理工大学"
+          ],
+          "stops_by_city": {
+            "成都市": 31
+          },
+          "relation_ids": {
+            "kept": "7913593",
+            "merged": [
+              "8297136"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 外环"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-8",
+      "city": "成都市",
+      "name": "8号线",
+      "name_en": "Chengdu Metro Line 8: Guilong Road → Longgang",
+      "colour": "#88DD00",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 32,
+      "branches": [
+        {
+          "id": "cd-line-8-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "同乐",
+          "to": "龙港",
+          "ref": "8",
+          "stop_count": 32,
+          "stops": [
+            "桂龙路",
+            "桂林",
+            "同乐",
+            "龙潭寺",
+            "龙潭立交",
+            "圣灯公园",
+            "十里店",
+            "理工大学",
+            "东郊记忆",
+            "杉板桥",
+            "万年路",
+            "双桥路",
+            "东大路",
+            "净居寺",
+            "东光",
+            "东湖公园",
+            "川大望江校区",
+            "倪家桥",
+            "芳草街",
+            "永丰",
+            "九兴大道",
+            "高朋大道",
+            "殷家林",
+            "庆安",
+            "石羊",
+            "三元",
+            "顺风",
+            "珠江路",
+            "川大江安校区",
+            "文星",
+            "莲花",
+            "龙港"
+          ],
+          "stops_by_city": {
+            "成都市": 32
+          },
+          "relation_ids": {
+            "kept": "9761272",
+            "merged": [
+              "12086371"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 龙港 → 桂龙路"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-9",
+      "city": "成都市",
+      "name": "9号线",
+      "name_en": "Chengdu Metro Line 9: Financial City East → Huangtianba",
+      "colour": "#FFB81C",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 13,
+      "branches": [
+        {
+          "id": "cd-line-9-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "金融城东",
+          "to": "黄田坝",
+          "ref": "9",
+          "stop_count": 13,
+          "stops": [
+            "金融城东",
+            "心岛",
+            "孵化园",
+            "锦城大道",
+            "三元",
+            "太平寺",
+            "华兴",
+            "簇桥",
+            "武青南路",
+            "机投桥",
+            "培风",
+            "成都西站",
+            "黄田坝"
+          ],
+          "stops_by_city": {
+            "成都市": 13
+          },
+          "relation_ids": {
+            "kept": "9627519",
+            "merged": [
+              "12094622"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 黄田坝 → 金融城东"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-10",
+      "city": "成都市",
+      "name": "10号线",
+      "name_en": "Chengdu Metro Line 10: Wohou Shrine → Xinping",
+      "colour": "#003DA5",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 18,
+      "branches": [
+        {
+          "id": "cd-line-10-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "武侯祠站",
+          "to": "新平",
+          "ref": "10",
+          "stop_count": 18,
+          "stops": [
+            "武侯祠",
+            "红牌楼",
+            "太平园",
+            "簇锦",
+            "华兴",
+            "金花",
+            "双流机场1航站楼",
+            "双流机场2航站楼",
+            "双流西站",
+            "应天寺",
+            "黄水",
+            "花源",
+            "新津站",
+            "花桥",
+            "五津",
+            "儒林路",
+            "刘家碾",
+            "新平"
+          ],
+          "stops_by_city": {
+            "成都市": 18
+          },
+          "relation_ids": {
+            "kept": "7913594",
+            "merged": [
+              "8298253"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 新平 → 武侯祠站"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-13",
+      "city": "成都市",
+      "name": "13号线",
+      "name_en": "Chengdu Metro Line 13: Long'an → Wayaotan",
+      "colour": "#C5A900",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 21,
+      "branches": [
+        {
+          "id": "cd-line-13-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "龙安",
+          "to": "瓦窑滩",
+          "ref": "13",
+          "stop_count": 21,
+          "stops": [
+            "龙安",
+            "龙华寺",
+            "三圣花乡",
+            "幸福梅林",
+            "娇子立交",
+            "四川师大",
+            "净居寺",
+            "三官堂",
+            "九眼桥站",
+            "新南门",
+            "华西坝",
+            "文翁石室",
+            "小南街",
+            "青羊宫",
+            "杜甫草堂",
+            "光华村",
+            "东坡路",
+            "万寿桥",
+            "培风",
+            "万家湾",
+            "瓦窑滩"
+          ],
+          "stops_by_city": {
+            "成都市": 21
+          },
+          "relation_ids": {
+            "kept": "11528274",
+            "merged": [
+              "19975015"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 瓦窑滩 → 龙安"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-17",
+      "city": "成都市",
+      "name": "17号线",
+      "name_en": null,
+      "colour": "#80E0A7",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 21,
+      "branches": [
+        {
+          "id": "cd-line-17-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "九江北",
+          "to": "高洪",
+          "ref": "17",
+          "stop_count": 21,
+          "stops": [
+            "九江北",
+            "白佛桥",
+            "机投桥",
+            "阳公桥",
+            "龙爪堰",
+            "清水河大桥",
+            "浣花里",
+            "省骨科医院",
+            "小南街",
+            "人民公园",
+            "西大街",
+            "城隍庙",
+            "红星桥",
+            "建设北路",
+            "踏水桥",
+            "二仙桥",
+            "机车厂",
+            "人民塘",
+            "航天路",
+            "威灵",
+            "高洪"
+          ],
+          "stops_by_city": {
+            "成都市": 21
+          },
+          "relation_ids": {
+            "kept": "9851799",
+            "merged": [
+              "12095437"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 高洪 → 九江北"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-18",
+      "city": "成都市",
+      "name": "18号线",
+      "name_en": "Chengdu Metro Line 18: South Railway Station => Tianfu International Airport North",
+      "colour": "#006272",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 12,
+      "branches": [
+        {
+          "id": "cd-line-18-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "火车南站",
+          "to": "天府机场北",
+          "ref": "18",
+          "stop_count": 12,
+          "stops": [
+            "火车南站",
+            "孵化园",
+            "锦城广场东",
+            "世纪城",
+            "海昌路",
+            "西博城",
+            "兴隆",
+            "天府站",
+            "三岔",
+            "福田",
+            "天府机场1号2号航站楼",
+            "天府机场北"
+          ],
+          "stops_by_city": {
+            "成都市": 13
+          },
+          "relation_ids": {
+            "kept": "9869750",
+            "merged": [
+              "11697794",
+              "13367599",
+              "13367600"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 天府机场北 => 火车南站",
+            "成都地铁快线: 天府机场北 => 火车南站",
+            "成都地铁快线: 火车南站 => 天府机场北"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-19",
+      "city": "成都市",
+      "name": "19号线",
+      "name_en": null,
+      "colour": "#5C88DB",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 22,
+      "branches": [
+        {
+          "id": "cd-line-19-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "天府机场北",
+          "to": "金星",
+          "ref": "19",
+          "stop_count": 22,
+          "stops": [
+            "天府机场北",
+            "天府机场1号2号航站楼",
+            "福田",
+            "三岔",
+            "天府站",
+            "蓝家店",
+            "天府商务区",
+            "红莲",
+            "正兴湾",
+            "怡心湖",
+            "牧华路",
+            "温家山",
+            "龙港",
+            "双流机场2航站楼东",
+            "龙桥路",
+            "九江北",
+            "明光",
+            "温泉大道",
+            "凤溪河",
+            "市五医院",
+            "黄石",
+            "金星"
+          ],
+          "stops_by_city": {
+            "成都市": 23
+          },
+          "relation_ids": {
+            "kept": "16764492",
+            "merged": [
+              "16494768",
+              "16494854",
+              "16764493",
+              "16764494",
+              "16764495"
+            ]
+          },
+          "service_levels": [
+            "双机场直达车: 双流机场2航站楼东 => 天府机场1号2号航站楼",
+            "双机场直达车: 天府机场1号2号航站楼 => 双流机场2航站楼东",
+            "成都地铁: 天府机场北 => 金星",
+            "成都地铁: 天府站 => 金星",
+            "成都地铁: 金星 => 天府站"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-27",
+      "city": "成都市",
+      "name": "27号线",
+      "name_en": "Chengdu Metro Line 27",
+      "colour": "#00A3E0",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": "成都地铁",
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 22,
+      "branches": [
+        {
+          "id": "cd-line-27-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "石佛",
+          "to": "蜀鑫路",
+          "ref": "27",
+          "stop_count": 22,
+          "stops": [
+            "石佛",
+            "慈义",
+            "兴城大道",
+            "旃檀寺",
+            "石门坎",
+            "三圣寺",
+            "范家巷",
+            "鲤鱼湾",
+            "赖家店",
+            "韦家碾",
+            "双水碾",
+            "王贾桥",
+            "洞子口",
+            "沙河源",
+            "新桥",
+            "金府",
+            "花照壁北",
+            "金牛公园",
+            "羊犀立交",
+            "黄忠",
+            "金沙滨河公园",
+            "蜀鑫路"
+          ],
+          "stops_by_city": {
+            "成都市": 22
+          },
+          "relation_ids": {
+            "kept": "12123402",
+            "merged": [
+              "18436260"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 蜀鑫路 => 石佛"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "cd-line-30",
+      "city": "成都市",
+      "name": "30号线",
+      "name_en": "Chengdu Metro Line 30: Longquanyi Railway Station South → East of Terminal 2 of Shuangliu International Airport",
+      "colour": "#F63676",
+      "colour_source": "osm",
+      "type": "metro",
+      "operator": null,
+      "opened": null,
+      "length_km": null,
+      "length_km_official": null,
+      "branch_count": 1,
+      "stop_count_total": 24,
+      "branches": [
+        {
+          "id": "cd-line-30-main",
+          "is_main": true,
+          "is_loop": false,
+          "loop_start": null,
+          "from": "龙泉驿火车站南",
+          "to": "双流机场2航站楼东",
+          "ref": "30",
+          "stop_count": 24,
+          "stops": [
+            "龙泉驿火车站南",
+            "玉虹路",
+            "分水",
+            "玉石",
+            "惠王陵",
+            "航天立交",
+            "海桐街",
+            "娇子立交",
+            "锦逸",
+            "棬子树",
+            "金石路",
+            "府城桥",
+            "金融城北",
+            "益州大道",
+            "市一医院",
+            "新园大道",
+            "石羊东",
+            "大同",
+            "珠江路",
+            "谢家渡",
+            "光明",
+            "星月",
+            "寺圣",
+            "双流机场2航站楼东"
+          ],
+          "stops_by_city": {
+            "成都市": 24
+          },
+          "relation_ids": {
+            "kept": "19970753",
+            "merged": [
+              "19970754"
+            ]
+          },
+          "service_levels": [
+            "成都地铁: 双流机场2航站楼东 → 龙泉驿火车站南"
+          ]
+        }
+      ],
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    }
+  ]
+}

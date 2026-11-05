@@ -82,7 +82,11 @@ def build_graph(rel):
 
 
 def shortest_path(adj, start, goal):
-    """Dijkstra，返回节点序列；不可达返回 None"""
+    """Dijkstra，返回节点序列；不可达（含节点不在图里）返回 None"""
+    # 站位节点可能不在任何 way 上（成都 30 号线中段 6 站），直接判不可达，
+    # 由调用方用「站间直线」兜底并标注 geometry_source。
+    if start not in adj or goal not in adj:
+        return None
     dist = {start: 0.0}
     prev = {}
     pq = [(0.0, start)]
@@ -137,8 +141,16 @@ def main() -> int:
             if args.only and bid not in args.only:
                 continue
             rid = str(br["relation_ids"]["kept"])
+            # 图必须把「保留关系 + 合并关系」的 way 全部并起来：成都 30 号线有一段
+            # 站位节点只挂在反向关系里，只用 kept 会算不出最短路。
+            rel_ids = [rid] + [str(m) for m in (br["relation_ids"].get("merged") or []) if str(m) in raw]
+            adj, coord = {}, {}
+            for _rid in rel_ids:
+                _adj, _coord = build_graph(raw[_rid])
+                for _k, _vs in _adj.items():
+                    adj.setdefault(_k, []).extend(_vs)
+                coord.update(_coord)
             rel = raw[rid]
-            adj, coord = build_graph(rel)
 
             names = list(br["stops"])
             loop = bool(br["is_loop"])
@@ -158,11 +170,16 @@ def main() -> int:
             for seq in range(len(nodes_chain) - 1):
                 u, v = nodes_chain[seq], nodes_chain[seq + 1]
                 path = shortest_path(adj, u, v)
+                fallback = False
                 if path is None:
+                    # 缺口兜底（成都 30 号线：OSM 关系未把中段画进 way，6 个站位节点不在任何 way 上）。
+                    # 用两站坐标直线连接，并在属性里标 geometry_source，绝不静默当成正常几何。
+                    fallback = True
+                    path = [u, v]
                     gaps.append({"branch": bid, "seq": seq + 1, "from": names[seq],
-                                 "to": names[(seq + 1) % len(names)], "reason": "最短路不通"})
-                    continue
-                pts = [coord[n] for n in path]
+                                 "to": names[(seq + 1) % len(names)],
+                                 "reason": "最短路不通，已用站间直线兜底"})
+                pts = [coord[n] if n in coord else coord_of_node[n] for n in path]
                 length = sum(hav_m(pts[i], pts[i + 1]) for i in range(len(pts) - 1))
                 br_km += length
                 br_seg += 1
@@ -181,6 +198,9 @@ def main() -> int:
                         "length_m": round(length, 1),
                         "node_count": len(path),
                         "is_loop_close": bool(loop and seq == len(nodes) - 1),
+                        # 几何来源：pbf_way = 沿 OSM way 走图；station_chain_fallback = 缺口处站间直线
+                        "geometry_source": "station_chain_fallback" if fallback else "pbf_way",
+                        "needs_review": fallback,
                         "source": SOURCE,
                         "source_license": LICENSE,
                         "as_of": st["snapshot_date"],

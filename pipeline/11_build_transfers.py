@@ -147,8 +147,8 @@ def main() -> int:
     assert len(out) == len(st["transfer_candidates"])
 
     doc = {
-        "city": "上海市",
-        "city_code": "sh",
+        "city": CFG.city,
+        "city_code": CFG.code,
         "snapshot_date": st["snapshot_date"],
         "generated_at": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
         "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
@@ -160,7 +160,7 @@ def main() -> int:
 
     # 人可读表
     lines = [
-        "# 换乘判定表（S2-5）",
+        (f"# {CFG.name}换乘判定表（S2-5）" if CFG.code != "sh" else "# 换乘判定表（S2-5）"),
         "",
         "> 由 `pipeline/11_build_transfers.py` 从 `station.json` 的换乘候选 + 脚本内的 `GROUP_TYPES` 渲染，**请勿手改**；",
         "> 要改类型，改脚本里的 `GROUP_TYPES` 后重跑。",
@@ -181,12 +181,18 @@ def main() -> int:
     ]
     for t, n in sorted(stats["by_type"].items()):
         lines.append(f"| 类型：{t} | {n} |")
+    if not out:
+        lines += [
+            "",
+            f"> 本城有 {st['counts']['multi_line_stations']} 组同名多线站，组内跨度全部 ≤300 m，"
+            "已按 ADR R4 合并为单站，因此不产生 transfer 记录。",
+        ]
     lines += ["", "## 明细", "",
               "| 站名 | 站距 m | A 侧线路 | B 侧线路 | 类型 | 置信度 | 依据 |",
               "| --- | ---: | --- | --- | --- | --- | --- |"]
     for r in sorted(out, key=lambda x: (-x["dist_m"], x["name"])):
-        la = "、".join(x.replace("sh-line-", "") for x in r["lines_a"])
-        lb = "、".join(x.replace("sh-line-", "") for x in r["lines_b"])
+        la = "、".join(x.replace(CFG.line_id_prefix, "") for x in r["lines_a"])
+        lb = "、".join(x.replace(CFG.line_id_prefix, "") for x in r["lines_b"])
         flag = "" if r["type_confidence"] == "high" else " ⚠️"
         lines.append(f"| {r['name']} | {r['dist_m']:.1f} | {la} | {lb} | {r['type']}{flag} | "
                      f"{r['type_confidence']} | {r['type_note']} |")

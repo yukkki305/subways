@@ -127,7 +127,7 @@ def check_4(lines, segs, rep):
                 if len(feats) != n_stop - 1:
                     bad.append((b["id"], f"段数={len(feats)} 期望={n_stop - 1}"))
     rep.add(4, "环线：段数=站数且首尾闭合；非环线：段数=站数−1", not bad,
-            f"23 条 branch 逐条核对，不符 {len(bad)} 条" + (f"：{bad[:3]}" if bad else ""))
+            f"{sum(len(l['branches']) for l in lines['lines'])} 条 branch 逐条核对，不符 {len(bad)} 条" + (f"：{bad[:3]}" if bad else ""))
     return not bad
 
 

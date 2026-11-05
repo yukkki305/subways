@@ -2,7 +2,7 @@
  "city": "上海市",
  "city_code": "sh",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-05T20:14:38+08:00",
+ "generated_at": "2026-11-05T20:22:35+08:00",
  "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
  "stats": {
   "total": 12,

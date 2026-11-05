@@ -183,13 +183,24 @@ def main() -> int:
             "> 取高饱和像素的色簇，与 OSM 颜色比欧氏距离，>30 视为不一致。",
         ]
     else:
-        out = [
-            f"# 线路颜色 · {CFG.name}（S2-6）",
-            "",
-            "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。",
-            f"> {CFG.name}没有可采样的官方线路图（官网不提供静态线路图），颜色沿用 OSM；",
-            "> 已用百度百科「标志色」逐条核对，与 OSM 色相一致的不覆盖、只标 `colour_verified=false`。",
-        ]
+        # 有官图的城市在 colours.json 里给 `_official_map_note`；没有的走「百科核对」文案
+        map_note = _manual_colours.get("_official_map_note")
+        if map_note:
+            out = [
+                f"# 线路颜色 · {CFG.name}（S2-6）",
+                "",
+                "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。",
+                f"> 官图采样自 {map_note}；逐色比对图例色块与 OSM 颜色，",
+                "> 差异 >30 或图上笔色与 OSM 不符时改用官图色。",
+            ]
+        else:
+            out = [
+                f"# 线路颜色 · {CFG.name}（S2-6）",
+                "",
+                "> 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。",
+                f"> {CFG.name}没有可采样的官方线路图（官网不提供静态线路图），颜色沿用 OSM；",
+                "> 已用百度百科「标志色」逐条核对，与 OSM 色相一致的不覆盖、只标 `colour_verified=false`。",
+            ]
     out += [
         "",
         "| 线路 | 最终色 | 官图色名 | 来源 | 与 OSM 距离 | 备注 |",

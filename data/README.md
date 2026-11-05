@@ -27,6 +27,7 @@
 | `data/manual/guangzhou/lines.csv` | 广州 19 条线路的开通日期、官方里程、运营单位、色名 | 百度百科信息框（开通日期/全长/运营机构/标志色） | 事实性字段，随 ODbL 衍生物使用；10 号线开通日期与 OSM `start_date` 互证 | 2026-11-04 | 人工整理 |
 | `data/manual/guangzhou/colours.json` | 广州 19 条线路的颜色口径与英文名 | 百度百科「标志色」字段 + OSM `colour` | 事实性字段，按 ODbL 与 OSM 一致；色名来自百科 | 2026-11-04 | 人工整理 |
 | `data/manual/hefei/lines.csv` | 合肥 8 条线路的开通日期、官方里程、运营单位、色名 | 百度百科信息框（开通日期/线路长度/运营机构/标志色） | 事实性字段，随 ODbL 衍生物使用 | 2026-11-05 | `09`/`12` 读取 |
+| `data/manual/chengdu/colours.json` | 成都 16 条线路的颜色口径（8 条取自官方线网图、8 条与 OSM 一致）与英文名 | 官方线网图 `cdmetro.cn/images/1456xlt.png` 图例色块 + 百度百科「标志色」+ OSM `colour` | 事实性字段，按 ODbL 与 OSM 一致；色名来自百科 | 2026-11-05 | `12` 读取 |
 | `data/manual/hefei/colours.json` | 合肥 8 条线路的颜色口径（7 条经百科色名核对、5 号线存疑）与英文名 | 百度百科「标志色」+ OSM `colour` | 事实性字段，按 ODbL 与 OSM 一致 | 2026-11-05 | `12` 读取 |
 | `data/manual/hefei/relation-mapping.csv` | 合肥 18 条关系的判定（保留 8 / 合并 8 / 丢弃 2） | `06_export_mapping.py` 生成骨架 + 人工判定 | 数据判定，无第三方许可问题 | 2026-11-05 | `07`/`08` 读取 |
 | `data/manual/hefei/transfers.json` | 合肥换乘类型表（本城 0 条，仅占位） | 人工判定 | — | 2026-11-05 | `11` 读取（缺失时回退上海字面量） |

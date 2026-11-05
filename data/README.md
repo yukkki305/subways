@@ -16,6 +16,8 @@
 | `data/snapshots/20261101/manifest.json` | 快照元数据：五个 PBF 的 URL、字节数、sha256、`Last-Modified`、下载时间 | 直接记录 `download.openstreetmap.fr` 的响应头与文件哈希 | **ODbL-1.0** | 2026-11-01 00:27–00:28 GMT | `pipeline/01_fetch_snapshot.py` |
 | `data/snapshots/20261101/*.osm.pbf.sha256` | 五个 PBF 的校验和（每份一行） | 本地计算，用于复核快照未被替换 | — | 2026-11-01 | `pipeline/01_fetch_snapshot.py` |
 | `docs/conflicts.md` | 归属冲突与待定项：跨省关系逐站列表、46 条未定关系明细 | 由 `attribution-report.json` 渲染 | **ODbL-1.0** | 2026-11-01 | `pipeline/05_attribution.py` |
+| `data/processed/hefei/relation-index.json` | 合肥 28 条关系清单与指纹（含 10 条外市/外省线） | `anhui-latest.osm.pbf`（2026-11-05 上游日更） | ODbL-1.0 | 2026-11-05 | `pipeline/04_track.py` |
+| `data/processed/hefei/attribution-report.json` | 合肥 18 关系逐站归属（419 站次，0 越省） | 同上 | ODbL-1.0 | 2026-11-05 | `pipeline/05_attribution.py` |
 | `data/processed/guangzhou/lines.json` | 广州 19 条线 / 22 branch | 省级 PBF `guangdong-latest.osm.pbf`（2026-11-03）+ `data/manual/guangzhou/` 人工表 | ODbL-1.0 | 2026-11-03 | `pipeline/08_build_lines.py` |
 | `data/processed/guangzhou/station.json` | 广州 320 站 / 414 站次 | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/09_build_stations.py` |
 | `data/processed/guangzhou/segment.geojson` | 广州 393 段区间 | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/10_build_segments.py` |

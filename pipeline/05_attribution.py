@@ -338,10 +338,16 @@ def main() -> int:
     sh_outside, sh_inside, sh_suspect = [], [], {}
     for att in relations:
         r_attr = per_rel_stops.get(att["id"], [])
-        if att["stops_by_province"].get("上海市", 0) == 0:
+        # 只校验「本城自己的关系」：同一份 extract 里还有邻市/邻省的线（合肥 extract 里有
+        # 南京 S2 宁马线、S9、宁滁线），它们不属于本城，不该触发本城的失败触发器。
+        if att.get("city") != CFG.city:
+            continue
+        if att["stops_by_province"].get(CFG.province, 0) == 0:
             continue
         for s in r_attr:
-            hit = contains_xy(prov_geoms["上海市"], np.array([s["lon"]]), np.array([s["lat"]]))[0]
+            if CFG.province not in prov_geoms:
+                break
+            hit = contains_xy(prov_geoms[CFG.province], np.array([s["lon"]]), np.array([s["lat"]]))[0]
             rec = (s["name"], s["lon"], s["lat"])
             if hit:
                 sh_inside.append(rec)
@@ -351,7 +357,7 @@ def main() -> int:
                     sh_suspect[rec] = s
     sh_outside = sorted(set(sh_outside))
     sh_inside = sorted(set(sh_inside))
-    log(f"[校验] 上海关系内的站：市内 {len(sh_inside)}，市外 {len(sh_outside)}，"
+    log(f"[校验] {CFG.name}关系内的站：省内 {len(sh_inside)}，省外 {len(sh_outside)}，"
         f"其中「界外且未定」{len(sh_suspect)}")
     if sh_suspect:
         log(f"   界外且未定样例：{list(sh_suspect.items())[:6]}")

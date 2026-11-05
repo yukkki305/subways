@@ -98,9 +98,24 @@ def human(n: float) -> str:
     return f"{n:.2f} GB"
 
 
+def load_manifest() -> dict:
+    """读已有 manifest（同快照键）。多城依次跑 S1-2 时，各自只带自己需要的省，
+    必须按文件名合并，不能整体覆盖，否则先跑的省的记录会丢。"""
+    path = STAMP_DIR / "manifest.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+
+
 def main() -> int:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     STAMP_DIR.mkdir(parents=True, exist_ok=True)
+    prev = load_manifest()
+    prev_files = {f["name"]: f for f in prev.get("files", [])}
+    refresh = "--refresh" in sys.argv
 
     print(f"快照日期 {SNAPSHOT_DATE}  原始目录 {RAW_DIR}")
     print(f"源 {BASE}\n")
@@ -125,10 +140,20 @@ def main() -> int:
             skipped.append({k: item[k] for k in ("province", "url", "bytes", "last_modified")})
             continue
         dest = RAW_DIR / f"{item['province']}-latest.osm.pbf"
-        if dest.exists() and dest.stat().st_size == item["bytes"]:
+        disk_sha = sha256_of(dest) if dest.exists() else None
+        recorded = prev_files.get(dest.name)
+        same_as_record = bool(recorded and disk_sha and recorded.get("sha256") == disk_sha)
+        if dest.exists() and same_as_record:
             written = dest.stat().st_size
             elapsed = 0.0
-            print(f"  {dest.name:<32} 已存在且体积一致，复用")
+            print(f"  {dest.name:<32} 已存在且 sha256 与 manifest 一致，复用")
+        elif dest.exists() and not refresh:
+            # 上游日更会把同一文件名换成新内容；此时**不覆盖**同快照键下的旧字节，
+            # 只记录磁盘现值并在 manifest 里标明 upstream_changed。
+            written = dest.stat().st_size
+            elapsed = 0.0
+            print(f"  {dest.name:<32} 已存在但与 manifest 记录的 sha256 不同：不覆盖，按磁盘现值记录"
+                  f"（如需换成上游最新版，请换快照键或加 --refresh）")
         else:
             print(f"  {dest.name:<32} 下载中 …", end="", flush=True)
             written, elapsed = download(item["url"], dest)
@@ -137,9 +162,15 @@ def main() -> int:
                 print(f"  ! 体积不符：声明 {item['bytes']} 实际 {written}", file=sys.stderr)
                 return 3
         digest = sha256_of(dest)
+        entry_note = None
+        if recorded and recorded.get("sha256") and recorded["sha256"] != digest:
+            entry_note = (f"上游日更导致内容变化：manifest 旧记录 {recorded['sha256'][:16]}…，"
+                          f"磁盘现值 {digest[:16]}…（{recorded.get('last_modified')} → {item['last_modified']}）")
         files.append(
             {
                 "name": dest.name,
+                "upstream_changed": bool(entry_note),
+                "note": entry_note,
                 "province": item["province"],
                 "url": item["url"],
                 "bytes": written,
@@ -154,6 +185,17 @@ def main() -> int:
         (STAMP_DIR / f"{dest.name}.sha256").write_text(f"{digest}  {dest.name}\n", encoding="utf-8")
         print(f"  {'':<32} sha256 {digest[:16]}…  已写 {dest.name}.sha256")
 
+    merged = dict(prev_files)
+    for f in files:
+        old_entry = prev_files.get(f["name"]) or {}
+        # 上游换过内容这件事要留痕：后来某次跑若发现「磁盘与 manifest 已一致」，
+        # 不能把之前的 previous_sha256 / note 抹掉。
+        if old_entry.get("upstream_changed") and not f.get("upstream_changed"):
+            f["upstream_changed"] = True
+            f["previous_sha256"] = old_entry.get("previous_sha256")
+            f["note"] = old_entry.get("note")
+        merged[f["name"]] = f
+    all_files = sorted(merged.values(), key=lambda f: f["name"])
     manifest = {
         "snapshot_date": SNAPSHOT_DATE,
         "generated_at": now_iso(),
@@ -161,8 +203,8 @@ def main() -> int:
         "source_notes": "download.openstreetmap.fr 省级 extract，日更；整档非增量",
         "license": "ODbL-1.0",
         "attribution": "© OpenStreetMap contributors",
-        "as_of": files[0]["last_modified"] if files else None,
-        "files": files,
+        "as_of": all_files[0]["last_modified"] if all_files else None,
+        "files": all_files,
         "skipped_by_size_rule": skipped,
     }
     manifest_path = STAMP_DIR / "manifest.json"

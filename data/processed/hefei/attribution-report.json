@@ -1,0 +1,601 @@
+{
+ "snapshot_date": "20261101",
+ "generated_at": "2026-11-05T19:53:21+08:00",
+ "method": {
+  "city": "admin_level=5 地级市面点面判定（上海用 admin_level=4 上海市面）",
+  "province": "城市命中即得省；未命中城市时退回省面（上海/浙江/安徽用 L4，江苏 = 13 地级市并集）",
+  "why_jiangsu_union": "江苏省 L4 关系 374 个 way 齐全但仍拼不闭合（自拼只有 309.4 km² / 23 个碎片），改用地级市（L5）并集 + 13 市固定名称表",
+  "known_gaps": "南通市、盐城市的市面本身拼不闭合，两市内的站目前判不出归属（在 conflicts.md 列出）",
+  "note": "几何只做判定，城市名来自 OSM L5 名称，不由几何发明；未命中一律 null + flag"
+ },
+ "boundaries": {
+  "安徽省": {
+   "area_km2": 140213.9,
+   "parts": 5
+  }
+ },
+ "city_polygons": {
+  "黄山市": {
+   "id": 2992498,
+   "province": "安徽省",
+   "area_km2": 9497.6
+  },
+  "铜陵市": {
+   "id": 3077734,
+   "province": "安徽省",
+   "area_km2": 2962.4
+  },
+  "池州市": {
+   "id": 3164669,
+   "province": "安徽省",
+   "area_km2": 8263.8
+  },
+  "安庆市": {
+   "id": 3220387,
+   "province": "安徽省",
+   "area_km2": 13362.4
+  },
+  "宣城市": {
+   "id": 3222248,
+   "province": "安徽省",
+   "area_km2": 12168.7
+  },
+  "滁州市": {
+   "id": 3231588,
+   "province": "安徽省",
+   "area_km2": 13625.0
+  },
+  "宿州市": {
+   "id": 3231858,
+   "province": "安徽省",
+   "area_km2": 10167.2
+  },
+  "淮北市": {
+   "id": 3231910,
+   "province": "安徽省",
+   "area_km2": 2800.5
+  },
+  "六安市": {
+   "id": 3243393,
+   "province": "安徽省",
+   "area_km2": 15431.7
+  },
+  "亳州市": {
+   "id": 3245950,
+   "province": "安徽省",
+   "area_km2": 8675.9
+  },
+  "阜阳市": {
+   "id": 3246004,
+   "province": "安徽省",
+   "area_km2": 10245.6
+  },
+  "马鞍山市": {
+   "id": 3260816,
+   "province": "安徽省",
+   "area_km2": 4041.6
+  },
+  "芜湖市": {
+   "id": 3262036,
+   "province": "安徽省",
+   "area_km2": 5970.0
+  },
+  "蚌埠市": {
+   "id": 3262334,
+   "province": "安徽省",
+   "area_km2": 6035.5
+  },
+  "淮南市": {
+   "id": 3262360,
+   "province": "安徽省",
+   "area_km2": 5568.9
+  },
+  "合肥市": {
+   "id": 3288965,
+   "province": "安徽省",
+   "area_km2": 11440.0
+  }
+ },
+ "checks": {
+  "shanghai_stops_inside": 419,
+  "shanghai_stops_outside": 0,
+  "shanghai_stops_outside_sample": [],
+  "shanghai_stops_outside_unattributed": 0
+ },
+ "counts": {
+  "relations_total": 28,
+  "by_province": {
+   "安徽省": 26,
+   "(未定)": 2
+  },
+  "by_city": {
+   "芜湖市": 4,
+   "合肥市": 18,
+   "(未定)": 2,
+   "滁州市": 2,
+   "马鞍山市": 2
+  },
+  "flags": {
+   "stops_unmatched": 4
+  }
+ },
+ "conflicts": [],
+ "relations": [
+  {
+   "id": 13401846,
+   "name": "芜湖轨道交通1号线: 白马山→保顺路",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "芜湖市": 25
+   },
+   "stops_by_province": {
+    "安徽省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13401847,
+   "name": "芜湖轨道交通1号线: 保顺路→白马山",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 25,
+   "stops_by_city": {
+    "芜湖市": 25
+   },
+   "stops_by_province": {
+    "安徽省": 25
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13601036,
+   "name": "芜湖轨道交通2号线: 鸠兹广场→万春湖路",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "芜湖市": 11
+   },
+   "stops_by_province": {
+    "安徽省": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13601037,
+   "name": "芜湖轨道交通2号线: 万春湖路→鸠兹广场",
+   "transit_type": "monorail",
+   "province": "安徽省",
+   "city": "芜湖市",
+   "stops_total": 11,
+   "stops_by_city": {
+    "芜湖市": 11
+   },
+   "stops_by_province": {
+    "安徽省": 11
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5964585,
+   "name": "合肥轨道交通2号线: 南岗→撮镇",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "合肥市": 35
+   },
+   "stops_by_province": {
+    "安徽省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5964920,
+   "name": "合肥轨道交通1号线: 张洼→九联圩",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 26,
+   "stops_by_city": {
+    "合肥市": 26
+   },
+   "stops_by_province": {
+    "安徽省": 26
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 5964922,
+   "name": "合肥轨道交通3号线: 省儿童医院新区→相城路",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 40,
+   "stops_by_city": {
+    "合肥市": 40
+   },
+   "stops_by_province": {
+    "安徽省": 40
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7949046,
+   "name": "合肥轨道交通1号线: 九联圩→张洼",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 26,
+   "stops_by_city": {
+    "合肥市": 26
+   },
+   "stops_by_province": {
+    "安徽省": 26
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 7949331,
+   "name": "合肥轨道交通2号线: 撮镇→南岗",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 35,
+   "stops_by_city": {
+    "合肥市": 35
+   },
+   "stops_by_province": {
+    "安徽省": 35
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 9584574,
+   "name": "南京地铁S9号线: 高淳→翔宇路南",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 9584575,
+   "name": "南京地铁S9号线: 翔宇路南→高淳",
+   "transit_type": "metro",
+   "province": null,
+   "city": null,
+   "stops_total": 2,
+   "stops_by_city": {},
+   "stops_by_province": {},
+   "stops_unmatched": 2,
+   "flags": [
+    "stops_unmatched:2"
+   ],
+   "method": "none"
+  },
+  {
+   "id": 10488950,
+   "name": "合肥轨道交通3号线: 相城路→省儿童医院新区",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 40,
+   "stops_by_city": {
+    "合肥市": 40
+   },
+   "stops_by_province": {
+    "安徽省": 40
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11747972,
+   "name": "合肥轨道交通6号线-上行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "合肥市": 21
+   },
+   "stops_by_province": {
+    "安徽省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755131,
+   "name": "合肥轨道交通7号线-下行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 16,
+   "stops_by_city": {
+    "合肥市": 16
+   },
+   "stops_by_province": {
+    "安徽省": 16
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755282,
+   "name": "合肥轨道交通8号线：一里井→北城高铁站",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "合肥市": 12
+   },
+   "stops_by_province": {
+    "安徽省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755283,
+   "name": "合肥轨道交通8号线：北城高铁站→一里井",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "合肥市": 12
+   },
+   "stops_by_province": {
+    "安徽省": 12
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755284,
+   "name": "合肥轨道交通7号线-上行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 17,
+   "stops_by_city": {
+    "合肥市": 17
+   },
+   "stops_by_province": {
+    "安徽省": 17
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 11755285,
+   "name": "合肥轨道交通6号线-下行",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 21,
+   "stops_by_city": {
+    "合肥市": 21
+   },
+   "stops_by_province": {
+    "安徽省": 21
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12385669,
+   "name": "合肥轨道交通5号线: 贵阳路→汲桥路",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "合肥市": 33
+   },
+   "stops_by_province": {
+    "安徽省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 12385670,
+   "name": "合肥轨道交通5号线: 汲桥路→贵阳路",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 33,
+   "stops_by_city": {
+    "合肥市": 33
+   },
+   "stops_by_province": {
+    "安徽省": 33
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13536844,
+   "name": "合肥轨道交通4号线: 综保区→青龙岗",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "合肥市": 31
+   },
+   "stops_by_province": {
+    "安徽省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 13536845,
+   "name": "合肥轨道交通4号线: 青龙岗→综保区",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 31,
+   "stops_by_city": {
+    "合肥市": 31
+   },
+   "stops_by_province": {
+    "安徽省": 31
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15804056,
+   "name": "宁滁线: 汊河→滁州高铁站",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "滁州市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "滁州市": 14
+   },
+   "stops_by_province": {
+    "安徽省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 15804057,
+   "name": "宁滁线: 滁州高铁站→汊河",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "滁州市",
+   "stops_total": 14,
+   "stops_by_city": {
+    "滁州市": 14
+   },
+   "stops_by_province": {
+    "安徽省": 14
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17537792,
+   "name": "合肥轨道交通4号线: 烧脉岗→综保区",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "合肥市": 34
+   },
+   "stops_by_province": {
+    "安徽省": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 17537793,
+   "name": "合肥轨道交通4号线: 综保区→烧脉岗",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "合肥市",
+   "stops_total": 34,
+   "stops_by_city": {
+    "合肥市": 34
+   },
+   "stops_by_province": {
+    "安徽省": 34
+   },
+   "stops_unmatched": 0,
+   "flags": [],
+   "method": "l5_city"
+  },
+  {
+   "id": 19979191,
+   "name": "南京地铁S2号线/宁马线: 太白 → 西善桥",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "马鞍山市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "马鞍山市": 8
+   },
+   "stops_by_province": {
+    "安徽省": 8
+   },
+   "stops_unmatched": 4,
+   "flags": [
+    "stops_unmatched:4"
+   ],
+   "method": "l5_city"
+  },
+  {
+   "id": 20629971,
+   "name": "南京地铁S2号线/宁马线: 西善桥 → 太白",
+   "transit_type": "metro",
+   "province": "安徽省",
+   "city": "马鞍山市",
+   "stops_total": 12,
+   "stops_by_city": {
+    "马鞍山市": 8
+   },
+   "stops_by_province": {
+    "安徽省": 8
+   },
+   "stops_unmatched": 4,
+   "flags": [
+    "stops_unmatched:4"
+   ],
+   "method": "l5_city"
+  }
+ ]
+}

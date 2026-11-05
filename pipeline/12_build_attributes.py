@@ -98,20 +98,35 @@ def main() -> int:
     else:
         print(f"[提示] 人工线路表 {MANUAL} 不存在：opened / length_km_official / operator 留空，颜色仍按 colours.json")
 
-    # 1) 几何长度：按线取并集
+    # 1) 几何长度：按「无序站对」去重后累加（P1a-5.3）
+    #    为什么不用并集：同一段轨道在 OSM 里常被画成两条不共形的 way（上行/下行各一套），
+    #    unary_union 消不掉重，支线交路会把主干重复计入（成都 1 号线 +61%、上海 11 号线 +64%）。
+    #    站对去重对方向与交路都不敏感：同一对相邻站只记一次，取最短的那条几何。
+    pair_len: dict[str, dict[tuple[str, str], float]] = {}
     by_line: dict[str, list] = {}
     for f in segs["features"]:
-        by_line.setdefault(f["properties"]["line_id"], []).append(shape(f["geometry"]))
+        p = f["properties"]
+        lid, ln_m = p["line_id"], float(p["length_m"])
+        by_line.setdefault(lid, []).append(shape(f["geometry"]))
+        a, b = p["from_name"], p["to_name"]
+        key = (a, b) if a <= b else (b, a)
+        bucket = pair_len.setdefault(lid, {})
+        if key not in bucket or ln_m < bucket[key]:
+            bucket[key] = ln_m
 
     stats = {"adopted": 0, "verified": 0, "unverified": 0, "confirmed": 0}
     for ln in lines["lines"]:
         lid = ln["id"]
         geoms = by_line.get(lid, [])
         metric = [to_metric(g) for g in geoms]
+        pairs = pair_len.get(lid, {})
+        length_by_pair = sum(pairs.values()) / 1000 if pairs else 0.0
         union = unary_union(metric) if metric else None
-        ln["length_km"] = round(union.length / 1000, 2) if union is not None else None
+        # 两种口径取「站对去重」为主，并集留作对照（上海 P0 交付时用的是并集）
+        ln["length_km"] = round(length_by_pair, 2) if pairs else (round(union.length / 1000, 2) if union is not None else None)
+        ln["length_km_union"] = round(union.length / 1000, 2) if union is not None else None
         ln["length_km_sum"] = round(sum(g.length for g in metric) / 1000, 2)
-        ln["length_km_method"] = "并集（各 branch 几何 dissolve 后量长）"
+        ln["length_km_method"] = "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）"
 
         m = manual.get(lid, {})
         off = m.get("length_km_official")

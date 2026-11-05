@@ -1,7 +1,6 @@
-# 线路颜色（S2-6）
+# 线路颜色 · 广州市（S2-6）
 
 > 由 `pipeline/12_build_attributes.py` 生成。口径见 ADR R6：**官图为准，OSM 兜底**。
-
 > 广州市没有可采样的官方线路图（官网不提供静态线路图），颜色沿用 OSM；
 > 已用百度百科「标志色」逐条核对，与 OSM 色相一致的不覆盖、只标 `colour_verified=false`。
 

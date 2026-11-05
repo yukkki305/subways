@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import json
+from collections import Counter
 import os
 import re
 import subprocess
@@ -249,15 +250,32 @@ def main() -> int:
     else:
         print("[跳过] 8. 确定性比对 —— 加 --rerun 执行（会重跑 5 个脚本）")
 
+    whitelist = sorted(WHITELIST)
     notes = [
         f"- 站数 {len(stations['stations'])}、站次 {sum(len(s['slots']) for s in stations['stations'])}、"
         f"区间 {len(segs['features'])}、换乘 {len(transfers['transfers'])}、线路 {len(lines['lines'])} / 支线 {sum(len(l['branches']) for l in lines['lines'])}。",
-        "- 站坐标包围盒外的白名单：兆丰路、光明路、花桥（苏州 11 号线昆山段，属苏州市）。",
-        "- `walk_minutes` 全为 `null`（ADR R7：无可靠来源不估算）；换乘类型为人工判定（ADR R5）。",
-        "- 已知缺口：2 号线实测 61.69 vs 官方 66 km（−6.5%）、浦江线 −5.1%，按 ADR R7 只记录；"
-        "10/16/磁浮/浦江四线颜色官图不可辨，保留 OSM 并标 `colour_verified=false`；"
-        "18 号线运营方按百科原样记为磁浮公司（可疑，待核）。",
     ]
+    notes += [
+        "- 站坐标包围盒外的白名单：" + "、".join(whitelist) + ("（见 AGENTS.md 城市归属台账）" if whitelist else "（无）") + "。",
+        "- `walk_minutes` 全为 `null`（ADR R7：无可靠来源不估算）；换乘类型为人工判定（ADR R5）。",
+    ]
+    # 各城按自己的 lines.json 现算缺口，不再抄上海的数字
+    big = [l for l in lines["lines"] if abs(l.get("length_diff_pct") or 0) > 5]
+    if big:
+        notes.append("- 里程差 >5%（ADR R7 只记录不修正）：" + "；".join(
+            f'{l["name"]} {l["length_km"]:.2f} vs 官方 {l["length_km_official"]:.2f} km（{l["length_diff_pct"]:+.1f}%）'
+            for l in big) + "。")
+    else:
+        notes.append("- 里程差 >5%：无（各线均在 ±5% 内）。")
+    dist = Counter((l.get("colour_source") or "未知").split("（")[0] for l in lines["lines"])
+    detail = "、".join(f"{k} {v} 条" for k, v in sorted(dist.items(), key=lambda kv: -kv[1]))
+    unver = [l["name"] for l in lines["lines"] if l.get("colour_verified") is False]
+    notes.append(
+        f"- 颜色来源分布：{detail}；其中 {len(unver)} 条未经官方样本确认"
+        + ("（" + "、".join(unver) + "）" if unver else "") + "。")
+    op_missing = [l["name"] for l in lines["lines"] if not (l.get("operator") or "").strip()]
+    if op_missing:
+        notes.append("- 运营单位缺失：" + "、".join(op_missing) + "。")
     rep.markdown(notes)
     print(f"\n共 {len(rep.rows)} 项，失败 {rep.failed} 项；报告写入 {DOC}")
     return 1 if rep.failed else 0

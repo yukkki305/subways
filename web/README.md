@@ -558,7 +558,7 @@ web/public/data/
 | `scripts/verify-build.mjs` | 读 `out/data/<code>/meta.json`，默认 `sh`；断言文案带城市前缀（`data/sh/lines.json`） |
 | `components/MapView.tsx` | 七条 `loadJson` 改 `/data/${CITY_CODE}/…`；`CITY_CODE` 暂时常量为 `"sh"`，6.2 改成按路由传入 |
 
-实测（P1a-6.1）：`sync --all` 四城 **18 个文件 / 4.71 MB**；`build` + `verify` **23 项全过**，`out/data/` 下 `cd / gz / hf / sh` + `cities.json` 齐全，总体积 **7.14 MB（gzip ≈1.27 MB）**；
+实测（P1a-6.1）：`sync --all` 四城 **22 个数据文件（含各自 meta.json）/ 4.83 MB**，另有 `cities.json`；`build` + `verify` **23 项全过**，`out/data/` 下 `cd / gz / hf / sh` + `cities.json` 齐全，导出总体积 **7.14 MB（gzip ≈1.27 MB）**；
 本地按子路径起服务后上海页面 20 线 / 423 站正常渲染，`/subways/data/cities.json` 返回四城条目，`/subways/data/gz/lines.json` 等三城数据均 200（`gz/basemap.geojson` 404，属预期——6.4 才补非上海底图）。
 
 **注意**：`public/data/` 已进 `.gitignore`，是构建期产物；切换目录结构后旧的扁平文件必须删掉，否则会被一起打进 `out/`（本次已删 7 个）。

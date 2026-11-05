@@ -24,6 +24,7 @@ import os
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
+import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -56,22 +57,32 @@ SERVICE_WORDS = ("普通车", "大站车", "直达车", "大站快车", "区间�
 
 # OSM 里各城线路名前缀不统一（广州「地铁 1号线」、成都「成都地铁1号线」），
 # 按 AGENTS.md 第 9 节，线路名不带城市前缀，统一剥掉
-NAME_PREFIXES = ("地铁", "轨道交通", "轻轨", CFG.name, CFG.city)
+CITY_SHORT = CFG.city[:-1] if CFG.city.endswith("市") else CFG.city
+NAME_PREFIXES = ("地铁", "轨道交通", "轻轨", CFG.name, CFG.city, CITY_SHORT)
 
 
 def norm_name(raw: str) -> str:
-    s = (raw or "").split("：")[0].strip()
+    """把 OSM 的线路名收敛成「N号线」。
+
+    三种写法都要处理：`地铁1号线`、`合肥轨道交通1号线: 九联圩→张洼`、`6号线-上行`。
+    """
+    s = (raw or "").replace("：", ":").split(":")[0].strip()
     for w in SERVICE_WORDS:
         s = s.replace(w, "")
-    for pfx in NAME_PREFIXES:
-        if pfx and s.startswith(pfx):
-            s = s[len(pfx):]
-    return s.strip()
+    changed = True
+    while changed:  # 「合肥」+「轨道交通」要剥两层
+        changed = False
+        for pfx in NAME_PREFIXES:
+            if pfx and s.startswith(pfx):
+                s = s[len(pfx):].strip()
+                changed = True
+    return re.sub(r"[-－]?(上行|下行)$", "", s).strip()
 
 
 def sort_lines_key(line_id: str) -> tuple:
     """1…18 按数字排，浦江/磁浮这类放最后。"""
-    tail = line_id.replace("sh-line-", "")
+    pfx = CFG.line_id_prefix  # 已经是「<code>-line-」，不要再拼一次
+    tail = line_id[len(pfx):] if line_id.startswith(pfx) else line_id
     return (0, int(tail), "") if tail.isdigit() else (1, 0, tail)
 
 

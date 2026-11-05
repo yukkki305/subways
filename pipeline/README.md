@@ -316,6 +316,14 @@ S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度
 | 归属表仍有 >5 个上海站判为界外 | 停下查边界是否缺部件（崇明 / 长兴 / 横沙） |
 | 底图简化后仍 >5 MB | 停下，缩小水系抽取范围 |
 
+## 站的可乘降口径（P1a-4 合肥发现）
+
+`04_track.py` 只把 `role` 不含 `inactive_stop` 的节点计入 `stop_names`（未开通/停用站）。
+
+- 起因：合肥 7 号线 OSM 关系里 `义城`/`天津路`/`巢湖南路` 是 `inactive_stop`，收进来会让 09 找不到对应站节点（09 只取 `stop*` 角色），当场报 4 项失败。
+- 影响面：上海快照里 6 条**邻市**关系（义乌、滁州、合肥 7 号线）的 `stop_names` 因此变化，`data/processed/relation-index.json` 与旧基线不同；上海各线站序、站数、区间**完全未变**（592 站次、570 段）。
+- 校验：`pipeline/regression.py` 现为 15 一致 / 1 不一致（就是这份 relation-index）/ 1 跳过，该差异已作为新基线提交。
+
 ## 快照目录的不可变约定（P1a-2 合肥发现）
 
 `01_fetch_snapshot.py` 原来只比体积就复用、并且**整份重写 manifest**，多城依次跑时会出两个问题：
@@ -370,7 +378,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\cityconfig.py --schema       # �
 | 上海 sh | `cities/sh.json` | 913067 | L4 913067 | 20 | 回归基准 |
 | 广州 gz | `cities/gz.json` | 911844（**不闭合**） | L5 3287346 | 19 | 省面走 21 市并集；有轨电车按 `ref` 排除 |
 | 成都 cd | `cities/cd.json` | 913068（闭合） | L5 2110264 | 16 | |
-| 合肥 hf | `cities/hf.json` | 913011（闭合） | L5 3288965 | 8 | 映射 18 行：保留 9 / 合并 9（4 号线双交路成 `-main` + `-b1`） |
+| 合肥 hf | `cities/hf.json` | 913011（闭合） | L5 3288965 | 8 | 映射 18 行：保留 8 / 合并 8 / 丢弃 2（4 号线单线，北雁湖—青龙岗段归 6 号线） |
 
 校验规则（`load_city()` 时执行，错误一次性全部列出）：必填字段齐全、无未知字段、
 `bbox`/`scene_bbox` 西<东 南<北、`km_per_deg` 为正、`line_ids` 与 `line_count_expected`

@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "name": "shanghai-segments",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-03T22:36:50+08:00",
+ "generated_at": "2026-11-05T20:14:37+08:00",
  "rules": "ADR R2（segment id = <branch_id>-<三位序号>）、R3（环线末段回到 loop_start）",
  "counts": {
   "segments": 570,

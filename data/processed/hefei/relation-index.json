@@ -1,6 +1,6 @@
 {
  "snapshot_date": "20261101",
- "generated_at": "2026-11-05T19:51:17+08:00",
+ "generated_at": "2026-11-05T20:14:48+08:00",
  "source": "download.openstreetmap.fr/extracts/asia/china/<province>-latest.osm.pbf",
  "license": "ODbL-1.0",
  "attribution": "© OpenStreetMap contributors",
@@ -897,8 +897,6 @@
     "has_stops": true
    },
    "stop_names": [
-    "巢湖南路",
-    "天津路",
     "徽富路",
     "嵩山路",
     "紫庐",
@@ -1145,10 +1143,7 @@
     "广西路",
     "紫庐",
     "嵩山路",
-    "徽富路",
-    "天津路",
-    "巢湖南路",
-    "义城"
+    "徽富路"
    ],
    "fingerprint": "0693c3504ad8958279648a6f01c76d02d3d22fb0dcdee7b2a152803f47adfb3d",
    "stops_hash": "f27dd617fb4a81a4406fe55eb2784d3a2744103527ccfa65a0a97e511f707258",
@@ -2025,17 +2020,13 @@
    "stop_names": [
     "汊河",
     "汊河新城",
-    "相官",
     "十二里半",
-    "水口",
     "林楼",
     "大王郢",
     "苏滁商务中心",
-    "担子",
     "滁州政务中心",
     "琅琊山",
     "花博园",
-    "腰铺",
     "滁州高铁站"
    ],
    "fingerprint": "c8535f76798c46367448c463bbd0975ac62db12695b78af2a65b889e42fe289d",
@@ -2098,17 +2089,13 @@
    },
    "stop_names": [
     "滁州高铁站",
-    "腰铺",
     "花博园",
     "琅琊山",
     "滁州政务中心",
-    "担子",
     "苏滁商务中心",
     "大王郢",
     "林楼",
-    "水口",
     "十二里半",
-    "相官",
     "汊河新城",
     "汊河"
    ],
@@ -2528,5 +2515,5 @@
    "stops_unmatched": 4
   }
  },
- "attribution_generated_at": "2026-11-05T19:53:21+08:00"
+ "attribution_generated_at": "2026-11-05T20:14:50+08:00"
 }

@@ -1,6 +1,6 @@
 {
  "snapshot_date": "20261101",
- "generated_at": "2026-11-01T21:49:22+08:00",
+ "generated_at": "2026-11-05T20:13:22+08:00",
  "source": "download.openstreetmap.fr/extracts/asia/china/<province>-latest.osm.pbf",
  "license": "ODbL-1.0",
  "attribution": "© OpenStreetMap contributors",
@@ -11006,8 +11006,7 @@
     "国际商贸城",
     "秦塘",
     "春晗",
-    "凌云",
-    "义乌高铁站"
+    "凌云"
    ],
    "fingerprint": "11eebebb022826d20eb3cc5532e74b237e89bb5bb61ab50d105f090fcd03ae0d",
    "stops_hash": "0d4c341bcc87fefc15b5e0239e6e1c1960fea215c7fc58ac6c201b41289e5766",
@@ -11250,8 +11249,6 @@
     "has_stops": true
    },
    "stop_names": [
-    "巢湖南路",
-    "天津路",
     "徽富路",
     "嵩山路",
     "紫庐",
@@ -11498,10 +11495,7 @@
     "广西路",
     "紫庐",
     "嵩山路",
-    "徽富路",
-    "天津路",
-    "巢湖南路",
-    "义城"
+    "徽富路"
    ],
    "fingerprint": "0693c3504ad8958279648a6f01c76d02d3d22fb0dcdee7b2a152803f47adfb3d",
    "stops_hash": "f27dd617fb4a81a4406fe55eb2784d3a2744103527ccfa65a0a97e511f707258",
@@ -18748,7 +18742,6 @@
     "has_stops": true
    },
    "stop_names": [
-    "义乌高铁站",
     "凌云",
     "春晗",
     "秦塘",
@@ -19058,17 +19051,13 @@
    "stop_names": [
     "汊河",
     "汊河新城",
-    "相官",
     "十二里半",
-    "水口",
     "林楼",
     "大王郢",
     "苏滁商务中心",
-    "担子",
     "滁州政务中心",
     "琅琊山",
     "花博园",
-    "腰铺",
     "滁州高铁站"
    ],
    "fingerprint": "c8535f76798c46367448c463bbd0975ac62db12695b78af2a65b889e42fe289d",
@@ -19132,17 +19121,13 @@
    },
    "stop_names": [
     "滁州高铁站",
-    "腰铺",
     "花博园",
     "琅琊山",
     "滁州政务中心",
-    "担子",
     "苏滁商务中心",
     "大王郢",
     "林楼",
-    "水口",
     "十二里半",
-    "相官",
     "汊河新城",
     "汊河"
    ],
@@ -24836,5 +24821,5 @@
    "no_resolved_stops": 3
   }
  },
- "attribution_generated_at": "2026-11-01T21:49:38+08:00"
+ "attribution_generated_at": "2026-11-05T20:14:34+08:00"
 }

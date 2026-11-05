@@ -105,7 +105,13 @@ def transit_type(rel: dict) -> str:
 
 def build_record(rel: dict, snapshot_date: str, prev: dict | None) -> dict:
     tags = canon_tags(rel["tags"])
-    stop_names = [s.get("name") or "" for s in rel["stops"] if s.get("resolved")]
+    # 只收「可乘降」的站：inactive_stop 是尚未开通/已停用的节点（合肥 7 号线义城段、
+    # 上海快照里邻市的未开通站都属于此类），收进来会让 lines.json 的站序多出未开通站。
+    stop_names = [
+        s.get("name") or ""
+        for s in rel["stops"]
+        if s.get("resolved") and "inactive_stop" not in (s.get("roles") or [])
+    ]
     # 环线判据（OSM 里没有 "loop" 标签，只有两种写法）：
     #   a) from == to（上海 4 号线：from=to=宜山路，name=内圈/外圈）
     #   b) 站序首尾同名（松江有轨电车 2 号线：松江大学城 -> … -> 松江大学城）

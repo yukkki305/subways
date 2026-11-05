@@ -1,0 +1,7872 @@
+{
+  "city": "合肥市",
+  "city_code": "hf",
+  "snapshot_date": "20261101",
+  "generated_at": "2026-11-05T20:14:53+08:00",
+  "rules": "docs/decisions/0001-modeling-rules.md（R4 车站合并、R2 ID）",
+  "merge_policy": {
+    "merge_m": 150.0,
+    "review_m": 300.0,
+    "note": "站名 + 城市为主键；跨城同名不合并；>300 m 默认不合并改走 transfer；人工白名单（FORCE_MERGE）强制并站",
+    "force_merge": [],
+    "is_transfer_rule": "多线站 ∪ 有换乘记录的站（站名命中 11_build_transfers.py 的 GROUP_TYPES）"
+  },
+  "counts": {
+    "stations": 195,
+    "slots": 215,
+    "transfer_style_stations": 19,
+    "multi_line_stations": 19,
+    "needs_review": 2,
+    "split_groups": 0,
+    "transfer_candidates": 0,
+    "name_groups_multi": 19
+  },
+  "transfer_candidates": [],
+  "stations": [
+    {
+      "id": "hf-station-an-da-qing-yuan-xiao-qu",
+      "name": "安大磬苑校区",
+      "name_en": "Andaqingyuanxiaoqu",
+      "name_pinyin": "ān dà qìng yuàn xiào qū",
+      "city": "合肥市",
+      "coord": [
+        117.186734,
+        31.761205
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 9,
+          "node": 8480125204,
+          "coord": [
+            117.186734,
+            31.761205
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-an-nong-da",
+      "name": "安农大",
+      "name_en": "Anhui Agriculture University",
+      "name_pinyin": "ān nóng dà",
+      "city": "合肥市",
+      "coord": [
+        117.259772,
+        31.860145
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 13,
+          "node": 8554374451,
+          "coord": [
+            117.259772,
+            31.860145
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-an-yi-da-er-fu-yuan",
+      "name": "安医大二附院",
+      "name_en": "Anyida'erfuyuan",
+      "name_pinyin": "ān yī dà èr fù yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.204488,
+        31.791801
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 13,
+          "node": 8480148635,
+          "coord": [
+            117.204488,
+            31.791801
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-an-yi-yi-fu-yuan-bei-qu",
+      "name": "安医一附院北区",
+      "name_en": "First Affiliated Hospital of Anhui Medical University North District",
+      "name_pinyin": "ān yī yī fù yuàn běi qū",
+      "city": "合肥市",
+      "coord": [
+        117.343286,
+        31.938894
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 33,
+          "node": 9340996365,
+          "coord": [
+            117.343286,
+            31.938894
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-an-yi-yi-fu-yuan-nan-qu",
+      "name": "安医一附院南区",
+      "name_en": "Anyi Yifuyuan Nanqu",
+      "name_pinyin": "ān yī yī fù yuàn nán qū",
+      "city": "合肥市",
+      "coord": [
+        117.163252,
+        31.743953
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 7,
+          "node": 11472959424,
+          "coord": [
+            117.163252,
+            31.743953
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bai-shui-ba",
+      "name": "白水坝",
+      "name_en": "Baishuiba",
+      "name_pinyin": "bái shuǐ bà",
+      "city": "合肥市",
+      "coord": [
+        117.272974,
+        31.881539
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 28,
+          "node": 8480149116,
+          "coord": [
+            117.272974,
+            31.881539
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bao-gong-yuan",
+      "name": "包公园",
+      "name_en": "Baogongyuan",
+      "name_pinyin": "bāo gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.295731,
+        31.858152
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 8,
+          "node": 8506490080,
+          "coord": [
+            117.295731,
+            31.858152
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bao-he-yuan",
+      "name": "包河苑",
+      "name_en": "Baoheyuan",
+      "name_pinyin": "bāo hé yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.311692,
+        31.795768
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 17,
+          "node": 8478659554,
+          "coord": [
+            117.311692,
+            31.795768
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bei-cheng-gao-tie-zhan",
+      "name": "北城高铁站",
+      "name_en": null,
+      "name_pinyin": "běi chéng gāo tiě zhàn",
+      "city": "合肥市",
+      "coord": [
+        117.250889,
+        32.064789
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 12,
+          "node": 12437515798,
+          "coord": [
+            117.250889,
+            32.064789
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bei-cheng-shi-ji-cheng",
+      "name": "北城世纪城",
+      "name_en": null,
+      "name_pinyin": "běi chéng shì jì chéng",
+      "city": "合肥市",
+      "coord": [
+        117.242536,
+        32.013043
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 9,
+          "node": 12437515691,
+          "coord": [
+            117.242536,
+            32.013043
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bei-wu-li-jing",
+      "name": "北五里井",
+      "name_en": "Beiwulijing",
+      "name_pinyin": "běi wǔ lǐ jǐng",
+      "city": "合肥市",
+      "coord": [
+        117.270103,
+        31.899529
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 30,
+          "node": 8480149118,
+          "coord": [
+            117.270103,
+            31.899529
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bei-yan-hu",
+      "name": "北雁湖",
+      "name_en": "Beiyanhu",
+      "name_pinyin": "běi yàn hú",
+      "city": "合肥市",
+      "coord": [
+        117.152181,
+        31.822774
+      ],
+      "lines": [
+        "hf-line-4",
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-4-main",
+        "hf-line-6-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 8,
+          "node": 11866001910,
+          "coord": [
+            117.152181,
+            31.82281
+          ]
+        },
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 5,
+          "node": 9327972797,
+          "coord": [
+            117.152181,
+            31.822738
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 8.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bin-hu-hui-zhan-zhong-xin",
+      "name": "滨湖会展中心",
+      "name_en": "Binhu International Convention Center",
+      "name_pinyin": "bīn hú huì zhǎn zhōng xīn",
+      "city": "合肥市",
+      "coord": [
+        117.297098,
+        31.756571
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 18,
+          "node": 8506490190,
+          "coord": [
+            117.297098,
+            31.756571
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bin-hu-zhu-yuan",
+      "name": "滨湖竹园",
+      "name_en": "Binhuzhuyuan",
+      "name_pinyin": "bīn hú zhú yuán",
+      "city": "合肥市",
+      "coord": [
+        117.258677,
+        31.711415
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 2,
+          "node": 8478652683,
+          "coord": [
+            117.258677,
+            31.711415
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-bing-zi-pu",
+      "name": "丙子铺",
+      "name_en": "Bingzipu",
+      "name_pinyin": "bǐng zi pù",
+      "city": "合肥市",
+      "coord": [
+        117.29194,
+        31.693399
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 25,
+          "node": 8506490222,
+          "coord": [
+            117.29194,
+            31.693399
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-cao-chong",
+      "name": "漕冲",
+      "name_en": "Caochong",
+      "name_pinyin": "cáo chōng",
+      "city": "合肥市",
+      "coord": [
+        117.345936,
+        31.869943
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 20,
+          "node": 8554374400,
+          "coord": [
+            117.345936,
+            31.869943
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-chang-an-ji",
+      "name": "长安集",
+      "name_en": null,
+      "name_pinyin": "cháng ān jí",
+      "city": "合肥市",
+      "coord": [
+        117.139714,
+        31.804742
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 6,
+          "node": 11866001978,
+          "coord": [
+            117.139714,
+            31.804742
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-cuo-zhen",
+      "name": "撮镇",
+      "name_en": "Cuozhen",
+      "name_pinyin": "cuō zhèn",
+      "city": "合肥市",
+      "coord": [
+        117.486373,
+        31.824396
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 35,
+          "node": 11455567932,
+          "coord": [
+            117.486373,
+            31.824396
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-da-dong-men",
+      "name": "大东门",
+      "name_en": "Dadongmen",
+      "name_pinyin": "dà dōng mén",
+      "city": "合肥市",
+      "coord": [
+        117.295575,
+        31.866015
+      ],
+      "lines": [
+        "hf-line-1",
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-1-main",
+        "hf-line-2-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 7,
+          "node": 8506490071,
+          "coord": [
+            117.295142,
+            31.866054
+          ]
+        },
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 16,
+          "node": 8554374424,
+          "coord": [
+            117.296009,
+            31.865976
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 82.3,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-da-lian-lu",
+      "name": "大连路",
+      "name_en": "Dalianlu",
+      "name_pinyin": "dà lián lù",
+      "city": "合肥市",
+      "coord": [
+        117.326683,
+        31.787567
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 15,
+          "node": 8478659546,
+          "coord": [
+            117.326683,
+            31.787567
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-da-shu-shan",
+      "name": "大蜀山",
+      "name_en": "Dashushan",
+      "name_pinyin": "dà shǔ shān",
+      "city": "合肥市",
+      "coord": [
+        117.180473,
+        31.853734
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 6,
+          "node": 8554374497,
+          "coord": [
+            117.180473,
+            31.853734
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-da-xing-ji",
+      "name": "大兴集",
+      "name_en": "Daxingji",
+      "name_pinyin": "dà xīng jí",
+      "city": "合肥市",
+      "coord": [
+        117.379883,
+        31.837693
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 19,
+          "node": 8004298672,
+          "coord": [
+            117.379883,
+            31.837693
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-da-xue-cheng-bei",
+      "name": "大学城北",
+      "name_en": "Daxuechengbei",
+      "name_pinyin": "dà xué chéng běi",
+      "city": "合肥市",
+      "coord": [
+        117.204366,
+        31.77701
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 11,
+          "node": 8480148629,
+          "coord": [
+            117.204366,
+            31.77701
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dao-xiang-lou",
+      "name": "稻香楼",
+      "name_en": "Daoxianglou",
+      "name_pinyin": "dào xiāng lóu",
+      "city": "合肥市",
+      "coord": [
+        117.268451,
+        31.851362
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 25,
+          "node": 8480149130,
+          "coord": [
+            117.268451,
+            31.851362
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dian-bu-he",
+      "name": "店埠河",
+      "name_en": "Dianbuhe",
+      "name_pinyin": "diàn bù hé",
+      "city": "合肥市",
+      "coord": [
+        117.466213,
+        31.876999
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 29,
+          "node": 11455273484,
+          "coord": [
+            117.466213,
+            31.876999
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dong-er-shi-bu",
+      "name": "东二十埠",
+      "name_en": "Dong'ershibu",
+      "name_pinyin": "dōng èr shí bù",
+      "city": "合肥市",
+      "coord": [
+        117.361435,
+        31.870179
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 21,
+          "node": 8554374397,
+          "coord": [
+            117.361435,
+            31.870179
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dong-qi-li",
+      "name": "东七里",
+      "name_en": "Dong Qili",
+      "name_pinyin": "dōng qī lǐ",
+      "city": "合肥市",
+      "coord": [
+        117.331969,
+        31.870148
+      ],
+      "lines": [
+        "hf-line-2",
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-2-main",
+        "hf-line-4-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 19,
+          "node": 8554374403,
+          "coord": [
+            117.33106,
+            31.869741
+          ]
+        },
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 27,
+          "node": 9327972781,
+          "coord": [
+            117.332878,
+            31.870554
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_review",
+        "slot_count": 2,
+        "spread_m": 194.0,
+        "needs_review": true
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dong-wu-li-jing",
+      "name": "东五里井",
+      "name_en": "Dong Wulijing",
+      "name_pinyin": "dōng wǔ lǐ jǐng",
+      "city": "合肥市",
+      "coord": [
+        117.31917,
+        31.869711
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 18,
+          "node": 8554374408,
+          "coord": [
+            117.31917,
+            31.869711
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dou-qiao-wan",
+      "name": "窦桥湾",
+      "name_en": "Douqiaowan",
+      "name_pinyin": "dòu qiáo wān",
+      "city": "合肥市",
+      "coord": [
+        117.346753,
+        31.886868
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 33,
+          "node": 8480148791,
+          "coord": [
+            117.346753,
+            31.886868
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-du-jiang-ji-nian-guan",
+      "name": "渡江纪念馆",
+      "name_en": "Dujiangjinianguan",
+      "name_pinyin": "dù jiāng jì niàn guǎn",
+      "city": "合肥市",
+      "coord": [
+        117.32457,
+        31.715019
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 8,
+          "node": 8478652700,
+          "coord": [
+            117.32457,
+            31.715019
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-dui-he",
+      "name": "对河",
+      "name_en": "Duihe",
+      "name_pinyin": "duì hé",
+      "city": "合肥市",
+      "coord": [
+        117.44968,
+        31.874372
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 28,
+          "node": 11455273495,
+          "coord": [
+            117.44968,
+            31.874372
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fan-hua-da-dao",
+      "name": "繁华大道",
+      "name_en": "Fanhuadadao",
+      "name_pinyin": "fán huá dà dào",
+      "city": "合肥市",
+      "coord": [
+        117.203845,
+        31.784303
+      ],
+      "lines": [
+        "hf-line-3",
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-3-main",
+        "hf-line-7-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 12,
+          "node": 8480148632,
+          "coord": [
+            117.204448,
+            31.784234
+          ]
+        },
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 2,
+          "node": 3473112201,
+          "coord": [
+            117.203242,
+            31.784372
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 115.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fang-miao",
+      "name": "方庙",
+      "name_en": "Fangmiao",
+      "name_pinyin": "fāng miào",
+      "city": "合肥市",
+      "coord": [
+        117.336577,
+        31.886961
+      ],
+      "lines": [
+        "hf-line-3",
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-3-main",
+        "hf-line-4-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 32,
+          "node": 8480148788,
+          "coord": [
+            117.336554,
+            31.88695
+          ]
+        },
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 29,
+          "node": 9328009617,
+          "coord": [
+            117.3366,
+            31.886973
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 5.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fang-xing-hu",
+      "name": "方兴湖",
+      "name_en": "Fangxinghu",
+      "name_pinyin": "fāng xīng hú",
+      "city": "合肥市",
+      "coord": [
+        117.333085,
+        31.720153
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 9,
+          "node": 8478652710,
+          "coord": [
+            117.333085,
+            31.720153
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fei-cui-gong-yuan",
+      "name": "翡翠公园",
+      "name_en": "Feicuigongyuan",
+      "name_pinyin": "fěi cuì gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.190865,
+        31.784361
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 1,
+          "node": 8007386246,
+          "coord": [
+            117.190865,
+            31.784361
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fei-dong-zhan",
+      "name": "肥东站",
+      "name_en": "Feidong Railway Station",
+      "name_pinyin": "féi dōng zhàn",
+      "city": "合肥市",
+      "coord": [
+        117.480277,
+        31.861331
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 31,
+          "node": 11457499595,
+          "coord": [
+            117.480277,
+            31.861331
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fei-nan",
+      "name": "淝南",
+      "name_en": "Feinan",
+      "name_pinyin": "féi nán",
+      "city": "合肥市",
+      "coord": [
+        117.275611,
+        31.801662
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 19,
+          "node": 9328009739,
+          "coord": [
+            117.275611,
+            31.801662
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fu-long",
+      "name": "伏龙",
+      "name_en": "Fulong",
+      "name_pinyin": "fú lóng",
+      "city": "合肥市",
+      "coord": [
+        117.392864,
+        31.839605
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 20,
+          "node": 8004298673,
+          "coord": [
+            117.392864,
+            31.839605
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-fu-xing-ji",
+      "name": "复兴集",
+      "name_en": "Fuxingji",
+      "name_pinyin": "fù xīng jí",
+      "city": "合肥市",
+      "coord": [
+        117.139543,
+        31.817775
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 7,
+          "node": 11866001975,
+          "coord": [
+            117.139543,
+            31.817775
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gang-hong",
+      "name": "钢红",
+      "name_en": "Ganghong",
+      "name_pinyin": "gāng hóng",
+      "city": "合肥市",
+      "coord": [
+        117.372411,
+        31.82987
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 18,
+          "node": 8004298671,
+          "coord": [
+            117.372411,
+            31.82987
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gao-wang",
+      "name": "高王",
+      "name_en": "Gaowang",
+      "name_pinyin": "gāo wáng",
+      "city": "合肥市",
+      "coord": [
+        117.285828,
+        31.774932
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 17,
+          "node": 8506490165,
+          "coord": [
+            117.285828,
+            31.774932
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ge-da-dian",
+      "name": "葛大店",
+      "name_en": "Gedadian",
+      "name_pinyin": "gé dà diàn",
+      "city": "合肥市",
+      "coord": [
+        117.298018,
+        31.816463
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 12,
+          "node": 8506489782,
+          "coord": [
+            117.298018,
+            31.816463
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ge-da-dian-nan",
+      "name": "葛大店南",
+      "name_en": "Gedadiannan",
+      "name_pinyin": "gé dà diàn nán",
+      "city": "合肥市",
+      "coord": [
+        117.307704,
+        31.8108
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 22,
+          "node": 9328009712,
+          "coord": [
+            117.307704,
+            31.8108
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-geng-yun-lu",
+      "name": "耕耘路",
+      "name_en": null,
+      "name_pinyin": "gēng yún lù",
+      "city": "合肥市",
+      "coord": [
+        117.244743,
+        31.761833
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 7,
+          "node": 8007399294,
+          "coord": [
+            117.244743,
+            31.761833
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gong-da-fei-cui-hu-xiao-qu",
+      "name": "工大翡翠湖校区",
+      "name_en": "Gongdafeicuihuxiaoqu",
+      "name_pinyin": "gōng dà fěi cuì hú xiào qū",
+      "city": "合肥市",
+      "coord": [
+        117.199713,
+        31.767347
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 10,
+          "node": 8480125216,
+          "coord": [
+            117.199713,
+            31.767347
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gong-jing-xue-yuan",
+      "name": "工经学院",
+      "name_en": "Gongjingxueyuan",
+      "name_pinyin": "gōng jīng xué yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.320288,
+        31.816912
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 23,
+          "node": 9328009677,
+          "coord": [
+            117.320288,
+            31.816912
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-guang-xi-lu",
+      "name": "广西路",
+      "name_en": "Binhu Yiyuan",
+      "name_pinyin": "guǎng xī lù",
+      "city": "合肥市",
+      "coord": [
+        117.285859,
+        31.74269
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 11,
+          "node": 8007399290,
+          "coord": [
+            117.285859,
+            31.74269
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gui-wang",
+      "name": "桂王",
+      "name_en": "Guiwang",
+      "name_pinyin": "guì wáng",
+      "city": "合肥市",
+      "coord": [
+        117.437008,
+        31.875729
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 27,
+          "node": 11455273506,
+          "coord": [
+            117.437008,
+            31.875729
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gui-yang-lu",
+      "name": "贵阳路",
+      "name_en": "Guiyanglu",
+      "name_pinyin": "guì yáng lù",
+      "city": "合肥市",
+      "coord": [
+        117.258635,
+        31.701246
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 1,
+          "node": 8478652674,
+          "coord": [
+            117.258635,
+            31.701246
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-gui-zhuang",
+      "name": "桂庄",
+      "name_en": "Guizhuang",
+      "name_pinyin": "guì zhuāng",
+      "city": "合肥市",
+      "coord": [
+        117.121394,
+        31.852643
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 2,
+          "node": 8554374514,
+          "coord": [
+            117.121394,
+            31.852643
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-guo-fang-ke-ji-da-xue",
+      "name": "国防科技大学",
+      "name_en": "Guofangkejidaxue",
+      "name_pinyin": "guó fáng kē jì dà xué",
+      "city": "合肥市",
+      "coord": [
+        117.225824,
+        31.8429
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 19,
+          "node": 8480148689,
+          "coord": [
+            117.225824,
+            31.8429
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-hai-tang",
+      "name": "海棠",
+      "name_en": "Haitang",
+      "name_pinyin": "hǎi táng",
+      "city": "合肥市",
+      "coord": [
+        117.272865,
+        31.888927
+      ],
+      "lines": [
+        "hf-line-3",
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-3-main",
+        "hf-line-5-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 26,
+          "node": 8480148737,
+          "coord": [
+            117.272902,
+            31.888941
+          ]
+        },
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 29,
+          "node": 8480149124,
+          "coord": [
+            117.272828,
+            31.888913
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 7.6,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-fei-da-ju-yuan",
+      "name": "合肥大剧院",
+      "name_en": "Hefeidajuyuan",
+      "name_pinyin": "hé féi dà jù yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.218497,
+        31.816233
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 16,
+          "node": 8480148669,
+          "coord": [
+            117.218497,
+            31.816233
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-fei-huo-che-zhan",
+      "name": "合肥火车站",
+      "name_en": "Hefei Railway Station",
+      "name_pinyin": "hé féi huǒ chē zhàn",
+      "city": "合肥市",
+      "coord": [
+        117.309853,
+        31.885398
+      ],
+      "lines": [
+        "hf-line-1",
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-1-main",
+        "hf-line-3-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 4,
+          "node": 8506490230,
+          "coord": [
+            117.309916,
+            31.885495
+          ]
+        },
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 30,
+          "node": 8480148763,
+          "coord": [
+            117.309789,
+            31.885301
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 24.7,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-fei-nan-zhan",
+      "name": "合肥南站",
+      "name_en": "Hefeinan Railway Station",
+      "name_pinyin": "hé féi nán zhàn",
+      "city": "合肥市",
+      "coord": [
+        117.284618,
+        31.801146
+      ],
+      "lines": [
+        "hf-line-1",
+        "hf-line-4",
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-1-main",
+        "hf-line-4-main",
+        "hf-line-5-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 14,
+          "node": 8478652626,
+          "coord": [
+            117.284504,
+            31.800649
+          ]
+        },
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 20,
+          "node": 9327972784,
+          "coord": [
+            117.284606,
+            31.802125
+          ]
+        },
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 19,
+          "node": 8506489722,
+          "coord": [
+            117.284745,
+            31.800663
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_review",
+        "slot_count": 3,
+        "spread_m": 164.4,
+        "needs_review": true
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-fei-qi-zhong",
+      "name": "合肥七中",
+      "name_en": "Hefei No.7 High School",
+      "name_pinyin": "hé féi qī zhōng",
+      "city": "合肥市",
+      "coord": [
+        117.094826,
+        31.831372
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 2,
+          "node": 9328010147,
+          "coord": [
+            117.094826,
+            31.831372
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-fei-xi-zhan",
+      "name": "合肥西站",
+      "name_en": "Hefeixi Railway Station",
+      "name_pinyin": "hé féi xī zhàn",
+      "city": "合肥市",
+      "coord": [
+        117.231223,
+        31.872921
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 22,
+          "node": 8480148707,
+          "coord": [
+            117.231223,
+            31.872921
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-gong-da-nan-qu",
+      "name": "合工大南区",
+      "name_en": "Hefei University of Technology South Campus",
+      "name_pinyin": "hé gōng dà nán qū",
+      "city": "合肥市",
+      "coord": [
+        117.29513,
+        31.849255
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 9,
+          "node": 8506490085,
+          "coord": [
+            117.29513,
+            31.849255
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-mu-hu",
+      "name": "和睦湖",
+      "name_en": "Hemuhu",
+      "name_pinyin": "hé mù hú",
+      "city": "合肥市",
+      "coord": [
+        117.486549,
+        31.853895
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 32,
+          "node": 11457499594,
+          "coord": [
+            117.486549,
+            31.853895
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-he-tang-lu",
+      "name": "荷塘路",
+      "name_en": null,
+      "name_pinyin": "hé táng lù",
+      "city": "合肥市",
+      "coord": [
+        117.254367,
+        31.938108
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 5,
+          "node": 12437515638,
+          "coord": [
+            117.254367,
+            31.938108
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-hong-gang",
+      "name": "洪岗",
+      "name_en": "Honggang",
+      "name_pinyin": "hóng gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.22602,
+        31.834198
+      ],
+      "lines": [
+        "hf-line-3",
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-3-main",
+        "hf-line-6-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 18,
+          "node": 8480148687,
+          "coord": [
+            117.22606,
+            31.834198
+          ]
+        },
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 9,
+          "node": 9231831260,
+          "coord": [
+            117.22598,
+            31.834197
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 7.6,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-hua-shan-lu",
+      "name": "华山路",
+      "name_en": "Huashanlu",
+      "name_pinyin": "huà shān lù",
+      "city": "合肥市",
+      "coord": [
+        117.305512,
+        31.715056
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 6,
+          "node": 8478652664,
+          "coord": [
+            117.305512,
+            31.715056
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-hua-yuan-da-dao",
+      "name": "花园大道",
+      "name_en": "Huayuandadao",
+      "name_pinyin": "huā yuán dà dào",
+      "city": "合肥市",
+      "coord": [
+        117.328669,
+        31.775305
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 14,
+          "node": 8478659540,
+          "coord": [
+            117.328669,
+            31.775305
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-huai-nan-lu",
+      "name": "淮南路",
+      "name_en": "Huainan Street",
+      "name_pinyin": "huái nán lù",
+      "city": "合肥市",
+      "coord": [
+        117.290539,
+        31.889515
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 28,
+          "node": 8480148743,
+          "coord": [
+            117.290539,
+            31.889515
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-huang-he-lu",
+      "name": "黄河路",
+      "name_en": "Huanghelu",
+      "name_pinyin": "huáng hé lù",
+      "city": "合肥市",
+      "coord": [
+        117.328676,
+        31.767704
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 13,
+          "node": 8478659543,
+          "coord": [
+            117.328676,
+            31.767704
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-hui-fu-lu",
+      "name": "徽富路",
+      "name_en": "Sheng Wenhuahefeiyiguan",
+      "name_pinyin": "huī fù lù",
+      "city": "合肥市",
+      "coord": [
+        117.318665,
+        31.742687
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 14,
+          "node": 8007399288,
+          "coord": [
+            117.318665,
+            31.742687
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-hui-yuan",
+      "name": "徽园",
+      "name_en": "Huiyuan",
+      "name_pinyin": "huī yuán",
+      "city": "合肥市",
+      "coord": [
+        117.215709,
+        31.782834
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 3,
+          "node": 8007399298,
+          "coord": [
+            117.215709,
+            31.782834
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ji-qiao-lu",
+      "name": "汲桥路",
+      "name_en": "Jiqiao Road",
+      "name_pinyin": "jí qiáo lù",
+      "city": "合肥市",
+      "coord": [
+        117.258318,
+        31.943009
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 33,
+          "node": 8480149122,
+          "coord": [
+            117.258318,
+            31.943009
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-jin-dou-gong-yuan",
+      "name": "金斗公园",
+      "name_en": "Jindougongyuan",
+      "name_pinyin": "jīn dòu gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.297068,
+        31.724855
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 21,
+          "node": 8506490199,
+          "coord": [
+            117.297068,
+            31.724855
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-jin-gui",
+      "name": "金桂",
+      "name_en": "Jingui",
+      "name_pinyin": "jīn guì",
+      "city": "合肥市",
+      "coord": [
+        117.182185,
+        31.818136
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 10,
+          "node": 9328009853,
+          "coord": [
+            117.182185,
+            31.818136
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-jin-mei-lu",
+      "name": "金梅路",
+      "name_en": null,
+      "name_pinyin": "jīn méi lù",
+      "city": "合肥市",
+      "coord": [
+        117.249437,
+        31.977843
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 7,
+          "node": 12437515673,
+          "coord": [
+            117.249437,
+            31.977843
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-jin-xiao-ying",
+      "name": "金小郢",
+      "name_en": null,
+      "name_pinyin": "jīn xiǎo yǐng",
+      "city": "合肥市",
+      "coord": [
+        117.11121,
+        31.784279
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 4,
+          "node": 11866002155,
+          "coord": [
+            117.11121,
+            31.784279
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-jiu-lian-wei",
+      "name": "九联圩",
+      "name_en": "Jiulianwei",
+      "name_pinyin": "jiǔ lián wéi",
+      "city": "合肥市",
+      "coord": [
+        117.280737,
+        31.693366
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 26,
+          "node": 8506490223,
+          "coord": [
+            117.280737,
+            31.693366
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-kai-fu-si",
+      "name": "开福寺",
+      "name_en": "Kaifusi",
+      "name_pinyin": "kāi fú sì",
+      "city": "合肥市",
+      "coord": [
+        117.17935,
+        31.833664
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 6,
+          "node": 8004298658,
+          "coord": [
+            117.17935,
+            31.833664
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ke-da-xian-yan-yuan",
+      "name": "科大先研院",
+      "name_en": "IAT-USTC",
+      "name_pinyin": "kē dà xiān yán yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.128614,
+        31.832092
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 4,
+          "node": 9328010152,
+          "coord": [
+            117.128614,
+            31.832092
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ke-xue-da-dao",
+      "name": "科学大道",
+      "name_en": "Kexue Dadao",
+      "name_pinyin": "kē xué dà dào",
+      "city": "合肥市",
+      "coord": [
+        117.203781,
+        31.857708
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 8,
+          "node": 8554374491,
+          "coord": [
+            117.203781,
+            31.857708
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-le-ping",
+      "name": "乐平",
+      "name_en": "Leping",
+      "name_pinyin": "lè píng",
+      "city": "合肥市",
+      "coord": [
+        117.170412,
+        31.696491
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 2,
+          "node": 11472959332,
+          "coord": [
+            117.170412,
+            31.696491
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-li-wan",
+      "name": "李湾",
+      "name_en": "Liwan",
+      "name_pinyin": "lǐ wān",
+      "city": "合肥市",
+      "coord": [
+        117.150808,
+        31.720421
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 5,
+          "node": 11472959365,
+          "coord": [
+            117.150808,
+            31.720421
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-lian-hua-lu",
+      "name": "莲花路",
+      "name_en": null,
+      "name_pinyin": "lián huā lù",
+      "city": "合肥市",
+      "coord": [
+        117.225866,
+        31.778331
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 4,
+          "node": 8007399297,
+          "coord": [
+            117.225866,
+            31.778331
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-liang-ting",
+      "name": "凉亭",
+      "name_en": "Liangting",
+      "name_pinyin": "liáng tíng",
+      "city": "合肥市",
+      "coord": [
+        117.156932,
+        31.725734
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 6,
+          "node": 11472959369,
+          "coord": [
+            117.156932,
+            31.725734
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-liang-zi-ke-xue-zhong-xin",
+      "name": "量子科学中心",
+      "name_en": "QISRC",
+      "name_pinyin": "liàng zǐ kē xué zhōng xīn",
+      "city": "合肥市",
+      "coord": [
+        117.109712,
+        31.83193
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 3,
+          "node": 9328010150,
+          "coord": [
+            117.109712,
+            31.83193
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ling-da-tang",
+      "name": "凌大塘",
+      "name_en": "Lingdatang",
+      "name_pinyin": "líng dà táng",
+      "city": "合肥市",
+      "coord": [
+        117.271072,
+        31.816223
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 21,
+          "node": 8480149178,
+          "coord": [
+            117.271072,
+            31.816223
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ling-hu-gong-yuan",
+      "name": "菱湖公园",
+      "name_en": "Linghugongyuan",
+      "name_pinyin": "líng hú gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.266182,
+        31.918983
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 31,
+          "node": 8480149121,
+          "coord": [
+            117.266182,
+            31.918983
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-liu-shu-tang",
+      "name": "柳树塘",
+      "name_en": "Liushutang",
+      "name_pinyin": "liǔ shù táng",
+      "city": "合肥市",
+      "coord": [
+        117.192813,
+        31.8136
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 11,
+          "node": 9328009849,
+          "coord": [
+            117.192813,
+            31.8136
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-liu-zhong-ling-hu-xiao-qu",
+      "name": "六中菱湖校区",
+      "name_en": "Hefei No. 6 High School Linghu Campus",
+      "name_pinyin": "liù zhōng líng hú xiào qū",
+      "city": "合肥市",
+      "coord": [
+        117.265211,
+        31.932084
+      ],
+      "lines": [
+        "hf-line-5",
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-5-main",
+        "hf-line-8-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 32,
+          "node": 10281993516,
+          "coord": [
+            117.264601,
+            31.931935
+          ]
+        },
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 4,
+          "node": 12437515546,
+          "coord": [
+            117.265822,
+            31.932233
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 119.9,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-long-gang",
+      "name": "龙岗",
+      "name_en": "Longgang",
+      "name_pinyin": "lóng gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.370088,
+        31.870255
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 22,
+          "node": 8554374394,
+          "coord": [
+            117.370088,
+            31.870255
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-long-tang",
+      "name": "龙塘",
+      "name_en": "Longtang",
+      "name_pinyin": "lóng táng",
+      "city": "合肥市",
+      "coord": [
+        117.411437,
+        31.838368
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 21,
+          "node": 8004298657,
+          "coord": [
+            117.411437,
+            31.838368
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-lu-jun-bing-zhong-da-xue",
+      "name": "陆军兵种大学",
+      "name_en": "Lujun Bingzhong Daxue",
+      "name_pinyin": "lù jūn bīng zhǒng dà xué",
+      "city": "合肥市",
+      "coord": [
+        117.240708,
+        31.83266
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 10,
+          "node": 8004298661,
+          "coord": [
+            117.240708,
+            31.83266
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-lu-yang-jing-kai-qu",
+      "name": "庐阳经开区",
+      "name_en": null,
+      "name_pinyin": "lú yáng jīng kāi qū",
+      "city": "合肥市",
+      "coord": [
+        117.274619,
+        31.925209
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 3,
+          "node": 12437515572,
+          "coord": [
+            117.274619,
+            31.925209
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-luo-gang",
+      "name": "骆岗",
+      "name_en": "Luogang",
+      "name_pinyin": "luò gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.285982,
+        31.785089
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 16,
+          "node": 8506490163,
+          "coord": [
+            117.285982,
+            31.785089
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ma-qiao",
+      "name": "马桥",
+      "name_en": "Maqiao",
+      "name_pinyin": "mǎ qiáo",
+      "city": "合肥市",
+      "coord": [
+        117.486508,
+        31.846688
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 33,
+          "node": 11457499593,
+          "coord": [
+            117.486508,
+            31.846688
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-mei-chong-hu",
+      "name": "梅冲湖",
+      "name_en": null,
+      "name_pinyin": "méi chōng hú",
+      "city": "合肥市",
+      "coord": [
+        117.248532,
+        31.996803
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 8,
+          "node": 12437515680,
+          "coord": [
+            117.248532,
+            31.996803
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-meng-cheng",
+      "name": "梦城",
+      "name_en": "Mengcheng",
+      "name_pinyin": "mèng chéng",
+      "city": "合肥市",
+      "coord": [
+        117.197358,
+        31.834613
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 7,
+          "node": 8004298659,
+          "coord": [
+            117.197358,
+            31.834613
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ming-guang-lu",
+      "name": "明光路",
+      "name_en": "Mingguanglu",
+      "name_pinyin": "míng guāng lù",
+      "city": "合肥市",
+      "coord": [
+        117.299339,
+        31.87207
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 6,
+          "node": 8506490065,
+          "coord": [
+            117.299339,
+            31.87207
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-nan-gang",
+      "name": "南岗",
+      "name_en": "Nangang",
+      "name_pinyin": "nán gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.110176,
+        31.852507
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 1,
+          "node": 8554374529,
+          "coord": [
+            117.110176,
+            31.852507
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-nan-ping-lu",
+      "name": "南屏路",
+      "name_en": "Nanpinglu",
+      "name_pinyin": "nán píng lù",
+      "city": "合肥市",
+      "coord": [
+        117.251971,
+        31.810468
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 16,
+          "node": 9328009802,
+          "coord": [
+            117.251971,
+            31.810468
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-nan-qi-li",
+      "name": "南七里",
+      "name_en": "Nanqili",
+      "name_pinyin": "nán qī lǐ",
+      "city": "合肥市",
+      "coord": [
+        117.252402,
+        31.832002
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 11,
+          "node": 8004298662,
+          "coord": [
+            117.252402,
+            31.832002
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-nan-sha-he",
+      "name": "南沙河",
+      "name_en": "Nanshahe",
+      "name_pinyin": "nán shā hé",
+      "city": "合肥市",
+      "coord": [
+        117.486444,
+        31.835705
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 34,
+          "node": 11457499592,
+          "coord": [
+            117.486444,
+            31.835705
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-nan-xin-zhuang",
+      "name": "南新庄",
+      "name_en": "Nanxinzhuang",
+      "name_pinyin": "nán xīn zhuāng",
+      "city": "合肥市",
+      "coord": [
+        117.225216,
+        31.863708
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 21,
+          "node": 8480148692,
+          "coord": [
+            117.225216,
+            31.863708
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-nan-zhan-nan-guang-chang",
+      "name": "南站南广场",
+      "name_en": "Hefei South Station South Square",
+      "name_pinyin": "nán zhàn nán guǎng chǎng",
+      "city": "合肥市",
+      "coord": [
+        117.285929,
+        31.794546
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 15,
+          "node": 8506490156,
+          "coord": [
+            117.285929,
+            31.794546
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-pai-tou",
+      "name": "排头",
+      "name_en": "Paitou",
+      "name_pinyin": "pái tóu",
+      "city": "合肥市",
+      "coord": [
+        117.475056,
+        31.872956
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 30,
+          "node": 11457499596,
+          "coord": [
+            117.475056,
+            31.872956
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-qi-che-xi-zhan",
+      "name": "汽车西站",
+      "name_en": "Qiche Xizhan",
+      "name_pinyin": "qì chē xī zhàn",
+      "city": "合肥市",
+      "coord": [
+        117.130752,
+        31.85292
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 3,
+          "node": 8554374511,
+          "coord": [
+            117.130752,
+            31.85292
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-qin-lao-cun",
+      "name": "勤劳村",
+      "name_en": "Qinlaocun",
+      "name_pinyin": "qín láo cūn",
+      "city": "合肥市",
+      "coord": [
+        117.355589,
+        31.898924
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 35,
+          "node": 8480148813,
+          "coord": [
+            117.355589,
+            31.898924
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-qing-long-gang",
+      "name": "青龙岗",
+      "name_en": "Qinglonggang",
+      "name_pinyin": "qīng lóng gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.082736,
+        31.831595
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 1,
+          "node": 9328010144,
+          "coord": [
+            117.082736,
+            31.831595
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-qing-shui-chong",
+      "name": "清水冲",
+      "name_en": "Qingshuichong",
+      "name_pinyin": "qīng shuǐ chōng",
+      "city": "合肥市",
+      "coord": [
+        117.280668,
+        31.715078
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 4,
+          "node": 8478652647,
+          "coord": [
+            117.280668,
+            31.715078
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-qing-tan-lu",
+      "name": "清潭路",
+      "name_en": "Hefei Daxue",
+      "name_pinyin": "qīng tán lù",
+      "city": "合肥市",
+      "coord": [
+        117.254222,
+        31.755413
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 8,
+          "node": 8007399293,
+          "coord": [
+            117.254222,
+            31.755413
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-qiu-pu-he-lu",
+      "name": "秋浦河路",
+      "name_en": "Qiupuhelu",
+      "name_pinyin": "qiū pǔ hé lù",
+      "city": "合肥市",
+      "coord": [
+        117.296612,
+        31.825369
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 11,
+          "node": 8506490095,
+          "coord": [
+            117.296612,
+            31.825369
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-rui-ci",
+      "name": "芮祠",
+      "name_en": "Ruici",
+      "name_pinyin": "ruì cí",
+      "city": "合肥市",
+      "coord": [
+        117.160987,
+        31.702648
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 3,
+          "node": 11472959340,
+          "coord": [
+            117.160987,
+            31.702648
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-san-li-an",
+      "name": "三里庵",
+      "name_en": "Sanli'an",
+      "name_pinyin": "sān lǐ ān",
+      "city": "合肥市",
+      "coord": [
+        117.250514,
+        31.85673
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 12,
+          "node": 8554374454,
+          "coord": [
+            117.250514,
+            31.85673
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-san-li-jie",
+      "name": "三里街",
+      "name_en": "Sanlijie",
+      "name_pinyin": "sān lǐ jiē",
+      "city": "合肥市",
+      "coord": [
+        117.308317,
+        31.869598
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 17,
+          "node": 8554374414,
+          "coord": [
+            117.308317,
+            31.869598
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-san-shi-bu",
+      "name": "三十埠",
+      "name_en": "Sanshibu",
+      "name_pinyin": "sān shí bù",
+      "city": "合肥市",
+      "coord": [
+        117.391552,
+        31.870804
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 24,
+          "node": 8554374387,
+          "coord": [
+            117.391552,
+            31.870804
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-san-shi-bu-dong",
+      "name": "三十埠东",
+      "name_en": "Sanshibudong",
+      "name_pinyin": "sān shí bù dōng",
+      "city": "合肥市",
+      "coord": [
+        117.414138,
+        31.873741
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 25,
+          "node": 11455273525,
+          "coord": [
+            117.414138,
+            31.873741
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-san-xiao-kou",
+      "name": "三孝口",
+      "name_en": "Sanxiaokou",
+      "name_pinyin": "sān xiào kǒu",
+      "city": "合肥市",
+      "coord": [
+        117.270097,
+        31.863546
+      ],
+      "lines": [
+        "hf-line-2",
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-2-main",
+        "hf-line-5-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 14,
+          "node": 8554374445,
+          "coord": [
+            117.269856,
+            31.863142
+          ]
+        },
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 26,
+          "node": 10281993518,
+          "coord": [
+            117.270338,
+            31.86395
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 100.7,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shao-mai-gang",
+      "name": "烧脉岗",
+      "name_en": "Shaomaigang",
+      "name_pinyin": "shāo mài gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.09643,
+        31.757232
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 1,
+          "node": 11866002085,
+          "coord": [
+            117.09643,
+            31.757232
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shen-wan",
+      "name": "沈湾",
+      "name_en": "Shenwan",
+      "name_pinyin": "shěn wān",
+      "city": "合肥市",
+      "coord": [
+        117.313941,
+        31.715041
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 7,
+          "node": 8478652690,
+          "coord": [
+            117.313941,
+            31.715041
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-sheng-bo-wu-yuan",
+      "name": "省博物院",
+      "name_en": "Shengbowuyuan",
+      "name_pinyin": "shěng bó wù yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.2099,
+        31.802964
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 14,
+          "node": 8480148651,
+          "coord": [
+            117.2099,
+            31.802964
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-sheng-da",
+      "name": "盛大",
+      "name_en": "Shengda",
+      "name_pinyin": "shèng dà",
+      "city": "合肥市",
+      "coord": [
+        117.296427,
+        31.794655
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 18,
+          "node": 8478659556,
+          "coord": [
+            117.296427,
+            31.794655
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-sheng-er-tong-yi-yuan-xin-qu",
+      "name": "省儿童医院新区",
+      "name_en": "Sheng Ertong Yiyuan Xinqu",
+      "name_pinyin": "shěng ér tóng yī yuàn xīn qū",
+      "city": "合肥市",
+      "coord": [
+        117.170372,
+        31.689197
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 1,
+          "node": 11472959331,
+          "coord": [
+            117.170372,
+            31.689197
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-sheng-li-yi-yuan-bei-qu",
+      "name": "省立医院北区",
+      "name_en": null,
+      "name_pinyin": "shěng lì yī yuàn běi qū",
+      "city": "合肥市",
+      "coord": [
+        117.240663,
+        32.046567
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 11,
+          "node": 12437515736,
+          "coord": [
+            117.240663,
+            32.046567
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-sheng-zheng-wu-zhong-xin-dong",
+      "name": "省政务中心东",
+      "name_en": "Shengzhengwuzhongxindong",
+      "name_pinyin": "shěng zhèng wù zhōng xīn dōng",
+      "city": "合肥市",
+      "coord": [
+        117.333127,
+        31.733271
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 10,
+          "node": 8478659517,
+          "coord": [
+            117.333127,
+            31.733271
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-bo-wu-guan",
+      "name": "市博物馆",
+      "name_en": null,
+      "name_pinyin": "shì bó wù guǎn",
+      "city": "合肥市",
+      "coord": [
+        117.361562,
+        31.831959
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 17,
+          "node": 8004298670,
+          "coord": [
+            117.361562,
+            31.831959
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-di-san-yi-yuan",
+      "name": "市第三医院",
+      "name_en": "Hefei No.3 People's Hospital",
+      "name_pinyin": "shì dì sān yī yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.265191,
+        31.830599
+      ],
+      "lines": [
+        "hf-line-5",
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-5-main",
+        "hf-line-6-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 23,
+          "node": 8478659810,
+          "coord": [
+            117.265187,
+            31.830557
+          ]
+        },
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 12,
+          "node": 3637205810,
+          "coord": [
+            117.265195,
+            31.830642
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 9.5,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-er-tong-yi-yuan",
+      "name": "市儿童医院",
+      "name_en": null,
+      "name_pinyin": "shì ér tóng yī yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.349865,
+        31.837653
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 16,
+          "node": 8004298669,
+          "coord": [
+            117.349865,
+            31.837653
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-li-cun",
+      "name": "十里村",
+      "name_en": "Shilicun",
+      "name_pinyin": "shí lǐ cūn",
+      "city": "合肥市",
+      "coord": [
+        117.341868,
+        31.906689
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 31,
+          "node": 9340994413,
+          "coord": [
+            117.341868,
+            31.906689
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-li-miao",
+      "name": "十里庙",
+      "name_en": "Shilimiao",
+      "name_pinyin": "shí lǐ miào",
+      "city": "合肥市",
+      "coord": [
+        117.217784,
+        31.856604
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 9,
+          "node": 8554374477,
+          "coord": [
+            117.217784,
+            31.856604
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-men-lu",
+      "name": "石门路",
+      "name_en": null,
+      "name_pinyin": "shí mén lù",
+      "city": "合肥市",
+      "coord": [
+        117.244832,
+        31.772825
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 6,
+          "node": 8007399295,
+          "coord": [
+            117.244832,
+            31.772825
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shi-zheng-wu-zhong-xin",
+      "name": "市政务中心",
+      "name_en": "Shizhengwuzhongxin",
+      "name_pinyin": "shì zhèng wù zhōng xīn",
+      "city": "合肥市",
+      "coord": [
+        117.226478,
+        31.823679
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 17,
+          "node": 8480148686,
+          "coord": [
+            117.226478,
+            31.823679
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shu-shan-xi",
+      "name": "蜀山西",
+      "name_en": "Shushan Xi",
+      "name_pinyin": "shǔ shān xī",
+      "city": "合肥市",
+      "coord": [
+        117.16291,
+        31.853356
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 5,
+          "node": 8554374506,
+          "coord": [
+            117.16291,
+            31.853356
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shuang-dun",
+      "name": "双墩",
+      "name_en": null,
+      "name_pinyin": "shuāng dūn",
+      "city": "合肥市",
+      "coord": [
+        117.24317,
+        32.031553
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 10,
+          "node": 12437515731,
+          "coord": [
+            117.24317,
+            32.031553
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-shuang-feng",
+      "name": "双凤",
+      "name_en": null,
+      "name_pinyin": "shuāng fèng",
+      "city": "合肥市",
+      "coord": [
+        117.251566,
+        31.958547
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 6,
+          "node": 12437515659,
+          "coord": [
+            117.251566,
+            31.958547
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-si-pai-lou",
+      "name": "四牌楼",
+      "name_en": "Sipailou",
+      "name_pinyin": "sì pái lóu",
+      "city": "合肥市",
+      "coord": [
+        117.284358,
+        31.863618
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 15,
+          "node": 8554374435,
+          "coord": [
+            117.284358,
+            31.863618
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-si-quan-qiao",
+      "name": "四泉桥",
+      "name_en": "Siquanqiao",
+      "name_pinyin": "sì quán qiáo",
+      "city": "合肥市",
+      "coord": [
+        117.251392,
+        31.888593
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 24,
+          "node": 8480148729,
+          "coord": [
+            117.251392,
+            31.888593
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-si-shi-bu",
+      "name": "四十埠",
+      "name_en": null,
+      "name_pinyin": "sì shí bù",
+      "city": "合肥市",
+      "coord": [
+        117.151872,
+        31.711255
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 4,
+          "node": 11472959346,
+          "coord": [
+            117.151872,
+            31.711255
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-song-shan-lu",
+      "name": "嵩山路",
+      "name_en": "Songshan Lu",
+      "name_pinyin": "sōng shān lù",
+      "city": "合肥市",
+      "coord": [
+        117.309535,
+        31.742806
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 13,
+          "node": 8007399289,
+          "coord": [
+            117.309535,
+            31.742806
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-song-yin-qiao",
+      "name": "松荫桥",
+      "name_en": "Songyinqiao",
+      "name_pinyin": "sōng yīn qiáo",
+      "city": "合肥市",
+      "coord": [
+        117.216665,
+        31.835405
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 8,
+          "node": 8004298660,
+          "coord": [
+            117.216665,
+            31.835405
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tang-qiao",
+      "name": "唐桥",
+      "name_en": "Tangqiao",
+      "name_pinyin": "táng qiáo",
+      "city": "合肥市",
+      "coord": [
+        117.330055,
+        31.856046
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 26,
+          "node": 9328009645,
+          "coord": [
+            117.330055,
+            31.856046
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tang-xi-he-gong-yuan",
+      "name": "塘西河公园",
+      "name_en": "Tangxihegongyuan",
+      "name_pinyin": "táng xī hé gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.297039,
+        31.733332
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 20,
+          "node": 8506490196,
+          "coord": [
+            117.297039,
+            31.733332
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tao-chong-hu-dong",
+      "name": "陶冲湖东",
+      "name_en": "Taochonghudong",
+      "name_pinyin": "táo chōng hú dōng",
+      "city": "合肥市",
+      "coord": [
+        117.339653,
+        31.928405
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 32,
+          "node": 9340996363,
+          "coord": [
+            117.339653,
+            31.928405
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tao-hua-tan",
+      "name": "桃花潭",
+      "name_en": null,
+      "name_pinyin": "táo huā tán",
+      "city": "合肥市",
+      "coord": [
+        117.132207,
+        31.78432
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 5,
+          "node": 11866002016,
+          "coord": [
+            117.132207,
+            31.78432
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tian-dou-lu",
+      "name": "天都路",
+      "name_en": "Tiandu Lu",
+      "name_pinyin": "tiān dōu lù",
+      "city": "合肥市",
+      "coord": [
+        117.233626,
+        31.77824
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 5,
+          "node": 8007399296,
+          "coord": [
+            117.233626,
+            31.77824
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tian-e-hu",
+      "name": "天鹅湖",
+      "name_en": "Tian'ehu",
+      "name_pinyin": "tiān é hú",
+      "city": "合肥市",
+      "coord": [
+        117.222132,
+        31.810219
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 13,
+          "node": 9328009816,
+          "coord": [
+            117.222132,
+            31.810219
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tian-e-hu-dong",
+      "name": "天鹅湖东",
+      "name_en": "Tian'ehudong",
+      "name_pinyin": "tiān é hú dōng",
+      "city": "合肥市",
+      "coord": [
+        117.233058,
+        31.811072
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 14,
+          "node": 9328009808,
+          "coord": [
+            117.233058,
+            31.811072
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tian-zhu-lu",
+      "name": "天柱路",
+      "name_en": "Tianzhu Lu",
+      "name_pinyin": "tiān zhù lù",
+      "city": "合肥市",
+      "coord": [
+        117.193174,
+        31.855997
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 7,
+          "node": 8554374494,
+          "coord": [
+            117.193174,
+            31.855997
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tong-luo-zhai-lu",
+      "name": "铜锣寨路",
+      "name_en": "Tongluozhai Road",
+      "name_pinyin": "tóng luó zhài lù",
+      "city": "合肥市",
+      "coord": [
+        117.08695,
+        31.767803
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 3,
+          "node": 11866002115,
+          "coord": [
+            117.08695,
+            31.767803
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-tu-shu-guan",
+      "name": "图书馆",
+      "name_en": "Tushuguan",
+      "name_pinyin": "tú shū guǎn",
+      "city": "合肥市",
+      "coord": [
+        117.210108,
+        31.811063
+      ],
+      "lines": [
+        "hf-line-3",
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-3-main",
+        "hf-line-4-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 15,
+          "node": 8480148655,
+          "coord": [
+            117.210092,
+            31.811071
+          ]
+        },
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 12,
+          "node": 9328009828,
+          "coord": [
+            117.210124,
+            31.811055
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 3.5,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wan-da-cheng",
+      "name": "万达城",
+      "name_en": "Wandacheng",
+      "name_pinyin": "wàn dá chéng",
+      "city": "合肥市",
+      "coord": [
+        117.29651,
+        31.707742
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 23,
+          "node": 8506490207,
+          "coord": [
+            117.29651,
+            31.707742
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wan-nian-bu",
+      "name": "万年埠",
+      "name_en": "Wannianbu",
+      "name_pinyin": "wàn nián bù",
+      "city": "合肥市",
+      "coord": [
+        117.296478,
+        31.700559
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 24,
+          "node": 8506490209,
+          "coord": [
+            117.296478,
+            31.700559
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wang-gang",
+      "name": "王岗",
+      "name_en": "Wanggang",
+      "name_pinyin": "wáng gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.38385,
+        31.870604
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 23,
+          "node": 8554374392,
+          "coord": [
+            117.38385,
+            31.870604
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wang-hu-cheng",
+      "name": "望湖城",
+      "name_en": "Wanghucheng",
+      "name_pinyin": "wàng hú chéng",
+      "city": "合肥市",
+      "coord": [
+        117.28682,
+        31.807565
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 13,
+          "node": 8506490140,
+          "coord": [
+            117.28682,
+            31.807565
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wang-hu-cheng-nan",
+      "name": "望湖城南",
+      "name_en": "Wanghuchengnan",
+      "name_pinyin": "wàng hú chéng nán",
+      "city": "合肥市",
+      "coord": [
+        117.296734,
+        31.806775
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 21,
+          "node": 9328009722,
+          "coord": [
+            117.296734,
+            31.806775
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wang-hu-cheng-xi",
+      "name": "望湖城西",
+      "name_en": "Wanghuchengxi",
+      "name_pinyin": "wàng hú chéng xī",
+      "city": "合肥市",
+      "coord": [
+        117.283148,
+        31.811114
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 20,
+          "node": 8478659561,
+          "coord": [
+            117.283148,
+            31.811114
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wei-gang",
+      "name": "卫岗",
+      "name_en": "Weigang",
+      "name_pinyin": "wèi gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.279856,
+        31.832455
+      ],
+      "lines": [
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-6-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 13,
+          "node": 8004298664,
+          "coord": [
+            117.279856,
+            31.832455
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wei-zhuang",
+      "name": "魏庄",
+      "name_en": "Weizhuang",
+      "name_pinyin": "wèi zhuāng",
+      "city": "合肥市",
+      "coord": [
+        117.089244,
+        31.761457
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 2,
+          "node": 11866002107,
+          "coord": [
+            117.089244,
+            31.761457
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wen-hui-yuan",
+      "name": "文浍苑",
+      "name_en": "Wenhuiyuan",
+      "name_pinyin": "wén huì yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.362677,
+        31.911764
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 36,
+          "node": 8480148817,
+          "coord": [
+            117.362677,
+            31.911764
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wu-li-dun",
+      "name": "五里墩",
+      "name_en": "Wulidun",
+      "name_pinyin": "wǔ lǐ dūn",
+      "city": "合肥市",
+      "coord": [
+        117.235561,
+        31.852894
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 11,
+          "node": 8554374465,
+          "coord": [
+            117.235561,
+            31.852894
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-wu-li-miao",
+      "name": "五里庙",
+      "name_en": "Wulimiao",
+      "name_pinyin": "wǔ lǐ miào",
+      "city": "合肥市",
+      "coord": [
+        117.318466,
+        31.839256
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 25,
+          "node": 9328009656,
+          "coord": [
+            117.318466,
+            31.839256
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xi-qi-li-tang",
+      "name": "西七里塘",
+      "name_en": "Xiqilitang",
+      "name_pinyin": "xī qī lǐ táng",
+      "city": "合肥市",
+      "coord": [
+        117.225339,
+        31.854377
+      ],
+      "lines": [
+        "hf-line-2",
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-2-main",
+        "hf-line-3-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 10,
+          "node": 8554374474,
+          "coord": [
+            117.225252,
+            31.854305
+          ]
+        },
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 20,
+          "node": 8480148690,
+          "coord": [
+            117.225426,
+            31.854449
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 22.9,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xi-you-lu",
+      "name": "习友路",
+      "name_en": "Nanyanhunan",
+      "name_pinyin": "xí yǒu lù",
+      "city": "合肥市",
+      "coord": [
+        117.264792,
+        31.757971
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 9,
+          "node": 8007399292,
+          "coord": [
+            117.264792,
+            31.757971
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xiang-cheng-lu",
+      "name": "相城路",
+      "name_en": "Xiangchenglu",
+      "name_pinyin": "xiāng chéng lù",
+      "city": "合肥市",
+      "coord": [
+        117.401957,
+        31.926909
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 40,
+          "node": 8478659971,
+          "coord": [
+            117.401957,
+            31.926909
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xiang-he",
+      "name": "祥和",
+      "name_en": "Xianghe",
+      "name_pinyin": "xiáng hé",
+      "city": "合肥市",
+      "coord": [
+        117.42394,
+        31.875836
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 26,
+          "node": 11455273516,
+          "coord": [
+            117.42394,
+            31.875836
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xin-hai-da-dao",
+      "name": "新海大道",
+      "name_en": "Xinhaidadao",
+      "name_pinyin": "xīn hǎi dà dào",
+      "city": "合肥市",
+      "coord": [
+        117.353554,
+        31.892186
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 34,
+          "node": 8480148805,
+          "coord": [
+            117.353554,
+            31.892186
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xin-hai-gong-yuan",
+      "name": "新海公园",
+      "name_en": "Xinhaigongyuan",
+      "name_pinyin": "xīn hǎi gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.337118,
+        31.898585
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 30,
+          "node": 9327972810,
+          "coord": [
+            117.337118,
+            31.898585
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xing-fu-ba",
+      "name": "幸福坝",
+      "name_en": "Xingfuba",
+      "name_pinyin": "xìng fú bà",
+      "city": "合肥市",
+      "coord": [
+        117.175565,
+        31.753137
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 8,
+          "node": 8480125200,
+          "coord": [
+            117.175565,
+            31.753137
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xing-hua-cun",
+      "name": "杏花村",
+      "name_en": "Xinghuacun",
+      "name_pinyin": "xìng huā cūn",
+      "city": "合肥市",
+      "coord": [
+        117.240655,
+        31.883012
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 23,
+          "node": 8480148714,
+          "coord": [
+            117.240655,
+            31.883012
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xing-hua-gong-yuan",
+      "name": "杏花公园",
+      "name_en": "Xinghua Park",
+      "name_pinyin": "xìng huā gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.273096,
+        31.873053
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 27,
+          "node": 8480149129,
+          "coord": [
+            117.273096,
+            31.873053
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xing-hua-yuan",
+      "name": "兴华苑",
+      "name_en": "Xinghuayuan",
+      "name_pinyin": "xīng huá yuàn",
+      "city": "合肥市",
+      "coord": [
+        117.308131,
+        31.905484
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 2,
+          "node": 11013888991,
+          "coord": [
+            117.308131,
+            31.905484
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xing-lin",
+      "name": "杏林",
+      "name_en": null,
+      "name_pinyin": "xìng lín",
+      "city": "合肥市",
+      "coord": [
+        117.278573,
+        31.905428
+      ],
+      "lines": [
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-8-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 2,
+          "node": 12437515566,
+          "coord": [
+            117.278573,
+            31.905428
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xiu-ning-lu",
+      "name": "休宁路",
+      "name_en": "Xiuninglu",
+      "name_pinyin": "xiū níng lù",
+      "city": "合肥市",
+      "coord": [
+        117.263513,
+        31.820466
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 22,
+          "node": 8480149175,
+          "coord": [
+            117.263513,
+            31.820466
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-xue-he",
+      "name": "薛河",
+      "name_en": "Xuehe",
+      "name_pinyin": "xuē hé",
+      "city": "合肥市",
+      "coord": [
+        117.263398,
+        31.809686
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 17,
+          "node": 9328009797,
+          "coord": [
+            117.263398,
+            31.809686
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-ya-lin-chong",
+      "name": "鸭林冲",
+      "name_en": "Yalinchong",
+      "name_pinyin": "yā lín chōng",
+      "city": "合肥市",
+      "coord": [
+        117.302593,
+        31.8896
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 29,
+          "node": 8480148757,
+          "coord": [
+            117.302593,
+            31.8896
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yang-zi-jiang-lu",
+      "name": "扬子江路",
+      "name_en": "Yangzijianglu",
+      "name_pinyin": "yáng zi jiāng lù",
+      "city": "合肥市",
+      "coord": [
+        117.333206,
+        31.754764
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 12,
+          "node": 8478652707,
+          "coord": [
+            117.333206,
+            31.754764
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yao-du-he-lu",
+      "name": "尧渡河路",
+      "name_en": "Yaoduhelu",
+      "name_pinyin": "yáo dù hé lù",
+      "city": "合肥市",
+      "coord": [
+        117.318692,
+        31.826967
+      ],
+      "lines": [
+        "hf-line-4",
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-4-main",
+        "hf-line-6-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 24,
+          "node": 9328009674,
+          "coord": [
+            117.31871,
+            31.827024
+          ]
+        },
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 15,
+          "node": 5523927131,
+          "coord": [
+            117.318674,
+            31.82691
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 13.1,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yao-gong-miao",
+      "name": "姚公庙",
+      "name_en": "Yaogongmiao",
+      "name_pinyin": "yáo gōng miào",
+      "city": "合肥市",
+      "coord": [
+        117.243765,
+        31.810619
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 15,
+          "node": 9328009805,
+          "coord": [
+            117.243765,
+            31.810619
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yao-hai-gong-yuan",
+      "name": "瑶海公园",
+      "name_en": "Yaohaigongyuan",
+      "name_pinyin": "yáo hǎi gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.308822,
+        31.892166
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 3,
+          "node": 8506490051,
+          "coord": [
+            117.308822,
+            31.892166
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yao-su-da-shi-chang",
+      "name": "要素大市场",
+      "name_en": "Yaosu Dashichang",
+      "name_pinyin": "yào sù dà shì chǎng",
+      "city": "合肥市",
+      "coord": [
+        117.280458,
+        31.7521
+      ],
+      "lines": [
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-7-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 10,
+          "node": 8007399291,
+          "coord": [
+            117.280458,
+            31.7521
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yi-cheng",
+      "name": "义城",
+      "name_en": "Yicheng",
+      "name_pinyin": "yì chéng",
+      "city": "合肥市",
+      "coord": [
+        117.333173,
+        31.742719
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 11,
+          "node": 8478659527,
+          "coord": [
+            117.333173,
+            31.742719
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yi-li-jing",
+      "name": "一里井",
+      "name_en": "Yilijing",
+      "name_pinyin": "yī lǐ jǐng",
+      "city": "合肥市",
+      "coord": [
+        117.281634,
+        31.889572
+      ],
+      "lines": [
+        "hf-line-3",
+        "hf-line-8"
+      ],
+      "branches": [
+        "hf-line-3-main",
+        "hf-line-8-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 27,
+          "node": 8480148739,
+          "coord": [
+            117.281728,
+            31.889027
+          ]
+        },
+        {
+          "line": "hf-line-8",
+          "branch": "hf-line-8-main",
+          "seq": 1,
+          "node": 12437515562,
+          "coord": [
+            117.281541,
+            31.890117
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 122.5,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yi-xing",
+      "name": "义兴",
+      "name_en": "Yixing",
+      "name_pinyin": "yì xīng",
+      "city": "合肥市",
+      "coord": [
+        117.319144,
+        31.796588
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 16,
+          "node": 8478659553,
+          "coord": [
+            117.319144,
+            31.796588
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-you-er-shi-fan",
+      "name": "幼儿师范",
+      "name_en": "You'ershifan",
+      "name_pinyin": "yòu ér shī fàn",
+      "city": "合肥市",
+      "coord": [
+        117.366838,
+        31.923211
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 37,
+          "node": 8478659969,
+          "coord": [
+            117.366838,
+            31.923211
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yu-lan-da-dao",
+      "name": "玉兰大道",
+      "name_en": "Yulandadao",
+      "name_pinyin": "yù lán dà dào",
+      "city": "合肥市",
+      "coord": [
+        117.170231,
+        31.822588
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 9,
+          "node": 9328009863,
+          "coord": [
+            117.170231,
+            31.822588
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yun-chuan-gong-yuan",
+      "name": "云川公园",
+      "name_en": "Yunchuan Park",
+      "name_pinyin": "yún chuān gōng yuán",
+      "city": "合肥市",
+      "coord": [
+        117.269971,
+        31.715095
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 3,
+          "node": 8478652654,
+          "coord": [
+            117.269971,
+            31.715095
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-yun-gu-lu",
+      "name": "云谷路",
+      "name_en": "Yungulu",
+      "name_pinyin": "yún gǔ lù",
+      "city": "合肥市",
+      "coord": [
+        117.296562,
+        31.715085
+      ],
+      "lines": [
+        "hf-line-1",
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-1-main",
+        "hf-line-5-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 22,
+          "node": 8506489780,
+          "coord": [
+            117.296582,
+            31.715106
+          ]
+        },
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 5,
+          "node": 8478652645,
+          "coord": [
+            117.296543,
+            31.715064
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 6.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhan-tang",
+      "name": "站塘",
+      "name_en": "Zhantang",
+      "name_pinyin": "zhàn táng",
+      "city": "合肥市",
+      "coord": [
+        117.33524,
+        31.877889
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 28,
+          "node": 9328009628,
+          "coord": [
+            117.33524,
+            31.877889
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhang-huai",
+      "name": "长淮",
+      "name_en": "Changhuai",
+      "name_pinyin": "zhǎng huái",
+      "city": "合肥市",
+      "coord": [
+        117.303652,
+        31.877419
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 5,
+          "node": 8506490064,
+          "coord": [
+            117.303652,
+            31.877419
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhang-wa",
+      "name": "张洼",
+      "name_en": "Zhangwa",
+      "name_pinyin": "zhāng wā",
+      "city": "合肥市",
+      "coord": [
+        117.316573,
+        31.919996
+      ],
+      "lines": [
+        "hf-line-1"
+      ],
+      "branches": [
+        "hf-line-1-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 1,
+          "node": 11013888994,
+          "coord": [
+            117.316573,
+            31.919996
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhen-xing-lu",
+      "name": "振兴路",
+      "name_en": "Zhenxing Lu",
+      "name_pinyin": "zhèn xīng lù",
+      "city": "合肥市",
+      "coord": [
+        117.146154,
+        31.853057
+      ],
+      "lines": [
+        "hf-line-2"
+      ],
+      "branches": [
+        "hf-line-2-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-2",
+          "branch": "hf-line-2-main",
+          "seq": 4,
+          "node": 8554374508,
+          "coord": [
+            117.146154,
+            31.853057
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zheng-he",
+      "name": "郑河",
+      "name_en": "Zhenghe",
+      "name_pinyin": "zhèng hé",
+      "city": "合肥市",
+      "coord": [
+        117.262722,
+        31.888753
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 25,
+          "node": 8480148734,
+          "coord": [
+            117.262722,
+            31.888753
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhi-jiao-cheng",
+      "name": "职教城",
+      "name_en": "Zhijiaocheng",
+      "name_pinyin": "zhí jiào chéng",
+      "city": "合肥市",
+      "coord": [
+        117.377556,
+        31.926965
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 38,
+          "node": 8478659967,
+          "coord": [
+            117.377556,
+            31.926965
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhi-jiao-cheng-dong",
+      "name": "职教城东",
+      "name_en": "Zhijiaochengdong",
+      "name_pinyin": "zhí jiào chéng dōng",
+      "city": "合肥市",
+      "coord": [
+        117.391593,
+        31.926923
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 39,
+          "node": 8478659973,
+          "coord": [
+            117.391593,
+            31.926923
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhong-guo-ke-da-dong-qu",
+      "name": "中国科大东区",
+      "name_en": "USTC-East Campus",
+      "name_pinyin": "zhōng guó kē dà dōng qū",
+      "city": "合肥市",
+      "coord": [
+        117.267571,
+        31.843837
+      ],
+      "lines": [
+        "hf-line-5"
+      ],
+      "branches": [
+        "hf-line-5-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-5",
+          "branch": "hf-line-5-main",
+          "seq": 24,
+          "node": 8480149132,
+          "coord": [
+            117.267571,
+            31.843837
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhu-gang",
+      "name": "朱岗",
+      "name_en": "Zhugang",
+      "name_pinyin": "zhū gǎng",
+      "city": "合肥市",
+      "coord": [
+        117.296244,
+        31.834083
+      ],
+      "lines": [
+        "hf-line-1",
+        "hf-line-6"
+      ],
+      "branches": [
+        "hf-line-1-main",
+        "hf-line-6-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 10,
+          "node": 8506490090,
+          "coord": [
+            117.296233,
+            31.834083
+          ]
+        },
+        {
+          "line": "hf-line-6",
+          "branch": "hf-line-6-main",
+          "seq": 14,
+          "node": 2987302600,
+          "coord": [
+            117.296255,
+            31.834084
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 2.1,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhu-si-tan",
+      "name": "竹丝滩",
+      "name_en": "Zhusitan",
+      "name_pinyin": "zhú sī tān",
+      "city": "合肥市",
+      "coord": [
+        117.325546,
+        31.887194
+      ],
+      "lines": [
+        "hf-line-3"
+      ],
+      "branches": [
+        "hf-line-3-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-3",
+          "branch": "hf-line-3-main",
+          "seq": 31,
+          "node": 8480148786,
+          "coord": [
+            117.325546,
+            31.887194
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zhu-xi",
+      "name": "竹西",
+      "name_en": "Zhuxi",
+      "name_pinyin": "zhú xī",
+      "city": "合肥市",
+      "coord": [
+        117.270934,
+        31.805221
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 18,
+          "node": 9328009769,
+          "coord": [
+            117.270934,
+            31.805221
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zi-lu",
+      "name": "紫庐",
+      "name_en": "Zilu",
+      "name_pinyin": "zǐ lú",
+      "city": "合肥市",
+      "coord": [
+        117.297398,
+        31.742807
+      ],
+      "lines": [
+        "hf-line-1",
+        "hf-line-7"
+      ],
+      "branches": [
+        "hf-line-1-main",
+        "hf-line-7-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "hf-line-1",
+          "branch": "hf-line-1-main",
+          "seq": 19,
+          "node": 8506490193,
+          "coord": [
+            117.297078,
+            31.742794
+          ]
+        },
+        {
+          "line": "hf-line-7",
+          "branch": "hf-line-7-main",
+          "seq": 12,
+          "node": 3634890870,
+          "coord": [
+            117.297719,
+            31.742819
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 2,
+        "spread_m": 60.7,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    },
+    {
+      "id": "hf-station-zong-bao-qu",
+      "name": "综保区",
+      "name_en": "Hefei Integrated Free Trade Zone",
+      "name_pinyin": "zōng bǎo qū",
+      "city": "合肥市",
+      "coord": [
+        117.348368,
+        31.952785
+      ],
+      "lines": [
+        "hf-line-4"
+      ],
+      "branches": [
+        "hf-line-4-main"
+      ],
+      "is_transfer": false,
+      "slots": [
+        {
+          "line": "hf-line-4",
+          "branch": "hf-line-4-main",
+          "seq": 34,
+          "node": 9340996367,
+          "coord": [
+            117.348368,
+            31.952785
+          ]
+        }
+      ],
+      "merge": {
+        "method": "auto_150",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": false
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "20261101"
+    }
+  ]
+}

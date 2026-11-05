@@ -26,6 +26,10 @@
 | `data/processed/guangzhou/attribution-report.json` | 广州逐站归属（含佛山 22 站） | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/05_attribution.py` |
 | `data/manual/guangzhou/lines.csv` | 广州 19 条线路的开通日期、官方里程、运营单位、色名 | 百度百科信息框（开通日期/全长/运营机构/标志色） | 事实性字段，随 ODbL 衍生物使用；10 号线开通日期与 OSM `start_date` 互证 | 2026-11-04 | 人工整理 |
 | `data/manual/guangzhou/colours.json` | 广州 19 条线路的颜色口径与英文名 | 百度百科「标志色」字段 + OSM `colour` | 事实性字段，按 ODbL 与 OSM 一致；色名来自百科 | 2026-11-04 | 人工整理 |
+| `data/manual/hefei/lines.csv` | 合肥 8 条线路的开通日期、官方里程、运营单位、色名 | 百度百科信息框（开通日期/线路长度/运营机构/标志色） | 事实性字段，随 ODbL 衍生物使用 | 2026-11-05 | `09`/`12` 读取 |
+| `data/manual/hefei/colours.json` | 合肥 8 条线路的颜色口径（7 条经百科色名核对、5 号线存疑）与英文名 | 百度百科「标志色」+ OSM `colour` | 事实性字段，按 ODbL 与 OSM 一致 | 2026-11-05 | `12` 读取 |
+| `data/manual/hefei/relation-mapping.csv` | 合肥 18 条关系的判定（保留 8 / 合并 8 / 丢弃 2） | `06_export_mapping.py` 生成骨架 + 人工判定 | 数据判定，无第三方许可问题 | 2026-11-05 | `07`/`08` 读取 |
+| `data/manual/hefei/transfers.json` | 合肥换乘类型表（本城 0 条，仅占位） | 人工判定 | — | 2026-11-05 | `11` 读取（缺失时回退上海字面量） |
 | `data/manual/shanghai-relation-mapping.csv` | S2-2 的关系映射表：上海子集 65 条关系 + 人工判定列（`decide` / `target_line` / `target_branch` / `note`） | 前 12 列由 `relation-index.json` 导出；后 4 列人工填写；`hint` 列是机器提示 | **ODbL-1.0**（OSM 衍生） | 数据基准 2026-11-01；判定日期见 `note` | `pipeline/06_export_mapping.py` |
 | `docs/mappings/shanghai-relations.md` | 上面那份 CSV 的人可读视图（判定汇总 + 待决策 + 丢弃理由 + 全部明细） | 由 CSV 渲染 | **ODbL-1.0** | 同 CSV | `pipeline/07_check_mapping.py --write-md` |
 | `data/processed/shanghai/lines.json` | S2-2 骨架 + S2-6 属性回填：20 条 line / 23 个 branch，含有序站名、环线起点、来源关系 id、服务等级、逐站归属、`colour`/`opened`/`length_km`(实测)/`length_km_official`/`operator`/`name_en` | 由 `shanghai-relation-mapping.csv` + `relation-index.json` 派生 | **ODbL-1.0** | 2026-11-01 | `pipeline/08_build_lines.py` |

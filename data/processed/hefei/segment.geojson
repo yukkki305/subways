@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "name": "shanghai-segments",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-05T20:14:53+08:00",
+ "generated_at": "2026-11-05T23:06:10+08:00",
  "rules": "ADR R2（segment id = <branch_id>-<三位序号>）、R3（环线末段回到 loop_start）",
  "counts": {
   "segments": 207,
@@ -24,6 +24,8 @@
     "length_m": 1811.2,
     "node_count": 24,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -144,6 +146,8 @@
     "length_m": 1755.8,
     "node_count": 14,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -224,6 +228,8 @@
     "length_m": 934.4,
     "node_count": 14,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -304,6 +310,8 @@
     "length_m": 1075.2,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -336,6 +344,8 @@
     "length_m": 720.9,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -368,6 +378,8 @@
     "length_m": 789.1,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -420,6 +432,8 @@
     "length_m": 896.2,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -484,6 +498,8 @@
     "length_m": 994.0,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -532,6 +548,8 @@
     "length_m": 1690.3,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -580,6 +598,8 @@
     "length_m": 969.6,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -628,6 +648,8 @@
     "length_m": 1002.5,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -684,6 +706,8 @@
     "length_m": 1678.2,
     "node_count": 40,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -868,6 +892,8 @@
     "length_m": 860.3,
     "node_count": 16,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -956,6 +982,8 @@
     "length_m": 704.0,
     "node_count": 17,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1048,6 +1076,8 @@
     "length_m": 1052.4,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1104,6 +1134,8 @@
     "length_m": 1129.5,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1140,6 +1172,8 @@
     "length_m": 2391.2,
     "node_count": 26,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1268,6 +1302,8 @@
     "length_m": 1531.9,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1308,6 +1344,8 @@
     "length_m": 1052.1,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1348,6 +1386,8 @@
     "length_m": 942.6,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1388,6 +1428,8 @@
     "length_m": 1087.0,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1448,6 +1490,8 @@
     "length_m": 818.9,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1480,6 +1524,8 @@
     "length_m": 798.8,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1516,6 +1562,8 @@
     "length_m": 1069.8,
     "node_count": 14,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1596,6 +1644,8 @@
     "length_m": 1060.0,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1632,6 +1682,8 @@
     "length_m": 1059.7,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1672,6 +1724,8 @@
     "length_m": 884.5,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1712,6 +1766,8 @@
     "length_m": 1454.8,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1752,6 +1808,8 @@
     "length_m": 1583.0,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1788,6 +1846,8 @@
     "length_m": 1662.3,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1852,6 +1912,8 @@
     "length_m": 1225.7,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1892,6 +1954,8 @@
     "length_m": 1019.7,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -1932,6 +1996,8 @@
     "length_m": 1362.5,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2016,6 +2082,8 @@
     "length_m": 750.2,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2056,6 +2124,8 @@
     "length_m": 992.8,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2120,6 +2190,8 @@
     "length_m": 1490.4,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2192,6 +2264,8 @@
     "length_m": 953.2,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2232,6 +2306,8 @@
     "length_m": 1012.7,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2284,6 +2360,8 @@
     "length_m": 1378.5,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2356,6 +2434,8 @@
     "length_m": 1136.9,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2428,6 +2508,8 @@
     "length_m": 1234.7,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2496,6 +2578,8 @@
     "length_m": 1027.1,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2548,6 +2632,8 @@
     "length_m": 1122.9,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2596,6 +2682,8 @@
     "length_m": 1405.0,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2636,6 +2724,8 @@
     "length_m": 1463.9,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2676,6 +2766,8 @@
     "length_m": 817.2,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2716,6 +2808,8 @@
     "length_m": 1300.1,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2752,6 +2846,8 @@
     "length_m": 727.7,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2800,6 +2896,8 @@
     "length_m": 2166.9,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2864,6 +2962,8 @@
     "length_m": 954.7,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2920,6 +3020,8 @@
     "length_m": 1341.6,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -2988,6 +3090,8 @@
     "length_m": 1316.7,
     "node_count": 25,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3112,6 +3216,8 @@
     "length_m": 1588.5,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3184,6 +3290,8 @@
     "length_m": 1235.6,
     "node_count": 32,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3336,6 +3444,8 @@
     "length_m": 1395.3,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3392,6 +3502,8 @@
     "length_m": 1108.3,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3476,6 +3588,8 @@
     "length_m": 801.4,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3516,6 +3630,8 @@
     "length_m": 1221.3,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3560,6 +3676,8 @@
     "length_m": 1257.5,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3612,6 +3730,8 @@
     "length_m": 811.1,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3644,6 +3764,8 @@
     "length_m": 1255.1,
     "node_count": 34,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3804,6 +3926,8 @@
     "length_m": 1288.5,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3856,6 +3980,8 @@
     "length_m": 1195.2,
     "node_count": 20,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -3960,6 +4086,8 @@
     "length_m": 827.7,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4004,6 +4132,8 @@
     "length_m": 2298.4,
     "node_count": 57,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4256,6 +4386,8 @@
     "length_m": 1548.7,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4300,6 +4432,8 @@
     "length_m": 1385.6,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4340,6 +4474,8 @@
     "length_m": 1412.9,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4416,6 +4552,8 @@
     "length_m": 1198.4,
     "node_count": 14,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4496,6 +4634,8 @@
     "length_m": 803.3,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4536,6 +4676,8 @@
     "length_m": 841.5,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4576,6 +4718,8 @@
     "length_m": 1369.1,
     "node_count": 16,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4664,6 +4808,8 @@
     "length_m": 905.2,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4712,6 +4858,8 @@
     "length_m": 1196.7,
     "node_count": 39,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4892,6 +5040,8 @@
     "length_m": 1329.6,
     "node_count": 19,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -4992,6 +5142,8 @@
     "length_m": 1170.3,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5024,6 +5176,8 @@
     "length_m": 967.8,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5060,6 +5214,8 @@
     "length_m": 1284.9,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5096,6 +5252,8 @@
     "length_m": 1029.8,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5136,6 +5294,8 @@
     "length_m": 1195.0,
     "node_count": 16,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5224,6 +5384,8 @@
     "length_m": 1433.2,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5280,6 +5442,8 @@
     "length_m": 1265.4,
     "node_count": 16,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5368,6 +5532,8 @@
     "length_m": 1069.9,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5416,6 +5582,8 @@
     "length_m": 961.3,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5456,6 +5624,8 @@
     "length_m": 833.3,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5492,6 +5662,8 @@
     "length_m": 833.9,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5536,6 +5708,8 @@
     "length_m": 1194.9,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5620,6 +5794,8 @@
     "length_m": 830.9,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5672,6 +5848,8 @@
     "length_m": 1842.8,
     "node_count": 24,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5792,6 +5970,8 @@
     "length_m": 1039.7,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5828,6 +6008,8 @@
     "length_m": 963.0,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5864,6 +6046,8 @@
     "length_m": 1053.8,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -5948,6 +6132,8 @@
     "length_m": 782.6,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6008,6 +6194,8 @@
     "length_m": 1577.0,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6052,6 +6240,8 @@
     "length_m": 1333.5,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6108,6 +6298,8 @@
     "length_m": 1246.1,
     "node_count": 27,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6240,6 +6432,8 @@
     "length_m": 1324.9,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6296,6 +6490,8 @@
     "length_m": 978.2,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6356,6 +6552,8 @@
     "length_m": 982.2,
     "node_count": 25,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6480,6 +6678,8 @@
     "length_m": 749.2,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6540,6 +6740,8 @@
     "length_m": 3229.0,
     "node_count": 42,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6732,6 +6934,8 @@
     "length_m": 1984.7,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6796,6 +7000,8 @@
     "length_m": 2702.7,
     "node_count": 39,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -6976,6 +7182,8 @@
     "length_m": 1449.3,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7020,6 +7228,8 @@
     "length_m": 1609.5,
     "node_count": 35,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7184,6 +7394,8 @@
     "length_m": 1711.5,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7268,6 +7480,8 @@
     "length_m": 1235.8,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7320,6 +7534,8 @@
     "length_m": 1124.3,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7368,6 +7584,8 @@
     "length_m": 1699.8,
     "node_count": 22,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7480,6 +7698,8 @@
     "length_m": 1141.8,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7556,6 +7776,8 @@
     "length_m": 1039.8,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7616,6 +7838,8 @@
     "length_m": 1013.1,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7656,6 +7880,8 @@
     "length_m": 775.7,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7696,6 +7922,8 @@
     "length_m": 1083.4,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7744,6 +7972,8 @@
     "length_m": 1066.2,
     "node_count": 29,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -7884,6 +8114,8 @@
     "length_m": 725.0,
     "node_count": 31,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8032,6 +8264,8 @@
     "length_m": 851.8,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8076,6 +8310,8 @@
     "length_m": 1319.9,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8160,6 +8396,8 @@
     "length_m": 1133.8,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8228,6 +8466,8 @@
     "length_m": 1577.8,
     "node_count": 36,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8396,6 +8636,8 @@
     "length_m": 1134.3,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8436,6 +8678,8 @@
     "length_m": 1395.8,
     "node_count": 21,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8544,6 +8788,8 @@
     "length_m": 2190.2,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8616,6 +8862,8 @@
     "length_m": 1648.6,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8676,6 +8924,8 @@
     "length_m": 865.1,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8744,6 +8994,8 @@
     "length_m": 1044.7,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8816,6 +9068,8 @@
     "length_m": 1300.1,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8876,6 +9130,8 @@
     "length_m": 1011.1,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -8924,6 +9180,8 @@
     "length_m": 3078.6,
     "node_count": 51,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9152,6 +9410,8 @@
     "length_m": 1215.7,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9188,6 +9448,8 @@
     "length_m": 1617.5,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9232,6 +9494,8 @@
     "length_m": 1130.7,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9272,6 +9536,8 @@
     "length_m": 1318.3,
     "node_count": 14,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9352,6 +9618,8 @@
     "length_m": 1011.8,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9388,6 +9656,8 @@
     "length_m": 1501.6,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9420,6 +9690,8 @@
     "length_m": 848.4,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9452,6 +9724,8 @@
     "length_m": 797.4,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9488,6 +9762,8 @@
     "length_m": 1005.3,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9532,6 +9808,8 @@
     "length_m": 1129.1,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9608,6 +9886,8 @@
     "length_m": 1458.7,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9648,6 +9928,8 @@
     "length_m": 1050.6,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9688,6 +9970,8 @@
     "length_m": 1339.3,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9728,6 +10012,8 @@
     "length_m": 1537.1,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9796,6 +10082,8 @@
     "length_m": 845.2,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9832,6 +10120,8 @@
     "length_m": 1380.9,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9888,6 +10178,8 @@
     "length_m": 1438.7,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9964,6 +10256,8 @@
     "length_m": 710.1,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -9996,6 +10290,8 @@
     "length_m": 1479.4,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10064,6 +10360,8 @@
     "length_m": 1512.9,
     "node_count": 17,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10156,6 +10454,8 @@
     "length_m": 1201.6,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10220,6 +10520,8 @@
     "length_m": 1366.5,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10292,6 +10594,8 @@
     "length_m": 1008.3,
     "node_count": 19,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10392,6 +10696,8 @@
     "length_m": 1133.7,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10448,6 +10754,8 @@
     "length_m": 1546.7,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10508,6 +10816,8 @@
     "length_m": 849.2,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10564,6 +10874,8 @@
     "length_m": 1436.9,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10640,6 +10952,8 @@
     "length_m": 1048.6,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10700,6 +11014,8 @@
     "length_m": 944.3,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10740,6 +11056,8 @@
     "length_m": 820.1,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10776,6 +11094,8 @@
     "length_m": 1219.0,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10820,6 +11140,8 @@
     "length_m": 2219.1,
     "node_count": 19,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -10920,6 +11242,8 @@
     "length_m": 1613.0,
     "node_count": 16,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11008,6 +11332,8 @@
     "length_m": 1379.5,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11064,6 +11390,8 @@
     "length_m": 1142.5,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11108,6 +11436,8 @@
     "length_m": 1408.1,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11148,6 +11478,8 @@
     "length_m": 1785.8,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11188,6 +11520,8 @@
     "length_m": 2958.0,
     "node_count": 68,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11484,6 +11818,8 @@
     "length_m": 3258.4,
     "node_count": 38,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11660,6 +11996,8 @@
     "length_m": 1705.1,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11704,6 +12042,8 @@
     "length_m": 1833.1,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11768,6 +12108,8 @@
     "length_m": 890.2,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11804,6 +12146,8 @@
     "length_m": 1401.9,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11848,6 +12192,8 @@
     "length_m": 1110.2,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11904,6 +12250,8 @@
     "length_m": 1218.0,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -11944,6 +12292,8 @@
     "length_m": 1469.2,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12016,6 +12366,8 @@
     "length_m": 1600.3,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12084,6 +12436,8 @@
     "length_m": 2424.5,
     "node_count": 23,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12200,6 +12554,8 @@
     "length_m": 3623.5,
     "node_count": 39,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12380,6 +12736,8 @@
     "length_m": 1274.6,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12420,6 +12778,8 @@
     "length_m": 1051.8,
     "node_count": 3,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12456,6 +12816,8 @@
     "length_m": 1414.4,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12520,6 +12882,8 @@
     "length_m": 1577.6,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12572,6 +12936,8 @@
     "length_m": 1762.6,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12616,6 +12982,8 @@
     "length_m": 1169.9,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12648,6 +13016,8 @@
     "length_m": 1225.4,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12704,6 +13074,8 @@
     "length_m": 1129.1,
     "node_count": 9,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12764,6 +13136,8 @@
     "length_m": 733.6,
     "node_count": 4,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12804,6 +13178,8 @@
     "length_m": 1597.6,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12880,6 +13256,8 @@
     "length_m": 1222.3,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12912,6 +13290,8 @@
     "length_m": 1510.0,
     "node_count": 11,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -12980,6 +13360,8 @@
     "length_m": 1077.3,
     "node_count": 13,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13056,6 +13438,8 @@
     "length_m": 2018.6,
     "node_count": 10,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13120,6 +13504,8 @@
     "length_m": 1422.6,
     "node_count": 14,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13200,6 +13586,8 @@
     "length_m": 1121.7,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13256,6 +13644,8 @@
     "length_m": 1117.4,
     "node_count": 2,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13288,6 +13678,8 @@
     "length_m": 863.5,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13336,6 +13728,8 @@
     "length_m": 1725.4,
     "node_count": 5,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13380,6 +13774,8 @@
     "length_m": 2232.8,
     "node_count": 7,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13432,6 +13828,8 @@
     "length_m": 1432.6,
     "node_count": 34,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13592,6 +13990,8 @@
     "length_m": 1760.4,
     "node_count": 36,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13760,6 +14160,8 @@
     "length_m": 2346.1,
     "node_count": 22,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13872,6 +14274,8 @@
     "length_m": 2166.8,
     "node_count": 15,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -13956,6 +14360,8 @@
     "length_m": 2110.6,
     "node_count": 8,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -14012,6 +14418,8 @@
     "length_m": 1898.4,
     "node_count": 12,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -14084,6 +14492,8 @@
     "length_m": 2174.2,
     "node_count": 42,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -14276,6 +14686,8 @@
     "length_m": 1687.1,
     "node_count": 6,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"
@@ -14324,6 +14736,8 @@
     "length_m": 2852.2,
     "node_count": 63,
     "is_loop_close": false,
+    "geometry_source": "pbf_way",
+    "needs_review": false,
     "source": "OpenStreetMap（省级 PBF）",
     "source_license": "ODbL-1.0",
     "as_of": "20261101"

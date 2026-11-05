@@ -1,84 +1,86 @@
 {
- "_comment": "成都官网线路图（http://www.cdmetro.cn/images/1456xlt.png，16468×11867，2026-11 版）图例逐色采样；8 条线与 OSM 差异 >30 或图上笔色与 OSM 不符，改用官图色；其余 8 条 OSM 与官图一致，保持 OSM。色名取百度百科「标志色」。",
- "_official_map_note": "`cdmetro.cn` 的官方线网图 PNG（16468×11867，`http://www.cdmetro.cn/images/1456xlt.png`，2026-11 版）",
- "colour_override": {
-  "cd-line-1": [
-   "#380096",
-   27908,
-   41.4
-  ],
-  "cd-line-4": [
-   "#00AE60",
-   25217,
-   69.4
-  ],
-  "cd-line-5": [
-   "#A04694",
-   28267,
-   55.6
-  ],
-  "cd-line-8": [
-   "#9EC400",
-   4270,
-   33.3
-  ],
-  "cd-line-9": [
-   "#EAAE0E",
-   35275,
-   27.1
-  ],
-  "cd-line-18": [
-   "#26686C",
-   20542,
-   38.9
-  ],
-  "cd-line-19": [
-   "#9EA0DA",
-   38120,
-   70.2
-  ],
-  "cd-line-30": [
-   "#E27490",
-   27423,
-   70.1
-  ]
- },
- "colour_unverified": {},
- "colour_confirmed_osm": {},
- "name_en": {
-  "cd-line-1": "Line 1",
-  "cd-line-2": "Line 2",
-  "cd-line-3": "Line 3",
-  "cd-line-4": "Line 4",
-  "cd-line-5": "Line 5",
-  "cd-line-6": "Line 6",
-  "cd-line-7": "Line 7",
-  "cd-line-8": "Line 8",
-  "cd-line-9": "Line 9",
-  "cd-line-10": "Line 10",
-  "cd-line-13": "Line 13",
-  "cd-line-17": "Line 17",
-  "cd-line-18": "Line 18",
-  "cd-line-19": "Line 19",
-  "cd-line-27": "Line 27",
-  "cd-line-30": "Line 30"
- },
- "_colour_official_name": {
-  "cd-line-1": "蓝色",
-  "cd-line-2": "橙色",
-  "cd-line-3": "洋红色",
-  "cd-line-4": "绿色",
-  "cd-line-5": "紫色",
-  "cd-line-6": "棕色",
-  "cd-line-7": "天蓝色",
-  "cd-line-8": "草绿色",
-  "cd-line-9": "土黄色",
-  "cd-line-10": "宝蓝色",
-  "cd-line-13": "藤黄色",
-  "cd-line-17": "翡翠色",
-  "cd-line-18": "暗青色",
-  "cd-line-19": "蓝灰色",
-  "cd-line-27": "霁青色",
-  "cd-line-30": "粉红色"
- }
+  "_comment": "成都官网线路图（http://www.cdmetro.cn/images/1456xlt.png，16468×11867，2026-11 版）图例逐色采样；8 条线与 OSM 差异 >30 或图上笔色与 OSM 不符，改用官图色；其余 8 条 OSM 与官图一致，保持 OSM。色名取百度百科「标志色」。",
+  "_official_map_note": "`cdmetro.cn` 的官方线网图 PNG（16468×11867，`http://www.cdmetro.cn/images/1456xlt.png`，2026-11 版）",
+  "colour_override": {
+    "cd-line-1": [
+      "#380096",
+      27908,
+      41.4
+    ],
+    "cd-line-4": [
+      "#00AE60",
+      25217,
+      69.4
+    ],
+    "cd-line-5": [
+      "#A04694",
+      28267,
+      55.6
+    ],
+    "cd-line-8": [
+      "#9EC400",
+      4270,
+      33.3
+    ],
+    "cd-line-9": [
+      "#EAAE0E",
+      35275,
+      27.1
+    ],
+    "cd-line-18": [
+      "#26686C",
+      20542,
+      38.9
+    ],
+    "cd-line-19": [
+      "#9EA0DA",
+      38120,
+      70.2
+    ],
+    "cd-line-30": [
+      "#E27490",
+      27423,
+      70.1
+    ]
+  },
+  "colour_unverified": {
+    "cd-line-13": "官图图例块为 #B2A432（橄榄），但图上笔色为 #C5A900（与 OSM 一致）；以图上笔色为准，保留 OSM 并标记未核实"
+  },
+  "colour_confirmed_osm": {},
+  "name_en": {
+    "cd-line-1": "Line 1",
+    "cd-line-2": "Line 2",
+    "cd-line-3": "Line 3",
+    "cd-line-4": "Line 4",
+    "cd-line-5": "Line 5",
+    "cd-line-6": "Line 6",
+    "cd-line-7": "Line 7",
+    "cd-line-8": "Line 8",
+    "cd-line-9": "Line 9",
+    "cd-line-10": "Line 10",
+    "cd-line-13": "Line 13",
+    "cd-line-17": "Line 17",
+    "cd-line-18": "Line 18",
+    "cd-line-19": "Line 19",
+    "cd-line-27": "Line 27",
+    "cd-line-30": "Line 30"
+  },
+  "_colour_official_name": {
+    "cd-line-1": "蓝色",
+    "cd-line-2": "橙色",
+    "cd-line-3": "洋红色",
+    "cd-line-4": "绿色",
+    "cd-line-5": "紫色",
+    "cd-line-6": "棕色",
+    "cd-line-7": "天蓝色",
+    "cd-line-8": "草绿色",
+    "cd-line-9": "土黄色",
+    "cd-line-10": "宝蓝色",
+    "cd-line-13": "藤黄色",
+    "cd-line-17": "翡翠色",
+    "cd-line-18": "暗青色",
+    "cd-line-19": "蓝灰色",
+    "cd-line-27": "霁青色",
+    "cd-line-30": "粉红色"
+  }
 }

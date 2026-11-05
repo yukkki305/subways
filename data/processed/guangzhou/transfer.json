@@ -1,8 +1,8 @@
 {
- "city": "上海市",
- "city_code": "sh",
+ "city": "广州市",
+ "city_code": "gz",
  "snapshot_date": "p1a-20261103",
- "generated_at": "2026-11-04T23:23:15+08:00",
+ "generated_at": "2026-11-05T23:06:44+08:00",
  "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
  "stats": {
   "total": 3,
@@ -18,18 +18,18 @@
    "station_a": "gz-station-bai-yun-wen-hua-guang-chang",
    "station_b": "gz-station-bai-yun-wen-hua-guang-chang-2",
    "lines_a": [
-    "gz-line-12"
-   ],
-   "lines_b": [
     "gz-line-2"
    ],
-   "coord_a": [
-    113.271057,
-    23.195852
+   "lines_b": [
+    "gz-line-12"
    ],
-   "coord_b": [
+   "coord_a": [
     113.27023,
     23.192425
+   ],
+   "coord_b": [
+    113.271057,
+    23.195852
    ],
    "dist_m": 388.9,
    "type": "通道",
@@ -47,18 +47,18 @@
    "station_a": "gz-station-nan-cun-wan-bo",
    "station_b": "gz-station-nan-cun-wan-bo-2",
    "lines_a": [
-    "gz-line-18"
-   ],
-   "lines_b": [
     "gz-line-7"
    ],
-   "coord_a": [
-    113.338951,
-    23.00649
+   "lines_b": [
+    "gz-line-18"
    ],
-   "coord_b": [
+   "coord_a": [
     113.342299,
     23.007227
+   ],
+   "coord_b": [
+    113.338951,
+    23.00649
    ],
    "dist_m": 352.8,
    "type": "通道",
@@ -76,18 +76,18 @@
    "station_a": "gz-station-mo-die-sha",
    "station_b": "gz-station-mo-die-sha-2",
    "lines_a": [
-    "gz-line-18"
-   ],
-   "lines_b": [
     "gz-line-8"
    ],
-   "coord_a": [
-    113.338242,
-    23.103619
+   "lines_b": [
+    "gz-line-18"
    ],
-   "coord_b": [
+   "coord_a": [
     113.336252,
     23.101204
+   ],
+   "coord_b": [
+    113.338242,
+    23.103619
    ],
    "dist_m": 336.3,
    "type": "通道",

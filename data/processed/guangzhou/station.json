@@ -2,7 +2,7 @@
   "city": "广州市",
   "city_code": "gz",
   "snapshot_date": "p1a-20261103",
-  "generated_at": "2026-11-04T23:23:15+08:00",
+  "generated_at": "2026-11-05T23:06:43+08:00",
   "rules": "docs/decisions/0001-modeling-rules.md（R4 车站合并、R2 ID）",
   "merge_policy": {
     "merge_m": 150.0,
@@ -208,25 +208,25 @@
       "name_pinyin": "bái yún wén huà guǎng chǎng",
       "city": "广州市",
       "coord": [
-        113.271057,
-        23.195852
+        113.27023,
+        23.192425
       ],
       "lines": [
-        "gz-line-12"
+        "gz-line-2"
       ],
       "branches": [
-        "gz-line-12-b1"
+        "gz-line-2-main"
       ],
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-b1",
-          "seq": 2,
-          "node": 12242793439,
+          "line": "gz-line-2",
+          "branch": "gz-line-2-main",
+          "seq": 20,
+          "node": 5015027202,
           "coord": [
-            113.271057,
-            23.195852
+            113.27023,
+            23.192425
           ]
         }
       ],
@@ -247,25 +247,25 @@
       "name_pinyin": "bái yún wén huà guǎng chǎng",
       "city": "广州市",
       "coord": [
-        113.27023,
-        23.192425
+        113.271057,
+        23.195852
       ],
       "lines": [
-        "gz-line-2"
+        "gz-line-12"
       ],
       "branches": [
-        "gz-line-2-main"
+        "gz-line-12-b1"
       ],
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-2",
-          "branch": "gz-line-2-main",
-          "seq": 20,
-          "node": 5015027202,
+          "line": "gz-line-12",
+          "branch": "gz-line-12-b1",
+          "seq": 2,
+          "node": 12242793439,
           "coord": [
-            113.27023,
-            23.192425
+            113.271057,
+            23.195852
           ]
         }
       ],
@@ -623,16 +623,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 14,
-          "node": 7937450769,
-          "coord": [
-            113.240974,
-            23.137793
-          ]
-        },
-        {
           "line": "gz-line-8",
           "branch": "gz-line-8-main",
           "seq": 11,
@@ -640,6 +630,16 @@
           "coord": [
             113.239903,
             23.136614
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 14,
+          "node": 7937450769,
+          "coord": [
+            113.240974,
+            23.137793
           ]
         }
       ],
@@ -803,16 +803,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-13",
-          "branch": "gz-line-13-main",
-          "seq": 3,
-          "node": 12236375576,
-          "coord": [
-            113.390676,
-            23.12712
-          ]
-        },
-        {
           "line": "gz-line-4",
           "branch": "gz-line-4-main",
           "seq": 22,
@@ -820,6 +810,16 @@
           "coord": [
             113.390024,
             23.126715
+          ]
+        },
+        {
+          "line": "gz-line-13",
+          "branch": "gz-line-13-main",
+          "seq": 3,
+          "node": 12236375576,
+          "coord": [
+            113.390676,
+            23.12712
           ]
         }
       ],
@@ -1112,16 +1112,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-main",
-          "seq": 3,
-          "node": 12152697017,
-          "coord": [
-            113.329512,
-            23.100021
-          ]
-        },
-        {
           "line": "gz-line-8",
           "branch": "gz-line-8-main",
           "seq": 24,
@@ -1129,6 +1119,16 @@
           "coord": [
             113.329252,
             23.099207
+          ]
+        },
+        {
+          "line": "gz-line-12",
+          "branch": "gz-line-12-main",
+          "seq": 3,
+          "node": 12152697017,
+          "coord": [
+            113.329512,
+            23.100021
           ]
         }
       ],
@@ -1667,16 +1667,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 28,
-          "node": 4994872810,
-          "coord": [
-            113.317906,
-            23.080505
-          ]
-        },
-        {
           "line": "gz-line-3",
           "branch": "gz-line-3-main",
           "seq": 18,
@@ -1694,6 +1684,16 @@
           "coord": [
             113.316219,
             23.080659
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 28,
+          "node": 4994872810,
+          "coord": [
+            113.317906,
+            23.080505
           ]
         }
       ],
@@ -1728,16 +1728,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-main",
-          "seq": 8,
-          "node": 12705072380,
-          "coord": [
-            113.380313,
-            23.060155
-          ]
-        },
-        {
           "line": "gz-line-4",
           "branch": "gz-line-4-main",
           "seq": 18,
@@ -1745,6 +1735,16 @@
           "coord": [
             113.380577,
             23.060391
+          ]
+        },
+        {
+          "line": "gz-line-12",
+          "branch": "gz-line-12-main",
+          "seq": 8,
+          "node": 12705072380,
+          "coord": [
+            113.380313,
+            23.060155
           ]
         }
       ],
@@ -1781,16 +1781,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-main",
-          "seq": 9,
-          "node": 12705072391,
-          "coord": [
-            113.394059,
-            23.046295
-          ]
-        },
-        {
           "line": "gz-line-4",
           "branch": "gz-line-4-main",
           "seq": 17,
@@ -1808,6 +1798,16 @@
           "coord": [
             113.394956,
             23.046198
+          ]
+        },
+        {
+          "line": "gz-line-12",
+          "branch": "gz-line-12-main",
+          "seq": 9,
+          "node": 12705072391,
+          "coord": [
+            113.394059,
+            23.046295
           ]
         }
       ],
@@ -2037,16 +2037,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-10",
-          "branch": "gz-line-10-main",
-          "seq": 10,
-          "node": 12705072330,
-          "coord": [
-            113.284189,
-            23.118216
-          ]
-        },
-        {
           "line": "gz-line-6",
           "branch": "gz-line-6-main",
           "seq": 20,
@@ -2054,6 +2044,16 @@
           "coord": [
             113.28345,
             23.117574
+          ]
+        },
+        {
+          "line": "gz-line-10",
+          "branch": "gz-line-10-main",
+          "seq": 10,
+          "node": 12705072330,
+          "coord": [
+            113.284189,
+            23.118216
           ]
         }
       ],
@@ -2295,16 +2295,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-10",
-          "branch": "gz-line-10-main",
-          "seq": 6,
-          "node": 7787549503,
-          "coord": [
-            113.287785,
-            23.073521
-          ]
-        },
-        {
           "line": "gz-line-2",
           "branch": "gz-line-2-main",
           "seq": 7,
@@ -2312,6 +2302,16 @@
           "coord": [
             113.28925,
             23.074005
+          ]
+        },
+        {
+          "line": "gz-line-10",
+          "branch": "gz-line-10-main",
+          "seq": 6,
+          "node": 7787549503,
+          "coord": [
+            113.287785,
+            23.073521
           ]
         }
       ],
@@ -3057,16 +3057,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-main",
-          "seq": 7,
-          "node": 12242793427,
-          "coord": [
-            113.371314,
-            23.070309
-          ]
-        },
-        {
           "line": "gz-line-4",
           "branch": "gz-line-4-main",
           "seq": 19,
@@ -3074,6 +3064,16 @@
           "coord": [
             113.371203,
             23.069557
+          ]
+        },
+        {
+          "line": "gz-line-12",
+          "branch": "gz-line-12-main",
+          "seq": 7,
+          "node": 12242793427,
+          "coord": [
+            113.371314,
+            23.070309
           ]
         }
       ],
@@ -3237,16 +3237,6 @@
           ]
         },
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 7,
-          "node": 6898751631,
-          "coord": [
-            113.319729,
-            23.155181
-          ]
-        },
-        {
           "line": "gz-line-3",
           "branch": "gz-line-3-main",
           "seq": 12,
@@ -3254,6 +3244,16 @@
           "coord": [
             113.318935,
             23.153786
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 7,
+          "node": 6898751631,
+          "coord": [
+            113.319729,
+            23.155181
           ]
         }
       ],
@@ -3351,16 +3351,6 @@
           ]
         },
         {
-          "line": "gz-line-22",
-          "branch": "gz-line-22-main",
-          "seq": 6,
-          "node": 7775183880,
-          "coord": [
-            113.266696,
-            22.991593
-          ]
-        },
-        {
           "line": "gz-line-7",
           "branch": "gz-line-7-main",
           "seq": 9,
@@ -3368,6 +3358,16 @@
           "coord": [
             113.264681,
             22.991659
+          ]
+        },
+        {
+          "line": "gz-line-22",
+          "branch": "gz-line-22-main",
+          "seq": 6,
+          "node": 7775183880,
+          "coord": [
+            113.266696,
+            22.991593
           ]
         }
       ],
@@ -4469,16 +4469,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 5,
-          "node": 7169196984,
-          "coord": [
-            113.338938,
-            23.142909
-          ]
-        },
-        {
           "line": "gz-line-3",
           "branch": "gz-line-3-b1",
           "seq": 3,
@@ -4486,6 +4476,16 @@
           "coord": [
             113.339939,
             23.143082
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 5,
+          "node": 7169196984,
+          "coord": [
+            113.338938,
+            23.142909
           ]
         }
       ],
@@ -4598,16 +4598,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-21",
-          "branch": "gz-line-21-main",
-          "seq": 3,
-          "node": 5704405554,
-          "coord": [
-            113.401089,
-            23.136208
-          ]
-        },
-        {
           "line": "gz-line-4",
           "branch": "gz-line-4-main",
           "seq": 23,
@@ -4615,6 +4605,16 @@
           "coord": [
             113.401617,
             23.134491
+          ]
+        },
+        {
+          "line": "gz-line-21",
+          "branch": "gz-line-21-main",
+          "seq": 3,
+          "node": 5704405554,
+          "coord": [
+            113.401089,
+            23.136208
           ]
         }
       ],
@@ -5131,16 +5131,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-14",
-          "branch": "gz-line-14-main",
-          "seq": 8,
-          "node": 5592625109,
-          "coord": [
-            113.283616,
-            23.239948
-          ]
-        },
-        {
           "line": "gz-line-2",
           "branch": "gz-line-2-main",
           "seq": 24,
@@ -5157,6 +5147,16 @@
           "node": 5040334323,
           "coord": [
             113.283715,
+            23.239948
+          ]
+        },
+        {
+          "line": "gz-line-14",
+          "branch": "gz-line-14-main",
+          "seq": 8,
+          "node": 5592625109,
+          "coord": [
+            113.283616,
             23.239948
           ]
         }
@@ -5270,16 +5270,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 24,
-          "node": 4994872792,
-          "coord": [
-            113.274204,
-            23.084576
-          ]
-        },
-        {
           "line": "gz-line-2",
           "branch": "gz-line-2-main",
           "seq": 8,
@@ -5287,6 +5277,16 @@
           "coord": [
             113.275124,
             23.085112
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 24,
+          "node": 4994872792,
+          "coord": [
+            113.274204,
+            23.084576
           ]
         }
       ],
@@ -5711,16 +5711,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-b1",
-          "seq": 6,
-          "node": 7723914566,
-          "coord": [
-            113.232657,
-            23.184218
-          ]
-        },
-        {
           "line": "gz-line-8",
           "branch": "gz-line-8-main",
           "seq": 6,
@@ -5728,6 +5718,16 @@
           "coord": [
             113.233377,
             23.1838
+          ]
+        },
+        {
+          "line": "gz-line-12",
+          "branch": "gz-line-12-b1",
+          "seq": 6,
+          "node": 7723914566,
+          "coord": [
+            113.232657,
+            23.184218
           ]
         }
       ],
@@ -7117,45 +7117,6 @@
       "name_pinyin": "mó dié shā",
       "city": "广州市",
       "coord": [
-        113.338242,
-        23.103619
-      ],
-      "lines": [
-        "gz-line-18"
-      ],
-      "branches": [
-        "gz-line-18-main"
-      ],
-      "is_transfer": true,
-      "slots": [
-        {
-          "line": "gz-line-18",
-          "branch": "gz-line-18-main",
-          "seq": 2,
-          "node": 7766223242,
-          "coord": [
-            113.338242,
-            23.103619
-          ]
-        }
-      ],
-      "merge": {
-        "method": "split_review",
-        "slot_count": 1,
-        "spread_m": 0.0,
-        "needs_review": true
-      },
-      "source": "OpenStreetMap（省级 PBF）",
-      "source_license": "ODbL-1.0",
-      "as_of": "p1a-20261103"
-    },
-    {
-      "id": "gz-station-mo-die-sha-2",
-      "name": "磨碟沙",
-      "name_en": "Modiesha",
-      "name_pinyin": "mó dié shā",
-      "city": "广州市",
-      "coord": [
         113.336252,
         23.101204
       ],
@@ -7189,14 +7150,14 @@
       "as_of": "p1a-20261103"
     },
     {
-      "id": "gz-station-nan-cun-wan-bo",
-      "name": "南村万博",
-      "name_en": "Nancun Wanbo",
-      "name_pinyin": "nán cūn wàn bó",
+      "id": "gz-station-mo-die-sha-2",
+      "name": "磨碟沙",
+      "name_en": "Modiesha",
+      "name_pinyin": "mó dié shā",
       "city": "广州市",
       "coord": [
-        113.338951,
-        23.00649
+        113.338242,
+        23.103619
       ],
       "lines": [
         "gz-line-18"
@@ -7209,11 +7170,11 @@
         {
           "line": "gz-line-18",
           "branch": "gz-line-18-main",
-          "seq": 5,
-          "node": 7763968840,
+          "seq": 2,
+          "node": 7766223242,
           "coord": [
-            113.338951,
-            23.00649
+            113.338242,
+            23.103619
           ]
         }
       ],
@@ -7228,7 +7189,7 @@
       "as_of": "p1a-20261103"
     },
     {
-      "id": "gz-station-nan-cun-wan-bo-2",
+      "id": "gz-station-nan-cun-wan-bo",
       "name": "南村万博",
       "name_en": "Nancun Wanbo",
       "name_pinyin": "nán cūn wàn bó",
@@ -7253,6 +7214,45 @@
           "coord": [
             113.342299,
             23.007227
+          ]
+        }
+      ],
+      "merge": {
+        "method": "split_review",
+        "slot_count": 1,
+        "spread_m": 0.0,
+        "needs_review": true
+      },
+      "source": "OpenStreetMap（省级 PBF）",
+      "source_license": "ODbL-1.0",
+      "as_of": "p1a-20261103"
+    },
+    {
+      "id": "gz-station-nan-cun-wan-bo-2",
+      "name": "南村万博",
+      "name_en": "Nancun Wanbo",
+      "name_pinyin": "nán cūn wàn bó",
+      "city": "广州市",
+      "coord": [
+        113.338951,
+        23.00649
+      ],
+      "lines": [
+        "gz-line-18"
+      ],
+      "branches": [
+        "gz-line-18-main"
+      ],
+      "is_transfer": true,
+      "slots": [
+        {
+          "line": "gz-line-18",
+          "branch": "gz-line-18-main",
+          "seq": 5,
+          "node": 7763968840,
+          "coord": [
+            113.338951,
+            23.00649
           ]
         }
       ],
@@ -7728,16 +7728,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 1,
-          "node": 4994872927,
-          "coord": [
-            113.362889,
-            23.102467
-          ]
-        },
-        {
           "line": "gz-line-8",
           "branch": "gz-line-8-main",
           "seq": 27,
@@ -7745,6 +7735,16 @@
           "coord": [
             113.361167,
             23.101017
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 1,
+          "node": 4994872927,
+          "coord": [
+            113.362889,
+            23.102467
           ]
         }
       ],
@@ -7782,26 +7782,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-18",
-          "branch": "gz-line-18-main",
-          "seq": 6,
-          "node": 7750328334,
-          "coord": [
-            113.378588,
-            22.936188
-          ]
-        },
-        {
-          "line": "gz-line-22",
-          "branch": "gz-line-22-main",
-          "seq": 8,
-          "node": 7750328333,
-          "coord": [
-            113.378756,
-            22.936223
-          ]
-        },
-        {
           "line": "gz-line-3",
           "branch": "gz-line-3-main",
           "seq": 24,
@@ -7819,6 +7799,26 @@
           "coord": [
             113.379904,
             22.938156
+          ]
+        },
+        {
+          "line": "gz-line-18",
+          "branch": "gz-line-18-main",
+          "seq": 6,
+          "node": 7750328334,
+          "coord": [
+            113.378588,
+            22.936188
+          ]
+        },
+        {
+          "line": "gz-line-22",
+          "branch": "gz-line-22-main",
+          "seq": 8,
+          "node": 7750328333,
+          "coord": [
+            113.378756,
+            22.936223
           ]
         }
       ],
@@ -8177,16 +8177,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 16,
-          "node": 12098510907,
-          "coord": [
-            113.22548,
-            23.117762
-          ]
-        },
-        {
           "line": "gz-line-6",
           "branch": "gz-line-6-main",
           "seq": 27,
@@ -8194,6 +8184,16 @@
           "coord": [
             113.226037,
             23.11754
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 16,
+          "node": 12098510907,
+          "coord": [
+            113.22548,
+            23.117762
           ]
         }
       ],
@@ -8384,16 +8384,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 8,
-          "node": 12098510918,
-          "coord": [
-            113.307046,
-            23.154487
-          ]
-        },
-        {
           "line": "gz-line-6",
           "branch": "gz-line-6-main",
           "seq": 15,
@@ -8401,6 +8391,16 @@
           "coord": [
             113.307021,
             23.155016
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 8,
+          "node": 12098510918,
+          "coord": [
+            113.307046,
+            23.154487
           ]
         }
       ],
@@ -9479,16 +9479,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-21",
-          "branch": "gz-line-21-main",
-          "seq": 9,
-          "node": 5666160240,
-          "coord": [
-            113.473798,
-            23.189405
-          ]
-        },
-        {
           "line": "gz-line-7",
           "branch": "gz-line-7-main",
           "seq": 26,
@@ -9496,6 +9486,16 @@
           "coord": [
             113.47332,
             23.19027
+          ]
+        },
+        {
+          "line": "gz-line-21",
+          "branch": "gz-line-21-main",
+          "seq": 9,
+          "node": 5666160240,
+          "coord": [
+            113.473798,
+            23.189405
           ]
         }
       ],
@@ -9530,16 +9530,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-21",
-          "branch": "gz-line-21-main",
-          "seq": 8,
-          "node": 5661511354,
-          "coord": [
-            113.462625,
-            23.173255
-          ]
-        },
-        {
           "line": "gz-line-6",
           "branch": "gz-line-6-main",
           "seq": 3,
@@ -9547,6 +9537,16 @@
           "coord": [
             113.463204,
             23.173616
+          ]
+        },
+        {
+          "line": "gz-line-21",
+          "branch": "gz-line-21-main",
+          "seq": 8,
+          "node": 5661511354,
+          "coord": [
+            113.462625,
+            23.173255
           ]
         }
       ],
@@ -10936,16 +10936,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-10",
-          "branch": "gz-line-10-main",
-          "seq": 11,
-          "node": 7787549364,
-          "coord": [
-            113.306186,
-            23.122316
-          ]
-        },
-        {
           "line": "gz-line-5",
           "branch": "gz-line-5-main",
           "seq": 12,
@@ -10953,6 +10943,16 @@
           "coord": [
             113.308869,
             23.122405
+          ]
+        },
+        {
+          "line": "gz-line-10",
+          "branch": "gz-line-10-main",
+          "seq": 11,
+          "node": 7787549364,
+          "coord": [
+            113.306186,
+            23.122316
           ]
         }
       ],
@@ -11308,16 +11308,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-13",
-          "branch": "gz-line-13-main",
-          "seq": 9,
-          "node": 5377439136,
-          "coord": [
-            113.513078,
-            23.085928
-          ]
-        },
-        {
           "line": "gz-line-5",
           "branch": "gz-line-5-main",
           "seq": 27,
@@ -11325,6 +11315,16 @@
           "coord": [
             113.513157,
             23.085666
+          ]
+        },
+        {
+          "line": "gz-line-13",
+          "branch": "gz-line-13-main",
+          "seq": 9,
+          "node": 5377439136,
+          "coord": [
+            113.513078,
+            23.085928
           ]
         }
       ],
@@ -12006,16 +12006,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-12",
-          "branch": "gz-line-12-b1",
-          "seq": 9,
-          "node": 12242793451,
-          "coord": [
-            113.196225,
-            23.168624
-          ]
-        },
-        {
           "line": "gz-line-6",
           "branch": "gz-line-6-main",
           "seq": 32,
@@ -12023,6 +12013,16 @@
           "coord": [
             113.196568,
             23.166699
+          ]
+        },
+        {
+          "line": "gz-line-12",
+          "branch": "gz-line-12-b1",
+          "seq": 9,
+          "node": 12242793451,
+          "coord": [
+            113.196225,
+            23.168624
           ]
         }
       ],
@@ -12444,16 +12444,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-13",
-          "branch": "gz-line-13-main",
-          "seq": 6,
-          "node": 5244446438,
-          "coord": [
-            113.448782,
-            23.097438
-          ]
-        },
-        {
           "line": "gz-line-7",
           "branch": "gz-line-7-main",
           "seq": 20,
@@ -12461,6 +12451,16 @@
           "coord": [
             113.450314,
             23.097158
+          ]
+        },
+        {
+          "line": "gz-line-13",
+          "branch": "gz-line-13-main",
+          "seq": 6,
+          "node": 5244446438,
+          "coord": [
+            113.448782,
+            23.097438
           ]
         }
       ],
@@ -12495,16 +12495,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-13",
-          "branch": "gz-line-13-main",
-          "seq": 5,
-          "node": 5244482931,
-          "coord": [
-            113.426772,
-            23.102474
-          ]
-        },
-        {
           "line": "gz-line-5",
           "branch": "gz-line-5-main",
           "seq": 21,
@@ -12512,6 +12502,16 @@
           "coord": [
             113.426836,
             23.102725
+          ]
+        },
+        {
+          "line": "gz-line-13",
+          "branch": "gz-line-13-main",
+          "seq": 5,
+          "node": 5244482931,
+          "coord": [
+            113.426772,
+            23.102474
           ]
         }
       ],
@@ -12546,16 +12546,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 2,
-          "node": 5717917189,
-          "coord": [
-            113.358066,
-            23.11641
-          ]
-        },
-        {
           "line": "gz-line-5",
           "branch": "gz-line-5-main",
           "seq": 16,
@@ -12563,6 +12553,16 @@
           "coord": [
             113.358209,
             23.118044
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 2,
+          "node": 5717917189,
+          "coord": [
+            113.358066,
+            23.11641
           ]
         }
       ],
@@ -13311,16 +13311,6 @@
       "is_transfer": true,
       "slots": [
         {
-          "line": "gz-line-11",
-          "branch": "gz-line-11-main",
-          "seq": 15,
-          "node": 4994872730,
-          "coord": [
-            113.227918,
-            23.12902
-          ]
-        },
-        {
           "line": "gz-line-5",
           "branch": "gz-line-5-main",
           "seq": 3,
@@ -13328,6 +13318,16 @@
           "coord": [
             113.227532,
             23.128819
+          ]
+        },
+        {
+          "line": "gz-line-11",
+          "branch": "gz-line-11-main",
+          "seq": 15,
+          "node": 4994872730,
+          "coord": [
+            113.227918,
+            23.12902
           ]
         }
       ],

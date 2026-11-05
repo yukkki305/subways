@@ -2,7 +2,7 @@
  "city": "合肥市",
  "city_code": "hf",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-05T22:55:22+08:00",
+ "generated_at": "2026-11-05T23:06:10+08:00",
  "rules": "docs/decisions/0001-modeling-rules.md（R1 线路与支线、R2 ID、R3 环线）",
  "mapping_table": "data/manual/shanghai-relation-mapping.csv",
  "counts": {
@@ -81,16 +81,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 28.85,
    "length_km_sum": 28.85,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.0,
    "operator_official": "合肥城市轨道交通有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通1号线",
    "colour_official_name": "中国红",
+   "colour_osm": "#F50000",
    "colour_verified": false,
-   "name_en_route": "Hefei Metro Line 1: Zhangwa→Jiulianwei",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「中国红」与 OSM #F50000 一致",
-   "length_km_union": 28.85
+   "name_en_route": "Hefei Metro Line 1: Zhangwa→Jiulianwei"
   },
   {
    "id": "hf-line-2",
@@ -170,16 +171,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 41.64,
    "length_km_sum": 41.64,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.9,
    "operator_official": "合肥城市轨道交通有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通2号线",
    "colour_official_name": "群青蓝",
+   "colour_osm": "#006BFA",
    "colour_verified": false,
-   "name_en_route": "Hefei Metro Line 2: Nangang→Sanshibu",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「群青蓝」与 OSM #006BFA 一致",
-   "length_km_union": 41.64
+   "name_en_route": "Hefei Metro Line 2: Nangang→Sanshibu"
   },
   {
    "id": "hf-line-3",
@@ -264,16 +266,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 46.01,
    "length_km_sum": 46.01,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -5.4,
    "operator_official": "合肥市轨道交通集团有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通3号线",
    "colour_official_name": "翠微绿",
+   "colour_osm": "#098137",
    "colour_verified": false,
-   "name_en_route": "Line 3",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「翠微绿」与 OSM #098137 一致",
-   "length_km_union": 46.01
+   "name_en_route": null
   },
   {
    "id": "hf-line-4",
@@ -352,16 +355,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 46.85,
    "length_km_sum": 46.85,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -2.0,
    "operator_official": "合肥市轨道交通集团有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通4号线",
    "colour_official_name": "瑶光橙",
+   "colour_osm": "#FF850D",
    "colour_verified": false,
-   "name_en_route": "Hefei Metro Line 4: Shaomaigang→Zongbaoqu",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「瑶光橙」与 OSM #FF850D 一致",
-   "length_km_union": 46.85
+   "name_en_route": "Hefei Metro Line 4: Shaomaigang→Zongbaoqu"
   },
   {
    "id": "hf-line-5",
@@ -439,16 +443,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 39.36,
    "length_km_sum": 39.36,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -3.5,
    "operator_official": "合肥市轨道交通集团有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通5号线",
    "colour_official_name": "碧山青",
+   "colour_osm": "#C1D522",
    "colour_verified": false,
-   "name_en_route": "Hefei Metro Line 5: Guiyanglu→Jiqiaolu",
    "colour_note": "百科标志色「碧山青」（青绿）与 OSM #C1D522（黄绿）不一致；无官图可采样，保留 OSM 待核",
-   "length_km_union": 39.36
+   "name_en_route": "Hefei Metro Line 5: Guiyanglu→Jiqiaolu"
   },
   {
    "id": "hf-line-6",
@@ -514,16 +519,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 35.07,
    "length_km_sum": 35.07,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -0.8,
    "operator_official": "合肥市轨道交通集团有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通6号线",
    "colour_official_name": "丁香紫",
+   "colour_osm": "#C99FCD",
    "colour_verified": false,
-   "name_en_route": "Hefei Metro Line 6 (Eastbound)",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「丁香紫」与 OSM #C99FCD 一致",
-   "length_km_union": 35.07
+   "name_en_route": "Hefei Metro Line 6 (Eastbound)"
   },
   {
    "id": "hf-line-7",
@@ -582,16 +588,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 16.27,
    "length_km_sum": 16.27,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -14.0,
    "operator_official": "合肥市轨道交通集团有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通7号线",
    "colour_official_name": "银杏黄",
+   "colour_osm": "#F1CC40",
    "colour_verified": false,
-   "name_en_route": "Hefei Metro Line 7 (Eastbound)",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「银杏黄」与 OSM #F1CC40 一致",
-   "length_km_union": 16.27
+   "name_en_route": "Hefei Metro Line 7 (Eastbound)"
   },
   {
    "id": "hf-line-8",
@@ -646,16 +653,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 22.41,
    "length_km_sum": 22.41,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -0.5,
    "operator_official": "合肥市轨道交通集团有限公司",
    "operator_source": "https://baike.baidu.com/item/合肥轨道交通8号线",
    "colour_official_name": "湖波蓝",
+   "colour_osm": "#64AEE3",
    "colour_verified": false,
-   "name_en_route": "Line 8",
    "colour_note": "无官方线路图可采样（官网 WAF 拦截）；百科标志色「湖波蓝」与 OSM #64AEE3 一致",
-   "length_km_union": 22.41
+   "name_en_route": null
   }
  ],
  "attribute_rules": "ADR R6（颜色官图为准）/ R7（里程双轨、属性走人工表）"

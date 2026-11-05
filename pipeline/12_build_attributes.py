@@ -149,9 +149,13 @@ def main() -> int:
                                        or _manual_colours.get("_colour_official_name", {}).get(lid)
                                        or None)
         ln["colour"] = (ln["colour"] or "").upper()
+        # colour_osm 必须始终是「OSM 原值」。08 每次重写 lines.json 时把
+        # colour_source 置为 "osm"；此时 colour 才是原值。若不看 source 直接
+        # 覆盖，单独重跑 12 会把上一轮的 override 色写回 colour_osm（自我污染）。
+        if ln.get("colour_source") == "osm" or not ln.get("colour_osm"):
+            ln["colour_osm"] = ln["colour"]
         if lid in COLOUR_OVERRIDE:
             hexs, px, dist = COLOUR_OVERRIDE[lid]
-            ln["colour_osm"] = ln["colour"]
             ln["colour"] = hexs
             ln["colour_source"] = "官图采样（替代 OSM）"
             ln["colour_sample_px"] = px

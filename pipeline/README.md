@@ -307,6 +307,14 @@ S2-5 之后按用户指示追加了 ADR R5 的一句：`type` 允许低置信度
 | `data/snapshots/<date>/` | 快照的 `.sha256` 与 `manifest.json` | ✅（PBF 本体在仓库外） |
 | `E:\subway-data\snapshots\<date>\` | 原始 PBF 与原始抓取结果 | 仓库外，不进 git |
 
+## 脚本执行顺序约定（P1a-5.4 补）
+
+`12_build_attributes.py` 依赖 `08` 写入的 `colour`（`colour_source == "osm"` 时为 OSM 原值）。
+单独重跑 `12` 不会污染 `colour_osm`（已加 source 判断），但**产物会与全链路结果不同**：
+
+- 正确：`run_city.py --city <code>`（08→09→10→11→12 全链路），或 `13_validate.py --rerun`
+- `13 --rerun` 若首次报「差异 lines.json」，说明磁盘产物不是全链路结果 → **再跑一次**即可通过
+
 ## 失败触发器（出现即停，向用户汇报）
 
 | 情况 | 处理 |

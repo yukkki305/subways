@@ -2,7 +2,7 @@
  "city": "上海市",
  "city_code": "sh",
  "snapshot_date": "20261101",
- "generated_at": "2026-11-05T22:54:57+08:00",
+ "generated_at": "2026-11-05T23:06:30+08:00",
  "rules": "docs/decisions/0001-modeling-rules.md（R1 线路与支线、R2 ID、R3 环线）",
  "mapping_table": "data/manual/shanghai-relation-mapping.csv",
  "counts": {
@@ -83,15 +83,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 36.95,
    "length_km_sum": 36.95,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": 0.3,
    "operator_official": "上海地铁第一运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁1号线",
    "colour_official_name": "红色",
+   "colour_osm": "#E4002B",
    "colour_verified": true,
-   "name_en_route": "Line 1: Fujin Road -> Xinzhuang",
-   "length_km_union": 36.95
+   "name_en_route": "Line 1: Fujin Road -> Xinzhuang"
   },
   {
    "id": "sh-line-2",
@@ -165,18 +166,18 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 61.69,
    "length_km_sum": 61.69,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -6.6,
    "operator_official": "上海地铁第二运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁2号线",
    "colour_official_name": "绿色",
-   "colour_osm": "#80BE23",
+   "colour_osm": "#97D700",
    "colour_sample_px": 52203,
    "colour_osm_dist": 48.1,
    "colour_verified": true,
-   "name_en_route": "Line 2: Pudong Airport Terminal 1&2 → Panxiang Road",
-   "length_km_union": 61.69
+   "name_en_route": "Line 2: Pudong Airport Terminal 1&2 → Panxiang Road"
   },
   {
    "id": "sh-line-3",
@@ -248,15 +249,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 40.09,
    "length_km_sum": 40.09,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -0.4,
    "operator_official": "上海地铁第三运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁3号线",
    "colour_official_name": "黄色",
+   "colour_osm": "#FFD100",
    "colour_verified": true,
-   "name_en_route": "Line 3: North Jiangyang Road -> Shanghai South Railway Station",
-   "length_km_union": 40.09
+   "name_en_route": "Line 3: North Jiangyang Road -> Shanghai South Railway Station"
   },
   {
    "id": "sh-line-4",
@@ -325,18 +327,18 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 33.7,
    "length_km_sum": 33.7,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": 0.3,
    "operator_official": "上海地铁第三运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁4号线",
    "colour_official_name": "紫色",
-   "colour_osm": "#451D83",
+   "colour_osm": "#5F259F",
    "colour_sample_px": 56296,
    "colour_osm_dist": 38.0,
    "colour_verified": true,
-   "name_en_route": "Line 4: Inner",
-   "length_km_union": 33.7
+   "name_en_route": "Line 4: Inner"
   },
   {
    "id": "sh-line-5",
@@ -427,18 +429,18 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 32.81,
    "length_km_sum": 43.78,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": 0.1,
    "operator_official": "上海地铁第一运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁5号线",
    "colour_official_name": "紫红色",
-   "colour_osm": "#944D9A",
+   "colour_osm": "#AC4FC6",
    "colour_sample_px": 44290,
    "colour_osm_dist": 48.5,
    "colour_verified": true,
-   "name_en_route": "Line 5: Fengxian Xincheng -> Xinzhuang",
-   "length_km_union": 32.81
+   "name_en_route": "Line 5: Fengxian Xincheng -> Xinzhuang"
   },
   {
    "id": "sh-line-6",
@@ -509,15 +511,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 32.48,
    "length_km_sum": 32.48,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -3.0,
    "operator_official": "上海地铁第四运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁6号线",
    "colour_official_name": "品红色",
+   "colour_osm": "#D9017A",
    "colour_verified": true,
-   "name_en_route": "Line 6: Oriental Sports Center -> Gangcheng Road",
-   "length_km_union": 32.48
+   "name_en_route": "Line 6: Oriental Sports Center -> Gangcheng Road"
   },
   {
    "id": "sh-line-7",
@@ -593,15 +596,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 43.75,
    "length_km_sum": 43.75,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.3,
    "operator_official": "上海地铁第三运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁7号线",
    "colour_official_name": "橙色",
+   "colour_osm": "#FF6900",
    "colour_verified": true,
-   "name_en_route": "Line 7: Meilan Lake -> Huamu Road",
-   "length_km_union": 43.75
+   "name_en_route": "Line 7: Meilan Lake -> Huamu Road"
   },
   {
    "id": "sh-line-8",
@@ -674,15 +678,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 36.98,
    "length_km_sum": 36.98,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.2,
    "operator_official": "上海地铁第四运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁8号线",
    "colour_official_name": "蓝色",
+   "colour_osm": "#009FDF",
    "colour_verified": true,
-   "name_en_route": "Line 8: Shendu Highway -> Shiguang Road",
-   "length_km_union": 36.98
+   "name_en_route": "Line 8: Shendu Highway -> Shiguang Road"
   },
   {
    "id": "sh-line-9",
@@ -759,15 +764,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 63.7,
    "length_km_sum": 63.7,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -2.0,
    "operator_official": "上海地铁第一运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁9号线",
    "colour_official_name": "浅蓝色",
+   "colour_osm": "#71C5E8",
    "colour_verified": true,
-   "name_en_route": "Line 9: Shanghai Songjiang Railway Station -> Caolu",
-   "length_km_union": 63.7
+   "name_en_route": "Line 9: Shanghai Songjiang Railway Station -> Caolu"
   },
   {
    "id": "sh-line-10",
@@ -899,16 +905,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 45.27,
    "length_km_sum": 79.8,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.5,
    "operator_official": "上海地铁第一运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁10号线",
    "colour_official_name": "淡紫色",
+   "colour_osm": "#C1A7E2",
    "colour_verified": false,
    "colour_note": "淡紫在官图上面积太小，色簇与 13 号线粉、4 号线紫混在一起",
-   "name_en_route": "Line 10: Hongqiao Railway Station -> Jilong Road",
-   "length_km_union": 45.27
+   "name_en_route": "Line 10: Hongqiao Railway Station -> Jilong Road"
   },
   {
    "id": "sh-line-11",
@@ -1044,15 +1051,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 80.84,
    "length_km_sum": 135.64,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -2.3,
    "operator_official": "上海地铁第二运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁11号线",
    "colour_official_name": "棕色",
+   "colour_osm": "#76232F",
    "colour_verified": true,
-   "name_en_route": "Line 11: Disney Resort -> North Jiading",
-   "length_km_union": 80.84
+   "name_en_route": "Line 11: Disney Resort -> North Jiading"
   },
   {
    "id": "sh-line-12",
@@ -1127,15 +1135,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 39.93,
    "length_km_sum": 39.93,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.2,
    "operator_official": "上海地铁第四运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁12号线",
    "colour_official_name": "深绿色",
+   "colour_osm": "#007B5F",
    "colour_verified": true,
-   "name_en_route": "Line 12: Qixin Road → Jinhai Road",
-   "length_km_union": 39.93
+   "name_en_route": "Line 12: Qixin Road → Jinhai Road"
   },
   {
    "id": "sh-line-13",
@@ -1209,15 +1218,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 38.05,
    "length_km_sum": 38.05,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -2.0,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
    "colour_official_name": "粉红色",
+   "colour_osm": "#EF95CF",
    "colour_verified": true,
-   "name_en_route": "Line 13: Zhangjiang Road -> Jinyun Road",
-   "length_km_union": 38.05
+   "name_en_route": "Line 13: Zhangjiang Road -> Jinyun Road"
   },
   {
    "id": "sh-line-14",
@@ -1291,18 +1301,18 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 38.3,
    "length_km_sum": 38.3,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -2.1,
    "operator_official": "上海地铁第四运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁14号线",
    "colour_official_name": "橄榄绿",
-   "colour_osm": "#62601F",
+   "colour_osm": "#827A04",
    "colour_sample_px": 38143,
    "colour_osm_dist": 49.0,
    "colour_verified": true,
-   "name_en_route": "Line 14: Guiqiao Road → Fengbang",
-   "length_km_union": 38.3
+   "name_en_route": "Line 14: Guiqiao Road → Fengbang"
   },
   {
    "id": "sh-line-15",
@@ -1375,15 +1385,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 41.69,
    "length_km_sum": 41.69,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.3,
    "operator_official": "上海地铁第三运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁15号线",
    "colour_official_name": "香槟金",
+   "colour_osm": "#BBA786",
    "colour_verified": true,
-   "name_en_route": "Line 15: Zizhu Hi-tech Park -> Gucun Park",
-   "length_km_union": 41.69
+   "name_en_route": "Line 15: Zizhu Hi-tech Park -> Gucun Park"
   },
   {
    "id": "sh-line-16",
@@ -1446,16 +1457,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 58.71,
    "length_km_sum": 58.71,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.0,
    "operator_official": null,
    "operator_source": "OSM（人工表未提供）",
    "colour_official_name": "水绿色",
+   "colour_osm": "#2CD5C4",
    "colour_verified": false,
    "colour_note": "水绿细线，采样簇落到 8 号线蓝上",
-   "name_en_route": "Line 16: Ordinary Train, Dishui Lake -> Longyang Road",
-   "length_km_union": 58.71
+   "name_en_route": "Line 16: Ordinary Train, Dishui Lake -> Longyang Road"
   },
   {
    "id": "sh-line-17",
@@ -1512,15 +1524,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 41.03,
    "length_km_sum": 41.03,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -0.8,
    "operator_official": "上海地铁第二运营有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁17号线",
    "colour_official_name": "浅棕色",
+   "colour_osm": "#C09C83",
    "colour_verified": true,
-   "name_en_route": "Line 17: Hongqiao Railway Station -> Xicen",
-   "length_km_union": 41.03
+   "name_en_route": "Line 17: Hongqiao Railway Station -> Xicen"
   },
   {
    "id": "sh-line-18",
@@ -1594,15 +1607,16 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 44.11,
    "length_km_sum": 44.11,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -1.6,
    "operator_official": "上海磁浮交通发展有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁18号线",
    "colour_official_name": "土黄色",
+   "colour_osm": "#D6A461",
    "colour_verified": true,
-   "name_en_route": "Line 18: Hangtou -> Kangwen Road",
-   "length_km_union": 44.11
+   "name_en_route": "Line 18: Hangtou -> Kangwen Road"
   },
   {
    "id": "sh-line-maglev",
@@ -1647,16 +1661,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 29.08,
    "length_km_sum": 29.08,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": 0.2,
    "operator_official": "上海磁浮交通发展有限公司",
    "operator_source": "https://baike.baidu.com/item/上海磁浮列车示范运营线",
    "colour_official_name": null,
+   "colour_osm": "#009090",
    "colour_verified": false,
    "colour_note": "青绿短直线，与 12 号线深绿难分",
-   "name_en_route": "Maglev Line: Longyang Road -> Pudong Airport Terminal 1&2",
-   "length_km_union": 29.08
+   "name_en_route": "Maglev Line: Longyang Road -> Pudong Airport Terminal 1&2"
   },
   {
    "id": "sh-line-pujiang",
@@ -1705,16 +1720,17 @@
    "source": "OpenStreetMap（省级 PBF）",
    "source_license": "ODbL-1.0",
    "as_of": "20261101",
+   "length_km_union": 6.3,
    "length_km_sum": 6.3,
    "length_km_method": "站对去重（同一对相邻站只计一次；既有 length_km_union 供对照）",
    "length_diff_pct": -5.0,
    "operator_official": "上海申凯公共交通运营管理有限公司",
    "operator_source": "https://baike.baidu.com/item/上海地铁浦江线",
    "colour_official_name": "灰色",
+   "colour_osm": "#999999",
    "colour_verified": false,
    "colour_note": "灰色线，与站名/底图灰无法区分",
-   "name_en_route": "Pujiang Line: Huizhen Road -> Shendu Highway",
-   "length_km_union": 6.3
+   "name_en_route": "Pujiang Line: Huizhen Road -> Shendu Highway"
   }
  ],
  "attribute_rules": "ADR R6（颜色官图为准）/ R7（里程双轨、属性走人工表）"

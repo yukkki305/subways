@@ -582,6 +582,7 @@ web/public/data/
 | `app/layout.tsx` | 只留全站默认值（`metadataBase`、`title.template`、`applicationName`、`authors`、`keywords`、`robots`）；页面级 metadata 全部下放到各页 |
 | `components/MapView.tsx` | 改成接 `cityCode / cityLabel / center / zoom` 四个 props；七条 `loadJson` 用 `cityCode`；底图与海面 `.catch(() => 空集合)`，三城暂时没底图时不再整页报错 |
 | `components/AboutPanel.tsx` | 文案全部由 props 拼（城市名、四类计数、快照），不再写死上海的已知局限 |
+| `app/sitemap.ts` | 站点地图由城市清单生成（`public/sitemap.xml` 已删），`lastModified` 取各城数据快照日期而非构建时间 |
 
 视野算法（`lib/cities.ts` 的 `viewOf`）：取城市 bbox 中点作 center，`zoom = clamp(log2(1256*360/256/span), 8, 11.2)`。这只是**首屏猜测**，地图加载完成后仍由现有的 `fitBounds` 按真实数据边界收口。
 

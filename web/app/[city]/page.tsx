@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import MapView from "@/components/MapView";
-import { citySummary, countsText, publicCityCodes } from "@/lib/cities";
+import { cityLinks, citySummary, countsText, publicCityCodes } from "@/lib/cities";
 
 const SITE = "https://yukkki305.github.io/subways/";
 
@@ -48,7 +48,7 @@ export default async function CityPage({ params }: Props) {
   const c = citySummary(city);
   return (
     <main className="app-main">
-      <MapView cityCode={c.code} cityLabel={c.label} center={c.center} zoom={c.zoom} />
+      <MapView cityCode={c.code} cityLabel={c.label} center={c.center} zoom={c.zoom} cities={cityLinks()} />
     </main>
   );
 }

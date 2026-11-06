@@ -588,4 +588,20 @@ web/public/data/
 
 实测（P1a-6.2）：`build` 路由表 `○ / ● /gz ● /cd ● /hf`；四页 meta 全部正确（广州 `19 条线路 · 320 站 · 393 个区间 · 3 条换乘`、canonical `…/subways/gz/`、og:image `…/subways/og.jpg`）；`/gz/` 实机渲染 19 线、z12 时 364 个站点要素与双语站名；搜索「广州塔」命中并定位到 3 号线与 APM 线；`verify` 23/23、导出 7.22 MB。
 
+## 城市切换器（P1a-6.3）
+
+不新增悬浮控件，直接把标题里的城市名做成按钮：「中国铁路图鉴 · **广州** ▾」。页头本就有一个标题胶囊，再放一个下拉会挤占地图，而城市名正是用户想看的东西。
+
+| 行为 | 实现 |
+|---|---|
+| 菜单内容 | 四城 + 各自「N 条线路 · M 站」，来自 `lib/cities.ts` 的 `cityLinks()`（构建期生成，不请求接口） |
+| 当前项 | `aria-current="page"`，名字后面跟「当前」小胶囊 |
+| 跳转 | 真实链接（`next/link`），`href` 由服务端给出：上海 `/`、其余 `/<code>/`，basePath 自动补 |
+| 关键盘 | `aria-haspopup="menu"` + `aria-expanded`；Esc 关闭并把焦点还给按钮；Tab 可依次进入菜单项 |
+| 点外部 | `mousedown` 监听在 `document`，命中容器外即关 |
+| 窄屏 | `≤760px` 时菜单额外下移 56px，避让被推到 `top:60px` 的搜索框（否则菜单会盖住搜索框，实测 672px 宽时发生） |
+
+实测（P1a-6.3）：广州页点开菜单 → 切到成都 → URL `/subways/cd/`、`title` 与 `h1` 同步；成都页再切回上海（`/subways/`）；键盘 Enter 开菜单 → Tab 到「广州」→ Enter 完成跳转；Esc 关闭后焦点回到按钮；672px 下菜单 `top=100px` 不再压住 `bottom=94px` 的搜索框。
+
+
 

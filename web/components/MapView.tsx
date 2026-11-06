@@ -5,8 +5,10 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import AboutPanel from "@/components/AboutPanel";
+import CitySwitcher from "@/components/CitySwitcher";
 import SearchBox from "@/components/SearchBox";
 import StationPanel from "@/components/StationPanel";
+import type { CityLink } from "@/lib/cities";
 import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
 import type { SearchHit } from "@/lib/search";
 import { FONT_STACK_CSS } from "../lib/typography";
@@ -80,9 +82,11 @@ type Props = {
   /** 初始视野（真正贴合范围的 fitBounds 在数据加载后做） */
   center: [number, number];
   zoom: number;
+  /** 页头切换器用的城市清单（构建期由 `cityLinks()` 给出） */
+  cities: CityLink[];
 };
 
-export default function MapView({ cityCode, cityLabel, center, zoom }: Props) {
+export default function MapView({ cityCode, cityLabel, center, zoom, cities }: Props) {
   const boxRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const segmentsRef = useRef<GeoJSON.FeatureCollection | null>(null);
@@ -316,7 +320,9 @@ export default function MapView({ cityCode, cityLabel, center, zoom }: Props) {
       <div ref={boxRef} className="map-canvas" />
 
       <header className="map-title">
-        <h1>中国铁路图鉴 · {cityLabel}</h1>
+        <h1>
+          中国铁路图鉴 · <CitySwitcher current={cityCode} cities={cities} />
+        </h1>
       </header>
 
       {dataset && <SearchBox stations={dataset.stations} lines={dataset.lines} onPick={onSearchPick} />}

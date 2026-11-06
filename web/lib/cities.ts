@@ -140,3 +140,20 @@ export function countsText(c: CitySummary): string {
   if (c.transfers !== null) parts.push(`${c.transfers} 条换乘`);
   return parts.join(" · ");
 }
+
+/** 城市切换器用的条目；href 是站内路径（`next/link` 会自动加 basePath） */
+export type CityLink = { code: string; label: string; lines: number; stations: number | null; href: string };
+
+export function cityLinks(): CityLink[] {
+  const codes = [HOME_CITY, ...publicCityCodes()];
+  return codes.map((code) => {
+    const c = citySummary(code);
+    return {
+      code: c.code,
+      label: c.label,
+      lines: c.lines,
+      stations: c.stations,
+      href: code === HOME_CITY ? "/" : `/${code}/`,
+    };
+  });
+}

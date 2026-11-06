@@ -97,6 +97,110 @@ body {
   letter-spacing: 0.01em;
 }
 
+/* ——— 城市切换器（P1a-6.3）：标题里的城市名即按钮 ——— */
+.city-switch {
+  position: relative;
+  display: inline-block;
+  pointer-events: auto; /* .map-title 本身不接收事件，这里单独放开 */
+}
+
+.city-switch__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin: 0 -2px;
+  padding: 1px 3px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 650;
+  line-height: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+.city-switch__btn:hover {
+  background: rgba(0, 0, 0, 0.055);
+}
+
+.city-switch__btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.city-switch__chev {
+  width: 11px;
+  height: 11px;
+  opacity: 0.5;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.city-switch__btn[aria-expanded="true"] .city-switch__chev {
+  transform: rotate(180deg);
+  opacity: 0.85;
+}
+
+.city-switch__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -8px;
+  z-index: 6;
+  min-width: 196px;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-card);
+}
+
+.city-switch__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 9px;
+  border-radius: var(--radius-sm);
+  color: inherit;
+  text-decoration: none;
+}
+
+.city-switch__item:hover,
+.city-switch__item:focus-visible {
+  background: rgba(0, 0, 0, 0.055);
+  outline: none;
+}
+
+.city-switch__item.is-current {
+  background: rgba(0, 0, 0, 0.045);
+}
+
+.city-switch__item-name {
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+.city-switch__item.is-current .city-switch__item-name::after {
+  content: "当前";
+  margin-left: 6px;
+  padding: 1px 5px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  vertical-align: 1.5px;
+}
+
+.city-switch__item-meta {
+  color: var(--muted);
+  font-size: var(--fs-meta);
+  font-variant-numeric: tabular-nums;
+}
+
 /* ——— 加载 / 失败浮层（S3-6） ——— */
 .map-loading {
   position: absolute;
@@ -620,6 +724,11 @@ dl.kv dd {
   .station-panel {
     top: 104px;
     max-height: calc(100% - 184px);
+  }
+
+  /* 城市菜单同样要让开搜索框：标题胶囊 bottom≈53px，搜索框 bottom≈94px（P1a-6.3 实测） */
+  .city-switch__menu {
+    top: calc(100% + 56px);
   }
 }
 

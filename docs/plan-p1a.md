@@ -146,7 +146,7 @@ P1a-1 这 2.1 天是**一次性**投入，P1b 之后每城都能直接 `run_city
 | 6.0 前置核对 | `docs/probe/p1a-6.md`：四城前端四件合计 ≈4.5 MB；底图仅上海；差距 G1–G10 逐条带行号 | ✅ `646583a` |
 | 6.1 数据目录多城化 | `public/data/<code>/` + `cities.json`；`sync --all` 四城 22 个数据文件 / 4.83 MB；`prebuild` 改 `--all`；`verify` 改读 `out/data/<code>/`；`MapView` 七条路径带城市目录（`CITY_CODE` 暂固定 `sh`）；构建 23/23、导出 7.14 MB | ✅ 本轮 |
 | 6.2 路由与元信息 | `lib/cities.ts` 构建期读配置与 `cities.json`；`app/[city]/page.tsx`（`dynamicParams=false`、SSG 三城）+ 四页逐页 metadata（canonical 各指其页、`og:image` 绝对地址）；`MapView` 改接 `cityCode/cityLabel/center/zoom`，底图/海面缺失降级为空集合；路由表 `○ / ● /gz ● /cd ● /hf`；typecheck 干净、verify 23/23、导出 7.22 MB | ✅ 本轮 |
-| 6.3 城市切换器 | 页头胶囊，读 `cities.json` | 待做 |
+| 6.3 城市切换器 | 标题里的城市名即按钮（`.city-switch`），菜单列四城与「N 条线路 · M 站」；当前项 `aria-current="page"`；Esc 关闭并还焦点、点外部关闭、Tab/Enter 可走完切换；链接由 `cityLinks()` 在构建期给出 href（`/` 或 `/<code>/`，`next/link` 自动加 basePath）；窄屏（≤760px）菜单下移 56px 避让搜索框；verify 23/23、导出 7.23 MB | ✅ 本轮 |
 | 6.4 底图多城化 | 非上海轻底图（市界 + 主河道） | 待做 |
 | 6.5 校验矩阵 | `verify` 四城循环 | 待做 |
 | 6.6 构建部署 | 单 `gh-pages` 四页 | 待做 |

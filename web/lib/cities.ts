@@ -28,7 +28,10 @@ export type CitySummary = {
   stations: number | null;
   segments: number | null;
   transfers: number | null;
+  /** 原始快照标识，例如 20261101 / p1a-20261103 */
   snapshot: string | null;
+  /** 快照对应的日期（2026-11-01），用于 sitemap 的 lastModified 与页脚 */
+  asOf: string | null;
   hasBasemap: boolean;
 };
 
@@ -89,11 +92,24 @@ function viewOf(bbox: number[] | undefined): { center: [number, number]; zoom: n
   return { center, zoom: Number(zoom.toFixed(2)) };
 }
 
+/**
+ * 快照标识 → ISO 日期。上海是 20261101，p1a 批次是 p1a-20261103；
+ * 只认尾部 8 位数字，认不出就返回 null（不猜）。
+ */
+function asOfOf(snapshot: string | null | undefined): string | null {
+  if (!snapshot) return null;
+  const m = /(\d{8})$/.exec(snapshot);
+  if (!m) return null;
+  const d = m[1];
+  return `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
+}
+
 export function citySummary(code: string): CitySummary {
   const cfg = readConfig(code);
   if (!cfg) throw new Error(`没有城市配置：pipeline/cities/${code}.json`);
   const idx = readIndex().get(code);
   const view = viewOf(cfg.scene_bbox);
+  const snapshot = idx?.snapshot_date ?? null;
   return {
     code,
     label: idx?.label ?? cfg.web?.city_label ?? cfg.name ?? code,
@@ -104,7 +120,8 @@ export function citySummary(code: string): CitySummary {
     stations: idx?.stations ?? null,
     segments: idx?.segments ?? null,
     transfers: idx?.transfers ?? null,
-    snapshot: idx?.snapshot_date ?? null,
+    snapshot,
+    asOf: asOfOf(snapshot),
     hasBasemap: idx?.has_basemap ?? code === HOME_CITY,
   };
 }

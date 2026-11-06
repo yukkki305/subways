@@ -29,9 +29,8 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 /**
  * P1a-6.1：数据产物按城市分目录（`public/data/<code>/`）。
- * 6.2 会把它改成按路由参数传入；在此之前固定为上海，保证单城可用。
+ * 6.2 已把城市改成页面传入的 props（见下方组件签名）。
  */
-const CITY_CODE = "sh";
 
 maplibregl.setWorkerUrl(`${BASE}/vendor/maplibre-gl-worker.mjs`);
 
@@ -41,7 +40,14 @@ type TransferFile = { transfers: Transfer[] };
 type MetaFile = {
   snapshot_date: string;
   data_as_of?: string;
-  counts?: { stations?: number; slots?: number; multi_line_stations?: number };
+  counts?: {
+    stations?: number;
+    slots?: number;
+    multi_line_stations?: number;
+    lines?: number;
+    segments?: number;
+    transfers?: number;
+  };
 };
 
 /** 可点击的图层：换乘站优先，其次普通站，最后两层站名 */
@@ -63,7 +69,20 @@ async function loadJson<T>(url: string): Promise<T> {
   return (await res.json()) as T;
 }
 
-export default function MapView() {
+/**
+ * P1a-6.1/6.2：数据产物按城市分目录（`public/data/<code>/`），
+ * 城市由页面（`/` 与 `/<code>/`）在构建期决定，不再写死。
+ */
+type Props = {
+  cityCode: string;
+  /** 界面显示用的城市简称，例如「上海」「广州」 */
+  cityLabel: string;
+  /** 初始视野（真正贴合范围的 fitBounds 在数据加载后做） */
+  center: [number, number];
+  zoom: number;
+};
+
+export default function MapView({ cityCode, cityLabel, center, zoom }: Props) {
   const boxRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const segmentsRef = useRef<GeoJSON.FeatureCollection | null>(null);
@@ -152,14 +171,16 @@ export default function MapView() {
 
     async function boot() {
       try {
+        // 底图与海面目前只有上海有（6.4 补其余城市），缺文件时退化为空图层而不是整页失败
+        const empty: GeoJSON.FeatureCollection = { type: "FeatureCollection", features: [] };
         const [basemap, sea, segments, linesFile, stationFile, transferFile, metaFile] = await Promise.all([
-          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${CITY_CODE}/basemap.geojson`),
-          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${CITY_CODE}/sea.geojson`),
-          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${CITY_CODE}/segment.geojson`),
-          loadJson<LinesFile>(`${BASE}/data/${CITY_CODE}/lines.json`),
-          loadJson<StationFile>(`${BASE}/data/${CITY_CODE}/station.json`),
-          loadJson<TransferFile>(`${BASE}/data/${CITY_CODE}/transfer.json`),
-          loadJson<MetaFile>(`${BASE}/data/${CITY_CODE}/meta.json`).catch(() => null),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${cityCode}/basemap.geojson`).catch(() => empty),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${cityCode}/sea.geojson`).catch(() => empty),
+          loadJson<GeoJSON.FeatureCollection>(`${BASE}/data/${cityCode}/segment.geojson`),
+          loadJson<LinesFile>(`${BASE}/data/${cityCode}/lines.json`),
+          loadJson<StationFile>(`${BASE}/data/${cityCode}/station.json`),
+          loadJson<TransferFile>(`${BASE}/data/${cityCode}/transfer.json`),
+          loadJson<MetaFile>(`${BASE}/data/${cityCode}/meta.json`).catch(() => null),
         ]);
         if (disposed || !boxRef.current) return;
 
@@ -170,8 +191,8 @@ export default function MapView() {
         const map = new maplibregl.Map({
           container: boxRef.current,
           style: buildStyle(basemap, segments, stationCollection, lineColors, lineTypes, sea),
-          center: [121.47, 31.23],
-          zoom: 10.4,
+          center,
+          zoom,
         // 中文与西文都走本机渲染（不请求 glyph PBF），字体栈统一在 lib/typography.ts
         localIdeographFontFamily: FONT_STACK_CSS,
           minZoom: 8.5,
@@ -271,6 +292,8 @@ export default function MapView() {
       mapRef.current?.remove();
       mapRef.current = null;
     };
+    // 城市在构建期就确定，页面之间是整页跳转，这里不会中途换城
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Esc 关闭详情
@@ -293,7 +316,7 @@ export default function MapView() {
       <div ref={boxRef} className="map-canvas" />
 
       <header className="map-title">
-        <h1>中国铁路图鉴 · 上海</h1>
+        <h1>中国铁路图鉴 · {cityLabel}</h1>
       </header>
 
       {dataset && <SearchBox stations={dataset.stations} lines={dataset.lines} onPick={onSearchPick} />}
@@ -305,9 +328,11 @@ export default function MapView() {
         >
           <div className="map-loading__card">
             <span className="map-loading__dot" />
-            <p className="map-loading__title">{status === "error" ? "地图加载失败" : "正在铺开上海地铁图"}</p>
+            <p className="map-loading__title">
+              {status === "error" ? "地图加载失败" : `正在铺开${cityLabel}地铁图`}
+            </p>
             <p className="map-loading__hint">
-              {status === "error" ? message : "20 条线路 · 430 站 · 首次加载约 1 秒"}
+              {status === "error" ? message : `${cityLabel}城市轨道交通 · 首次加载约 1 秒`}
             </p>
           </div>
         </div>
@@ -326,13 +351,23 @@ export default function MapView() {
         />
       )}
 
-      {aboutOpen && <AboutPanel onClose={() => setAboutOpen(false)} />}
+      {aboutOpen && (
+        <AboutPanel
+          onClose={() => setAboutOpen(false)}
+          cityLabel={cityLabel}
+          lines={dataset?.lines.length ?? meta?.counts?.lines ?? null}
+          stations={dataset?.stations.length ?? meta?.counts?.stations ?? null}
+          segments={meta?.counts?.segments ?? null}
+          transfers={dataset?.transfers.length ?? meta?.counts?.transfers ?? null}
+          snapshot={meta?.data_as_of ?? meta?.snapshot_date ?? null}
+        />
+      )}
 
       <footer className="map-footer">
         <span>
           {meta
             ? `${dataset?.lines.length ?? "?"} 条线路 · ${dataset?.stations.length ?? meta.counts?.stations ?? "?"} 站 · 数据截止 ${meta.data_as_of ?? meta.snapshot_date}`
-            : "上海城市轨道交通"}
+            : `${cityLabel}城市轨道交通`}
           <i>·</i> 数据 © OpenStreetMap contributors（ODbL-1.0）
           <i>·</i> 个人作品集项目，数据仅供参考
         </span>

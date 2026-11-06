@@ -145,17 +145,17 @@ P1a-1 这 2.1 天是**一次性**投入，P1b 之后每城都能直接 `run_city
 | --- | --- | --- |
 | 6.0 前置核对 | `docs/probe/p1a-6.md`：四城前端四件合计 ≈4.5 MB；底图仅上海；差距 G1–G10 逐条带行号 | ✅ `646583a` |
 | 6.1 数据目录多城化 | `public/data/<code>/` + `cities.json`；`sync --all` 四城 22 个数据文件 / 4.83 MB；`prebuild` 改 `--all`；`verify` 改读 `out/data/<code>/`；`MapView` 七条路径带城市目录（`CITY_CODE` 暂固定 `sh`）；构建 23/23、导出 7.14 MB | ✅ 本轮 |
-| 6.2 路由与元信息 | `app/[city]/page.tsx` + 逐页 metadata；`MapView` 改成接 `cityCode` 参数 | 待做 |
+| 6.2 路由与元信息 | `lib/cities.ts` 构建期读配置与 `cities.json`；`app/[city]/page.tsx`（`dynamicParams=false`、SSG 三城）+ 四页逐页 metadata（canonical 各指其页、`og:image` 绝对地址）；`MapView` 改接 `cityCode/cityLabel/center/zoom`，底图/海面缺失降级为空集合；路由表 `○ / ● /gz ● /cd ● /hf`；typecheck 干净、verify 23/23、导出 7.22 MB | ✅ 本轮 |
 | 6.3 城市切换器 | 页头胶囊，读 `cities.json` | 待做 |
 | 6.4 底图多城化 | 非上海轻底图（市界 + 主河道） | 待做 |
 | 6.5 校验矩阵 | `verify` 四城循环 | 待做 |
 | 6.6 构建部署 | 单 `gh-pages` 四页 | 待做 |
 | 6.7 文档自证 | `docs/validation-p1a.md` | 待做 |
 
-6.1 的两个已知代价（6.2 之后要盯）：
+6.1 的两个已知代价，6.2 之后的状态：
 
-1. **体积从 4.19 MB 涨到 7.14 MB**：四城数据全部进 `out/`。这是「按城懒加载」的前提，gzip 只有 ≈1.27 MB；但离 `verify` 的 8 MB 上限只剩 0.9 MB，补底图后会超，届时要么抬上限、要么把数据改成 `.json` 之外的分片。
-2. **`CITY_CODE` 还是常量**：`MapView` 目前只会读 `sh/`，页面能跑但只有上海；6.2 必须把它从路由参数传进来，否则 `/gz/` 会渲染成上海。
+1. **体积从 4.19 MB 涨到 7.14 MB**（6.2 后 7.22 MB）：四城数据全部进 `out/`。这是「按城懒加载」的前提，gzip 只有 ≈1.28 MB；但离 `verify` 的 8 MB 上限只剩 0.78 MB，补底图后会超，届时要么抬上限、要么把数据改成 `.json` 之外的分片。
+2. **`CITY_CODE` 常量已在 6.2 消除**：`MapView` 改为接 `cityCode` 参数，`/gz/` 实测渲染广州 19 线 / 320 站、`/cd/` 16 线 / 364 站、`/hf/` 8 线 / 195 站。新的代价是**非上海三城暂无底图**（只有线路浮在纸色背景上），由 6.4 解决。
 
 
 ## 七、复现命令

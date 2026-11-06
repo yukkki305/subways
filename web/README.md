@@ -563,3 +563,28 @@ web/public/data/
 
 **注意**：`public/data/` 已进 `.gitignore`，是构建期产物；切换目录结构后旧的扁平文件必须删掉，否则会被一起打进 `out/`（本次已删 7 个）。
 
+## 路由与元信息多城化（P1a-6.2）
+
+四城共用一套组件，但每座城是一个**独立静态页**（可被搜索引擎单独收录、可单独分享）：
+
+| 路由 | 页面 | 说明 |
+|---|---|---|
+| `/` | 上海 | 首页固定是上海（项目起点），不生成 `/sh/`，避免两份重复内容 |
+| `/gz/` `/cd/` `/hf/` | 广州 / 成都 / 合肥 | `app/[city]/page.tsx` + `generateStaticParams()`，`dynamicParams = false`，未配置的城市直接 404 |
+
+实现要点：
+
+| 文件 | 作用 |
+|---|---|
+| `lib/cities.ts` | 构建期服务端模块：读 `pipeline/cities/<code>.json` 与 `public/data/cities.json`，产出 `CitySummary`（label / 视野 / 四类计数 / 快照 / 底图标记），`publicCityCodes()` 决定要生成哪些城市页 |
+| `app/page.tsx` | 上海页，`generateMetadata()` 现场拼 description（「20 条线路 · 423 站 · 570 个区间 · 12 条换乘」） |
+| `app/[city]/page.tsx` | 逐城 `generateMetadata`：`title`、`description`、`canonical` 各指本页，OG 图用**绝对地址**（相对路径会被 `metadataBase` 解析到站点根，导致三城的分享图 404） |
+| `app/layout.tsx` | 只留全站默认值（`metadataBase`、`title.template`、`applicationName`、`authors`、`keywords`、`robots`）；页面级 metadata 全部下放到各页 |
+| `components/MapView.tsx` | 改成接 `cityCode / cityLabel / center / zoom` 四个 props；七条 `loadJson` 用 `cityCode`；底图与海面 `.catch(() => 空集合)`，三城暂时没底图时不再整页报错 |
+| `components/AboutPanel.tsx` | 文案全部由 props 拼（城市名、四类计数、快照），不再写死上海的已知局限 |
+
+视野算法（`lib/cities.ts` 的 `viewOf`）：取城市 bbox 中点作 center，`zoom = clamp(log2(1256*360/256/span), 8, 11.2)`。这只是**首屏猜测**，地图加载完成后仍由现有的 `fitBounds` 按真实数据边界收口。
+
+实测（P1a-6.2）：`build` 路由表 `○ / ● /gz ● /cd ● /hf`；四页 meta 全部正确（广州 `19 条线路 · 320 站 · 393 个区间 · 3 条换乘`、canonical `…/subways/gz/`、og:image `…/subways/og.jpg`）；`/gz/` 实机渲染 19 线、z12 时 364 个站点要素与双语站名；搜索「广州塔」命中并定位到 3 号线与 APM 线；`verify` 23/23、导出 7.22 MB。
+
+

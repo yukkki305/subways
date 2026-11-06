@@ -48,6 +48,22 @@ async function sha256(path) {
   return createHash("sha256").update(buf).digest("hex");
 }
 
+/**
+ * 快照标识 → 人类可读日期。
+ *
+ * 上海的快照是纯日期（20261101），而 p1a 阶段给广州/成都/合肥用的快照名带前缀
+ * （p1a-20261103，目录名同时表示「哪一批下载」）。页脚直接显示 p1a-20261103 很难看，
+ * 这里只把尾部 8 位数字格式化成 2026-11-03；其它形态原样返回，不猜。
+ * meta.snapshot_date 仍保留原值，便于回溯到 data/snapshots/<名>/。
+ */
+function prettyAsOf(value) {
+  if (!value) return null;
+  const m = /^[a-z0-9]+-(\d{8})$/.exec(String(value));
+  const digits = m ? m[1] : /^\d{8}$/.test(String(value)) ? String(value) : null;
+  if (!digits) return String(value);
+  return `${digits.slice(0, 4)}-${digits.slice(4, 6)}-${digits.slice(6, 8)}`;
+}
+
 /** 同步一座城，返回该城的城市清单条目 */
 async function syncCity(code) {
   let cfg;
@@ -118,7 +134,7 @@ async function syncCity(code) {
     city: cfg.name,
     city_label: cityLabel(cfg),
     snapshot_date: station.snapshot_date,
-    data_as_of: station.as_of ?? station.snapshot_date,
+    data_as_of: prettyAsOf(station.as_of ?? station.snapshot_date),
     counts: {
       ...station.counts,
       lines: lines.lines.length,

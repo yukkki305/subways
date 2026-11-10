@@ -215,6 +215,14 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
         map.on("load", () => {
           // 容器尺寸必须先生效，否则 fitBounds 会按 0 高度算缩放（曾出现一进页面就跳到 z15）
           map.resize();
+          /**
+           * 首屏贴合。padding 只留「页头胶囊 + 页脚」所需的避让：上下各 56，左右 40。
+           *
+           * 注意：方形/竖长的城市（广州 22.70–23.57 纬度跨 0.87°）在 1256×808 这种横向窗口里
+           * 必然受**较短边**约束，缩放只能到 z≈9，左右留白是几何结果，不是 bug —— 想再贴合只能
+           * 裁掉南北端站点。这里做的是把 padding 从 72/96 收到 56/56，实测 +0.07~0.2 档。
+           */
+          const FIT_PADDING = { top: 56, bottom: 56, left: 40, right: 40 };
           const fit = () => {
             const b = boundsOf(segments);
             if (!b) return;
@@ -222,7 +230,7 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
               requestAnimationFrame(fit);
               return;
             }
-            map.fitBounds(b, { padding: { top: 72, bottom: 96, left: 48, right: 48 }, duration: 0 });
+            map.fitBounds(b, { padding: FIT_PADDING, duration: 0 });
           };
           requestAnimationFrame(fit);
 

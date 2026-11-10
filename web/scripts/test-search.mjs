@@ -1,9 +1,10 @@
 /**
- * S5-1 检索内核的自证脚本。
+ * S5-1 检索内核的自证脚本（P1a-6.5 起支持四城矩阵）。
  *
- *   node scripts/test-search.mjs
+ *   node scripts/test-search.mjs              # 跑产物里所有城市（默认）
+ *   node scripts/test-search.mjs --city gz    # 只跑广州（打印完整用例表）
  *
- * 直接读仓库里的产物数据（data/processed/shanghai），不依赖浏览器、不依赖 Next。
+ * 直接读仓库里的产物数据（data/processed/<slug>），不依赖浏览器、不依赖 Next。
  * 退出码非 0 表示有用例失败。
  */
 
@@ -12,29 +13,10 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { buildIndex, search } from "../lib/search.ts";
-import { cityLabel, loadCity, parseCityArg } from "./city.mjs";
+import { cityLabel, listCityCodes, loadCity, parseCityArg } from "./city.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
-// P1a-1.5：城市由 --city / SUBWAY_WEB_CITY 决定，默认 sh；数据目录取城市配置里的 data_dir
-const { city } = parseCityArg(process.argv.slice(2));
-const cfg = loadCity(city);
-const dataDir = resolve(resolve(here, "../.."), cfg.data_dir);
-
-function readJson(file) {
-  try {
-    return JSON.parse(readFileSync(file, "utf8"));
-  } catch (err) {
-    console.error(`[失败] 读不到 ${file}`);
-    console.error(`       该城还没跑完数据管道，先执行：python pipeline/run_city.py --city ${cfg.code}`);
-    console.error(`       原始错误：${err.message}`);
-    process.exit(1);
-  }
-}
-
-const stationsFile = readJson(resolve(dataDir, "station.json"));
-const linesFile = readJson(resolve(dataDir, "lines.json"));
-
-const index = buildIndex(stationsFile.stations, linesFile.lines);
+const { city: cityArg, explicit } = parseCityArg(process.argv.slice(2));
 
 /**
  * 上海：P0 期间固化的 22 条用例（中文子串 / 全拼 / 首字母 / 线路号 / 同名多站 / 空输入）。
@@ -107,70 +89,101 @@ function buildGenericCases(stations, lines) {
   return out;
 }
 
-const cases = cfg.code === "sh" ? SH_CASES : buildGenericCases(stationsFile.stations, linesFile.lines);
+/** 跑一座城，返回结果摘要；verbose 时打印完整用例表 */
+function runCity(code, verbose) {
+  const cfg = loadCity(code);
+  const dataDir = resolve(resolve(here, "../.."), cfg.data_dir);
+  const readJson = (file) => {
+    try {
+      return JSON.parse(readFileSync(file, "utf8"));
+    } catch (err) {
+      console.error(`[失败] 读不到 ${file}`);
+      console.error(`       该城还没跑完数据管道，先执行：python pipeline/run_city.py --city ${cfg.code}`);
+      console.error(`       原始错误：${err.message}`);
+      process.exit(1);
+    }
+  };
 
-let failed = 0;
-const rows = [];
+  const stationsFile = readJson(resolve(dataDir, "station.json"));
+  const linesFile = readJson(resolve(dataDir, "lines.json"));
+  const index = buildIndex(stationsFile.stations, linesFile.lines);
+  const cases = cfg.code === "sh" ? SH_CASES : buildGenericCases(stationsFile.stations, linesFile.lines);
 
-for (const c of cases) {
-  const hits = search(index, c.q);
-  const top = hits[0];
-  let ok = true;
-  const reasons = [];
+  let failed = 0;
+  const rows = [];
+  for (const c of cases) {
+    const hits = search(index, c.q);
+    const top = hits[0];
+    let ok = true;
+    const reasons = [];
 
-  if (c.expectTitle && !(top && top.title.startsWith(c.expectTitle))) {
-    ok = false;
-    reasons.push(`首条应为「${c.expectTitle}」，实际「${top ? top.title : "无结果"}」`);
+    if (c.expectTitle && !(top && top.title.startsWith(c.expectTitle))) {
+      ok = false;
+      reasons.push(`首条应为「${c.expectTitle}」，实际「${top ? top.title : "无结果"}」`);
+    }
+    if (c.expectKind && top && top.kind !== c.expectKind) {
+      ok = false;
+      reasons.push(`类型应为 ${c.expectKind}，实际 ${top.kind}`);
+    }
+    if (typeof c.minResults === "number" && hits.length < c.minResults) {
+      ok = false;
+      reasons.push(`结果数应 ≥${c.minResults}，实际 ${hits.length}`);
+    }
+    if (typeof c.maxResults === "number" && hits.length > c.maxResults) {
+      ok = false;
+      reasons.push(`结果数应 ≤${c.maxResults}，实际 ${hits.length}`);
+    }
+    if (!ok) failed += 1;
+    rows.push({
+      查询: c.q === "   " ? "(空)" : c.q,
+      用例: c.note ?? "",
+      首条: top ? `${top.title}${top.kind === "line" ? " [线路]" : ""}` : "—",
+      结果数: hits.length,
+      结果: ok ? "通过" : `失败：${reasons.join("；")}`,
+    });
   }
-  if (c.expectKind && top && top.kind !== c.expectKind) {
-    ok = false;
-    reasons.push(`类型应为 ${c.expectKind}，实际 ${top.kind}`);
+
+  // ---- 性能：本城全部站点 + 线路，单次查询应当远低于一帧 ----
+  const probes = ["人民", "renmin", "rmgc", "南", "路", "line", "2", "x", "龙阳路", "shanghai"];
+  const timings = [];
+  for (let i = 0; i < 400; i += 1) {
+    const q = probes[i % probes.length];
+    const t0 = performance.now();
+    search(index, q);
+    timings.push(performance.now() - t0);
   }
-  if (typeof c.minResults === "number" && hits.length < c.minResults) {
-    ok = false;
-    reasons.push(`结果数应 ≥${c.minResults}，实际 ${hits.length}`);
+  timings.sort((a, b) => a - b);
+  const p50 = timings[Math.floor(timings.length * 0.5)];
+  const p95 = timings[Math.floor(timings.length * 0.95)];
+  const max = timings[timings.length - 1];
+
+  if (verbose) {
+    console.log(`检索用例 · ${cityLabel(cfg)}（${cfg.code}）｜索引 ${index.entries.length} 条 = ${stationsFile.stations.length} 站 + ${linesFile.lines.length} 线\n`);
+    console.table(rows);
+    console.log(`性能：400 次查询 p50 ${p50.toFixed(3)} ms / p95 ${p95.toFixed(3)} ms / max ${max.toFixed(3)} ms`);
   }
-  if (typeof c.maxResults === "number" && hits.length > c.maxResults) {
-    ok = false;
-    reasons.push(`结果数应 ≤${c.maxResults}，实际 ${hits.length}`);
+
+  const perfOk = p95 <= 5;
+  const bad = rows.filter((r) => r.结果 !== "通过");
+  const mark = failed === 0 && perfOk ? "通过" : "失败";
+  if (verbose) {
+    if (!perfOk) console.error(`\n[失败] p95 ${p95.toFixed(3)} ms 超过 5 ms`);
+  } else {
+    console.log(
+      `[${mark}] ${cityLabel(cfg)}（${cfg.code}）${cases.length} 条用例${bad.length ? `，${bad.length} 条失败：${bad.slice(0, 2).map((r) => r.查询).join(",")}` : ""}｜p95 ${p95.toFixed(3)} ms`,
+    );
   }
-  if (!ok) failed += 1;
-  rows.push({
-    查询: c.q === "   " ? "(空)" : c.q,
-    用例: c.note ?? "",
-    首条: top ? `${top.title}${top.kind === "line" ? " [线路]" : ""}` : "—",
-    结果数: hits.length,
-    结果: ok ? "通过" : `失败：${reasons.join("；")}`,
-  });
+
+  return { code: cfg.code, label: cityLabel(cfg), total: cases.length, failed: failed + (perfOk ? 0 : 1) };
 }
 
-// ---- 性能：本城全部站点 + 线路，单次查询应当远低于一帧 ----
-const probes = ["人民", "renmin", "rmgc", "南", "路", "line", "2", "x", "龙阳路", "shanghai"];
-const timings = [];
-for (let i = 0; i < 400; i += 1) {
-  const q = probes[i % probes.length];
-  const t0 = performance.now();
-  search(index, q);
-  timings.push(performance.now() - t0);
-}
-timings.sort((a, b) => a - b);
-const p50 = timings[Math.floor(timings.length * 0.5)];
-const p95 = timings[Math.floor(timings.length * 0.95)];
-const max = timings[timings.length - 1];
+const targets = explicit ? [cityArg] : listCityCodes();
+const results = targets.map((code) => runCity(code, explicit));
 
-console.log(`检索用例 · ${cityLabel(cfg)}（${cfg.code}）｜索引 ${index.entries.length} 条 = ${stationsFile.stations.length} 站 + ${linesFile.lines.length} 线\n`);
-console.table(rows);
-console.log(
-  `性能：400 次查询 p50 ${p50.toFixed(3)} ms / p95 ${p95.toFixed(3)} ms / max ${max.toFixed(3)} ms`,
-);
-
-if (p95 > 5) {
-  console.error(`\n[失败] p95 ${p95.toFixed(3)} ms 超过 5 ms`);
-  failed += 1;
-}
-
-if (failed > 0) {
-  console.error(`\n共 ${cases.length} 条用例 + 1 条性能断言，失败 ${failed} 项。`);
+const bad = results.filter((r) => r.failed > 0);
+const totalCases = results.reduce((a, r) => a + r.total, 0);
+if (bad.length) {
+  console.error(`\n共 ${results.length} 城 / ${totalCases} 条用例 + 每城 1 条性能断言，失败 ${bad.map((r) => r.code).join(", ")}。`);
   process.exit(1);
 }
-console.log(`\n[通过] ${cases.length} 条用例 + 性能断言全部满足。`);
+console.log(`\n[通过] ${results.length} 城（${results.map((r) => r.code).join(" / ")}）共 ${totalCases} 条用例 + 每城性能断言全部满足。`);

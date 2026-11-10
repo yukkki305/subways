@@ -35,26 +35,32 @@ export function listCityCodes() {
 }
 
 /**
- * 从 argv 里取 `--city <code>`，返回 `{ city, rest }`（rest 是不含该参数的其余参数）。
- * 没有 --city 时看环境变量 SUBWAY_WEB_CITY，再没有就用 DEFAULT_CITY。
+ * 从 argv 里取 `--city <code>`，返回 `{ city, explicit, rest }`
+ * （rest 是不含该参数的其余参数）。
+ *
+ * `explicit` 表示用户确实点名了城市：`verify-build.mjs` 靠它区分「只校验这一城」
+ * 与「校验产物里的所有城」——没有它就只能退化成默认城，多城矩阵会被悄悄降级成单城。
  */
 export function parseCityArg(argv) {
   const rest = [];
   let city = process.env.SUBWAY_WEB_CITY || DEFAULT_CITY;
+  let explicit = Boolean(process.env.SUBWAY_WEB_CITY);
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === "--city") {
       const v = argv[i + 1];
       if (!v) throw new Error("--city 后面要跟城市 code，例如 --city gz");
       city = v;
+      explicit = true;
       i += 1;
     } else if (a.startsWith("--city=")) {
       city = a.slice("--city=".length);
+      explicit = true;
     } else {
       rest.push(a);
     }
   }
-  return { city, rest };
+  return { city, explicit, rest };
 }
 
 /** 读某城的配置，并对前端用到的字段做最小校验 */

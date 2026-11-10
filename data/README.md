@@ -21,6 +21,7 @@
 | `data/processed/guangzhou/lines.json` | 广州 19 条线 / 22 branch | 省级 PBF `guangdong-latest.osm.pbf`（2026-11-03）+ `data/manual/guangzhou/` 人工表 | ODbL-1.0 | 2026-11-03 | `pipeline/08_build_lines.py` |
 | `data/processed/guangzhou/station.json` | 广州 320 站 / 414 站次 | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/09_build_stations.py` |
 | `data/processed/guangzhou/segment.geojson` | 广州 393 段区间 | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/10_build_segments.py` |
+| `data/processed/{guangzhou,chengdu,hefei}/basemap.geojson` | 三城轻底图（P1a-6.4）：市界 1 条 + 邻市界 10 条 + 河道 24 条 + 水面 20 个 + 海岸线 ≤20 条；广州 227 KB、成都 242 KB、合肥 237 KB | OSM，经 `download.openstreetmap.fr` 省级 extract（广东 / 四川 / 安徽），`admin_level=4/5/6`、`waterway=river|canal`、`natural=water|coastline` | **ODbL-1.0** © OpenStreetMap contributors | 广州 2026-11-03、成都 2026-11-03、合肥 2026-11-01 | `pipeline/16_extract_light_basemap.py` |
 | `data/processed/guangzhou/transfer.json` | 广州 3 条换乘 | 同上 + `data/manual/guangzhou/transfers.json` | ODbL-1.0 | 2026-11-03 | `pipeline/11_build_transfers.py` |
 | `data/processed/guangzhou/relation-index.json` | 广州 91 条关系清单与指纹 | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/04_track.py` |
 | `data/processed/guangzhou/attribution-report.json` | 广州逐站归属（含佛山 22 站） | 同上 | ODbL-1.0 | 2026-11-03 | `pipeline/05_attribution.py` |

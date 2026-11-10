@@ -147,7 +147,7 @@ P1a-1 这 2.1 天是**一次性**投入，P1b 之后每城都能直接 `run_city
 | 6.1 数据目录多城化 | `public/data/<code>/` + `cities.json`；`sync --all` 四城 22 个数据文件 / 4.83 MB；`prebuild` 改 `--all`；`verify` 改读 `out/data/<code>/`；`MapView` 七条路径带城市目录（`CITY_CODE` 暂固定 `sh`）；构建 23/23、导出 7.14 MB | ✅ 本轮 |
 | 6.2 路由与元信息 | `lib/cities.ts` 构建期读配置与 `cities.json`；`app/[city]/page.tsx`（`dynamicParams=false`、SSG 三城）+ 四页逐页 metadata（canonical 各指其页、`og:image` 绝对地址）；`MapView` 改接 `cityCode/cityLabel/center/zoom`，底图/海面缺失降级为空集合；路由表 `○ / ● /gz ● /cd ● /hf`；typecheck 干净、verify 23/23、导出 7.22 MB | ✅ 本轮 |
 | 6.3 城市切换器 | 标题里的城市名即按钮（`.city-switch`），菜单列四城与「N 条线路 · M 站」；当前项 `aria-current="page"`；Esc 关闭并还焦点、点外部关闭、Tab/Enter 可走完切换；链接由 `cityLinks()` 在构建期给出 href（`/` 或 `/<code>/`，`next/link` 自动加 basePath）；窄屏（≤760px）菜单下移 56px 避让搜索框；verify 23/23、导出 7.23 MB | ✅ 本轮 |
-| 6.4 底图多城化 | 非上海轻底图（市界 + 主河道） | 待做 |
+| 6.4 底图多城化 | 新建 `pipeline/16_extract_light_basemap.py`（不改 03）：市界 + 邻市界 + 河道 + 水面 + 海岸线；`scene_bbox` 裁剪、按城 UTM 带投影化简、坐标量化 5 位；边界单列 150 m 容差（z9 时 1 px ≈ 150 m）、河道 40 m、水面 90 m；每城封顶（邻市 10 / 河 24 / 水 20 / 海岸线 20）；产物落 `data/processed/<slug>/basemap.geojson`（`city.mjs` 已约定的非上海可选路径，前端零改动）；广州 227 KB / 成都 242 KB / 合肥 237 KB；导出 7.23→**7.91 MB** | ✅ 本轮 |
 | 6.5 校验矩阵 | `verify` 四城循环 | 待做 |
 | 6.6 构建部署 | 单 `gh-pages` 四页 | 待做 |
 | 6.7 文档自证 | `docs/validation-p1a.md` | 待做 |
@@ -156,6 +156,11 @@ P1a-1 这 2.1 天是**一次性**投入，P1b 之后每城都能直接 `run_city
 
 1. **体积从 4.19 MB 涨到 7.14 MB**（6.2 后 7.22 MB）：四城数据全部进 `out/`。这是「按城懒加载」的前提，gzip 只有 ≈1.28 MB；但离 `verify` 的 8 MB 上限只剩 0.78 MB，补底图后会超，届时要么抬上限、要么把数据改成 `.json` 之外的分片。
 2. **`CITY_CODE` 常量已在 6.2 消除**：`MapView` 改为接 `cityCode` 参数，`/gz/` 实测渲染广州 19 线 / 320 站、`/cd/` 16 线 / 364 站、`/hf/` 8 线 / 195 站。新的代价是**非上海三城暂无底图**（只有线路浮在纸色背景上），由 6.4 解决。
+
+6.4 之后的两条新状态：
+
+3. **三城底图已补，体积 7.91 MB**：距 `verify` 的 8 MB 断言只剩 **90 KB**。6.5 若再加内容（比如四城循环本身的日志/报告不占体积，但要加校验产物）必须先决定：抬上限到 10 MB，还是把 `segment.geojson` 之类的大文件拆片。当前判断：**倾向抬到 10 MB**——gzip 后 ≈1.4 MB，真实首屏只加载当前城那一份（≈1.3–1.9 MB 未压缩、300–500 KB gzip），8 MB 这个数是当初按单城定的，多城后已不代表用户成本。
+4. **首屏贴合偏松**：`fitBounds` 的缩放受较短边约束，广州（南沙—花都 0.87°）在 1256×808 下只能到 z≈8.9，左右留白较多；上海 z9.59、成都 z9.44、合肥 z9.99 观感正常。若要更好，可在 6.6 前给 `fitBounds` 加「按城市宽高比加权 padding」或改用 `cameraForBounds` 后手动微调 zoom。
 
 
 ## 七、复现命令

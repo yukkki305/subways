@@ -637,6 +637,27 @@ npm run test:search            # 四城检索用例（sh 22 条 + 其余各城�
 
 首屏 `fitBounds` 的 padding 从 72/96 收到 56/56（四城各 +0.12 档）。**注意一个被纠正的认知**：广州左右留白多不是 padding 造成的，而是「南沙到花都 0.87° 的竖向跨度」在横向窗口里必然受高度约束；再想贴合只能裁掉端点站点，P1a 不做。
 
+## 多城发布与线上冒烟（P1a-6.6）
+
+`npm run deploy` 现在一次发布四页（单 `gh-pages`），并在推送后自己验证线上：
+
+| 阶段 | 做什么 |
+|---|---|
+| 发布前 | `pagesInBuild()` 只认「有 `<code>/index.html` **且** 有 `data/<code>/meta.json`」的目录，避免 `404/`、`vendor/` 被当成城市；断言产物城市集合 ⊆ `cities.json`、每页 HTML > 2 KB，并打印「页面 4 个」「cities.json 4 条」 |
+| 推送 | 临时仓库 → force push `gh-pages`（退避 15/30/60/120 s；Windows 下统一走 `cmd.exe /d /s /c`） |
+| 冒烟 | 按 `[0,15,20,30,45] s` 五轮轮询：4 个页面 + `data/cities.json` + 每城 5 个数据文件（sh 多一个 `sea.geojson`）；要求全 200、页面含该城中文名、cities.json 条数与本地一致 |
+
+```powershell
+npm run deploy                # 构建 + 发布 + 冒烟
+npm run deploy -- --no-build  # 只发布已有 out/
+npm run deploy -- --dry-run   # 只做发布前断言与 staging，不推送
+npm run deploy -- --skip-smoke
+```
+
+实测（2026-11-11）：staging **74 文件 / 7.91 MB**；推送第 1 次成功；冒烟第 1、2 轮 404（Pages 重建中）、**第 3 轮通过**（页面 4/4｜数据 26/26｜cities.json ok）。线上四页 `map.loaded()` 均为 true，缩放分别为上海 9.71 / 广州 9.02 / 成都 9.56 / 合肥 10.11，`basemap` 源全部存在。
+
+**别把「推送成功」当「线上可用」**：Pages 有 30–60 s 重建延迟。也别在 GitHub `:443` 不通时反复改脚本——`Test-NetConnection github.com -Port 443` 返回 False 就是 AGENTS §11 记的域名级中断（本轮 08:19–08:34 断了 15 分钟），等 TCP 通了重跑一次即可。
+
 
 
 

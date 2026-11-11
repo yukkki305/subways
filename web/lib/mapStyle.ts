@@ -1,18 +1,9 @@
 import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
 
-/** 底图与线路的视觉常量（颜色只在 lib 里定义一次，组件不硬编码） */
-import { FONT_STACK } from "./typography";
+/** 颜色只在 lib/theme.ts 里定义一次（浅色 = LIGHT，深色 = DARK），组件与图层都不硬编码 */
+import { LIGHT, type Palette } from "./theme";
 
-export const PALETTE = {
-  paper: "#F4F1EA",
-  sea: "#DCE6EF", // 背景＝陆地（P0 不画陆地填充面，见探测 8 决策）
-  water: "#D7E4EF",
-  waterLine: "#C6D8E8",
-  coastline: "#BFC9D2",
-  district: "#DBD5C8",
-  province: "#B4AC9C",
-  ink: "#2B2B2B",
-} as const;
+import { FONT_STACK } from "./typography";
 
 export type LineColors = Array<[string, string]>;
 export type LineTypes = Array<[string, string]>;
@@ -23,9 +14,9 @@ function idsOfType(lineTypes: LineTypes, wanted: string): string[] {
   return lineTypes.filter(([, t]) => t === wanted).map(([id]) => id);
 }
 
-function colorExpression(lineColors: LineColors): unknown {
+function colorExpression(lineColors: LineColors, palette: Palette): unknown {
   const pairs = lineColors.flatMap(([id, color]) => [id, color]);
-  return ["match", ["get", "line_id"], ...pairs, "#999999"];
+  return ["match", ["get", "line_id"], ...pairs, palette.lineFallback];
 }
 
 /** 中英双语站名图层（S4-2）：中文一行 + 英文小字一行，靠 format 的第二段调字号和颜色 */
@@ -33,6 +24,7 @@ function bilingualLabel(
   id: string,
   minzoom: number,
   lengthFilter: unknown,
+  palette: Palette,
   opts: { withEn?: boolean; maxzoom?: number } = {},
 ): LayerSpecification {
   const withEn = opts.withEn !== false;
@@ -55,7 +47,7 @@ function bilingualLabel(
             { "font-scale": 1 },
             "\n",
             ["get", "name_en"],
-            { "font-scale": 0.66, "text-color": "#6E6E6E" },
+            { "font-scale": 0.66, "text-color": palette.labelSubtle },
           ]
         : ["get", "name_display"],
       "text-size": ["interpolate", ["linear"], ["zoom"], 13, 12, 15, 13.5, 17, 15.5],
@@ -70,8 +62,8 @@ function bilingualLabel(
       "symbol-sort-key": ["get", "line_count"],
     },
     paint: {
-      "text-color": "#222222",
-      "text-halo-color": "rgba(244, 241, 234, 0.95)",
+      "text-color": palette.labelPrimary,
+      "text-halo-color": palette.haloPrimary,
       "text-halo-width": 1.8,
       "text-halo-blur": 0.2,
     },
@@ -85,6 +77,7 @@ export function buildStyle(
   lineColors: LineColors,
   lineTypes: LineTypes,
   sea: GeoJSON.FeatureCollection,
+  palette: Palette = LIGHT,
 ): StyleSpecification {
   // 制式线型（S4-3）：磁浮虚线、浦江线点线，其余地铁实线
   const maglevIds = idsOfType(lineTypes, "maglev");
@@ -105,21 +98,21 @@ export function buildStyle(
       {
         id: "background",
         type: "background",
-        paint: { "background-color": PALETTE.paper },
+        paint: { "background-color": palette.paper },
       },
       // ——— 海面（S4-4）：五省 coastline 拼出的面，岛屿是它自己的洞 ———
       {
         id: "sea-fill",
         type: "fill",
         source: "sea",
-        paint: { "fill-color": PALETTE.sea, "fill-opacity": 1 },
+        paint: { "fill-color": palette.sea, "fill-opacity": 1 },
       },
       {
         id: "water-fill",
         type: "fill",
         source: "basemap",
         filter: ["==", ["get", "layer"], "water"],
-        paint: { "fill-color": PALETTE.water, "fill-opacity": 1 },
+        paint: { "fill-color": palette.water, "fill-opacity": 1 },
       },
       {
         id: "coastline",
@@ -128,7 +121,7 @@ export function buildStyle(
         filter: ["==", ["get", "layer"], "coastline"],
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
-          "line-color": PALETTE.coastline,
+          "line-color": palette.coastline,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 12, 0.9, 16, 1.6],
         },
       },
@@ -139,7 +132,7 @@ export function buildStyle(
         filter: ["==", ["get", "layer"], "water_line"],
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
-          "line-color": PALETTE.waterLine,
+          "line-color": palette.waterLine,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.8, 11, 1.6, 14, 3.4, 17, 7],
         },
       },
@@ -149,7 +142,7 @@ export function buildStyle(
         source: "basemap",
         filter: ["==", ["get", "layer"], "district_boundary"],
         paint: {
-          "line-color": PALETTE.district,
+          "line-color": palette.district,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.4, 12, 0.8, 16, 1.2],
         },
       },
@@ -159,7 +152,7 @@ export function buildStyle(
         source: "basemap",
         filter: ["==", ["get", "layer"], "province_boundary"],
         paint: {
-          "line-color": PALETTE.province,
+          "line-color": palette.province,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.0, 12, 1.7, 16, 2.4],
           "line-dasharray": [4, 2],
         },
@@ -171,7 +164,7 @@ export function buildStyle(
         source: "segments",
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
-          "line-color": PALETTE.paper,
+          "line-color": palette.paper,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 3.4, 10, 4.6, 12, 6.0, 14, 7.6, 17, 11.5],
           "line-opacity": 0.95,
         },
@@ -183,7 +176,7 @@ export function buildStyle(
         filter: ["!", ["in", ["get", "line_id"], ["literal", nonMetroIds]]],
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
-          "line-color": colorExpression(lineColors) as never,
+          "line-color": colorExpression(lineColors, palette) as never,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.4, 10, 2.0, 12, 3.0, 14, 4.2, 17, 7],
           "line-opacity": 1,
         },
@@ -197,7 +190,7 @@ export function buildStyle(
         filter: ["in", ["get", "line_id"], ["literal", maglevIds]],
         layout: { "line-cap": "butt", "line-join": "round" },
         paint: {
-          "line-color": colorExpression(lineColors) as never,
+          "line-color": colorExpression(lineColors, palette) as never,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.4, 10, 2.0, 12, 3.0, 14, 4.2, 17, 7],
           // dasharray 不接受表达式（只能是字面量数组），单位是线宽的倍数
           "line-dasharray": [2.6, 2.0] as never,
@@ -211,7 +204,7 @@ export function buildStyle(
         filter: ["in", ["get", "line_id"], ["literal", apmIds]],
         layout: { "line-cap": "round", "line-join": "round" },
         paint: {
-          "line-color": colorExpression(lineColors) as never,
+          "line-color": colorExpression(lineColors, palette) as never,
           "line-width": ["interpolate", ["linear"], ["zoom"], 8, 2.0, 10, 2.8, 12, 4.0, 14, 5.4, 17, 8.5],
           "line-dasharray": [0.05, 1.6] as never,
         },
@@ -227,7 +220,7 @@ export function buildStyle(
         filter: ["==", ["get", "is_transfer"], true],
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["zoom"], 9.5, 3.4, 10, 4.0, 12, 5.2, 14, 6.8, 17, 9.0],
-          "circle-color": PALETTE.paper,
+          "circle-color": palette.paper,
           "circle-opacity": 0.95,
         },
       },
@@ -240,8 +233,8 @@ export function buildStyle(
         filter: ["!=", ["get", "is_transfer"], true],
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 2.0, 13, 3.0, 15, 4.4, 17, 5.6],
-          "circle-color": "#FFFFFF",
-          "circle-stroke-color": "#6E6E6E",
+          "circle-color": palette.dotFill,
+          "circle-stroke-color": palette.dotRing,
           "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 11, 0.9, 14, 1.3, 17, 1.7],
         },
       },
@@ -254,8 +247,8 @@ export function buildStyle(
         filter: ["==", ["get", "is_transfer"], true],
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["zoom"], 9.5, 2.2, 10, 2.8, 12, 3.8, 14, 5.2, 17, 7.0],
-          "circle-color": "#FFFFFF",
-          "circle-stroke-color": "#2B2B2B",
+          "circle-color": palette.dotFill,
+          "circle-stroke-color": palette.dotRingTransfer,
           "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 9.5, 1.0, 12, 1.5, 14, 2.0, 17, 2.6],
         },
       },
@@ -268,7 +261,7 @@ export function buildStyle(
         paint: {
           "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 6, 14, 10, 17, 13],
           "circle-color": "rgba(0, 0, 0, 0)",
-          "circle-stroke-color": PALETTE.ink,
+          "circle-stroke-color": palette.ink,
           "circle-stroke-width": 2.4,
         },
       },
@@ -290,8 +283,8 @@ export function buildStyle(
           "text-ignore-placement": true,
         },
         paint: {
-          "text-color": PALETTE.ink,
-          "text-halo-color": "rgba(255, 255, 255, 0.95)",
+          "text-color": palette.ink,
+          "text-halo-color": palette.hoverHalo,
           "text-halo-width": 2,
         },
       },
@@ -318,8 +311,8 @@ export function buildStyle(
           "symbol-sort-key": ["get", "line_count"],
         },
         paint: {
-          "text-color": "#222222",
-          "text-halo-color": "rgba(244, 241, 234, 0.95)",
+          "text-color": palette.labelPrimary,
+          "text-halo-color": palette.haloPrimary,
           "text-halo-width": 1.8,
           "text-halo-blur": 0.2,
         },
@@ -343,8 +336,8 @@ export function buildStyle(
           "text-ignore-placement": false,
         },
         paint: {
-          "text-color": "#4A4A4A",
-          "text-halo-color": "rgba(244, 241, 234, 0.9)",
+          "text-color": palette.labelSecondary,
+          "text-halo-color": palette.haloSecondary,
           "text-halo-width": 1.5,
           "text-halo-blur": 0.2,
         },
@@ -355,13 +348,13 @@ export function buildStyle(
       // 英文名长短差异极大（「人民广场 / People's Square」对「一大会址·黄陂南路 /
       // Site of the First CPC National Congress·South Huangpi Road」），
       // 所以按长度分两层：短的 z13 就出，长的压到 z15 才出，避免市中心一屏全是折行的英文。
-      bilingualLabel("station-label-bilingual", 13, ["<=", ["length", ["get", "name_en"]], 30]),
+      bilingualLabel("station-label-bilingual", 13, ["<=", ["length", ["get", "name_en"]], 30], palette),
       // 长英文名在 z13–15 之间只出中文，避免一屏全是折行的英文；z15 起再补英文副行
-      bilingualLabel("station-label-long-zh", 13, [">", ["length", ["get", "name_en"]], 30], {
+      bilingualLabel("station-label-long-zh", 13, [">", ["length", ["get", "name_en"]], 30], palette, {
         withEn: false,
         maxzoom: 15,
       }),
-      bilingualLabel("station-label-bilingual-long", 15, [">", ["length", ["get", "name_en"]], 30]),
+      bilingualLabel("station-label-bilingual-long", 15, [">", ["length", ["get", "name_en"]], 30], palette),
     ],
   };
 }

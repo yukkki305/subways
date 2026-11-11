@@ -150,7 +150,7 @@ P1a-1 这 2.1 天是**一次性**投入，P1b 之后每城都能直接 `run_city
 | 6.4 底图多城化 | 新建 `pipeline/16_extract_light_basemap.py`（不改 03）：市界 + 邻市界 + 河道 + 水面 + 海岸线；`scene_bbox` 裁剪、按城 UTM 带投影化简、坐标量化 5 位；边界单列 150 m 容差（z9 时 1 px ≈ 150 m）、河道 40 m、水面 90 m；每城封顶（邻市 10 / 河 24 / 水 20 / 海岸线 20）；产物落 `data/processed/<slug>/basemap.geojson`（`city.mjs` 已约定的非上海可选路径，前端零改动）；广州 227 KB / 成都 242 KB / 合肥 237 KB；导出 7.23→**7.91 MB** | ✅ 本轮 |
 | 6.5 校验矩阵 | `verify-build.mjs` 重写为多城矩阵：默认校验 `out/data/*/meta.json` 里的**所有城**，`--city` 退回单城；每城 21 项（页面存在且含城市名、资源同源、四件齐全、meta 登记项、线路数与 id、计数与字节自洽、坐标在视野内、颜色格式、as_of、`cities.json` 条目一致），全局 4 项（cities.json 覆盖全部城、sitemap 覆盖每页、maplibre 副本、体积 < 10 MB）；实跑 **87 项 / 4 城 / 0 失败**，并做反向验证（把 hf 的 stations 改成 999 → 恰好 1 项失败）。`test-search.mjs` 同步支持 `--all`：四城 61 条用例（sh 22 + 三城各 13 由产物现生成）。体积上限按 **ADR 0005** 抬到 10 MB；首屏 `fitBounds` padding 72/96 → 56/56，四城缩放各 +0.12 档 | ✅ 本轮 |
 | 6.6 构建部署 | `deploy.mjs` 多城化：`pagesInBuild()` 以「有页面 **且** 有 `out/data/<code>/meta.json`」判据（`404/`、`vendor/` 被排除，`--dry-run` 曾误报 404 是城市）；发布前断言（`cities.json` 覆盖全部页面、HTML > 2 KB、打印页面与计数）；新增**线上冒烟**（`--skip-smoke` 可关）：推送后按 `[0,15,20,30,45]s` 五轮轮询四页 + `data/cities.json` + 每城 5 个数据文件（sh 多 `sea.geojson`），校验 200、页面含该城中文名、cities.json 条数一致。实测 staging 74 文件 / 7.91 MB，推送后第 3 轮冒烟通过（页面 4/4｜数据 26/26｜cities.json ok）；线上四页 `loaded:true`、缩放 9.71 / 9.02 / 9.56 / 10.11、`basemap` 源均在 | ✅ 本轮 |
-| 6.7 文档自证 | `docs/validation-p1a.md` | 待做 |
+| 6.7 文档自证 | `docs/validation-p1a.md`：四城现状表、**A1–A8 验收逐项证据**（页面/数量/视野/功能/校验/体积/线上 0 个 4xx/上海回归）、6.0–6.6 证据链与提交号、复现命令、六条已知局限、两条流程教训 | ✅ 本轮 |
 
 6.1 的两个已知代价，6.2 之后的状态：
 

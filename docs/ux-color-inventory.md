@@ -200,3 +200,10 @@ station-label-bilingual-long
 | 运行时回读（上海页 `getPaintProperty`） | `background #F4F1EA`、`metro-line-casing #F4F1EA`、`station-transfer-halo #F4F1EA`、`station-dot circle-color #FFFFFF`、`station-label-major text-color #222222`、`text-halo-color rgba(244,241,234,.95)` —— **与重构前逐值相同** |
 | 图层数 | 21 层，与重构前一致 |
 | 截图 | `E:\subway-data\preview\ux0-sh.png`（与 P1a-6 的上海页肉眼一致） |
+
+## 阶段 1 落地（界面 token 化，2026-11-11）
+
+- 界面 50 处字面量 → `--c-*` token，映射关系与命中次数见 `E:\subway-data\probe-ux\tokenize-css.mjs` 的输出（50 组：`#8b8374`×6、`#1f5fa8`×4、badge/ok/warn/bad 各 2、危险色含 3 段 keyframes 等）。
+- `:root` 现在是 **44 个 `--c-*`**：颜色 36（paper/bg/panel/surface×3/scrim/mask/line/border×3/text×5/accent/focus/focus-ring/danger×3/hover/active/mark×2/on-invert/badge×2/ok×2/warn×2/bad×2）+ 阴影 5 + 其余为旧名别名。
+- 地图调色板（`lib/theme.ts` 的 `Palette`）与界面 token 是**两套**：前者喂给 MapLibre 的 paint 属性，后者是 CSS；两边唯一必须一致的量是 `paper`（`--c-paper` 对 `Palette.paper`），阶段 4 的 verify 会断言这一点。
+- 深色取值原则：纸面 `#1a1a18`（暖黑，不用纯黑以免与线路色冲突）、文字 `#e9e6df`（不是纯白）、强调 `#7fb2ea`、danger `#e2725b`；阴影统一加深并降低透明度。

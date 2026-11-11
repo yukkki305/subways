@@ -1,7 +1,7 @@
 # UX 计划：城市总览页 + 深色模式
 
 > 目标：让四座城市“被看见”，并给地图加上深色模式。不触碰 P2（示意化）的工作。
-> 状态：阶段 0 已完成；阶段 1–5 待做。
+> 状态：阶段 0–1 已完成；阶段 2–5 待做。
 > 关联：[颜色盘点](ux-color-inventory.md)、[P1a 自证](validation-p1a.md)。
 
 ---
@@ -24,7 +24,7 @@
 | 阶段 | 内容 | 工时 | 状态 |
 | --- | --- | --- | --- |
 | 0 | 颜色盘点 + `lib/theme.ts` 契约（`Palette`/`LIGHT`/`DARK`/`resolveTheme`） | 0.5 h | ✅ 本轮 |
-| 1 | 界面深色地基：CSS token 化、`<html data-theme>` 注水脚本、`ThemeToggle` | 2.5 h | 待做 |
+| 1 | 界面深色地基：CSS token 化、`<html data-theme>` 注水脚本、`ThemeToggle` | 2.5 h | ✅ 本轮 |
 | 2 | 地图深色：`buildStyle(palette)` 接线、`applyTheme()` 覆盖 21 层、对比度校准 | 3 h | 待做 |
 | 3 | 城市总览页：`/cities/`、卡片、SVG 缩略图脚本、三处入口 | 3 h | 待做 |
 | 4 | 校验与自证：verify 增项、sitemap、主题持久化 E2E、`docs/validation-ux.md` | 2 h | 待做 |
@@ -41,6 +41,32 @@
 3. `docs/ux-color-inventory.md`：地图 21 层/18 字段、界面 50 处颜色分组、阶段 1 的 20 个 CSS token 草案、D6 约束说明。
 
 验证：`typecheck` 干净、`build` 成功、`verify` **87 项 / 4 城 / 0 失败**、导出体积仍 **7.91 MB**（证明只是重构，没有改动观感）。
+
+---
+
+## 五、阶段 1 交付（已完成）
+
+1. `web/app/globals.css`：`:root` 改为 **44 个 `--c-*` token**（颜色 36 + 阴影 5 + 焦点环），旧变量（`--bg/--paper/--ink/--muted/--line/--panel`）保留为别名；新增 `:root[data-theme="dark"]` 覆盖块。界面里 **50 处颜色字面量全部改走 token**（脚本 `tokenize-css.mjs` 逐条断言命中数，最后再扫一遍 token 区之外的残留，为 0 才写盘）。
+2. `web/app/layout.tsx`：`<head>` 内联 `THEME_INIT` 小脚本，首屏前把 `localStorage["subways-theme"]` 解析成 `documentElement.dataset.theme`，避免深色用户看到一闪而过的浅色；`viewport.themeColor` 给浅/深两值（按系统偏好）。
+3. `web/components/ThemeToggle.tsx`：页脚三态按钮（跟随系统 → 浅色 → 深色），图标 + 当前模式文字，`aria-label` 带当前态；「跟随系统」时监听 `matchMedia` 的 change 事件。
+
+### 三个真问题（都不是「写错了」而是环境行为）
+
+| # | 现象 | 根因 | 修法 |
+| --- | --- | --- | --- |
+| 1 | 点按钮毫无反应，`localStorage` 一直空 | `.map-footer` 整体 `pointer-events: none`（原本只有「关于」按钮靠浏览器默认行为漏过事件） | `.theme-toggle { pointer-events: auto }` |
+| 2 | 深色下输入框周围一圈刺眼白环、搜索结果按钮是纯白字 | UA 焦点环 + `button` 默认 `buttontext`（`color-scheme: dark` 下变纯白） | 输入框 `outline: none`、外框用 `--c-focus` + `--c-focus-ring`；`.search__item { color: inherit }` |
+| 3 | 改了 CSS 却「看不出变化」，一度以为样式没生效 | 本地预览服务器不带缓存头，浏览器复用旧 HTML/CSS | 预览服务器加 `cache-control: no-store`（`E:\subway-data\probe-ux\serve.mjs`），并给 URL 加 `?v=N` |
+
+另外补了一处窄屏回归：页脚多一个按钮后，648 px 下会溢出右边界 → `@media (max-width: 760px)` 里让统计胶囊独占一行并允许省略号，按钮换到第二行。
+
+### 验证
+
+- 浅色逐值不变：`--c-paper #f4f1ea`、`--c-bg #f4f2ee`、页脚 `rgba(255,255,255,0.94)`、标题 `rgba(255,255,255,0.86)`、搜索框 `#f4f1ea` / 边框 `#e2dccf`、关于按钮 `#fffdf8`，地图 `background #F4F1EA`、图层仍 **21** 个。
+- 深色：`--c-paper #1a1a18`、页脚 `rgba(38,38,35,0.94)`、面板 `rgb(34,34,31)`、正文 `#e9e6df`。
+- 三态循环实测：`system→light→dark→system`，`localStorage` 分别写 `light/dark/system`；刷新后保持（首屏脚本先生效）。
+- 「跟随系统」解析：把 `matchMedia` 打桩成 dark 后切到 system，`data-theme` 变 `dark`（真实 bundle，不是源码推理）。
+- `typecheck` 干净；`npm run verify` **87 项 / 4 城 / 0 失败**；导出 **7.93 MB**（+0.02 MB，gzip ≈1.48 MB）。
 
 ---
 

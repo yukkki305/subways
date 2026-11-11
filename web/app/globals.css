@@ -1,9 +1,62 @@
 :root {
-  --bg: #f4f2ee;
-  --ink: #2b2b2b;
-  --muted: #6b6b6b;
-  --line: #dcd8d0;
-  --panel: rgba(255, 255, 255, 0.86);
+  color-scheme: light;
+
+  /* ── 主题 token（UX 阶段 1）──────────────────────────────
+     所有界面颜色只在这里定义；深色在 :root[data-theme="dark"] 里覆盖。
+     地图调色板另有唯一来源 web/lib/theme.ts，两者的 paper/bg 必须一致
+     （阶段 4 的 verify 会断言 --c-paper 与 DARK.paper 相等）。 */
+  --c-paper: #f4f1ea;
+  --c-bg: #f4f2ee;
+  --c-panel: rgba(255, 255, 255, 0.86);
+  --c-surface: rgba(255, 255, 255, 0.94);
+  --c-surface-solid: #ffffff;
+  --c-surface-2: #f4f2ec;
+  --c-surface-warm: #fffdf8;
+  --c-scrim: rgba(244, 241, 234, 0.55);
+  --c-mask: rgba(35, 32, 26, 0.28);
+  --c-line: #dcd8d0;
+  --c-border: #e2dccf;
+  --c-border-soft: #f0ece3;
+  --c-border-strong: #b9b2a2;
+  --c-text: #2b2b2b;
+  --c-text-body: #3f3a32;
+  --c-text-muted: #6b6b6b;
+  --c-text-subtle: #8b8374;
+  --c-text-placeholder: #9c9486;
+  --c-accent: #1f5fa8;
+  --c-focus: #1f5fa8;
+  --c-focus-ring: rgba(31, 95, 168, 0.35);
+  --c-danger: #c0392b;
+  --c-danger-strong: #8c1d1d;
+  --c-danger-glow: rgba(192, 57, 43, 0.45);
+  --c-danger-glow-0: rgba(192, 57, 43, 0);
+  --c-hover: rgba(0, 0, 0, 0.055);
+  --c-active: rgba(0, 0, 0, 0.045);
+  --c-mark: #ffe9a8;
+  --c-mark-2: #fff2c9;
+  --c-on-invert: #ffffff;
+  --c-badge-bg: #eef1f4;
+  --c-badge-ink: #45505c;
+  --c-ok-bg: #e6f0e6;
+  --c-ok-ink: #2f6b34;
+  --c-warn-bg: #fdf3e0;
+  --c-warn-ink: #8a6212;
+  --c-bad-bg: #fde9e9;
+  --c-bad-ink: #8c2f2f;
+
+  --c-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --c-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.08);
+  --c-shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.07), 0 18px 48px rgba(0, 0, 0, 0.1);
+  --c-shadow-menu: 0 10px 30px rgba(43, 43, 43, 0.16);
+  --c-shadow-warm: 0 18px 48px rgba(40, 36, 28, 0.24);
+
+  /* 旧变量名保留为别名：既有选择器不必逐个改 */
+  --bg: var(--c-bg);
+  --paper: var(--c-paper);
+  --ink: var(--c-text);
+  --muted: var(--c-text-muted);
+  --line: var(--c-line);
+  --panel: var(--c-panel);
 
   /* 字号阶梯（S4-6 终校）：10.5 元信息 / 11.5 辅助 / 12.5 正文 / 15 标题 / 17 面板主标题 */
   --fs-meta: 10.5px;
@@ -21,7 +74,57 @@
   --sp-2: 8px;
   --sp-3: 12px;
   --sp-4: 16px;
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-card: var(--c-shadow-card);
+}
+
+/* 深色：暖黑底 + 低饱和底图；线路色不在此层（由数据决定，见 D6） */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --c-paper: #1a1a18;
+  --c-bg: #1a1a18;
+  --c-panel: rgba(32, 32, 29, 0.88);
+  --c-surface: rgba(38, 38, 35, 0.94);
+  --c-surface-solid: #262623;
+  --c-surface-2: #2a2a26;
+  --c-surface-warm: #22221f;
+  --c-scrim: rgba(20, 20, 18, 0.62);
+  --c-mask: rgba(0, 0, 0, 0.55);
+  --c-line: #35352f;
+  --c-border: #3a3a34;
+  --c-border-soft: #302f2a;
+  --c-border-strong: #55544b;
+  --c-text: #e9e6df;
+  --c-text-body: #cfcbc2;
+  --c-text-muted: #a8a39a;
+  --c-text-subtle: #8f8a81;
+  --c-text-placeholder: #7c7770;
+  --c-accent: #7fb2ea;
+  --c-focus: #7fb2ea;
+  --c-focus-ring: rgba(127, 178, 234, 0.35);
+  --c-danger: #e2725b;
+  --c-danger-strong: #f0978a;
+  --c-danger-glow: rgba(226, 114, 91, 0.45);
+  --c-danger-glow-0: rgba(226, 114, 91, 0);
+  --c-hover: rgba(255, 255, 255, 0.07);
+  --c-active: rgba(255, 255, 255, 0.05);
+  --c-mark: #4a3d16;
+  --c-mark-2: #3a2f12;
+  --c-on-invert: #1a1a18;
+  --c-badge-bg: #2b3038;
+  --c-badge-ink: #a9b6c4;
+  --c-ok-bg: #1f2e22;
+  --c-ok-ink: #86c48f;
+  --c-warn-bg: #332812;
+  --c-warn-ink: #e0b25e;
+  --c-bad-bg: #331e1e;
+  --c-bad-ink: #e29191;
+
+  --c-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --c-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55), 0 20px 48px rgba(0, 0, 0, 0.5);
+  --c-shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.55), 0 18px 48px rgba(0, 0, 0, 0.55);
+  --c-shadow-menu: 0 10px 30px rgba(0, 0, 0, 0.55);
+  --c-shadow-warm: 0 18px 48px rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -44,7 +147,7 @@ body {
 
 /* 键盘用户也要看得见焦点（S4-6） */
 :where(button, a, [tabindex]):focus-visible {
-  outline: 2px solid #1f5fa8;
+  outline: 2px solid var(--c-focus);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -67,7 +170,7 @@ body {
 /* 地图自带的版权条压低存在感，但仍可读 */
 .maplibregl-ctrl-attrib {
   font-size: 10px;
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: var(--c-surface) !important;
 }
 
 
@@ -122,7 +225,7 @@ body {
 }
 
 .city-switch__btn:hover {
-  background: rgba(0, 0, 0, 0.055);
+  background: var(--c-hover);
 }
 
 .city-switch__btn:focus-visible {
@@ -170,12 +273,12 @@ body {
 
 .city-switch__item:hover,
 .city-switch__item:focus-visible {
-  background: rgba(0, 0, 0, 0.055);
+  background: var(--c-hover);
   outline: none;
 }
 
 .city-switch__item.is-current {
-  background: rgba(0, 0, 0, 0.045);
+  background: var(--c-active);
 }
 
 .city-switch__item-name {
@@ -189,7 +292,7 @@ body {
   padding: 1px 5px;
   border-radius: var(--radius-pill);
   background: var(--ink);
-  color: #fff;
+  color: var(--c-on-invert);
   font-size: var(--fs-meta);
   font-weight: 500;
   vertical-align: 1.5px;
@@ -208,7 +311,7 @@ body {
   z-index: 3;
   display: grid;
   place-items: center;
-  background: rgba(244, 241, 234, 0.55);
+  background: var(--c-scrim);
   backdrop-filter: blur(2px);
   animation: fade-in 160ms ease-out;
 }
@@ -219,16 +322,16 @@ body {
   gap: 6px;
   padding: 18px 26px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.08);
+  background: var(--c-surface);
+  box-shadow: var(--c-shadow-md);
 }
 
 .map-loading__dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #c0392b;
-  box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.45);
+  background: var(--c-danger);
+  box-shadow: 0 0 0 0 var(--c-danger-glow);
   animation: pulse 1.4s ease-out infinite;
 }
 
@@ -245,12 +348,12 @@ body {
 }
 
 .map-loading.is-error .map-loading__dot {
-  background: #8c1d1d;
+  background: var(--c-danger-strong);
   animation: none;
 }
 
 .map-loading.is-error .map-loading__title {
-  color: #8c1d1d;
+  color: var(--c-danger-strong);
 }
 
 .map-loading.is-error .map-loading__hint {
@@ -261,13 +364,13 @@ body {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.4);
+    box-shadow: 0 0 0 0 var(--c-danger-glow);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(192, 57, 43, 0);
+    box-shadow: 0 0 0 10px var(--c-danger-glow-0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(192, 57, 43, 0);
+    box-shadow: 0 0 0 0 var(--c-danger-glow-0);
   }
 }
 
@@ -305,7 +408,7 @@ body {
 }
 
 .map-footer span {
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--c-surface);
   padding: 3px 9px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
@@ -329,10 +432,10 @@ body {
   max-width: calc(100vw - 32px);
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--c-surface);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-lg);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07), 0 18px 48px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--c-shadow-lg);
   overflow: hidden;
 }
 
@@ -374,7 +477,7 @@ body {
 }
 
 .station-panel__close:hover {
-  background: #f0ede6;
+  background: var(--c-surface-2);
   color: var(--ink);
 }
 
@@ -413,7 +516,7 @@ body {
   gap: 5px;
   padding: 4px 9px 4px 7px;
   border-radius: var(--radius-pill);
-  background: #f4f2ec;
+  background: var(--c-surface-2);
   font-size: 12px;
 }
 
@@ -446,7 +549,7 @@ table.seq th {
 
 table.seq td {
   padding: 3px 10px 3px 0;
-  border-top: 1px solid #f0ece3;
+  border-top: 1px solid var(--c-border-soft);
   vertical-align: top;
 }
 
@@ -479,7 +582,7 @@ ul.transfers {
 
 ul.transfers li {
   padding: 6px 0;
-  border-top: 1px solid #f0ece3;
+  border-top: 1px solid var(--c-border-soft);
 }
 
 ul.transfers li:first-child {
@@ -490,7 +593,7 @@ button.link {
   padding: 0;
   border: none;
   background: none;
-  color: #1f5fa8;
+  color: var(--c-accent);
   font: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -501,24 +604,24 @@ button.link {
   margin-left: 6px;
   padding: 1px 6px;
   border-radius: 4px;
-  background: #eef1f4;
+  background: var(--c-badge-bg);
   font-size: 10.5px;
-  color: #45505c;
+  color: var(--c-badge-ink);
 }
 
 .badge.conf-high {
-  background: #e6f0e6;
-  color: #2f6b34;
+  background: var(--c-ok-bg);
+  color: var(--c-ok-ink);
 }
 
 .badge.conf-medium {
-  background: #fdf3e0;
-  color: #8a6212;
+  background: var(--c-warn-bg);
+  color: var(--c-warn-ink);
 }
 
 .badge.conf-low {
-  background: #fde9e9;
-  color: #8c2f2f;
+  background: var(--c-bad-bg);
+  color: var(--c-bad-ink);
 }
 
 ul.transfers .num {
@@ -568,19 +671,29 @@ dl.kv dd {
   align-items: center;
   gap: 8px;
   padding: 7px 12px;
-  background: var(--paper, #f4f1ea);
-  border: 1px solid #e2dccf;
+  background: var(--paper);
+  border: 1px solid var(--c-border);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-card);
   transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
 .search__box.is-focused {
-  border-color: #b9b2a2;
+  border-color: var(--c-border-strong);
+}
+
+/* 输入框不要 UA 焦点环，改由外层胶囊用主题色表达（深色下 UA 环是一条刺眼的白描边） */
+.search__input:focus {
+  outline: none;
+}
+
+.search__box:focus-within {
+  border-color: var(--c-focus);
+  box-shadow: 0 0 0 3px var(--c-focus-ring);
 }
 
 .search__icon {
-  color: #8b8374;
+  color: var(--c-text-subtle);
   font-size: 15px;
   line-height: 1;
 }
@@ -593,17 +706,17 @@ dl.kv dd {
   background: transparent;
   font-family: inherit;
   font-size: 13px;
-  color: var(--ink, #2b2b2b);
+  color: var(--ink);
 }
 
 .search__input::placeholder {
-  color: #9c9486;
+  color: var(--c-text-placeholder);
 }
 
 .search__clear {
   border: 0;
   background: transparent;
-  color: #9c9486;
+  color: var(--c-text-placeholder);
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
@@ -616,9 +729,9 @@ dl.kv dd {
   padding: 6px;
   max-height: 320px;
   overflow-y: auto;
-  background: #fff;
+  background: var(--c-surface-solid);
   border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(43, 43, 43, 0.16);
+  box-shadow: var(--c-shadow-menu);
 }
 
 .search__item {
@@ -633,11 +746,13 @@ dl.kv dd {
   text-align: left;
   cursor: pointer;
   font-family: inherit;
+  /* button 默认吃 UA 的 buttontext（深色下是纯白），显式继承才与正文同色 */
+  color: inherit;
 }
 
 .search__item:hover,
 .search__item:focus-visible {
-  background: #f2eee4;
+  background: var(--c-surface-2);
 }
 
 .search__dots {
@@ -664,7 +779,7 @@ dl.kv dd {
 
 .search__title {
   font-size: 13px;
-  color: var(--ink, #2b2b2b);
+  color: var(--ink);
   line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
@@ -672,7 +787,7 @@ dl.kv dd {
 }
 
 .search__title mark {
-  background: #ffe9a8;
+  background: var(--c-mark);
   color: inherit;
   padding: 0 1px;
   border-radius: 2px;
@@ -680,7 +795,7 @@ dl.kv dd {
 
 .search__sub {
   font-size: 11px;
-  color: #8b8374;
+  color: var(--c-text-subtle);
   line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
@@ -688,7 +803,7 @@ dl.kv dd {
 }
 
 .search__sub mark {
-  background: #fff2c9;
+  background: var(--c-mark-2);
   color: inherit;
 }
 
@@ -696,8 +811,8 @@ dl.kv dd {
   margin-left: auto;
   flex: none;
   font-size: 10px;
-  color: #8b8374;
-  border: 1px solid #e4ded1;
+  color: var(--c-text-subtle);
+  border: 1px solid var(--c-border-soft);
   border-radius: var(--radius-pill);
   padding: 1px 6px;
 }
@@ -705,7 +820,7 @@ dl.kv dd {
 .search__empty {
   padding: 10px 10px 12px;
   font-size: 12px;
-  color: #8b8374;
+  color: var(--c-text-subtle);
   line-height: 1.5;
 }
 
@@ -730,23 +845,38 @@ dl.kv dd {
   .city-switch__menu {
     top: calc(100% + 56px);
   }
+
+  /* 页脚多出「主题」按钮后，窄屏一行放不下（UX-1 实测 648px 会溢出右边界）：
+     统计胶囊独占一行并允许省略号，两个按钮换到第二行 */
+  .map-footer {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    padding: 0 12px;
+  }
+
+  .map-footer span {
+    flex: 1 1 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 /* ── 关于面板（S6-5） ───────────────────────────── */
 .about-button {
   margin-left: var(--sp-2);
   padding: 2px 8px;
-  border: 1px solid #ded7c8;
+  border: 1px solid var(--c-border);
   border-radius: var(--radius-pill);
-  background: #fffdf8;
-  color: #5b5548;
+  background: var(--c-surface-warm);
+  color: var(--c-text-body);
   font: inherit;
   font-size: var(--fs-meta);
   cursor: pointer;
 }
 
 .about-button:hover {
-  border-color: #c9c0ad;
+  border-color: var(--c-border-strong);
   color: var(--ink);
 }
 
@@ -757,7 +887,7 @@ dl.kv dd {
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgba(35, 32, 26, 0.28);
+  background: var(--c-mask);
   backdrop-filter: blur(2px);
 }
 
@@ -766,13 +896,13 @@ dl.kv dd {
   max-height: calc(100% - 48px);
   overflow-y: auto;
   padding: 18px 20px 16px;
-  background: #fffdf8;
+  background: var(--c-surface-warm);
   border-radius: var(--radius-lg);
-  box-shadow: 0 18px 48px rgba(40, 36, 28, 0.24);
+  box-shadow: var(--c-shadow-warm);
 }
 
 .about:focus-visible {
-  outline: 2px solid #1f5fa8;
+  outline: 2px solid var(--c-focus);
   outline-offset: 2px;
 }
 
@@ -792,7 +922,7 @@ dl.kv dd {
 .about__close {
   border: 0;
   background: none;
-  color: #8b8374;
+  color: var(--c-text-subtle);
   font-size: 18px;
   line-height: 1;
   cursor: pointer;
@@ -807,7 +937,7 @@ dl.kv dd {
   margin: 10px 0 14px;
   font-size: var(--fs-body);
   line-height: 1.6;
-  color: #3f3a32;
+  color: var(--c-text-body);
 }
 
 .about__kv {
@@ -820,13 +950,13 @@ dl.kv dd {
 }
 
 .about__kv dt {
-  color: #8b8374;
+  color: var(--c-text-subtle);
   white-space: nowrap;
 }
 
 .about__kv dd {
   margin: 0;
-  color: #3f3a32;
+  color: var(--c-text-body);
 }
 
 .about__foot {
@@ -834,15 +964,49 @@ dl.kv dd {
   gap: var(--sp-3);
   margin-top: 16px;
   padding-top: 12px;
-  border-top: 1px solid #eee7d8;
+  border-top: 1px solid var(--c-border-soft);
   font-size: var(--fs-small);
 }
 
 .about__foot a {
-  color: #1f5fa8;
+  color: var(--c-accent);
   text-decoration: none;
 }
 
 .about__foot a:hover {
   text-decoration: underline;
 }
+
+/* ── 主题切换（UX 阶段 1）──────────────────────────
+   与「关于」同款胶囊，图标 + 当前模式文字；三态由 lib/theme.ts 的 THEME_CYCLE 决定 */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-pill);
+  background: var(--c-surface-warm);
+  color: var(--c-text-body);
+  font: inherit;
+  font-size: var(--fs-meta);
+  cursor: pointer;
+  pointer-events: auto; /* .map-footer 整体不接收事件，按钮要单独放开 */
+}
+
+.theme-toggle:hover {
+  border-color: var(--c-border-strong);
+  color: var(--ink);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.theme-toggle svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+

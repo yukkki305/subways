@@ -662,3 +662,10 @@ npm run deploy -- --skip-smoke
 
 
 
+
+## 配色主题（UX 阶段 1）
+
+- 界面颜色只有一处定义：`app/globals.css` 的 `--c-*` token（`:root` 浅色、`:root[data-theme="dark"]` 深色）。**不要再往组件里写字面色**。
+- 地图颜色只有一处定义：`lib/theme.ts` 的 `LIGHT`/`DARK` 调色板，经 `buildStyle(..., palette)` 进 MapLibre。
+- 主题切换：`components/ThemeToggle.tsx`（页脚三态：跟随系统 → 浅色 → 深色），模式存 `localStorage["subways-theme"]`；`app/layout.tsx` 里的内联脚本在首屏前把它写进 `<html data-theme>`，否则深色用户会闪一下浅色。
+- 本地预览：`node E:\subway-data\probe-ux\serve.mjs`（把 `out/` 挂到 `/subways/`，端口 4402，带 `no-store`）。改完 CSS 记得用 `?v=N` 刷新，浏览器会缓存旧 CSS。

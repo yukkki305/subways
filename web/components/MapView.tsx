@@ -8,6 +8,7 @@ import AboutPanel from "@/components/AboutPanel";
 import CitySwitcher from "@/components/CitySwitcher";
 import SearchBox from "@/components/SearchBox";
 import StationPanel from "@/components/StationPanel";
+import ThemeToggle from "@/components/ThemeToggle";
 import type { CityLink } from "@/lib/cities";
 import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
 import type { SearchHit } from "@/lib/search";
@@ -393,6 +394,7 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
         >
           关于
         </button>
+        <ThemeToggle />
       </footer>
     </div>
   );

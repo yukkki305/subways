@@ -1,0 +1,6840 @@
+{
+ "snapshot": "p1b-20261113",
+ "provinces": {
+  "anhui": {
+   "l4": [
+    {
+     "id": 913067,
+     "level": 4,
+     "name": "上海市",
+     "name_zh": "上海市",
+     "name_en": "Shanghai"
+    },
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 913006,
+     "level": 4,
+     "name": "山东省",
+     "name_zh": "山东省",
+     "name_en": "Shandong"
+    },
+    {
+     "id": 913012,
+     "level": 4,
+     "name": "江苏省",
+     "name_zh": "江苏省",
+     "name_en": "Jiangsu"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 553302,
+     "level": 4,
+     "name": "浙江省",
+     "name_zh": "浙江省",
+     "name_en": "Zhejiang"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3046790,
+     "level": 5,
+     "name": "上饶市",
+     "name_zh": "上饶市",
+     "name_en": "Shangrao"
+    },
+    {
+     "id": 3190361,
+     "level": 5,
+     "name": "九江市",
+     "name_zh": "九江市",
+     "name_en": "Jiujiang"
+    },
+    {
+     "id": 3245950,
+     "level": 5,
+     "name": "亳州市",
+     "name_zh": "亳州市",
+     "name_en": "Bozhou"
+    },
+    {
+     "id": 3218104,
+     "level": 5,
+     "name": "信阳市",
+     "name_zh": "信阳市",
+     "name_en": "Xinyang"
+    },
+    {
+     "id": 3243393,
+     "level": 5,
+     "name": "六安市",
+     "name_zh": "六安市",
+     "name_en": "Lu'an"
+    },
+    {
+     "id": 2131524,
+     "level": 5,
+     "name": "南京市",
+     "name_zh": "南京市",
+     "name_en": "Nanjing City"
+    },
+    {
+     "id": 3288965,
+     "level": 5,
+     "name": "合肥市",
+     "name_zh": "合肥市",
+     "name_en": "Hefei"
+    },
+    {
+     "id": 3284144,
+     "level": 5,
+     "name": "周口市",
+     "name_zh": "周口市",
+     "name_en": "Zhoukou"
+    },
+    {
+     "id": 3218285,
+     "level": 5,
+     "name": "商丘市",
+     "name_zh": "商丘市",
+     "name_en": "Shangqiu"
+    },
+    {
+     "id": 3220387,
+     "level": 5,
+     "name": "安庆市",
+     "name_zh": "安庆市",
+     "name_en": "Anqing"
+    },
+    {
+     "id": 3222248,
+     "level": 5,
+     "name": "宣城市",
+     "name_zh": "宣城市",
+     "name_en": "Xuancheng"
+    },
+    {
+     "id": 3231858,
+     "level": 5,
+     "name": "宿州市",
+     "name_zh": "宿州市",
+     "name_en": "Suzhou"
+    },
+    {
+     "id": 3293941,
+     "level": 5,
+     "name": "宿迁市",
+     "name_zh": "宿迁市",
+     "name_en": "Suqian"
+    },
+    {
+     "id": 3429666,
+     "level": 5,
+     "name": "常州市",
+     "name_zh": "常州市",
+     "name_en": "Changzhou"
+    },
+    {
+     "id": 3218572,
+     "level": 5,
+     "name": "徐州市",
+     "name_zh": "徐州市",
+     "name_en": "Xuzhou"
+    },
+    {
+     "id": 4430826,
+     "level": 5,
+     "name": "扬州市",
+     "name_zh": "扬州市",
+     "name_en": "Yangzhou City"
+    },
+    {
+     "id": 4430942,
+     "level": 5,
+     "name": "无锡市",
+     "name_zh": "无锡市",
+     "name_en": "Wuxi City"
+    },
+    {
+     "id": 3224017,
+     "level": 5,
+     "name": "景德镇市",
+     "name_zh": "景德镇市",
+     "name_en": "Jingdezhen"
+    },
+    {
+     "id": 3221112,
+     "level": 5,
+     "name": "杭州市",
+     "name_zh": "杭州市",
+     "name_en": "Hangzhou City"
+    },
+    {
+     "id": 3164669,
+     "level": 5,
+     "name": "池州市",
+     "name_zh": "池州市",
+     "name_en": "Chizhou"
+    },
+    {
+     "id": 3231910,
+     "level": 5,
+     "name": "淮北市",
+     "name_zh": "淮北市",
+     "name_en": "Huaibei"
+    },
+    {
+     "id": 3262360,
+     "level": 5,
+     "name": "淮南市",
+     "name_zh": "淮南市",
+     "name_en": "Huainan"
+    },
+    {
+     "id": 3429722,
+     "level": 5,
+     "name": "淮安市",
+     "name_zh": "淮安市",
+     "name_en": "Huai'an"
+    },
+    {
+     "id": 3149738,
+     "level": 5,
+     "name": "湖州市",
+     "name_zh": "湖州市",
+     "name_en": "Huzhou"
+    },
+    {
+     "id": 3231588,
+     "level": 5,
+     "name": "滁州市",
+     "name_zh": "滁州市",
+     "name_en": "Chuzhou"
+    },
+    {
+     "id": 3262036,
+     "level": 5,
+     "name": "芜湖市",
+     "name_zh": "芜湖市",
+     "name_en": "Wuhu"
+    },
+    {
+     "id": 3284918,
+     "level": 5,
+     "name": "菏泽市",
+     "name_zh": "菏泽市",
+     "name_en": "Heze"
+    },
+    {
+     "id": 3262334,
+     "level": 5,
+     "name": "蚌埠市",
+     "name_zh": "蚌埠市",
+     "name_en": "Bengbu"
+    },
+    {
+     "id": 3278467,
+     "level": 5,
+     "name": "衢州市",
+     "name_zh": "衢州市",
+     "name_en": "Quzhou"
+    },
+    {
+     "id": 3077734,
+     "level": 5,
+     "name": "铜陵市",
+     "name_zh": "铜陵市",
+     "name_en": "Tongling"
+    },
+    {
+     "id": 3246004,
+     "level": 5,
+     "name": "阜阳市",
+     "name_zh": "阜阳市",
+     "name_en": "Fuyang"
+    },
+    {
+     "id": 3260816,
+     "level": 5,
+     "name": "马鞍山市",
+     "name_zh": "马鞍山市",
+     "name_en": "Ma'anshan"
+    },
+    {
+     "id": 3259366,
+     "level": 5,
+     "name": "驻马店市",
+     "name_zh": "驻马店市",
+     "name_en": "Zhumadian"
+    },
+    {
+     "id": 3144169,
+     "level": 5,
+     "name": "黄冈市",
+     "name_zh": "黄冈市",
+     "name_en": "Huanggang"
+    },
+    {
+     "id": 2992498,
+     "level": 5,
+     "name": "黄山市",
+     "name_zh": "黄山市",
+     "name_en": "Huangshan"
+    }
+   ],
+   "routes": {
+    "subway": 24,
+    "monorail": 4
+   },
+   "networks": {
+    "合肥轨道交通": {
+     "subway": 18
+    },
+    "南京地铁": {
+     "subway": 4
+    },
+    "(无 network)": {
+     "monorail": 4
+    },
+    "滁州轨道交通": {
+     "subway": 2
+    }
+   }
+  },
+  "beijing": {
+   "l4": [
+    {
+     "id": 912940,
+     "level": 4,
+     "name": "北京市",
+     "name_zh": "北京市",
+     "name_en": "Beijing"
+    },
+    {
+     "id": 912999,
+     "level": 4,
+     "name": "天津市",
+     "name_zh": "天津市",
+     "name_en": "Tianjin"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3442995,
+     "level": 5,
+     "name": "保定市",
+     "name_zh": "保定市",
+     "name_en": "Baoding City"
+    },
+    {
+     "id": 2989329,
+     "level": 5,
+     "name": "廊坊市",
+     "name_zh": "廊坊市",
+     "name_en": "Langfang"
+    },
+    {
+     "id": 3295555,
+     "level": 5,
+     "name": "张家口市",
+     "name_zh": "张家口市",
+     "name_en": "Zhangjiakou"
+    },
+    {
+     "id": 2989561,
+     "level": 5,
+     "name": "承德市",
+     "name_zh": "承德市",
+     "name_en": "Chengde"
+    }
+   ],
+   "routes": {
+    "subway": 57,
+    "train": 16,
+    "tram": 6,
+    "light_rail": 4,
+    "monorail": 2
+   },
+   "networks": {
+    "北京地铁": {
+     "subway": 56,
+     "monorail": 2,
+     "light_rail": 2
+    },
+    "(无 network)": {
+     "tram": 6,
+     "train": 4,
+     "light_rail": 2,
+     "subway": 1
+    },
+    "北京市郊铁路": {
+     "train": 12
+    }
+   }
+  },
+  "chongqing": {
+   "l4": [
+    {
+     "id": 913068,
+     "level": 4,
+     "name": "四川省",
+     "name_zh": "四川省",
+     "name_en": "Sichuan"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 286937,
+     "level": 4,
+     "name": "贵州省",
+     "name_zh": "贵州省",
+     "name_en": "Guizhou"
+    },
+    {
+     "id": 913069,
+     "level": 4,
+     "name": "重庆市",
+     "name_zh": "重庆市",
+     "name_en": "Chongqing"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2789481,
+     "level": 5,
+     "name": "内江市",
+     "name_zh": "内江市",
+     "name_en": "Neijiang"
+    },
+    {
+     "id": 3206796,
+     "level": 5,
+     "name": "十堰市",
+     "name_zh": "十堰市",
+     "name_en": "Shiyan"
+    },
+    {
+     "id": 2996866,
+     "level": 5,
+     "name": "安康市",
+     "name_zh": "安康市",
+     "name_en": "Ankang"
+    },
+    {
+     "id": 2787851,
+     "level": 5,
+     "name": "广安市",
+     "name_zh": "广安市",
+     "name_en": "Guang'an"
+    },
+    {
+     "id": 2984075,
+     "level": 5,
+     "name": "恩施土家族苗族自治州",
+     "name_zh": "恩施土家族苗族自治州",
+     "name_en": "Enshi"
+    },
+    {
+     "id": 2789344,
+     "level": 5,
+     "name": "泸州市",
+     "name_zh": "泸州市",
+     "name_en": "Luzhou"
+    },
+    {
+     "id": 2972168,
+     "level": 5,
+     "name": "湘西土家族苗族自治州",
+     "name_zh": "湘西土家族苗族自治州",
+     "name_en": "Xiangxi"
+    },
+    {
+     "id": 2788724,
+     "level": 5,
+     "name": "资阳市",
+     "name_zh": "资阳市",
+     "name_en": "Ziyang"
+    },
+    {
+     "id": 2787741,
+     "level": 5,
+     "name": "达州市",
+     "name_zh": "达州市",
+     "name_en": "Dazhou"
+    },
+    {
+     "id": 2788710,
+     "level": 5,
+     "name": "遂宁市",
+     "name_zh": "遂宁市",
+     "name_en": "Suining"
+    },
+    {
+     "id": 2778812,
+     "level": 5,
+     "name": "遵义市",
+     "name_zh": "遵义市",
+     "name_en": "Zunyi"
+    },
+    {
+     "id": 2778223,
+     "level": 5,
+     "name": "铜仁市",
+     "name_zh": "铜仁市",
+     "name_en": "Tongren"
+    }
+   ],
+   "routes": {
+    "subway": 28,
+    "monorail": 8,
+    "light_rail": 2
+   },
+   "networks": {
+    "重庆轨道交通": {
+     "monorail": 8,
+     "subway": 28
+    },
+    "(无 network)": {
+     "light_rail": 2
+    }
+   }
+  },
+  "fujian": {
+   "l4": [
+    {
+     "id": 911844,
+     "level": 4,
+     "name": "广东省",
+     "name_zh": "广东省",
+     "name_en": "Guangdong"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 553302,
+     "level": 4,
+     "name": "浙江省",
+     "name_zh": "浙江省",
+     "name_en": "Zhejiang"
+    },
+    {
+     "id": 553303,
+     "level": 4,
+     "name": "福建省",
+     "name_zh": "福建省",
+     "name_en": "Fujian"
+    },
+    {
+     "id": 3777249,
+     "level": 4,
+     "name": "連江縣",
+     "name_zh": "連江縣",
+     "name_en": "Lienchiang County"
+    },
+    {
+     "id": 3339695,
+     "level": 4,
+     "name": "金門縣",
+     "name_zh": "金門縣",
+     "name_en": "Kinmen"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3181479,
+     "level": 5,
+     "name": "三明市",
+     "name_zh": "三明市",
+     "name_en": "Sanming City"
+    },
+    {
+     "id": 3046790,
+     "level": 5,
+     "name": "上饶市",
+     "name_zh": "上饶市",
+     "name_en": "Shangrao"
+    },
+    {
+     "id": 3289209,
+     "level": 5,
+     "name": "丽水市",
+     "name_zh": "丽水市",
+     "name_en": "Lishui"
+    },
+    {
+     "id": 3206301,
+     "level": 5,
+     "name": "南平市",
+     "name_zh": "南平市",
+     "name_en": "Nanping City"
+    },
+    {
+     "id": 3242930,
+     "level": 5,
+     "name": "厦门市",
+     "name_zh": "厦门市",
+     "name_en": "Xiamen"
+    },
+    {
+     "id": 3277236,
+     "level": 5,
+     "name": "宁德市",
+     "name_zh": "宁德市",
+     "name_en": "Ningde City"
+    },
+    {
+     "id": 19021056,
+     "level": 5,
+     "name": "平潭综合实验区",
+     "name_zh": "平潭综合实验区",
+     "name_en": "Pingtan Comprehensive Experimental Zone"
+    },
+    {
+     "id": 3182605,
+     "level": 5,
+     "name": "抚州市",
+     "name_zh": "抚州市",
+     "name_en": "Fuzhou City"
+    },
+    {
+     "id": 3233743,
+     "level": 5,
+     "name": "梅州市",
+     "name_zh": "梅州市",
+     "name_en": "Meizhou"
+    },
+    {
+     "id": 3282750,
+     "level": 5,
+     "name": "汕头市",
+     "name_zh": "汕头市",
+     "name_en": "Shantou"
+    },
+    {
+     "id": 2666969,
+     "level": 5,
+     "name": "泉州市",
+     "name_zh": "泉州市",
+     "name_en": "Quanzhou"
+    },
+    {
+     "id": 3289341,
+     "level": 5,
+     "name": "温州市",
+     "name_zh": "温州市",
+     "name_en": "Wenzhou"
+    },
+    {
+     "id": 3242122,
+     "level": 5,
+     "name": "漳州市",
+     "name_zh": "漳州市",
+     "name_en": "Zhangzhou City"
+    },
+    {
+     "id": 3244431,
+     "level": 5,
+     "name": "潮州市",
+     "name_zh": "潮州市",
+     "name_en": "Chaozhou"
+    },
+    {
+     "id": 3263977,
+     "level": 5,
+     "name": "福州市",
+     "name_zh": "福州市",
+     "name_en": "Fuzhou City"
+    },
+    {
+     "id": 3276849,
+     "level": 5,
+     "name": "莆田市",
+     "name_zh": "莆田市",
+     "name_en": "Putian City"
+    },
+    {
+     "id": 3278467,
+     "level": 5,
+     "name": "衢州市",
+     "name_zh": "衢州市",
+     "name_en": "Quzhou"
+    },
+    {
+     "id": 3180745,
+     "level": 5,
+     "name": "赣州市",
+     "name_zh": "赣州市",
+     "name_en": "Ganzhou"
+    },
+    {
+     "id": 3245900,
+     "level": 5,
+     "name": "鹰潭市",
+     "name_zh": "鹰潭市",
+     "name_en": "Yingtan"
+    },
+    {
+     "id": 3144724,
+     "level": 5,
+     "name": "龙岩市",
+     "name_zh": "龙岩市",
+     "name_en": "Longyan City"
+    }
+   ],
+   "routes": {
+    "subway": 27,
+    "train": 1,
+    "light_rail": 1
+   },
+   "networks": {
+    "(无 network)": {
+     "subway": 13,
+     "train": 1,
+     "light_rail": 1
+    },
+    "福州地铁": {
+     "subway": 14
+    }
+   }
+  },
+  "gansu": {
+   "l4": [
+    {
+     "id": 270054,
+     "level": 4,
+     "name": "Говь-Алтай ᠭᠣᠪᠢ ᠠᠯᠲᠠᠢ",
+     "name_zh": "戈壁阿尔泰省",
+     "name_en": "Govi-Altai"
+    },
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 913068,
+     "level": 4,
+     "name": "四川省",
+     "name_zh": "四川省",
+     "name_en": "Sichuan"
+    },
+    {
+     "id": 913101,
+     "level": 4,
+     "name": "宁夏回族自治区",
+     "name_zh": "宁夏回族自治区",
+     "name_en": "Ningxia"
+    },
+    {
+     "id": 153310,
+     "level": 4,
+     "name": "新疆维吾尔自治区 شىنجاڭ ئۇيغۇر ئاپتونوم رايونی",
+     "name_zh": "新疆维吾尔自治区",
+     "name_en": "Xinjiang"
+    },
+    {
+     "id": 153314,
+     "level": 4,
+     "name": "甘肃省",
+     "name_zh": "甘肃省",
+     "name_en": "Gansu"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    },
+    {
+     "id": 153269,
+     "level": 4,
+     "name": "青海省",
+     "name_zh": "青海省",
+     "name_en": "Qinghai"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2793622,
+     "level": 5,
+     "name": "中卫市",
+     "name_zh": "中卫市",
+     "name_en": "Zhongwei City"
+    },
+    {
+     "id": 2697555,
+     "level": 5,
+     "name": "临夏回族自治州",
+     "name_zh": "临夏回族自治州",
+     "name_en": "Linxia Hui Autonomous Prefecture"
+    },
+    {
+     "id": 2701949,
+     "level": 5,
+     "name": "兰州市",
+     "name_zh": "兰州市",
+     "name_en": "Lanzhou Prefecture"
+    },
+    {
+     "id": 3307137,
+     "level": 5,
+     "name": "吴忠市",
+     "name_zh": "吴忠市",
+     "name_en": "Wuzhong City"
+    },
+    {
+     "id": 3221020,
+     "level": 5,
+     "name": "咸阳市",
+     "name_zh": "咸阳市",
+     "name_en": "Xianyang"
+    },
+    {
+     "id": 2747108,
+     "level": 5,
+     "name": "哈密市 قۇمۇل شەھىرى",
+     "name_zh": "哈密市",
+     "name_en": "Hami"
+    },
+    {
+     "id": 165664,
+     "level": 5,
+     "name": "嘉峪关市",
+     "name_zh": "嘉峪关市",
+     "name_en": "Jiayuguan Prefecture"
+    },
+    {
+     "id": 2793583,
+     "level": 5,
+     "name": "固原市",
+     "name_zh": "固原市",
+     "name_en": "Guyuan City"
+    },
+    {
+     "id": 2697305,
+     "level": 5,
+     "name": "天水市",
+     "name_zh": "天水市",
+     "name_en": "Tianshui Prefecture"
+    },
+    {
+     "id": 2701633,
+     "level": 5,
+     "name": "定西市",
+     "name_zh": "定西市",
+     "name_en": "Dingxi Prefecture"
+    },
+    {
+     "id": 3048442,
+     "level": 5,
+     "name": "宝鸡市",
+     "name_zh": "宝鸡市",
+     "name_en": "Baoji"
+    },
+    {
+     "id": 2747242,
+     "level": 5,
+     "name": "巴音郭楞蒙古自治州 بايىنغولىن موڭغۇل ئاپتونوم ئوبلاستى",
+     "name_zh": "巴音郭楞蒙古自治州",
+     "name_en": "Bayingolin"
+    },
+    {
+     "id": 2696771,
+     "level": 5,
+     "name": "平凉市",
+     "name_zh": "平凉市",
+     "name_en": "Pingliang Prefecture"
+    },
+    {
+     "id": 2787606,
+     "level": 5,
+     "name": "广元市",
+     "name_zh": "广元市",
+     "name_en": "Guangyuan"
+    },
+    {
+     "id": 165866,
+     "level": 5,
+     "name": "庆阳市",
+     "name_zh": "庆阳市",
+     "name_en": "Qingyang"
+    },
+    {
+     "id": 3020001,
+     "level": 5,
+     "name": "延安市",
+     "name_zh": "延安市",
+     "name_en": "Yan'an"
+    },
+    {
+     "id": 165803,
+     "level": 5,
+     "name": "张掖市",
+     "name_zh": "张掖市",
+     "name_en": "Zhangye Prefecture"
+    },
+    {
+     "id": 2707987,
+     "level": 5,
+     "name": "果洛藏族自治州 མགོ་ལོག་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "果洛藏族自治州",
+     "name_en": "Golog"
+    },
+    {
+     "id": 3016353,
+     "level": 5,
+     "name": "榆林市",
+     "name_zh": "榆林市",
+     "name_en": "Yulin"
+    },
+    {
+     "id": 165830,
+     "level": 5,
+     "name": "武威市",
+     "name_zh": "武威市",
+     "name_en": "Wuwei Prefecture"
+    },
+    {
+     "id": 2967716,
+     "level": 5,
+     "name": "汉中市",
+     "name_zh": "汉中市",
+     "name_en": "Hanzhong"
+    },
+    {
+     "id": 2707988,
+     "level": 5,
+     "name": "海东市",
+     "name_zh": "海东市",
+     "name_en": "Haidong"
+    },
+    {
+     "id": 2707655,
+     "level": 5,
+     "name": "海北藏族自治州 མཚོ་བཡྣང་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "海北藏族自治州",
+     "name_en": "Haibei"
+    },
+    {
+     "id": 2707989,
+     "level": 5,
+     "name": "海西蒙古族藏族自治州 མཚོ་ནུབ་སོག་རིགས་ཆ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "海西蒙古族藏族自治州",
+     "name_en": "Haixi Mongol and Tibetan Autonomous Prefecture"
+    },
+    {
+     "id": 165639,
+     "level": 5,
+     "name": "甘南藏族自治州 ཀན་ལྷོ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "甘南藏族自治州",
+     "name_en": "Ganlho Tibetan Autonomous Prefecture"
+    },
+    {
+     "id": 2702854,
+     "level": 5,
+     "name": "白银市",
+     "name_zh": "白银市",
+     "name_en": "Baiyin Prefecture"
+    },
+    {
+     "id": 2787464,
+     "level": 5,
+     "name": "绵阳市",
+     "name_zh": "绵阳市",
+     "name_en": "Mianyang"
+    },
+    {
+     "id": 165655,
+     "level": 5,
+     "name": "酒泉市",
+     "name_zh": "酒泉市",
+     "name_en": "Jiuquan Prefecture"
+    },
+    {
+     "id": 2705765,
+     "level": 5,
+     "name": "金昌市",
+     "name_zh": "金昌市",
+     "name_en": "Jinchang Prefecture"
+    },
+    {
+     "id": 2110265,
+     "level": 5,
+     "name": "阿坝藏族羌族自治州 རྔ་བ་བོད་རིགས་ཆ་བ༹ང་རིགས་རང་སྐྱོང་ཁུལ་",
+     "name_zh": "阿坝藏族羌族自治州",
+     "name_en": "Ngawa Tibetan and Qiang Autonomous Prefecture"
+    },
+    {
+     "id": 2752743,
+     "level": 5,
+     "name": "阿拉善盟 ᠠᠯᠠᠱᠠ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "阿拉善盟",
+     "name_en": "Alxa League"
+    },
+    {
+     "id": 2697126,
+     "level": 5,
+     "name": "陇南市",
+     "name_zh": "陇南市",
+     "name_en": "Longnan Prefecture"
+    },
+    {
+     "id": 2707864,
+     "level": 5,
+     "name": "黄南藏族自治州 རྨ་ལྷོ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "黄南藏族自治州",
+     "name_en": "Huangnan"
+    }
+   ],
+   "routes": {
+    "train": 70,
+    "subway": 4,
+    "light_rail": 2,
+    "tram": 2
+   },
+   "networks": {
+    "(无 network)": {
+     "subway": 4,
+     "train": 70,
+     "tram": 2
+    },
+    "天水有轨电车": {
+     "light_rail": 2
+    }
+   }
+  },
+  "guangdong": {
+   "l4": [
+    {
+     "id": 911844,
+     "level": 4,
+     "name": "广东省",
+     "name_zh": "广东省",
+     "name_en": "Guangdong"
+    },
+    {
+     "id": 286342,
+     "level": 4,
+     "name": "广西壮族自治区",
+     "name_zh": "广西壮族自治区",
+     "name_en": "Guangxi"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 2128285,
+     "level": 4,
+     "name": "海南省",
+     "name_zh": "海南省",
+     "name_en": "Hainan"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 553303,
+     "level": 4,
+     "name": "福建省",
+     "name_zh": "福建省",
+     "name_en": "Fujian"
+    },
+    {
+     "id": 20044132,
+     "level": 4,
+     "name": "香港 Hong Kong",
+     "name_zh": "香港",
+     "name_en": "Hong Kong"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3464319,
+     "level": 5,
+     "name": "东莞市",
+     "name_zh": "东莞市",
+     "name_en": "Dongguan"
+    },
+    {
+     "id": 3464878,
+     "level": 5,
+     "name": "中山市",
+     "name_zh": "中山市",
+     "name_en": "Zhongshan"
+    },
+    {
+     "id": 10268797,
+     "level": 5,
+     "name": "九龍 Kowloon",
+     "name_zh": "九龍",
+     "name_en": "Kowloon"
+    },
+    {
+     "id": 3032080,
+     "level": 5,
+     "name": "云浮市",
+     "name_zh": "云浮市",
+     "name_en": "Yunfu City"
+    },
+    {
+     "id": 3464719,
+     "level": 5,
+     "name": "佛山市",
+     "name_zh": "佛山市",
+     "name_en": "Foshan"
+    },
+    {
+     "id": 2100680,
+     "level": 5,
+     "name": "北海市",
+     "name_zh": "北海市",
+     "name_en": "Beihai"
+    },
+    {
+     "id": 3287346,
+     "level": 5,
+     "name": "广州市",
+     "name_zh": "广州市",
+     "name_en": "Guangzhou City"
+    },
+    {
+     "id": 3209912,
+     "level": 5,
+     "name": "惠州市",
+     "name_zh": "惠州市",
+     "name_en": "Huizhou"
+    },
+    {
+     "id": 3282749,
+     "level": 5,
+     "name": "揭阳市",
+     "name_zh": "揭阳市",
+     "name_en": "Jieyang City"
+    },
+    {
+     "id": 10268964,
+     "level": 5,
+     "name": "新界 New Territories",
+     "name_zh": "新界",
+     "name_en": "New Territories"
+    },
+    {
+     "id": 3233743,
+     "level": 5,
+     "name": "梅州市",
+     "name_zh": "梅州市",
+     "name_en": "Meizhou"
+    },
+    {
+     "id": 2044154,
+     "level": 5,
+     "name": "梧州市",
+     "name_zh": "梧州市",
+     "name_en": "Wuzhou City"
+    },
+    {
+     "id": 3149752,
+     "level": 5,
+     "name": "永州市",
+     "name_zh": "永州市",
+     "name_en": "Yongzhou"
+    },
+    {
+     "id": 5758868,
+     "level": 5,
+     "name": "氹仔 Taipa",
+     "name_zh": "氹仔",
+     "name_en": "Taipa"
+    },
+    {
+     "id": 3282750,
+     "level": 5,
+     "name": "汕头市",
+     "name_zh": "汕头市",
+     "name_en": "Shantou"
+    },
+    {
+     "id": 3282610,
+     "level": 5,
+     "name": "汕尾市",
+     "name_zh": "汕尾市",
+     "name_en": "Shanwei"
+    },
+    {
+     "id": 3463901,
+     "level": 5,
+     "name": "江门市",
+     "name_zh": "江门市",
+     "name_en": "Jiangmen"
+    },
+    {
+     "id": 3241970,
+     "level": 5,
+     "name": "河源市",
+     "name_zh": "河源市",
+     "name_en": "Heyuan"
+    },
+    {
+     "id": 3464353,
+     "level": 5,
+     "name": "深圳市",
+     "name_zh": "深圳市",
+     "name_en": "Shenzhen"
+    },
+    {
+     "id": 3124223,
+     "level": 5,
+     "name": "清远市",
+     "name_zh": "清远市",
+     "name_en": "Qingyuan City"
+    },
+    {
+     "id": 3484419,
+     "level": 5,
+     "name": "湛江市",
+     "name_zh": "湛江市",
+     "name_en": "Zhanjiang City"
+    },
+    {
+     "id": 3242122,
+     "level": 5,
+     "name": "漳州市",
+     "name_zh": "漳州市",
+     "name_en": "Zhangzhou City"
+    },
+    {
+     "id": 3244431,
+     "level": 5,
+     "name": "潮州市",
+     "name_zh": "潮州市",
+     "name_en": "Chaozhou"
+    },
+    {
+     "id": 2776309,
+     "level": 5,
+     "name": "玉林市",
+     "name_zh": "玉林市",
+     "name_en": "Yulin City"
+    },
+    {
+     "id": 3464829,
+     "level": 5,
+     "name": "珠海市",
+     "name_zh": "珠海市",
+     "name_en": "Zhuhai"
+    },
+    {
+     "id": 3205802,
+     "level": 5,
+     "name": "肇庆市",
+     "name_zh": "肇庆市",
+     "name_en": "Zhaoqing City"
+    },
+    {
+     "id": 2689018,
+     "level": 5,
+     "name": "茂名市",
+     "name_zh": "茂名市",
+     "name_en": "Maoming City"
+    },
+    {
+     "id": 2773741,
+     "level": 5,
+     "name": "贺州市",
+     "name_zh": "贺州市",
+     "name_en": "Hezhou"
+    },
+    {
+     "id": 3180745,
+     "level": 5,
+     "name": "赣州市",
+     "name_zh": "赣州市",
+     "name_en": "Ganzhou"
+    },
+    {
+     "id": 5758869,
+     "level": 5,
+     "name": "路環 Coloane",
+     "name_zh": "路環",
+     "name_en": "Coloane"
+    },
+    {
+     "id": 3123920,
+     "level": 5,
+     "name": "郴州市",
+     "name_zh": "郴州市",
+     "name_en": "Chenzhou"
+    },
+    {
+     "id": 3032037,
+     "level": 5,
+     "name": "阳江市",
+     "name_zh": "阳江市",
+     "name_en": "Yangjiang City"
+    },
+    {
+     "id": 3203994,
+     "level": 5,
+     "name": "韶关市",
+     "name_zh": "韶关市",
+     "name_en": "Shaoguan City"
+    },
+    {
+     "id": 10264792,
+     "level": 5,
+     "name": "香港島 Hong Kong Island",
+     "name_zh": "香港島",
+     "name_en": "Hong Kong Island"
+    },
+    {
+     "id": 3144724,
+     "level": 5,
+     "name": "龙岩市",
+     "name_zh": "龙岩市",
+     "name_en": "Longyan City"
+    }
+   ],
+   "routes": {
+    "subway": 181,
+    "train": 72,
+    "light_rail": 55,
+    "tram": 14,
+    "monorail": 5
+   },
+   "networks": {
+    "广州地铁": {
+     "subway": 73,
+     "light_rail": 8
+    },
+    "港鐵 MTR": {
+     "subway": 54
+    },
+    "深圳地铁": {
+     "subway": 42
+    },
+    "中國鐵路 中国铁路 China Railway": {
+     "train": 40
+    },
+    "(无 network)": {
+     "train": 10,
+     "light_rail": 13,
+     "tram": 2,
+     "monorail": 1,
+     "subway": 2
+    },
+    "輕鐵 Light Rail": {
+     "light_rail": 23
+    },
+    "珠三角城际": {
+     "train": 18
+    },
+    "香港電車 Hong Kong Tramways": {
+     "tram": 12
+    },
+    "粤港澳大湾区城际铁路": {
+     "train": 4,
+     "monorail": 2
+    },
+    "澳門輕軌 Metro Ligeiro de Macau": {
+     "light_rail": 6
+    },
+    "佛山地铁": {
+     "subway": 6
+    },
+    "东莞轨道交通": {
+     "subway": 4
+    },
+    "深圳有轨电车": {
+     "light_rail": 3
+    },
+    "佛山有轨电车": {
+     "light_rail": 2
+    },
+    "坪山云巴": {
+     "monorail": 2
+    }
+   }
+  },
+  "guangxi": {
+   "l4": [
+    {
+     "id": 1902947,
+     "level": 4,
+     "name": "Thành phố Quảng Ninh",
+     "name_zh": "广宁市",
+     "name_en": "Quang Ninh City"
+    },
+    {
+     "id": 1844412,
+     "level": 4,
+     "name": "Tỉnh Cao Bằng",
+     "name_zh": "高平省",
+     "name_en": "Cao Bằng Province"
+    },
+    {
+     "id": 5522596,
+     "level": 4,
+     "name": "Tỉnh Lạng Sơn",
+     "name_zh": "谅山省",
+     "name_en": "Lạng Sơn Province"
+    },
+    {
+     "id": 1903418,
+     "level": 4,
+     "name": "Tỉnh Tuyên Quang",
+     "name_zh": "宣光省",
+     "name_en": "Tuyên Quang Province"
+    },
+    {
+     "id": 913094,
+     "level": 4,
+     "name": "云南省",
+     "name_zh": "云南省",
+     "name_en": "Yunnan"
+    },
+    {
+     "id": 911844,
+     "level": 4,
+     "name": "广东省",
+     "name_zh": "广东省",
+     "name_en": "Guangdong"
+    },
+    {
+     "id": 286342,
+     "level": 4,
+     "name": "广西壮族自治区",
+     "name_zh": "广西壮族自治区",
+     "name_en": "Guangxi"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 286937,
+     "level": 4,
+     "name": "贵州省",
+     "name_zh": "贵州省",
+     "name_en": "Guizhou"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3032080,
+     "level": 5,
+     "name": "云浮市",
+     "name_zh": "云浮市",
+     "name_en": "Yunfu City"
+    },
+    {
+     "id": 2100680,
+     "level": 5,
+     "name": "北海市",
+     "name_zh": "北海市",
+     "name_en": "Beihai"
+    },
+    {
+     "id": 2775778,
+     "level": 5,
+     "name": "南宁市",
+     "name_zh": "南宁市",
+     "name_en": "Nanning"
+    },
+    {
+     "id": 2127478,
+     "level": 5,
+     "name": "崇左市",
+     "name_zh": "崇左市",
+     "name_en": "Chongzuo City"
+    },
+    {
+     "id": 2773826,
+     "level": 5,
+     "name": "怀化市",
+     "name_zh": "怀化市",
+     "name_en": "Huaihua"
+    },
+    {
+     "id": 2718941,
+     "level": 5,
+     "name": "文山壮族苗族自治州",
+     "name_zh": "文山壮族苗族自治州",
+     "name_en": "Wenshan"
+    },
+    {
+     "id": 2718030,
+     "level": 5,
+     "name": "曲靖市",
+     "name_zh": "曲靖市",
+     "name_en": "Qujing City"
+    },
+    {
+     "id": 2775865,
+     "level": 5,
+     "name": "来宾市",
+     "name_zh": "来宾市",
+     "name_en": "Laibin"
+    },
+    {
+     "id": 2774469,
+     "level": 5,
+     "name": "柳州市",
+     "name_zh": "柳州市",
+     "name_en": "Liuzhou City"
+    },
+    {
+     "id": 3471982,
+     "level": 5,
+     "name": "桂林市",
+     "name_zh": "桂林市",
+     "name_en": "Guilin"
+    },
+    {
+     "id": 2044154,
+     "level": 5,
+     "name": "梧州市",
+     "name_zh": "梧州市",
+     "name_en": "Wuzhou City"
+    },
+    {
+     "id": 3149752,
+     "level": 5,
+     "name": "永州市",
+     "name_zh": "永州市",
+     "name_en": "Yongzhou"
+    },
+    {
+     "id": 2774389,
+     "level": 5,
+     "name": "河池市",
+     "name_zh": "河池市",
+     "name_en": "Hechi"
+    },
+    {
+     "id": 3124223,
+     "level": 5,
+     "name": "清远市",
+     "name_zh": "清远市",
+     "name_en": "Qingyuan City"
+    },
+    {
+     "id": 3484419,
+     "level": 5,
+     "name": "湛江市",
+     "name_zh": "湛江市",
+     "name_en": "Zhanjiang City"
+    },
+    {
+     "id": 2776309,
+     "level": 5,
+     "name": "玉林市",
+     "name_zh": "玉林市",
+     "name_en": "Yulin City"
+    },
+    {
+     "id": 2773986,
+     "level": 5,
+     "name": "百色市",
+     "name_zh": "百色市",
+     "name_en": "Baise"
+    },
+    {
+     "id": 3205802,
+     "level": 5,
+     "name": "肇庆市",
+     "name_zh": "肇庆市",
+     "name_en": "Zhaoqing City"
+    },
+    {
+     "id": 2689018,
+     "level": 5,
+     "name": "茂名市",
+     "name_zh": "茂名市",
+     "name_en": "Maoming City"
+    },
+    {
+     "id": 2776275,
+     "level": 5,
+     "name": "贵港市",
+     "name_zh": "贵港市",
+     "name_en": "Guigang"
+    },
+    {
+     "id": 2773741,
+     "level": 5,
+     "name": "贺州市",
+     "name_zh": "贺州市",
+     "name_en": "Hezhou"
+    },
+    {
+     "id": 3075378,
+     "level": 5,
+     "name": "邵阳市",
+     "name_zh": "邵阳市",
+     "name_en": "Shaoyang"
+    },
+    {
+     "id": 2776297,
+     "level": 5,
+     "name": "钦州市",
+     "name_zh": "钦州市",
+     "name_en": "Qinzhou"
+    },
+    {
+     "id": 2774214,
+     "level": 5,
+     "name": "防城港市",
+     "name_zh": "防城港市",
+     "name_en": "Fangchenggang City"
+    },
+    {
+     "id": 2777847,
+     "level": 5,
+     "name": "黔东南苗族侗族自治州",
+     "name_zh": "黔东南苗族侗族自治州",
+     "name_en": "Qiandongnan"
+    },
+    {
+     "id": 2777425,
+     "level": 5,
+     "name": "黔南布依族苗族自治州",
+     "name_zh": "黔南布依族苗族自治州",
+     "name_en": "Qiannan"
+    },
+    {
+     "id": 2781292,
+     "level": 5,
+     "name": "黔西南布依族苗族自治州",
+     "name_zh": "黔西南布依族苗族自治州",
+     "name_en": "Qianxinan"
+    }
+   ],
+   "routes": {
+    "train": 12,
+    "subway": 10,
+    "monorail": 6
+   },
+   "networks": {
+    "(无 network)": {
+     "monorail": 6,
+     "train": 9
+    },
+    "南宁轨道交通": {
+     "subway": 10
+    },
+    "中国铁路": {
+     "train": 2
+    },
+    "VN:railway": {
+     "train": 1
+    }
+   }
+  },
+  "guizhou": {
+   "l4": [
+    {
+     "id": 913094,
+     "level": 4,
+     "name": "云南省",
+     "name_zh": "云南省",
+     "name_en": "Yunnan"
+    },
+    {
+     "id": 913068,
+     "level": 4,
+     "name": "四川省",
+     "name_zh": "四川省",
+     "name_en": "Sichuan"
+    },
+    {
+     "id": 286342,
+     "level": 4,
+     "name": "广西壮族自治区",
+     "name_zh": "广西壮族自治区",
+     "name_en": "Guangxi"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 286937,
+     "level": 4,
+     "name": "贵州省",
+     "name_zh": "贵州省",
+     "name_en": "Guizhou"
+    },
+    {
+     "id": 913069,
+     "level": 4,
+     "name": "重庆市",
+     "name_zh": "重庆市",
+     "name_en": "Chongqing"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2780191,
+     "level": 5,
+     "name": "六盘水市",
+     "name_zh": "六盘水市",
+     "name_en": "Liupanshui"
+    },
+    {
+     "id": 2782250,
+     "level": 5,
+     "name": "安顺市",
+     "name_zh": "安顺市",
+     "name_en": "Anshun"
+    },
+    {
+     "id": 2773826,
+     "level": 5,
+     "name": "怀化市",
+     "name_zh": "怀化市",
+     "name_en": "Huaihua"
+    },
+    {
+     "id": 2402650,
+     "level": 5,
+     "name": "昭通市",
+     "name_zh": "昭通市",
+     "name_en": "Zhaotong City"
+    },
+    {
+     "id": 2718030,
+     "level": 5,
+     "name": "曲靖市",
+     "name_zh": "曲靖市",
+     "name_en": "Qujing City"
+    },
+    {
+     "id": 2774469,
+     "level": 5,
+     "name": "柳州市",
+     "name_zh": "柳州市",
+     "name_en": "Liuzhou City"
+    },
+    {
+     "id": 2780074,
+     "level": 5,
+     "name": "毕节市",
+     "name_zh": "毕节市",
+     "name_en": "Bijie"
+    },
+    {
+     "id": 2774389,
+     "level": 5,
+     "name": "河池市",
+     "name_zh": "河池市",
+     "name_en": "Hechi"
+    },
+    {
+     "id": 2789344,
+     "level": 5,
+     "name": "泸州市",
+     "name_zh": "泸州市",
+     "name_en": "Luzhou"
+    },
+    {
+     "id": 2972168,
+     "level": 5,
+     "name": "湘西土家族苗族自治州",
+     "name_zh": "湘西土家族苗族自治州",
+     "name_en": "Xiangxi"
+    },
+    {
+     "id": 2773986,
+     "level": 5,
+     "name": "百色市",
+     "name_zh": "百色市",
+     "name_en": "Baise"
+    },
+    {
+     "id": 2782246,
+     "level": 5,
+     "name": "贵阳市",
+     "name_zh": "贵阳市",
+     "name_en": "Guiyang"
+    },
+    {
+     "id": 2778812,
+     "level": 5,
+     "name": "遵义市",
+     "name_zh": "遵义市",
+     "name_en": "Zunyi"
+    },
+    {
+     "id": 2778223,
+     "level": 5,
+     "name": "铜仁市",
+     "name_zh": "铜仁市",
+     "name_en": "Tongren"
+    },
+    {
+     "id": 2777847,
+     "level": 5,
+     "name": "黔东南苗族侗族自治州",
+     "name_zh": "黔东南苗族侗族自治州",
+     "name_en": "Qiandongnan"
+    },
+    {
+     "id": 2777425,
+     "level": 5,
+     "name": "黔南布依族苗族自治州",
+     "name_zh": "黔南布依族苗族自治州",
+     "name_en": "Qiannan"
+    },
+    {
+     "id": 2781292,
+     "level": 5,
+     "name": "黔西南布依族苗族自治州",
+     "name_zh": "黔西南布依族苗族自治州",
+     "name_en": "Qianxinan"
+    }
+   ],
+   "routes": {
+    "subway": 8,
+    "train": 3,
+    "monorail": 2
+   },
+   "networks": {
+    "(无 network)": {
+     "subway": 8,
+     "train": 3,
+     "monorail": 2
+    }
+   }
+  },
+  "hainan": {
+   "l4": [
+    {
+     "id": 911844,
+     "level": 4,
+     "name": "广东省",
+     "name_zh": "广东省",
+     "name_en": "Guangdong"
+    },
+    {
+     "id": 2128285,
+     "level": 4,
+     "name": "海南省",
+     "name_zh": "海南省",
+     "name_en": "Hainan"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2128284,
+     "level": 5,
+     "name": "三亚市",
+     "name_zh": "三亚市",
+     "name_en": "Sanya City"
+    },
+    {
+     "id": 2833102,
+     "level": 5,
+     "name": "三沙市",
+     "name_zh": "三沙市",
+     "name_en": "Sansha"
+    },
+    {
+     "id": 2784610,
+     "level": 5,
+     "name": "儋州市",
+     "name_zh": "儋州市",
+     "name_en": "Danzhou City"
+    },
+    {
+     "id": 2784613,
+     "level": 5,
+     "name": "海口市",
+     "name_zh": "海口市",
+     "name_en": "Haikou City"
+    },
+    {
+     "id": 3484419,
+     "level": 5,
+     "name": "湛江市",
+     "name_zh": "湛江市",
+     "name_en": "Zhanjiang City"
+    },
+    {
+     "id": 3032037,
+     "level": 5,
+     "name": "阳江市",
+     "name_zh": "阳江市",
+     "name_en": "Yangjiang City"
+    }
+   ],
+   "routes": {
+    "light_rail": 2,
+    "train": 2
+   },
+   "networks": {
+    "三亚轨道交通": {
+     "light_rail": 2
+    },
+    "(无 network)": {
+     "train": 2
+    }
+   }
+  },
+  "hebei": {
+   "l4": [
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 912940,
+     "level": 4,
+     "name": "北京市",
+     "name_zh": "北京市",
+     "name_en": "Beijing"
+    },
+    {
+     "id": 912999,
+     "level": 4,
+     "name": "天津市",
+     "name_zh": "天津市",
+     "name_en": "Tianjin"
+    },
+    {
+     "id": 913006,
+     "level": 4,
+     "name": "山东省",
+     "name_zh": "山东省",
+     "name_en": "Shandong"
+    },
+    {
+     "id": 913105,
+     "level": 4,
+     "name": "山西省",
+     "name_zh": "山西省",
+     "name_en": "Shanxi"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 912942,
+     "level": 4,
+     "name": "辽宁省",
+     "name_zh": "辽宁省",
+     "name_en": "Liaoning"
+    }
+   ],
+   "l5": [
+    {
+     "id": 4433983,
+     "level": 5,
+     "name": "东营市",
+     "name_zh": "东营市",
+     "name_en": "Dongying"
+    },
+    {
+     "id": 2752977,
+     "level": 5,
+     "name": "乌兰察布市 ᠤᠯᠠᠭᠠᠨᠴᠠᠪ ᠬᠣᠲᠠ",
+     "name_zh": "乌兰察布市",
+     "name_en": "Ulanqab City"
+    },
+    {
+     "id": 3442995,
+     "level": 5,
+     "name": "保定市",
+     "name_zh": "保定市",
+     "name_en": "Baoding City"
+    },
+    {
+     "id": 2989001,
+     "level": 5,
+     "name": "唐山市",
+     "name_zh": "唐山市",
+     "name_en": "Tangshan"
+    },
+    {
+     "id": 3008552,
+     "level": 5,
+     "name": "大同市",
+     "name_zh": "大同市",
+     "name_en": "Datong City"
+    },
+    {
+     "id": 4433277,
+     "level": 5,
+     "name": "安阳市",
+     "name_zh": "安阳市",
+     "name_en": "Anyang"
+    },
+    {
+     "id": 2989329,
+     "level": 5,
+     "name": "廊坊市",
+     "name_zh": "廊坊市",
+     "name_en": "Langfang"
+    },
+    {
+     "id": 3295555,
+     "level": 5,
+     "name": "张家口市",
+     "name_zh": "张家口市",
+     "name_en": "Zhangjiakou"
+    },
+    {
+     "id": 3485982,
+     "level": 5,
+     "name": "德州市",
+     "name_zh": "德州市",
+     "name_en": "Dezhou"
+    },
+    {
+     "id": 3008569,
+     "level": 5,
+     "name": "忻州市",
+     "name_zh": "忻州市",
+     "name_en": "Xinzhou City"
+    },
+    {
+     "id": 2989561,
+     "level": 5,
+     "name": "承德市",
+     "name_zh": "承德市",
+     "name_en": "Chengde"
+    },
+    {
+     "id": 3296587,
+     "level": 5,
+     "name": "晋中市",
+     "name_zh": "晋中市",
+     "name_en": "Jinzhong City"
+    },
+    {
+     "id": 2769829,
+     "level": 5,
+     "name": "朝阳市",
+     "name_zh": "朝阳市",
+     "name_en": "Chaoyang City"
+    },
+    {
+     "id": 3443418,
+     "level": 5,
+     "name": "沧州市",
+     "name_zh": "沧州市",
+     "name_en": "Cangzhou"
+    },
+    {
+     "id": 4434116,
+     "level": 5,
+     "name": "滨州市",
+     "name_zh": "滨州市",
+     "name_en": "Binzhou"
+    },
+    {
+     "id": 3060567,
+     "level": 5,
+     "name": "濮阳市",
+     "name_zh": "濮阳市",
+     "name_en": "Puyang"
+    },
+    {
+     "id": 3469843,
+     "level": 5,
+     "name": "烟台市",
+     "name_zh": "烟台市",
+     "name_en": "Yantai"
+    },
+    {
+     "id": 3009732,
+     "level": 5,
+     "name": "石家庄市",
+     "name_zh": "石家庄市",
+     "name_en": "Shijiazhuang"
+    },
+    {
+     "id": 2989562,
+     "level": 5,
+     "name": "秦皇岛市",
+     "name_zh": "秦皇岛市",
+     "name_en": "Qinhuangdao"
+    },
+    {
+     "id": 3485816,
+     "level": 5,
+     "name": "聊城市",
+     "name_zh": "聊城市",
+     "name_en": "Liaocheng"
+    },
+    {
+     "id": 2769902,
+     "level": 5,
+     "name": "葫芦岛市",
+     "name_zh": "葫芦岛市",
+     "name_en": "Huludao City"
+    },
+    {
+     "id": 3443419,
+     "level": 5,
+     "name": "衡水市",
+     "name_zh": "衡水市",
+     "name_en": "Hengshui"
+    },
+    {
+     "id": 2753364,
+     "level": 5,
+     "name": "赤峰市 ᠤᠯᠠᠭᠠᠨᠬᠠᠳᠠ ᠬᠣᠲᠠ",
+     "name_zh": "赤峰市",
+     "name_en": "Chifeng City"
+    },
+    {
+     "id": 3290707,
+     "level": 5,
+     "name": "邢台市",
+     "name_zh": "邢台市",
+     "name_en": "Xingtai"
+    },
+    {
+     "id": 3290701,
+     "level": 5,
+     "name": "邯郸市",
+     "name_zh": "邯郸市",
+     "name_en": "Handan"
+    },
+    {
+     "id": 2753029,
+     "level": 5,
+     "name": "锡林郭勒盟 ᠰᠢᠯᠢ ᠶᠢᠨ ᠭᠣᠣᠯ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "锡林郭勒盟",
+     "name_en": "Xilingol League"
+    },
+    {
+     "id": 2963917,
+     "level": 5,
+     "name": "长治市",
+     "name_zh": "长治市",
+     "name_en": "Changzhi City"
+    },
+    {
+     "id": 3285005,
+     "level": 5,
+     "name": "阳泉市",
+     "name_zh": "阳泉市",
+     "name_en": "Yangquan City"
+    },
+    {
+     "id": 7157395,
+     "level": 5,
+     "name": "雄安新区",
+     "name_zh": "雄安新区",
+     "name_en": "Xiong'an New Area"
+    }
+   ],
+   "routes": {
+    "subway": 91,
+    "train": 18,
+    "tram": 6,
+    "light_rail": 4,
+    "monorail": 2
+   },
+   "networks": {
+    "北京地铁": {
+     "subway": 56,
+     "monorail": 2,
+     "light_rail": 2
+    },
+    "天津地铁": {
+     "subway": 28
+    },
+    "(无 network)": {
+     "tram": 6,
+     "train": 6,
+     "light_rail": 2,
+     "subway": 1
+    },
+    "北京市郊铁路": {
+     "train": 12
+    },
+    "石家庄地铁": {
+     "subway": 6
+    }
+   }
+  },
+  "heilongjiang": {
+   "l4": [
+    {
+     "id": 147166,
+     "level": 4,
+     "name": "Амурская область",
+     "name_zh": "阿穆尔州",
+     "name_en": "Amur Oblast"
+    },
+    {
+     "id": 147167,
+     "level": 4,
+     "name": "Еврейская автономная область",
+     "name_zh": "犹太自治州",
+     "name_en": "Jewish Autonomous Oblast"
+    },
+    {
+     "id": 145730,
+     "level": 4,
+     "name": "Забайкальский край",
+     "name_zh": "外贝加尔边疆区",
+     "name_en": "Zabaykalsky Krai"
+    },
+    {
+     "id": 151225,
+     "level": 4,
+     "name": "Приморский край",
+     "name_zh": "滨海边疆区",
+     "name_en": "Primorsky Krai"
+    },
+    {
+     "id": 151223,
+     "level": 4,
+     "name": "Хабаровский край",
+     "name_zh": "哈巴罗夫斯克边疆区",
+     "name_en": "Khabarovsk Krai"
+    },
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 198590,
+     "level": 4,
+     "name": "吉林省",
+     "name_zh": "吉林省",
+     "name_en": "Jilin"
+    },
+    {
+     "id": 199073,
+     "level": 4,
+     "name": "黑龙江省",
+     "name_zh": "黑龙江省",
+     "name_en": "Heilongjiang"
+    }
+   ],
+   "l5": [
+    {
+     "id": 199174,
+     "level": 5,
+     "name": "七台河市",
+     "name_zh": "七台河市",
+     "name_en": "Qitaihe City"
+    },
+    {
+     "id": 2755605,
+     "level": 5,
+     "name": "伊春市",
+     "name_zh": "伊春市",
+     "name_en": "Yichun City"
+    },
+    {
+     "id": 206437,
+     "level": 5,
+     "name": "佳木斯市",
+     "name_zh": "佳木斯市",
+     "name_en": "Jiamusi City"
+    },
+    {
+     "id": 2753442,
+     "level": 5,
+     "name": "兴安盟 ᠬᠢᠩᠭ᠋ᠠᠨ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "兴安盟",
+     "name_en": "Hinggan League"
+    },
+    {
+     "id": 203483,
+     "level": 5,
+     "name": "双鸭山市",
+     "name_zh": "双鸭山市",
+     "name_en": "Shuangyashan City"
+    },
+    {
+     "id": 2764055,
+     "level": 5,
+     "name": "吉林市",
+     "name_zh": "吉林市",
+     "name_en": "Jilin City"
+    },
+    {
+     "id": 161769,
+     "level": 5,
+     "name": "呼伦贝尔市 ᠬᠥᠯᠥᠨ ᠪᠤᠶᠢᠷ",
+     "name_zh": "呼伦贝尔市",
+     "name_en": "Hulunbuir"
+    },
+    {
+     "id": 2755608,
+     "level": 5,
+     "name": "哈尔滨市",
+     "name_zh": "哈尔滨市",
+     "name_en": "Harbin"
+    },
+    {
+     "id": 199127,
+     "level": 5,
+     "name": "大兴安岭地区",
+     "name_zh": "大兴安岭地区",
+     "name_en": "Daxing'anling Prefecture"
+    },
+    {
+     "id": 2755197,
+     "level": 5,
+     "name": "大庆市",
+     "name_zh": "大庆市",
+     "name_en": "Daqing City"
+    },
+    {
+     "id": 2761941,
+     "level": 5,
+     "name": "延边朝鲜族自治州 연변조선족자치주",
+     "name_zh": "延边朝鲜族自治州",
+     "name_en": "Yanbian"
+    },
+    {
+     "id": 2763775,
+     "level": 5,
+     "name": "松原市",
+     "name_zh": "松原市",
+     "name_en": "Songyuan City"
+    },
+    {
+     "id": 2755604,
+     "level": 5,
+     "name": "牡丹江市",
+     "name_zh": "牡丹江市",
+     "name_en": "Mudanjiang City"
+    },
+    {
+     "id": 2763763,
+     "level": 5,
+     "name": "白城市",
+     "name_zh": "白城市",
+     "name_en": "Baicheng City"
+    },
+    {
+     "id": 2755376,
+     "level": 5,
+     "name": "绥化市",
+     "name_zh": "绥化市",
+     "name_en": "Suihua City"
+    },
+    {
+     "id": 2763992,
+     "level": 5,
+     "name": "长春市",
+     "name_zh": "长春市",
+     "name_en": "Changchun City"
+    },
+    {
+     "id": 199188,
+     "level": 5,
+     "name": "鸡西市",
+     "name_zh": "鸡西市",
+     "name_en": "Jixi"
+    },
+    {
+     "id": 199170,
+     "level": 5,
+     "name": "鹤岗市",
+     "name_zh": "鹤岗市",
+     "name_en": "Hegang City"
+    },
+    {
+     "id": 2754980,
+     "level": 5,
+     "name": "黑河市",
+     "name_zh": "黑河市",
+     "name_en": "Heihe City"
+    },
+    {
+     "id": 2755137,
+     "level": 5,
+     "name": "齐齐哈尔市",
+     "name_zh": "齐齐哈尔市",
+     "name_en": "Qiqihar City"
+    }
+   ],
+   "routes": {
+    "train": 138,
+    "subway": 6,
+    "tram": 2
+   },
+   "networks": {
+    "(无 network)": {
+     "train": 120,
+     "subway": 6,
+     "tram": 2
+    },
+    "РЖД": {
+     "train": 18
+    }
+   }
+  },
+  "henan": {
+   "l4": [
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 913006,
+     "level": 4,
+     "name": "山东省",
+     "name_zh": "山东省",
+     "name_en": "Shandong"
+    },
+    {
+     "id": 913105,
+     "level": 4,
+     "name": "山西省",
+     "name_zh": "山西省",
+     "name_en": "Shanxi"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2992284,
+     "level": 5,
+     "name": "三门峡市",
+     "name_zh": "三门峡市",
+     "name_en": "Sanmenxia"
+    },
+    {
+     "id": 3245950,
+     "level": 5,
+     "name": "亳州市",
+     "name_zh": "亳州市",
+     "name_en": "Bozhou"
+    },
+    {
+     "id": 3218104,
+     "level": 5,
+     "name": "信阳市",
+     "name_zh": "信阳市",
+     "name_en": "Xinyang"
+    },
+    {
+     "id": 3243393,
+     "level": 5,
+     "name": "六安市",
+     "name_zh": "六安市",
+     "name_en": "Lu'an"
+    },
+    {
+     "id": 3206796,
+     "level": 5,
+     "name": "十堰市",
+     "name_zh": "十堰市",
+     "name_en": "Shiyan"
+    },
+    {
+     "id": 3206852,
+     "level": 5,
+     "name": "南阳市",
+     "name_zh": "南阳市",
+     "name_en": "Nanyang"
+    },
+    {
+     "id": 3284144,
+     "level": 5,
+     "name": "周口市",
+     "name_zh": "周口市",
+     "name_en": "Zhoukou"
+    },
+    {
+     "id": 3218285,
+     "level": 5,
+     "name": "商丘市",
+     "name_zh": "商丘市",
+     "name_en": "Shangqiu"
+    },
+    {
+     "id": 2971129,
+     "level": 5,
+     "name": "商洛市",
+     "name_zh": "商洛市",
+     "name_en": "Shangluo"
+    },
+    {
+     "id": 3216406,
+     "level": 5,
+     "name": "孝感市",
+     "name_zh": "孝感市",
+     "name_en": "Xiaogan"
+    },
+    {
+     "id": 4433277,
+     "level": 5,
+     "name": "安阳市",
+     "name_zh": "安阳市",
+     "name_en": "Anyang"
+    },
+    {
+     "id": 3231858,
+     "level": 5,
+     "name": "宿州市",
+     "name_zh": "宿州市",
+     "name_en": "Suzhou"
+    },
+    {
+     "id": 3259379,
+     "level": 5,
+     "name": "平顶山市",
+     "name_zh": "平顶山市",
+     "name_en": "Pingdingshan"
+    },
+    {
+     "id": 3283913,
+     "level": 5,
+     "name": "开封市",
+     "name_zh": "开封市",
+     "name_en": "Kaifeng"
+    },
+    {
+     "id": 3237011,
+     "level": 5,
+     "name": "新乡市",
+     "name_zh": "新乡市",
+     "name_en": "Xinxiang"
+    },
+    {
+     "id": 3237073,
+     "level": 5,
+     "name": "晋城市",
+     "name_zh": "晋城市",
+     "name_en": "Jincheng City"
+    },
+    {
+     "id": 3486494,
+     "level": 5,
+     "name": "泰安市",
+     "name_zh": "泰安市",
+     "name_en": "Tai'an"
+    },
+    {
+     "id": 3246491,
+     "level": 5,
+     "name": "洛阳市",
+     "name_zh": "洛阳市",
+     "name_en": "Luoyang"
+    },
+    {
+     "id": 3286961,
+     "level": 5,
+     "name": "济宁市",
+     "name_zh": "济宁市",
+     "name_en": "Jining"
+    },
+    {
+     "id": 3231910,
+     "level": 5,
+     "name": "淮北市",
+     "name_zh": "淮北市",
+     "name_en": "Huaibei"
+    },
+    {
+     "id": 3028621,
+     "level": 5,
+     "name": "渭南市",
+     "name_zh": "渭南市",
+     "name_en": "Weinan City"
+    },
+    {
+     "id": 3284027,
+     "level": 5,
+     "name": "漯河市",
+     "name_zh": "漯河市",
+     "name_en": "Luohe"
+    },
+    {
+     "id": 3060567,
+     "level": 5,
+     "name": "濮阳市",
+     "name_zh": "濮阳市",
+     "name_en": "Puyang"
+    },
+    {
+     "id": 3237564,
+     "level": 5,
+     "name": "焦作市",
+     "name_zh": "焦作市",
+     "name_en": "Jiaozuo"
+    },
+    {
+     "id": 3485816,
+     "level": 5,
+     "name": "聊城市",
+     "name_zh": "聊城市",
+     "name_en": "Liaocheng"
+    },
+    {
+     "id": 3284918,
+     "level": 5,
+     "name": "菏泽市",
+     "name_zh": "菏泽市",
+     "name_en": "Heze"
+    },
+    {
+     "id": 3216590,
+     "level": 5,
+     "name": "襄阳市",
+     "name_zh": "襄阳市",
+     "name_en": "Xiangyang"
+    },
+    {
+     "id": 3283887,
+     "level": 5,
+     "name": "许昌市",
+     "name_zh": "许昌市",
+     "name_en": "Xuchang"
+    },
+    {
+     "id": 3224229,
+     "level": 5,
+     "name": "运城市",
+     "name_zh": "运城市",
+     "name_en": "Yuncheng City"
+    },
+    {
+     "id": 3290701,
+     "level": 5,
+     "name": "邯郸市",
+     "name_zh": "邯郸市",
+     "name_en": "Handan"
+    },
+    {
+     "id": 3283765,
+     "level": 5,
+     "name": "郑州市",
+     "name_zh": "郑州市",
+     "name_en": "Zhengzhou"
+    },
+    {
+     "id": 2963917,
+     "level": 5,
+     "name": "长治市",
+     "name_zh": "长治市",
+     "name_en": "Changzhi City"
+    },
+    {
+     "id": 3246004,
+     "level": 5,
+     "name": "阜阳市",
+     "name_zh": "阜阳市",
+     "name_en": "Fuyang"
+    },
+    {
+     "id": 3216520,
+     "level": 5,
+     "name": "随州市",
+     "name_zh": "随州市",
+     "name_en": "Suizhou"
+    },
+    {
+     "id": 3259366,
+     "level": 5,
+     "name": "驻马店市",
+     "name_zh": "驻马店市",
+     "name_en": "Zhumadian"
+    },
+    {
+     "id": 4433278,
+     "level": 5,
+     "name": "鹤壁市",
+     "name_zh": "鹤壁市",
+     "name_en": "Hebi"
+    },
+    {
+     "id": 3144169,
+     "level": 5,
+     "name": "黄冈市",
+     "name_zh": "黄冈市",
+     "name_en": "Huanggang"
+    }
+   ],
+   "routes": {
+    "subway": 30,
+    "train": 4
+   },
+   "networks": {
+    "(无 network)": {
+     "subway": 12,
+     "train": 4
+    },
+    "郑州地铁": {
+     "subway": 14
+    },
+    "洛阳轨道交通": {
+     "subway": 4
+    }
+   }
+  },
+  "hubei": {
+   "l4": [
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 913069,
+     "level": 4,
+     "name": "重庆市",
+     "name_zh": "重庆市",
+     "name_en": "Chongqing"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3190361,
+     "level": 5,
+     "name": "九江市",
+     "name_zh": "九江市",
+     "name_en": "Jiujiang"
+    },
+    {
+     "id": 3218104,
+     "level": 5,
+     "name": "信阳市",
+     "name_zh": "信阳市",
+     "name_en": "Xinyang"
+    },
+    {
+     "id": 3243393,
+     "level": 5,
+     "name": "六安市",
+     "name_zh": "六安市",
+     "name_en": "Lu'an"
+    },
+    {
+     "id": 3206796,
+     "level": 5,
+     "name": "十堰市",
+     "name_zh": "十堰市",
+     "name_en": "Shiyan"
+    },
+    {
+     "id": 3206852,
+     "level": 5,
+     "name": "南阳市",
+     "name_zh": "南阳市",
+     "name_en": "Nanyang"
+    },
+    {
+     "id": 3106518,
+     "level": 5,
+     "name": "咸宁市",
+     "name_zh": "咸宁市",
+     "name_en": "Xianning"
+    },
+    {
+     "id": 2971129,
+     "level": 5,
+     "name": "商洛市",
+     "name_zh": "商洛市",
+     "name_en": "Shangluo"
+    },
+    {
+     "id": 3216406,
+     "level": 5,
+     "name": "孝感市",
+     "name_zh": "孝感市",
+     "name_en": "Xiaogan"
+    },
+    {
+     "id": 3220387,
+     "level": 5,
+     "name": "安庆市",
+     "name_zh": "安庆市",
+     "name_en": "Anqing"
+    },
+    {
+     "id": 2996866,
+     "level": 5,
+     "name": "安康市",
+     "name_zh": "安康市",
+     "name_en": "Ankang"
+    },
+    {
+     "id": 2983923,
+     "level": 5,
+     "name": "宜昌市",
+     "name_zh": "宜昌市",
+     "name_en": "Yichang"
+    },
+    {
+     "id": 3202467,
+     "level": 5,
+     "name": "岳阳市",
+     "name_zh": "岳阳市",
+     "name_en": "Yueyang"
+    },
+    {
+     "id": 3161246,
+     "level": 5,
+     "name": "常德市",
+     "name_zh": "常德市",
+     "name_en": "Changde"
+    },
+    {
+     "id": 3152588,
+     "level": 5,
+     "name": "张家界市",
+     "name_zh": "张家界市",
+     "name_en": "Zhangjiajie"
+    },
+    {
+     "id": 2984075,
+     "level": 5,
+     "name": "恩施土家族苗族自治州",
+     "name_zh": "恩施土家族苗族自治州",
+     "name_en": "Enshi"
+    },
+    {
+     "id": 3076268,
+     "level": 5,
+     "name": "武汉市",
+     "name_zh": "武汉市",
+     "name_en": "Wuhan"
+    },
+    {
+     "id": 2972168,
+     "level": 5,
+     "name": "湘西土家族苗族自治州",
+     "name_zh": "湘西土家族苗族自治州",
+     "name_en": "Xiangxi"
+    },
+    {
+     "id": 3202593,
+     "level": 5,
+     "name": "益阳市",
+     "name_zh": "益阳市",
+     "name_en": "Yiyang"
+    },
+    {
+     "id": 2709754,
+     "level": 5,
+     "name": "荆州市",
+     "name_zh": "荆州市",
+     "name_en": "Jingzhou"
+    },
+    {
+     "id": 3219965,
+     "level": 5,
+     "name": "荆门市",
+     "name_zh": "荆门市",
+     "name_en": "Jingmen"
+    },
+    {
+     "id": 3216590,
+     "level": 5,
+     "name": "襄阳市",
+     "name_zh": "襄阳市",
+     "name_en": "Xiangyang"
+    },
+    {
+     "id": 3086618,
+     "level": 5,
+     "name": "鄂州市",
+     "name_zh": "鄂州市",
+     "name_en": "Ezhou"
+    },
+    {
+     "id": 3216520,
+     "level": 5,
+     "name": "随州市",
+     "name_zh": "随州市",
+     "name_en": "Suizhou"
+    },
+    {
+     "id": 3144169,
+     "level": 5,
+     "name": "黄冈市",
+     "name_zh": "黄冈市",
+     "name_en": "Huanggang"
+    },
+    {
+     "id": 3086592,
+     "level": 5,
+     "name": "黄石市",
+     "name_zh": "黄石市",
+     "name_en": "Huangshi"
+    }
+   ],
+   "routes": {
+    "subway": 26,
+    "tram": 7,
+    "monorail": 2,
+    "train": 1
+   },
+   "networks": {
+    "武汉地铁": {
+     "subway": 26
+    },
+    "(无 network)": {
+     "tram": 6,
+     "train": 1,
+     "monorail": 2
+    },
+    "黄石轨道交通": {
+     "tram": 1
+    }
+   }
+  },
+  "hunan": {
+   "l4": [
+    {
+     "id": 911844,
+     "level": 4,
+     "name": "广东省",
+     "name_zh": "广东省",
+     "name_en": "Guangdong"
+    },
+    {
+     "id": 286342,
+     "level": 4,
+     "name": "广西壮族自治区",
+     "name_zh": "广西壮族自治区",
+     "name_en": "Guangxi"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 286937,
+     "level": 4,
+     "name": "贵州省",
+     "name_zh": "贵州省",
+     "name_en": "Guizhou"
+    },
+    {
+     "id": 913069,
+     "level": 4,
+     "name": "重庆市",
+     "name_zh": "重庆市",
+     "name_en": "Chongqing"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3190361,
+     "level": 5,
+     "name": "九江市",
+     "name_zh": "九江市",
+     "name_en": "Jiujiang"
+    },
+    {
+     "id": 2950516,
+     "level": 5,
+     "name": "吉安市",
+     "name_zh": "吉安市",
+     "name_en": "Ji'an City"
+    },
+    {
+     "id": 3106518,
+     "level": 5,
+     "name": "咸宁市",
+     "name_zh": "咸宁市",
+     "name_en": "Xianning"
+    },
+    {
+     "id": 3070610,
+     "level": 5,
+     "name": "娄底市",
+     "name_zh": "娄底市",
+     "name_en": "Loudi"
+    },
+    {
+     "id": 2983923,
+     "level": 5,
+     "name": "宜昌市",
+     "name_zh": "宜昌市",
+     "name_en": "Yichang"
+    },
+    {
+     "id": 3182923,
+     "level": 5,
+     "name": "宜春市",
+     "name_zh": "宜春市",
+     "name_en": "Yichun"
+    },
+    {
+     "id": 3202467,
+     "level": 5,
+     "name": "岳阳市",
+     "name_zh": "岳阳市",
+     "name_en": "Yueyang"
+    },
+    {
+     "id": 3161246,
+     "level": 5,
+     "name": "常德市",
+     "name_zh": "常德市",
+     "name_en": "Changde"
+    },
+    {
+     "id": 3152588,
+     "level": 5,
+     "name": "张家界市",
+     "name_zh": "张家界市",
+     "name_en": "Zhangjiajie"
+    },
+    {
+     "id": 2773826,
+     "level": 5,
+     "name": "怀化市",
+     "name_zh": "怀化市",
+     "name_en": "Huaihua"
+    },
+    {
+     "id": 2984075,
+     "level": 5,
+     "name": "恩施土家族苗族自治州",
+     "name_zh": "恩施土家族苗族自治州",
+     "name_en": "Enshi"
+    },
+    {
+     "id": 2774469,
+     "level": 5,
+     "name": "柳州市",
+     "name_zh": "柳州市",
+     "name_en": "Liuzhou City"
+    },
+    {
+     "id": 2972720,
+     "level": 5,
+     "name": "株洲市",
+     "name_zh": "株洲市",
+     "name_en": "Zhuzhou"
+    },
+    {
+     "id": 3471982,
+     "level": 5,
+     "name": "桂林市",
+     "name_zh": "桂林市",
+     "name_en": "Guilin"
+    },
+    {
+     "id": 3149752,
+     "level": 5,
+     "name": "永州市",
+     "name_zh": "永州市",
+     "name_en": "Yongzhou"
+    },
+    {
+     "id": 3124223,
+     "level": 5,
+     "name": "清远市",
+     "name_zh": "清远市",
+     "name_en": "Qingyuan City"
+    },
+    {
+     "id": 3202624,
+     "level": 5,
+     "name": "湘潭市",
+     "name_zh": "湘潭市",
+     "name_en": "Xiangtan"
+    },
+    {
+     "id": 2972168,
+     "level": 5,
+     "name": "湘西土家族苗族自治州",
+     "name_zh": "湘西土家族苗族自治州",
+     "name_en": "Xiangxi"
+    },
+    {
+     "id": 3202593,
+     "level": 5,
+     "name": "益阳市",
+     "name_zh": "益阳市",
+     "name_en": "Yiyang"
+    },
+    {
+     "id": 2709754,
+     "level": 5,
+     "name": "荆州市",
+     "name_zh": "荆州市",
+     "name_en": "Jingzhou"
+    },
+    {
+     "id": 3189984,
+     "level": 5,
+     "name": "萍乡市",
+     "name_zh": "萍乡市",
+     "name_en": "Pingxiang"
+    },
+    {
+     "id": 3156043,
+     "level": 5,
+     "name": "衡阳市",
+     "name_zh": "衡阳市",
+     "name_en": "Hengyang"
+    },
+    {
+     "id": 2773741,
+     "level": 5,
+     "name": "贺州市",
+     "name_zh": "贺州市",
+     "name_en": "Hezhou"
+    },
+    {
+     "id": 3180745,
+     "level": 5,
+     "name": "赣州市",
+     "name_zh": "赣州市",
+     "name_en": "Ganzhou"
+    },
+    {
+     "id": 3075378,
+     "level": 5,
+     "name": "邵阳市",
+     "name_zh": "邵阳市",
+     "name_en": "Shaoyang"
+    },
+    {
+     "id": 3123920,
+     "level": 5,
+     "name": "郴州市",
+     "name_zh": "郴州市",
+     "name_en": "Chenzhou"
+    },
+    {
+     "id": 2778223,
+     "level": 5,
+     "name": "铜仁市",
+     "name_zh": "铜仁市",
+     "name_en": "Tongren"
+    },
+    {
+     "id": 3202711,
+     "level": 5,
+     "name": "长沙市",
+     "name_zh": "长沙市",
+     "name_en": "Changsha"
+    },
+    {
+     "id": 3203994,
+     "level": 5,
+     "name": "韶关市",
+     "name_zh": "韶关市",
+     "name_en": "Shaoguan City"
+    },
+    {
+     "id": 2777847,
+     "level": 5,
+     "name": "黔东南苗族侗族自治州",
+     "name_zh": "黔东南苗族侗族自治州",
+     "name_en": "Qiandongnan"
+    }
+   ],
+   "routes": {
+    "subway": 15,
+    "monorail": 6,
+    "train": 2
+   },
+   "networks": {
+    "长沙地铁": {
+     "subway": 14
+    },
+    "(无 network)": {
+     "monorail": 6,
+     "train": 1,
+     "subway": 1
+    },
+    "长沙磁浮快线": {
+     "train": 1
+    }
+   }
+  },
+  "inner_mongolia": {
+   "l4": [
+    {
+     "id": 270052,
+     "level": 4,
+     "name": "Баянхонгор ᠪᠠᠶᠠᠨ ᠬᠣᠩᠭᠣᠷ",
+     "name_zh": "巴彦洪戈尔省",
+     "name_en": "Bayankhongor"
+    },
+    {
+     "id": 270054,
+     "level": 4,
+     "name": "Говь-Алтай ᠭᠣᠪᠢ ᠠᠯᠲᠠᠢ",
+     "name_zh": "戈壁阿尔泰省",
+     "name_en": "Govi-Altai"
+    },
+    {
+     "id": 270050,
+     "level": 4,
+     "name": "Дорноговь ᠳᠣᠷᠤᠨᠠ ᠭᠣᠪᠢ",
+     "name_zh": "东戈壁省",
+     "name_en": "Dornogovi"
+    },
+    {
+     "id": 269886,
+     "level": 4,
+     "name": "Дорнод ᠳᠣᠷᠤᠨᠠᠳᠤ",
+     "name_zh": "东方省",
+     "name_en": "Dornod"
+    },
+    {
+     "id": 145730,
+     "level": 4,
+     "name": "Забайкальский край",
+     "name_zh": "外贝加尔边疆区",
+     "name_en": "Zabaykalsky Krai"
+    },
+    {
+     "id": 269874,
+     "level": 4,
+     "name": "Сүхбаатар ᠰᠦᠬᠡ ᠪᠠᠭᠠᠲᠤᠷ",
+     "name_zh": "苏赫巴托尔省",
+     "name_en": "Sükhbaatar"
+    },
+    {
+     "id": 270051,
+     "level": 4,
+     "name": "Өмнөговь ᠡᠮᠦᠨᠡ ᠭᠣᠪᠢ",
+     "name_zh": "南戈壁省",
+     "name_en": "Ömnögovi"
+    },
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 198590,
+     "level": 4,
+     "name": "吉林省",
+     "name_zh": "吉林省",
+     "name_en": "Jilin"
+    },
+    {
+     "id": 913101,
+     "level": 4,
+     "name": "宁夏回族自治区",
+     "name_zh": "宁夏回族自治区",
+     "name_en": "Ningxia"
+    },
+    {
+     "id": 913105,
+     "level": 4,
+     "name": "山西省",
+     "name_zh": "山西省",
+     "name_en": "Shanxi"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    },
+    {
+     "id": 153314,
+     "level": 4,
+     "name": "甘肃省",
+     "name_zh": "甘肃省",
+     "name_en": "Gansu"
+    },
+    {
+     "id": 912942,
+     "level": 4,
+     "name": "辽宁省",
+     "name_zh": "辽宁省",
+     "name_en": "Liaoning"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    },
+    {
+     "id": 199073,
+     "level": 4,
+     "name": "黑龙江省",
+     "name_zh": "黑龙江省",
+     "name_en": "Heilongjiang"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2793622,
+     "level": 5,
+     "name": "中卫市",
+     "name_zh": "中卫市",
+     "name_en": "Zhongwei City"
+    },
+    {
+     "id": 2752977,
+     "level": 5,
+     "name": "乌兰察布市 ᠤᠯᠠᠭᠠᠨᠴᠠᠪ ᠬᠣᠲᠠ",
+     "name_zh": "乌兰察布市",
+     "name_en": "Ulanqab City"
+    },
+    {
+     "id": 2752805,
+     "level": 5,
+     "name": "乌海市 ᠦᠬᠠᠢ ᠬᠣᠲᠠ",
+     "name_zh": "乌海市",
+     "name_en": "Wuhai City"
+    },
+    {
+     "id": 2753442,
+     "level": 5,
+     "name": "兴安盟 ᠬᠢᠩᠭ᠋ᠠᠨ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "兴安盟",
+     "name_en": "Hinggan League"
+    },
+    {
+     "id": 2752954,
+     "level": 5,
+     "name": "包头市 ᠪᠤᠭᠤᠲᠤ ᠬᠣᠲᠠ",
+     "name_zh": "包头市",
+     "name_en": "Baotou City"
+    },
+    {
+     "id": 3307137,
+     "level": 5,
+     "name": "吴忠市",
+     "name_zh": "吴忠市",
+     "name_en": "Wuzhong City"
+    },
+    {
+     "id": 161769,
+     "level": 5,
+     "name": "呼伦贝尔市 ᠬᠥᠯᠥᠨ ᠪᠤᠶᠢᠷ",
+     "name_zh": "呼伦贝尔市",
+     "name_en": "Hulunbuir"
+    },
+    {
+     "id": 2752851,
+     "level": 5,
+     "name": "呼和浩特市",
+     "name_zh": "呼和浩特市",
+     "name_en": "Hohhot City"
+    },
+    {
+     "id": 2763795,
+     "level": 5,
+     "name": "四平市",
+     "name_zh": "四平市",
+     "name_en": "Siping City"
+    },
+    {
+     "id": 199127,
+     "level": 5,
+     "name": "大兴安岭地区",
+     "name_zh": "大兴安岭地区",
+     "name_en": "Daxing'anling Prefecture"
+    },
+    {
+     "id": 3008552,
+     "level": 5,
+     "name": "大同市",
+     "name_zh": "大同市",
+     "name_en": "Datong City"
+    },
+    {
+     "id": 2752813,
+     "level": 5,
+     "name": "巴彦淖尔市 ᠪᠠᠶᠠᠨᠨᠠᠭᠤᠷ ᠬᠣᠲᠠ",
+     "name_zh": "巴彦淖尔市",
+     "name_en": "Bayannur City"
+    },
+    {
+     "id": 3295555,
+     "level": 5,
+     "name": "张家口市",
+     "name_zh": "张家口市",
+     "name_en": "Zhangjiakou"
+    },
+    {
+     "id": 165803,
+     "level": 5,
+     "name": "张掖市",
+     "name_zh": "张掖市",
+     "name_en": "Zhangye Prefecture"
+    },
+    {
+     "id": 3008569,
+     "level": 5,
+     "name": "忻州市",
+     "name_zh": "忻州市",
+     "name_en": "Xinzhou City"
+    },
+    {
+     "id": 2989561,
+     "level": 5,
+     "name": "承德市",
+     "name_zh": "承德市",
+     "name_en": "Chengde"
+    },
+    {
+     "id": 3008553,
+     "level": 5,
+     "name": "朔州市",
+     "name_zh": "朔州市",
+     "name_en": "Shuozhou City"
+    },
+    {
+     "id": 2769829,
+     "level": 5,
+     "name": "朝阳市",
+     "name_zh": "朝阳市",
+     "name_en": "Chaoyang City"
+    },
+    {
+     "id": 2763775,
+     "level": 5,
+     "name": "松原市",
+     "name_zh": "松原市",
+     "name_en": "Songyuan City"
+    },
+    {
+     "id": 3016353,
+     "level": 5,
+     "name": "榆林市",
+     "name_zh": "榆林市",
+     "name_en": "Yulin"
+    },
+    {
+     "id": 165830,
+     "level": 5,
+     "name": "武威市",
+     "name_zh": "武威市",
+     "name_en": "Wuwei Prefecture"
+    },
+    {
+     "id": 2769604,
+     "level": 5,
+     "name": "沈阳市",
+     "name_zh": "沈阳市",
+     "name_en": "Shenyang City"
+    },
+    {
+     "id": 2763763,
+     "level": 5,
+     "name": "白城市",
+     "name_zh": "白城市",
+     "name_en": "Baicheng City"
+    },
+    {
+     "id": 2702854,
+     "level": 5,
+     "name": "白银市",
+     "name_zh": "白银市",
+     "name_en": "Baiyin Prefecture"
+    },
+    {
+     "id": 3307098,
+     "level": 5,
+     "name": "石嘴山市",
+     "name_zh": "石嘴山市",
+     "name_en": "Shizuishan"
+    },
+    {
+     "id": 2753364,
+     "level": 5,
+     "name": "赤峰市 ᠤᠯᠠᠭᠠᠨᠬᠠᠳᠠ ᠬᠣᠲᠠ",
+     "name_zh": "赤峰市",
+     "name_en": "Chifeng City"
+    },
+    {
+     "id": 2753408,
+     "level": 5,
+     "name": "通辽市 ᠲᠦᠩᠯᠢᠶᠣᠤ ᠬᠣᠲᠠ",
+     "name_zh": "通辽市",
+     "name_en": "Tongliao City"
+    },
+    {
+     "id": 2752781,
+     "level": 5,
+     "name": "鄂尔多斯市",
+     "name_zh": "鄂尔多斯市",
+     "name_en": "Ordos City"
+    },
+    {
+     "id": 165655,
+     "level": 5,
+     "name": "酒泉市",
+     "name_zh": "酒泉市",
+     "name_en": "Jiuquan Prefecture"
+    },
+    {
+     "id": 2705765,
+     "level": 5,
+     "name": "金昌市",
+     "name_zh": "金昌市",
+     "name_en": "Jinchang Prefecture"
+    },
+    {
+     "id": 2767515,
+     "level": 5,
+     "name": "铁岭市",
+     "name_zh": "铁岭市",
+     "name_en": "Tieling City"
+    },
+    {
+     "id": 3307138,
+     "level": 5,
+     "name": "银川市",
+     "name_zh": "银川市",
+     "name_en": "Yinchuan City"
+    },
+    {
+     "id": 2753029,
+     "level": 5,
+     "name": "锡林郭勒盟 ᠰᠢᠯᠢ ᠶᠢᠨ ᠭᠣᠣᠯ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "锡林郭勒盟",
+     "name_en": "Xilingol League"
+    },
+    {
+     "id": 2769803,
+     "level": 5,
+     "name": "阜新市",
+     "name_zh": "阜新市",
+     "name_en": "Fuxin City"
+    },
+    {
+     "id": 2752743,
+     "level": 5,
+     "name": "阿拉善盟 ᠠᠯᠠᠱᠠ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "阿拉善盟",
+     "name_en": "Alxa League"
+    },
+    {
+     "id": 2754980,
+     "level": 5,
+     "name": "黑河市",
+     "name_zh": "黑河市",
+     "name_en": "Heihe City"
+    },
+    {
+     "id": 2755137,
+     "level": 5,
+     "name": "齐齐哈尔市",
+     "name_zh": "齐齐哈尔市",
+     "name_en": "Qiqihar City"
+    }
+   ],
+   "routes": {
+    "train": 95,
+    "subway": 4
+   },
+   "networks": {
+    "(无 network)": {
+     "train": 91
+    },
+    "РЖД": {
+     "train": 4
+    },
+    "呼和浩特地铁": {
+     "subway": 4
+    }
+   }
+  },
+  "jiangsu": {
+   "l4": [
+    {
+     "id": 913067,
+     "level": 4,
+     "name": "上海市",
+     "name_zh": "上海市",
+     "name_en": "Shanghai"
+    },
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 913006,
+     "level": 4,
+     "name": "山东省",
+     "name_zh": "山东省",
+     "name_en": "Shandong"
+    },
+    {
+     "id": 913012,
+     "level": 4,
+     "name": "江苏省",
+     "name_zh": "江苏省",
+     "name_en": "Jiangsu"
+    },
+    {
+     "id": 553302,
+     "level": 4,
+     "name": "浙江省",
+     "name_zh": "浙江省",
+     "name_en": "Zhejiang"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2801712,
+     "level": 5,
+     "name": "临沂市",
+     "name_zh": "临沂市",
+     "name_en": "Linyi"
+    },
+    {
+     "id": 2131524,
+     "level": 5,
+     "name": "南京市",
+     "name_zh": "南京市",
+     "name_en": "Nanjing City"
+    },
+    {
+     "id": 4430899,
+     "level": 5,
+     "name": "南通市",
+     "name_zh": "南通市",
+     "name_en": "Nantong"
+    },
+    {
+     "id": 3308626,
+     "level": 5,
+     "name": "嘉兴市",
+     "name_zh": "嘉兴市",
+     "name_en": "Jiaxing"
+    },
+    {
+     "id": 3222248,
+     "level": 5,
+     "name": "宣城市",
+     "name_zh": "宣城市",
+     "name_en": "Xuancheng"
+    },
+    {
+     "id": 3231858,
+     "level": 5,
+     "name": "宿州市",
+     "name_zh": "宿州市",
+     "name_en": "Suzhou"
+    },
+    {
+     "id": 3293941,
+     "level": 5,
+     "name": "宿迁市",
+     "name_zh": "宿迁市",
+     "name_en": "Suqian"
+    },
+    {
+     "id": 3429666,
+     "level": 5,
+     "name": "常州市",
+     "name_zh": "常州市",
+     "name_en": "Changzhou"
+    },
+    {
+     "id": 3218572,
+     "level": 5,
+     "name": "徐州市",
+     "name_zh": "徐州市",
+     "name_en": "Xuzhou"
+    },
+    {
+     "id": 4430826,
+     "level": 5,
+     "name": "扬州市",
+     "name_zh": "扬州市",
+     "name_en": "Yangzhou City"
+    },
+    {
+     "id": 4430942,
+     "level": 5,
+     "name": "无锡市",
+     "name_zh": "无锡市",
+     "name_en": "Wuxi City"
+    },
+    {
+     "id": 3485666,
+     "level": 5,
+     "name": "日照市",
+     "name_zh": "日照市",
+     "name_en": "Rizhao"
+    },
+    {
+     "id": 3246762,
+     "level": 5,
+     "name": "枣庄市",
+     "name_zh": "枣庄市",
+     "name_en": "Zaozhuang"
+    },
+    {
+     "id": 4430874,
+     "level": 5,
+     "name": "泰州市",
+     "name_zh": "泰州市",
+     "name_en": "Taizhou"
+    },
+    {
+     "id": 3286961,
+     "level": 5,
+     "name": "济宁市",
+     "name_zh": "济宁市",
+     "name_en": "Jining"
+    },
+    {
+     "id": 3231910,
+     "level": 5,
+     "name": "淮北市",
+     "name_zh": "淮北市",
+     "name_en": "Huaibei"
+    },
+    {
+     "id": 3429722,
+     "level": 5,
+     "name": "淮安市",
+     "name_zh": "淮安市",
+     "name_en": "Huai'an"
+    },
+    {
+     "id": 3149738,
+     "level": 5,
+     "name": "湖州市",
+     "name_zh": "湖州市",
+     "name_en": "Huzhou"
+    },
+    {
+     "id": 3231588,
+     "level": 5,
+     "name": "滁州市",
+     "name_zh": "滁州市",
+     "name_en": "Chuzhou"
+    },
+    {
+     "id": 3473496,
+     "level": 5,
+     "name": "盐城市",
+     "name_zh": "盐城市",
+     "name_en": "Yancheng City"
+    },
+    {
+     "id": 4430941,
+     "level": 5,
+     "name": "苏州市",
+     "name_zh": "苏州市",
+     "name_en": "Suzhou City"
+    },
+    {
+     "id": 3284918,
+     "level": 5,
+     "name": "菏泽市",
+     "name_zh": "菏泽市",
+     "name_en": "Heze"
+    },
+    {
+     "id": 3262334,
+     "level": 5,
+     "name": "蚌埠市",
+     "name_zh": "蚌埠市",
+     "name_en": "Bengbu"
+    },
+    {
+     "id": 3320347,
+     "level": 5,
+     "name": "连云港市",
+     "name_zh": "连云港市",
+     "name_en": "Lianyungang"
+    },
+    {
+     "id": 3429680,
+     "level": 5,
+     "name": "镇江市",
+     "name_zh": "镇江市",
+     "name_en": "Zhenjiang"
+    },
+    {
+     "id": 3260816,
+     "level": 5,
+     "name": "马鞍山市",
+     "name_zh": "马鞍山市",
+     "name_en": "Ma'anshan"
+    }
+   ],
+   "routes": {
+    "subway": 88,
+    "light_rail": 6,
+    "train": 5,
+    "tram": 2
+   },
+   "networks": {
+    "南京地铁": {
+     "subway": 27
+    },
+    "苏州轨道交通": {
+     "subway": 24
+    },
+    "(无 network)": {
+     "subway": 13,
+     "train": 1,
+     "tram": 1
+    },
+    "无锡地铁": {
+     "subway": 10
+    },
+    "上海地铁": {
+     "subway": 4
+    },
+    "徐州地铁": {
+     "subway": 4
+    },
+    "南京有轨电车": {
+     "light_rail": 4
+    },
+    "淮安轨道交通": {
+     "light_rail": 2
+    },
+    "常州地铁": {
+     "subway": 2
+    },
+    "南通轨道交通": {
+     "subway": 2
+    },
+    "滁州轨道交通": {
+     "subway": 2
+    },
+    "嘉善地铁": {
+     "train": 2
+    },
+    "梅山旅游": {
+     "train": 2
+    },
+    "苏州高新区有轨电车": {
+     "tram": 1
+    }
+   }
+  },
+  "jiangxi": {
+   "l4": [
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 911844,
+     "level": 4,
+     "name": "广东省",
+     "name_zh": "广东省",
+     "name_en": "Guangdong"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 553302,
+     "level": 4,
+     "name": "浙江省",
+     "name_zh": "浙江省",
+     "name_en": "Zhejiang"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    },
+    {
+     "id": 913073,
+     "level": 4,
+     "name": "湖南省",
+     "name_zh": "湖南省",
+     "name_en": "Hunan"
+    },
+    {
+     "id": 553303,
+     "level": 4,
+     "name": "福建省",
+     "name_zh": "福建省",
+     "name_en": "Fujian"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3181479,
+     "level": 5,
+     "name": "三明市",
+     "name_zh": "三明市",
+     "name_en": "Sanming City"
+    },
+    {
+     "id": 3046790,
+     "level": 5,
+     "name": "上饶市",
+     "name_zh": "上饶市",
+     "name_en": "Shangrao"
+    },
+    {
+     "id": 3190361,
+     "level": 5,
+     "name": "九江市",
+     "name_zh": "九江市",
+     "name_en": "Jiujiang"
+    },
+    {
+     "id": 3206301,
+     "level": 5,
+     "name": "南平市",
+     "name_zh": "南平市",
+     "name_en": "Nanping City"
+    },
+    {
+     "id": 3169865,
+     "level": 5,
+     "name": "南昌市",
+     "name_zh": "南昌市",
+     "name_en": "Nanchang"
+    },
+    {
+     "id": 2950516,
+     "level": 5,
+     "name": "吉安市",
+     "name_zh": "吉安市",
+     "name_en": "Ji'an City"
+    },
+    {
+     "id": 3106518,
+     "level": 5,
+     "name": "咸宁市",
+     "name_zh": "咸宁市",
+     "name_en": "Xianning"
+    },
+    {
+     "id": 3220387,
+     "level": 5,
+     "name": "安庆市",
+     "name_zh": "安庆市",
+     "name_en": "Anqing"
+    },
+    {
+     "id": 3182923,
+     "level": 5,
+     "name": "宜春市",
+     "name_zh": "宜春市",
+     "name_en": "Yichun"
+    },
+    {
+     "id": 3202467,
+     "level": 5,
+     "name": "岳阳市",
+     "name_zh": "岳阳市",
+     "name_en": "Yueyang"
+    },
+    {
+     "id": 3182605,
+     "level": 5,
+     "name": "抚州市",
+     "name_zh": "抚州市",
+     "name_en": "Fuzhou City"
+    },
+    {
+     "id": 3182912,
+     "level": 5,
+     "name": "新余市",
+     "name_zh": "新余市",
+     "name_en": "Xinyu"
+    },
+    {
+     "id": 3224017,
+     "level": 5,
+     "name": "景德镇市",
+     "name_zh": "景德镇市",
+     "name_en": "Jingdezhen"
+    },
+    {
+     "id": 2972720,
+     "level": 5,
+     "name": "株洲市",
+     "name_zh": "株洲市",
+     "name_en": "Zhuzhou"
+    },
+    {
+     "id": 3233743,
+     "level": 5,
+     "name": "梅州市",
+     "name_zh": "梅州市",
+     "name_en": "Meizhou"
+    },
+    {
+     "id": 3164669,
+     "level": 5,
+     "name": "池州市",
+     "name_zh": "池州市",
+     "name_en": "Chizhou"
+    },
+    {
+     "id": 3241970,
+     "level": 5,
+     "name": "河源市",
+     "name_zh": "河源市",
+     "name_en": "Heyuan"
+    },
+    {
+     "id": 3189984,
+     "level": 5,
+     "name": "萍乡市",
+     "name_zh": "萍乡市",
+     "name_en": "Pingxiang"
+    },
+    {
+     "id": 3278467,
+     "level": 5,
+     "name": "衢州市",
+     "name_zh": "衢州市",
+     "name_en": "Quzhou"
+    },
+    {
+     "id": 3180745,
+     "level": 5,
+     "name": "赣州市",
+     "name_zh": "赣州市",
+     "name_en": "Ganzhou"
+    },
+    {
+     "id": 3123920,
+     "level": 5,
+     "name": "郴州市",
+     "name_zh": "郴州市",
+     "name_en": "Chenzhou"
+    },
+    {
+     "id": 3202711,
+     "level": 5,
+     "name": "长沙市",
+     "name_zh": "长沙市",
+     "name_en": "Changsha"
+    },
+    {
+     "id": 3203994,
+     "level": 5,
+     "name": "韶关市",
+     "name_zh": "韶关市",
+     "name_en": "Shaoguan City"
+    },
+    {
+     "id": 3245900,
+     "level": 5,
+     "name": "鹰潭市",
+     "name_zh": "鹰潭市",
+     "name_en": "Yingtan"
+    },
+    {
+     "id": 3144169,
+     "level": 5,
+     "name": "黄冈市",
+     "name_zh": "黄冈市",
+     "name_en": "Huanggang"
+    },
+    {
+     "id": 2992498,
+     "level": 5,
+     "name": "黄山市",
+     "name_zh": "黄山市",
+     "name_en": "Huangshan"
+    },
+    {
+     "id": 3086592,
+     "level": 5,
+     "name": "黄石市",
+     "name_zh": "黄石市",
+     "name_en": "Huangshi"
+    },
+    {
+     "id": 3144724,
+     "level": 5,
+     "name": "龙岩市",
+     "name_zh": "龙岩市",
+     "name_en": "Longyan City"
+    }
+   ],
+   "routes": {
+    "subway": 8,
+    "train": 1
+   },
+   "networks": {
+    "南昌地铁": {
+     "subway": 8
+    },
+    "(无 network)": {
+     "train": 1
+    }
+   }
+  },
+  "jilin": {
+   "l4": [
+    {
+     "id": 151225,
+     "level": 4,
+     "name": "Приморский край",
+     "name_zh": "滨海边疆区",
+     "name_en": "Primorsky Krai"
+    },
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 198590,
+     "level": 4,
+     "name": "吉林省",
+     "name_zh": "吉林省",
+     "name_en": "Jilin"
+    },
+    {
+     "id": 912942,
+     "level": 4,
+     "name": "辽宁省",
+     "name_zh": "辽宁省",
+     "name_en": "Liaoning"
+    },
+    {
+     "id": 199073,
+     "level": 4,
+     "name": "黑龙江省",
+     "name_zh": "黑龙江省",
+     "name_en": "Heilongjiang"
+    },
+    {
+     "id": 6648083,
+     "level": 4,
+     "name": "라선시",
+     "name_zh": "罗先市",
+     "name_en": "Rason"
+    },
+    {
+     "id": 356379,
+     "level": 4,
+     "name": "량강도",
+     "name_zh": "两江道",
+     "name_en": "Ryanggang"
+    },
+    {
+     "id": 356392,
+     "level": 4,
+     "name": "자강도",
+     "name_zh": "慈江道",
+     "name_en": "Chagang"
+    },
+    {
+     "id": 3781418,
+     "level": 4,
+     "name": "함경북도",
+     "name_zh": "咸镜北道",
+     "name_en": "North Hamgyong"
+    }
+   ],
+   "l5": [
+    {
+     "id": 9638643,
+     "level": 5,
+     "name": "丹东市",
+     "name_zh": "丹东市",
+     "name_en": "Dandong City"
+    },
+    {
+     "id": 2753442,
+     "level": 5,
+     "name": "兴安盟 ᠬᠢᠩᠭ᠋ᠠᠨ ᠠᠶᠢᠮᠠᠭ",
+     "name_zh": "兴安盟",
+     "name_en": "Hinggan League"
+    },
+    {
+     "id": 2764055,
+     "level": 5,
+     "name": "吉林市",
+     "name_zh": "吉林市",
+     "name_en": "Jilin City"
+    },
+    {
+     "id": 2755608,
+     "level": 5,
+     "name": "哈尔滨市",
+     "name_zh": "哈尔滨市",
+     "name_en": "Harbin"
+    },
+    {
+     "id": 2763795,
+     "level": 5,
+     "name": "四平市",
+     "name_zh": "四平市",
+     "name_en": "Siping City"
+    },
+    {
+     "id": 2755197,
+     "level": 5,
+     "name": "大庆市",
+     "name_zh": "大庆市",
+     "name_en": "Daqing City"
+    },
+    {
+     "id": 2761941,
+     "level": 5,
+     "name": "延边朝鲜族自治州 연변조선족자치주",
+     "name_zh": "延边朝鲜族自治州",
+     "name_en": "Yanbian"
+    },
+    {
+     "id": 2766526,
+     "level": 5,
+     "name": "抚顺市",
+     "name_zh": "抚顺市",
+     "name_en": "Fushun City"
+    },
+    {
+     "id": 2766193,
+     "level": 5,
+     "name": "本溪市",
+     "name_zh": "本溪市",
+     "name_en": "Benxi City"
+    },
+    {
+     "id": 2763775,
+     "level": 5,
+     "name": "松原市",
+     "name_zh": "松原市",
+     "name_en": "Songyuan City"
+    },
+    {
+     "id": 2755604,
+     "level": 5,
+     "name": "牡丹江市",
+     "name_zh": "牡丹江市",
+     "name_en": "Mudanjiang City"
+    },
+    {
+     "id": 2763763,
+     "level": 5,
+     "name": "白城市",
+     "name_zh": "白城市",
+     "name_en": "Baicheng City"
+    },
+    {
+     "id": 2762626,
+     "level": 5,
+     "name": "白山市",
+     "name_zh": "白山市",
+     "name_en": "Baishan City"
+    },
+    {
+     "id": 2764045,
+     "level": 5,
+     "name": "辽源市",
+     "name_zh": "辽源市",
+     "name_en": "Liaoyuan City"
+    },
+    {
+     "id": 2762954,
+     "level": 5,
+     "name": "通化市",
+     "name_zh": "通化市",
+     "name_en": "Tonghua City"
+    },
+    {
+     "id": 2753408,
+     "level": 5,
+     "name": "通辽市 ᠲᠦᠩᠯᠢᠶᠣᠤ ᠬᠣᠲᠠ",
+     "name_zh": "通辽市",
+     "name_en": "Tongliao City"
+    },
+    {
+     "id": 2767515,
+     "level": 5,
+     "name": "铁岭市",
+     "name_zh": "铁岭市",
+     "name_en": "Tieling City"
+    },
+    {
+     "id": 2763992,
+     "level": 5,
+     "name": "长春市",
+     "name_zh": "长春市",
+     "name_en": "Changchun City"
+    },
+    {
+     "id": 2755137,
+     "level": 5,
+     "name": "齐齐哈尔市",
+     "name_zh": "齐齐哈尔市",
+     "name_en": "Qiqihar City"
+    }
+   ],
+   "routes": {
+    "train": 58,
+    "light_rail": 15,
+    "subway": 10,
+    "tram": 4
+   },
+   "networks": {
+    "(无 network)": {
+     "tram": 4,
+     "train": 55,
+     "light_rail": 9
+    },
+    "长春轨道交通": {
+     "subway": 10
+    },
+    "Changchun Rail Transit": {
+     "light_rail": 6
+    },
+    "조선민주주의인민공화국 철도": {
+     "train": 2
+    },
+    "长珲城际铁路": {
+     "train": 1
+    }
+   }
+  },
+  "liaoning": {
+   "l4": [
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 198590,
+     "level": 4,
+     "name": "吉林省",
+     "name_zh": "吉林省",
+     "name_en": "Jilin"
+    },
+    {
+     "id": 913006,
+     "level": 4,
+     "name": "山东省",
+     "name_zh": "山东省",
+     "name_en": "Shandong"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    },
+    {
+     "id": 912942,
+     "level": 4,
+     "name": "辽宁省",
+     "name_zh": "辽宁省",
+     "name_en": "Liaoning"
+    },
+    {
+     "id": 356392,
+     "level": 4,
+     "name": "자강도",
+     "name_zh": "慈江道",
+     "name_en": "Chagang"
+    },
+    {
+     "id": 356540,
+     "level": 4,
+     "name": "평안북도",
+     "name_zh": "平安北道",
+     "name_en": "North Pyongan"
+    }
+   ],
+   "l5": [
+    {
+     "id": 9638643,
+     "level": 5,
+     "name": "丹东市",
+     "name_zh": "丹东市",
+     "name_en": "Dandong City"
+    },
+    {
+     "id": 2763795,
+     "level": 5,
+     "name": "四平市",
+     "name_zh": "四平市",
+     "name_en": "Siping City"
+    },
+    {
+     "id": 2764565,
+     "level": 5,
+     "name": "大连市",
+     "name_zh": "大连市",
+     "name_en": "Dalian City"
+    },
+    {
+     "id": 2989561,
+     "level": 5,
+     "name": "承德市",
+     "name_zh": "承德市",
+     "name_en": "Chengde"
+    },
+    {
+     "id": 2766526,
+     "level": 5,
+     "name": "抚顺市",
+     "name_zh": "抚顺市",
+     "name_en": "Fushun City"
+    },
+    {
+     "id": 2769829,
+     "level": 5,
+     "name": "朝阳市",
+     "name_zh": "朝阳市",
+     "name_en": "Chaoyang City"
+    },
+    {
+     "id": 2766193,
+     "level": 5,
+     "name": "本溪市",
+     "name_zh": "本溪市",
+     "name_en": "Benxi City"
+    },
+    {
+     "id": 2769604,
+     "level": 5,
+     "name": "沈阳市",
+     "name_zh": "沈阳市",
+     "name_en": "Shenyang City"
+    },
+    {
+     "id": 3469843,
+     "level": 5,
+     "name": "烟台市",
+     "name_zh": "烟台市",
+     "name_en": "Yantai"
+    },
+    {
+     "id": 2771970,
+     "level": 5,
+     "name": "盘锦市",
+     "name_zh": "盘锦市",
+     "name_en": "Panjin City"
+    },
+    {
+     "id": 2989562,
+     "level": 5,
+     "name": "秦皇岛市",
+     "name_zh": "秦皇岛市",
+     "name_en": "Qinhuangdao"
+    },
+    {
+     "id": 2771992,
+     "level": 5,
+     "name": "营口市",
+     "name_zh": "营口市",
+     "name_en": "Yingkou City"
+    },
+    {
+     "id": 2769902,
+     "level": 5,
+     "name": "葫芦岛市",
+     "name_zh": "葫芦岛市",
+     "name_en": "Huludao City"
+    },
+    {
+     "id": 2753364,
+     "level": 5,
+     "name": "赤峰市 ᠤᠯᠠᠭᠠᠨᠬᠠᠳᠠ ᠬᠣᠲᠠ",
+     "name_zh": "赤峰市",
+     "name_en": "Chifeng City"
+    },
+    {
+     "id": 2764045,
+     "level": 5,
+     "name": "辽源市",
+     "name_zh": "辽源市",
+     "name_en": "Liaoyuan City"
+    },
+    {
+     "id": 2769643,
+     "level": 5,
+     "name": "辽阳市",
+     "name_zh": "辽阳市",
+     "name_en": "Liaoyang City"
+    },
+    {
+     "id": 2762954,
+     "level": 5,
+     "name": "通化市",
+     "name_zh": "通化市",
+     "name_en": "Tonghua City"
+    },
+    {
+     "id": 2753408,
+     "level": 5,
+     "name": "通辽市 ᠲᠦᠩᠯᠢᠶᠣᠤ ᠬᠣᠲᠠ",
+     "name_zh": "通辽市",
+     "name_en": "Tongliao City"
+    },
+    {
+     "id": 2767515,
+     "level": 5,
+     "name": "铁岭市",
+     "name_zh": "铁岭市",
+     "name_en": "Tieling City"
+    },
+    {
+     "id": 2770977,
+     "level": 5,
+     "name": "锦州市",
+     "name_zh": "锦州市",
+     "name_en": "Jinzhou City"
+    },
+    {
+     "id": 2769803,
+     "level": 5,
+     "name": "阜新市",
+     "name_zh": "阜新市",
+     "name_en": "Fuxin City"
+    },
+    {
+     "id": 2769683,
+     "level": 5,
+     "name": "鞍山市",
+     "name_zh": "鞍山市",
+     "name_en": "Anshan City"
+    }
+   ],
+   "routes": {
+    "train": 50,
+    "subway": 28,
+    "tram": 16
+   },
+   "networks": {
+    "(无 network)": {
+     "tram": 6,
+     "train": 49,
+     "subway": 6
+    },
+    "大连地铁": {
+     "subway": 16
+    },
+    "沈阳有轨电车": {
+     "tram": 10
+    },
+    "沈阳地铁": {
+     "subway": 6
+    },
+    "조선민주주의인민공화국 철도성": {
+     "train": 1
+    }
+   }
+  },
+  "shaanxi": {
+   "l4": [
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 913068,
+     "level": 4,
+     "name": "四川省",
+     "name_zh": "四川省",
+     "name_en": "Sichuan"
+    },
+    {
+     "id": 913101,
+     "level": 4,
+     "name": "宁夏回族自治区",
+     "name_zh": "宁夏回族自治区",
+     "name_en": "Ningxia"
+    },
+    {
+     "id": 913105,
+     "level": 4,
+     "name": "山西省",
+     "name_zh": "山西省",
+     "name_en": "Shanxi"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 913106,
+     "level": 4,
+     "name": "湖北省",
+     "name_zh": "湖北省",
+     "name_en": "Hubei"
+    },
+    {
+     "id": 153314,
+     "level": 4,
+     "name": "甘肃省",
+     "name_zh": "甘肃省",
+     "name_en": "Gansu"
+    },
+    {
+     "id": 913069,
+     "level": 4,
+     "name": "重庆市",
+     "name_zh": "重庆市",
+     "name_en": "Chongqing"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2992284,
+     "level": 5,
+     "name": "三门峡市",
+     "name_zh": "三门峡市",
+     "name_en": "Sanmenxia"
+    },
+    {
+     "id": 3286003,
+     "level": 5,
+     "name": "临汾市",
+     "name_zh": "临汾市",
+     "name_en": "Linfen City"
+    },
+    {
+     "id": 3206796,
+     "level": 5,
+     "name": "十堰市",
+     "name_zh": "十堰市",
+     "name_en": "Shiyan"
+    },
+    {
+     "id": 3206852,
+     "level": 5,
+     "name": "南阳市",
+     "name_zh": "南阳市",
+     "name_en": "Nanyang"
+    },
+    {
+     "id": 3263826,
+     "level": 5,
+     "name": "吕梁市",
+     "name_zh": "吕梁市",
+     "name_en": "Lüliang City"
+    },
+    {
+     "id": 3307137,
+     "level": 5,
+     "name": "吴忠市",
+     "name_zh": "吴忠市",
+     "name_en": "Wuzhong City"
+    },
+    {
+     "id": 3221020,
+     "level": 5,
+     "name": "咸阳市",
+     "name_zh": "咸阳市",
+     "name_en": "Xianyang"
+    },
+    {
+     "id": 2971129,
+     "level": 5,
+     "name": "商洛市",
+     "name_zh": "商洛市",
+     "name_en": "Shangluo"
+    },
+    {
+     "id": 2697305,
+     "level": 5,
+     "name": "天水市",
+     "name_zh": "天水市",
+     "name_en": "Tianshui Prefecture"
+    },
+    {
+     "id": 2996866,
+     "level": 5,
+     "name": "安康市",
+     "name_zh": "安康市",
+     "name_en": "Ankang"
+    },
+    {
+     "id": 3048442,
+     "level": 5,
+     "name": "宝鸡市",
+     "name_zh": "宝鸡市",
+     "name_en": "Baoji"
+    },
+    {
+     "id": 2787658,
+     "level": 5,
+     "name": "巴中市",
+     "name_zh": "巴中市",
+     "name_en": "Bazhong"
+    },
+    {
+     "id": 2696771,
+     "level": 5,
+     "name": "平凉市",
+     "name_zh": "平凉市",
+     "name_en": "Pingliang Prefecture"
+    },
+    {
+     "id": 2787606,
+     "level": 5,
+     "name": "广元市",
+     "name_zh": "广元市",
+     "name_en": "Guangyuan"
+    },
+    {
+     "id": 165866,
+     "level": 5,
+     "name": "庆阳市",
+     "name_zh": "庆阳市",
+     "name_en": "Qingyang"
+    },
+    {
+     "id": 3020001,
+     "level": 5,
+     "name": "延安市",
+     "name_zh": "延安市",
+     "name_en": "Yan'an"
+    },
+    {
+     "id": 3008569,
+     "level": 5,
+     "name": "忻州市",
+     "name_zh": "忻州市",
+     "name_en": "Xinzhou City"
+    },
+    {
+     "id": 3016353,
+     "level": 5,
+     "name": "榆林市",
+     "name_zh": "榆林市",
+     "name_en": "Yulin"
+    },
+    {
+     "id": 2967716,
+     "level": 5,
+     "name": "汉中市",
+     "name_zh": "汉中市",
+     "name_en": "Hanzhong"
+    },
+    {
+     "id": 3028621,
+     "level": 5,
+     "name": "渭南市",
+     "name_zh": "渭南市",
+     "name_en": "Weinan City"
+    },
+    {
+     "id": 3226004,
+     "level": 5,
+     "name": "西安市",
+     "name_zh": "西安市",
+     "name_en": "Xi'an"
+    },
+    {
+     "id": 2787741,
+     "level": 5,
+     "name": "达州市",
+     "name_zh": "达州市",
+     "name_en": "Dazhou"
+    },
+    {
+     "id": 3224229,
+     "level": 5,
+     "name": "运城市",
+     "name_zh": "运城市",
+     "name_en": "Yuncheng City"
+    },
+    {
+     "id": 2752781,
+     "level": 5,
+     "name": "鄂尔多斯市",
+     "name_zh": "鄂尔多斯市",
+     "name_en": "Ordos City"
+    },
+    {
+     "id": 3226142,
+     "level": 5,
+     "name": "铜川市",
+     "name_zh": "铜川市",
+     "name_en": "Tongchuan"
+    },
+    {
+     "id": 2697126,
+     "level": 5,
+     "name": "陇南市",
+     "name_zh": "陇南市",
+     "name_en": "Longnan Prefecture"
+    }
+   ],
+   "routes": {
+    "train": 26,
+    "subway": 24,
+    "light_rail": 2,
+    "tram": 1
+   },
+   "networks": {
+    "西安地铁": {
+     "subway": 24,
+     "train": 2
+    },
+    "(无 network)": {
+     "train": 24
+    },
+    "西安云巴": {
+     "light_rail": 2
+    },
+    "昆明池智轨": {
+     "tram": 1
+    }
+   }
+  },
+  "shandong": {
+   "l4": [
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 913006,
+     "level": 4,
+     "name": "山东省",
+     "name_zh": "山东省",
+     "name_en": "Shandong"
+    },
+    {
+     "id": 913012,
+     "level": 4,
+     "name": "江苏省",
+     "name_zh": "江苏省",
+     "name_en": "Jiangsu"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 912942,
+     "level": 4,
+     "name": "辽宁省",
+     "name_zh": "辽宁省",
+     "name_en": "Liaoning"
+    }
+   ],
+   "l5": [
+    {
+     "id": 4433983,
+     "level": 5,
+     "name": "东营市",
+     "name_zh": "东营市",
+     "name_en": "Dongying"
+    },
+    {
+     "id": 2801712,
+     "level": 5,
+     "name": "临沂市",
+     "name_zh": "临沂市",
+     "name_en": "Linyi"
+    },
+    {
+     "id": 3218285,
+     "level": 5,
+     "name": "商丘市",
+     "name_zh": "商丘市",
+     "name_en": "Shangqiu"
+    },
+    {
+     "id": 3307448,
+     "level": 5,
+     "name": "威海市",
+     "name_zh": "威海市",
+     "name_en": "Weihai"
+    },
+    {
+     "id": 3231858,
+     "level": 5,
+     "name": "宿州市",
+     "name_zh": "宿州市",
+     "name_en": "Suzhou"
+    },
+    {
+     "id": 3283913,
+     "level": 5,
+     "name": "开封市",
+     "name_zh": "开封市",
+     "name_en": "Kaifeng"
+    },
+    {
+     "id": 3218572,
+     "level": 5,
+     "name": "徐州市",
+     "name_zh": "徐州市",
+     "name_en": "Xuzhou"
+    },
+    {
+     "id": 3485982,
+     "level": 5,
+     "name": "德州市",
+     "name_zh": "德州市",
+     "name_en": "Dezhou"
+    },
+    {
+     "id": 3237011,
+     "level": 5,
+     "name": "新乡市",
+     "name_zh": "新乡市",
+     "name_en": "Xinxiang"
+    },
+    {
+     "id": 3485666,
+     "level": 5,
+     "name": "日照市",
+     "name_zh": "日照市",
+     "name_en": "Rizhao"
+    },
+    {
+     "id": 3246762,
+     "level": 5,
+     "name": "枣庄市",
+     "name_zh": "枣庄市",
+     "name_en": "Zaozhuang"
+    },
+    {
+     "id": 3443418,
+     "level": 5,
+     "name": "沧州市",
+     "name_zh": "沧州市",
+     "name_en": "Cangzhou"
+    },
+    {
+     "id": 3486494,
+     "level": 5,
+     "name": "泰安市",
+     "name_zh": "泰安市",
+     "name_en": "Tai'an"
+    },
+    {
+     "id": 3486449,
+     "level": 5,
+     "name": "济南市",
+     "name_zh": "济南市",
+     "name_en": "Jinan"
+    },
+    {
+     "id": 3286961,
+     "level": 5,
+     "name": "济宁市",
+     "name_zh": "济宁市",
+     "name_en": "Jining"
+    },
+    {
+     "id": 3468503,
+     "level": 5,
+     "name": "淄博市",
+     "name_zh": "淄博市",
+     "name_en": "Zibo"
+    },
+    {
+     "id": 4434116,
+     "level": 5,
+     "name": "滨州市",
+     "name_zh": "滨州市",
+     "name_en": "Binzhou"
+    },
+    {
+     "id": 3468564,
+     "level": 5,
+     "name": "潍坊市",
+     "name_zh": "潍坊市",
+     "name_en": "Weifang"
+    },
+    {
+     "id": 3060567,
+     "level": 5,
+     "name": "濮阳市",
+     "name_zh": "濮阳市",
+     "name_en": "Puyang"
+    },
+    {
+     "id": 3469843,
+     "level": 5,
+     "name": "烟台市",
+     "name_zh": "烟台市",
+     "name_en": "Yantai"
+    },
+    {
+     "id": 3485816,
+     "level": 5,
+     "name": "聊城市",
+     "name_zh": "聊城市",
+     "name_en": "Liaocheng"
+    },
+    {
+     "id": 3284918,
+     "level": 5,
+     "name": "菏泽市",
+     "name_zh": "菏泽市",
+     "name_en": "Heze"
+    },
+    {
+     "id": 3443419,
+     "level": 5,
+     "name": "衡水市",
+     "name_zh": "衡水市",
+     "name_en": "Hengshui"
+    },
+    {
+     "id": 3320347,
+     "level": 5,
+     "name": "连云港市",
+     "name_zh": "连云港市",
+     "name_en": "Lianyungang"
+    },
+    {
+     "id": 3290707,
+     "level": 5,
+     "name": "邢台市",
+     "name_zh": "邢台市",
+     "name_en": "Xingtai"
+    },
+    {
+     "id": 3290701,
+     "level": 5,
+     "name": "邯郸市",
+     "name_zh": "邯郸市",
+     "name_en": "Handan"
+    },
+    {
+     "id": 3469133,
+     "level": 5,
+     "name": "青岛市",
+     "name_zh": "青岛市",
+     "name_en": "Qingdao"
+    }
+   ],
+   "routes": {
+    "train": 39,
+    "subway": 33,
+    "light_rail": 5,
+    "tram": 2
+   },
+   "networks": {
+    "(无 network)": {
+     "subway": 15,
+     "light_rail": 5,
+     "train": 38
+    },
+    "青岛地铁": {
+     "subway": 12
+    },
+    "济南轨道交通": {
+     "subway": 6
+    },
+    "青岛有轨电车": {
+     "tram": 2
+    },
+    "中国铁路": {
+     "train": 1
+    }
+   }
+  },
+  "shanghai": {
+   "l4": [
+    {
+     "id": 913067,
+     "level": 4,
+     "name": "上海市",
+     "name_zh": "上海市",
+     "name_en": "Shanghai"
+    },
+    {
+     "id": 913012,
+     "level": 4,
+     "name": "江苏省",
+     "name_zh": "江苏省",
+     "name_en": "Jiangsu"
+    },
+    {
+     "id": 553302,
+     "level": 4,
+     "name": "浙江省",
+     "name_zh": "浙江省",
+     "name_en": "Zhejiang"
+    }
+   ],
+   "l5": [
+    {
+     "id": 4430899,
+     "level": 5,
+     "name": "南通市",
+     "name_zh": "南通市",
+     "name_en": "Nantong"
+    },
+    {
+     "id": 3308626,
+     "level": 5,
+     "name": "嘉兴市",
+     "name_zh": "嘉兴市",
+     "name_en": "Jiaxing"
+    },
+    {
+     "id": 3308121,
+     "level": 5,
+     "name": "舟山市",
+     "name_zh": "舟山市",
+     "name_en": "Zhoushan"
+    },
+    {
+     "id": 4430941,
+     "level": 5,
+     "name": "苏州市",
+     "name_zh": "苏州市",
+     "name_en": "Suzhou City"
+    }
+   ],
+   "routes": {
+    "subway": 53,
+    "train": 8,
+    "light_rail": 6,
+    "tram": 4,
+    "monorail": 2
+   },
+   "networks": {
+    "上海地铁": {
+     "subway": 48,
+     "light_rail": 2
+    },
+    "松江有轨电车": {
+     "tram": 4
+    },
+    "上海浦东机场旅客捷运系统": {
+     "light_rail": 4
+    },
+    "苏州轨道交通": {
+     "subway": 4
+    },
+    "嘉善地铁": {
+     "train": 4
+    },
+    "(无 network)": {
+     "monorail": 2,
+     "subway": 1
+    },
+    "上海市域轨道交通": {
+     "train": 2
+    },
+    "上海市域铁路": {
+     "train": 2
+    }
+   }
+  },
+  "shanxi": {
+   "l4": [
+    {
+     "id": 161349,
+     "level": 4,
+     "name": "内蒙古自治区 ᠦᠪᠦᠷ ᠮᠣᠩᠭᠤᠯ ᠤᠨ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠣ ᠣᠷᠣᠨ",
+     "name_zh": "内蒙古自治区",
+     "name_en": "Inner Mongolia"
+    },
+    {
+     "id": 913105,
+     "level": 4,
+     "name": "山西省",
+     "name_zh": "山西省",
+     "name_en": "Shanxi"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    },
+    {
+     "id": 407492,
+     "level": 4,
+     "name": "河南省",
+     "name_zh": "河南省",
+     "name_en": "Henan"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2992284,
+     "level": 5,
+     "name": "三门峡市",
+     "name_zh": "三门峡市",
+     "name_en": "Sanmenxia"
+    },
+    {
+     "id": 3286003,
+     "level": 5,
+     "name": "临汾市",
+     "name_zh": "临汾市",
+     "name_en": "Linfen City"
+    },
+    {
+     "id": 2752977,
+     "level": 5,
+     "name": "乌兰察布市 ᠤᠯᠠᠭᠠᠨᠴᠠᠪ ᠬᠣᠲᠠ",
+     "name_zh": "乌兰察布市",
+     "name_en": "Ulanqab City"
+    },
+    {
+     "id": 3442995,
+     "level": 5,
+     "name": "保定市",
+     "name_zh": "保定市",
+     "name_en": "Baoding City"
+    },
+    {
+     "id": 3263826,
+     "level": 5,
+     "name": "吕梁市",
+     "name_zh": "吕梁市",
+     "name_en": "Lüliang City"
+    },
+    {
+     "id": 2752851,
+     "level": 5,
+     "name": "呼和浩特市",
+     "name_zh": "呼和浩特市",
+     "name_en": "Hohhot City"
+    },
+    {
+     "id": 3008552,
+     "level": 5,
+     "name": "大同市",
+     "name_zh": "大同市",
+     "name_en": "Datong City"
+    },
+    {
+     "id": 3296588,
+     "level": 5,
+     "name": "太原市",
+     "name_zh": "太原市",
+     "name_en": "Taiyuan City"
+    },
+    {
+     "id": 4433277,
+     "level": 5,
+     "name": "安阳市",
+     "name_zh": "安阳市",
+     "name_en": "Anyang"
+    },
+    {
+     "id": 3020001,
+     "level": 5,
+     "name": "延安市",
+     "name_zh": "延安市",
+     "name_en": "Yan'an"
+    },
+    {
+     "id": 3295555,
+     "level": 5,
+     "name": "张家口市",
+     "name_zh": "张家口市",
+     "name_en": "Zhangjiakou"
+    },
+    {
+     "id": 3008569,
+     "level": 5,
+     "name": "忻州市",
+     "name_zh": "忻州市",
+     "name_en": "Xinzhou City"
+    },
+    {
+     "id": 3237011,
+     "level": 5,
+     "name": "新乡市",
+     "name_zh": "新乡市",
+     "name_en": "Xinxiang"
+    },
+    {
+     "id": 3296587,
+     "level": 5,
+     "name": "晋中市",
+     "name_zh": "晋中市",
+     "name_en": "Jinzhong City"
+    },
+    {
+     "id": 3237073,
+     "level": 5,
+     "name": "晋城市",
+     "name_zh": "晋城市",
+     "name_en": "Jincheng City"
+    },
+    {
+     "id": 3008553,
+     "level": 5,
+     "name": "朔州市",
+     "name_zh": "朔州市",
+     "name_en": "Shuozhou City"
+    },
+    {
+     "id": 3016353,
+     "level": 5,
+     "name": "榆林市",
+     "name_zh": "榆林市",
+     "name_en": "Yulin"
+    },
+    {
+     "id": 3246491,
+     "level": 5,
+     "name": "洛阳市",
+     "name_zh": "洛阳市",
+     "name_en": "Luoyang"
+    },
+    {
+     "id": 3028621,
+     "level": 5,
+     "name": "渭南市",
+     "name_zh": "渭南市",
+     "name_en": "Weinan City"
+    },
+    {
+     "id": 3237564,
+     "level": 5,
+     "name": "焦作市",
+     "name_zh": "焦作市",
+     "name_en": "Jiaozuo"
+    },
+    {
+     "id": 3009732,
+     "level": 5,
+     "name": "石家庄市",
+     "name_zh": "石家庄市",
+     "name_en": "Shijiazhuang"
+    },
+    {
+     "id": 3224229,
+     "level": 5,
+     "name": "运城市",
+     "name_zh": "运城市",
+     "name_en": "Yuncheng City"
+    },
+    {
+     "id": 3290707,
+     "level": 5,
+     "name": "邢台市",
+     "name_zh": "邢台市",
+     "name_en": "Xingtai"
+    },
+    {
+     "id": 3290701,
+     "level": 5,
+     "name": "邯郸市",
+     "name_zh": "邯郸市",
+     "name_en": "Handan"
+    },
+    {
+     "id": 2752781,
+     "level": 5,
+     "name": "鄂尔多斯市",
+     "name_zh": "鄂尔多斯市",
+     "name_en": "Ordos City"
+    },
+    {
+     "id": 2963917,
+     "level": 5,
+     "name": "长治市",
+     "name_zh": "长治市",
+     "name_en": "Changzhi City"
+    },
+    {
+     "id": 3285005,
+     "level": 5,
+     "name": "阳泉市",
+     "name_zh": "阳泉市",
+     "name_en": "Yangquan City"
+    }
+   ],
+   "routes": {
+    "subway": 4,
+    "train": 1
+   },
+   "networks": {
+    "太原轨道交通": {
+     "subway": 4
+    },
+    "(无 network)": {
+     "train": 1
+    }
+   }
+  },
+  "sichuan": {
+   "l4": [
+    {
+     "id": 913094,
+     "level": 4,
+     "name": "云南省",
+     "name_zh": "云南省",
+     "name_en": "Yunnan"
+    },
+    {
+     "id": 913068,
+     "level": 4,
+     "name": "四川省",
+     "name_zh": "四川省",
+     "name_en": "Sichuan"
+    },
+    {
+     "id": 153314,
+     "level": 4,
+     "name": "甘肃省",
+     "name_zh": "甘肃省",
+     "name_en": "Gansu"
+    },
+    {
+     "id": 153292,
+     "level": 4,
+     "name": "西藏自治区 བོད་རང་སྐྱོང་ལྗོངས།",
+     "name_zh": "西藏自治区",
+     "name_en": "Xizang"
+    },
+    {
+     "id": 286937,
+     "level": 4,
+     "name": "贵州省",
+     "name_zh": "贵州省",
+     "name_en": "Guizhou"
+    },
+    {
+     "id": 913069,
+     "level": 4,
+     "name": "重庆市",
+     "name_zh": "重庆市",
+     "name_en": "Chongqing"
+    },
+    {
+     "id": 913100,
+     "level": 4,
+     "name": "陕西省",
+     "name_zh": "陕西省",
+     "name_en": "Shaanxi"
+    },
+    {
+     "id": 153269,
+     "level": 4,
+     "name": "青海省",
+     "name_zh": "青海省",
+     "name_en": "Qinghai"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2729779,
+     "level": 5,
+     "name": "丽江市",
+     "name_zh": "丽江市",
+     "name_en": "Lijiang City"
+    },
+    {
+     "id": 2789892,
+     "level": 5,
+     "name": "乐山市",
+     "name_zh": "乐山市",
+     "name_en": "Leshan"
+    },
+    {
+     "id": 2789481,
+     "level": 5,
+     "name": "内江市",
+     "name_zh": "内江市",
+     "name_en": "Neijiang"
+    },
+    {
+     "id": 2785750,
+     "level": 5,
+     "name": "凉山彝族自治州 ꆃꎭꆈꌠꊨꏦꏱꅉꍏ",
+     "name_zh": "凉山彝族自治州",
+     "name_en": "Liangshan"
+    },
+    {
+     "id": 2787937,
+     "level": 5,
+     "name": "南充市",
+     "name_zh": "南充市",
+     "name_en": "Nanchong"
+    },
+    {
+     "id": 2996866,
+     "level": 5,
+     "name": "安康市",
+     "name_zh": "安康市",
+     "name_en": "Ankang"
+    },
+    {
+     "id": 2791229,
+     "level": 5,
+     "name": "宜宾市",
+     "name_zh": "宜宾市",
+     "name_en": "Yibin"
+    },
+    {
+     "id": 2787658,
+     "level": 5,
+     "name": "巴中市",
+     "name_zh": "巴中市",
+     "name_en": "Bazhong"
+    },
+    {
+     "id": 2787606,
+     "level": 5,
+     "name": "广元市",
+     "name_zh": "广元市",
+     "name_en": "Guangyuan"
+    },
+    {
+     "id": 2787851,
+     "level": 5,
+     "name": "广安市",
+     "name_zh": "广安市",
+     "name_en": "Guang'an"
+    },
+    {
+     "id": 2787561,
+     "level": 5,
+     "name": "德阳市",
+     "name_zh": "德阳市",
+     "name_en": "Deyang"
+    },
+    {
+     "id": 2110264,
+     "level": 5,
+     "name": "成都市",
+     "name_zh": "成都市",
+     "name_en": "Chengdu"
+    },
+    {
+     "id": 2785689,
+     "level": 5,
+     "name": "攀枝花市",
+     "name_zh": "攀枝花市",
+     "name_en": "Panzhihua"
+    },
+    {
+     "id": 2723597,
+     "level": 5,
+     "name": "昆明市",
+     "name_zh": "昆明市",
+     "name_en": "Kunming"
+    },
+    {
+     "id": 2734866,
+     "level": 5,
+     "name": "昌都市 ཆབ་མདོ་ས་ཁུལ།",
+     "name_zh": "昌都市",
+     "name_en": "Chamdo City"
+    },
+    {
+     "id": 2402650,
+     "level": 5,
+     "name": "昭通市",
+     "name_zh": "昭通市",
+     "name_en": "Zhaotong City"
+    },
+    {
+     "id": 2718030,
+     "level": 5,
+     "name": "曲靖市",
+     "name_zh": "曲靖市",
+     "name_en": "Qujing City"
+    },
+    {
+     "id": 2707987,
+     "level": 5,
+     "name": "果洛藏族自治州 མགོ་ལོག་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "果洛藏族自治州",
+     "name_en": "Golog"
+    },
+    {
+     "id": 2727342,
+     "level": 5,
+     "name": "楚雄彝族自治州",
+     "name_zh": "楚雄彝族自治州",
+     "name_en": "Chuxiong"
+    },
+    {
+     "id": 2780074,
+     "level": 5,
+     "name": "毕节市",
+     "name_zh": "毕节市",
+     "name_en": "Bijie"
+    },
+    {
+     "id": 2967716,
+     "level": 5,
+     "name": "汉中市",
+     "name_zh": "汉中市",
+     "name_en": "Hanzhong"
+    },
+    {
+     "id": 2789344,
+     "level": 5,
+     "name": "泸州市",
+     "name_zh": "泸州市",
+     "name_en": "Luzhou"
+    },
+    {
+     "id": 2707991,
+     "level": 5,
+     "name": "玉树藏族自治州 ཡུལ་ཤུལ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "玉树藏族自治州",
+     "name_en": "Yushu"
+    },
+    {
+     "id": 165639,
+     "level": 5,
+     "name": "甘南藏族自治州 ཀན་ལྷོ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "甘南藏族自治州",
+     "name_en": "Ganlho Tibetan Autonomous Prefecture"
+    },
+    {
+     "id": 2049312,
+     "level": 5,
+     "name": "甘孜藏族自治州 དཀར་མཛེས་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "甘孜藏族自治州",
+     "name_en": "Kardze"
+    },
+    {
+     "id": 2789926,
+     "level": 5,
+     "name": "眉山市",
+     "name_zh": "眉山市",
+     "name_en": "Meishan"
+    },
+    {
+     "id": 2787464,
+     "level": 5,
+     "name": "绵阳市",
+     "name_zh": "绵阳市",
+     "name_en": "Mianyang"
+    },
+    {
+     "id": 2791218,
+     "level": 5,
+     "name": "自贡市",
+     "name_zh": "自贡市",
+     "name_en": "Zigong"
+    },
+    {
+     "id": 2788724,
+     "level": 5,
+     "name": "资阳市",
+     "name_zh": "资阳市",
+     "name_en": "Ziyang"
+    },
+    {
+     "id": 2787741,
+     "level": 5,
+     "name": "达州市",
+     "name_zh": "达州市",
+     "name_en": "Dazhou"
+    },
+    {
+     "id": 2729695,
+     "level": 5,
+     "name": "迪庆藏族自治州 བདེ་ཆེན་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "迪庆藏族自治州",
+     "name_en": "Diqing"
+    },
+    {
+     "id": 2788710,
+     "level": 5,
+     "name": "遂宁市",
+     "name_zh": "遂宁市",
+     "name_en": "Suining"
+    },
+    {
+     "id": 2778812,
+     "level": 5,
+     "name": "遵义市",
+     "name_zh": "遵义市",
+     "name_en": "Zunyi"
+    },
+    {
+     "id": 2110265,
+     "level": 5,
+     "name": "阿坝藏族羌族自治州 རྔ་བ་བོད་རིགས་ཆ་བ༹ང་རིགས་རང་སྐྱོང་ཁུལ་",
+     "name_zh": "阿坝藏族羌族自治州",
+     "name_en": "Ngawa Tibetan and Qiang Autonomous Prefecture"
+    },
+    {
+     "id": 2697126,
+     "level": 5,
+     "name": "陇南市",
+     "name_zh": "陇南市",
+     "name_en": "Longnan Prefecture"
+    },
+    {
+     "id": 2789731,
+     "level": 5,
+     "name": "雅安市",
+     "name_zh": "雅安市",
+     "name_en": "Ya'an"
+    }
+   ],
+   "routes": {
+    "subway": 47,
+    "train": 8,
+    "tram": 6,
+    "monorail": 2,
+    "light_rail": 1
+   },
+   "networks": {
+    "成都地铁": {
+     "subway": 42
+    },
+    "(无 network)": {
+     "train": 8,
+     "subway": 5,
+     "monorail": 2,
+     "light_rail": 1,
+     "tram": 2
+    },
+    "成都有轨电车": {
+     "tram": 4
+    }
+   }
+  },
+  "tianjin": {
+   "l4": [
+    {
+     "id": 912940,
+     "level": 4,
+     "name": "北京市",
+     "name_zh": "北京市",
+     "name_en": "Beijing"
+    },
+    {
+     "id": 912999,
+     "level": 4,
+     "name": "天津市",
+     "name_zh": "天津市",
+     "name_en": "Tianjin"
+    },
+    {
+     "id": 912998,
+     "level": 4,
+     "name": "河北省",
+     "name_zh": "河北省",
+     "name_en": "Hebei"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2989001,
+     "level": 5,
+     "name": "唐山市",
+     "name_zh": "唐山市",
+     "name_en": "Tangshan"
+    },
+    {
+     "id": 2989329,
+     "level": 5,
+     "name": "廊坊市",
+     "name_zh": "廊坊市",
+     "name_en": "Langfang"
+    },
+    {
+     "id": 2989561,
+     "level": 5,
+     "name": "承德市",
+     "name_zh": "承德市",
+     "name_en": "Chengde"
+    },
+    {
+     "id": 3443418,
+     "level": 5,
+     "name": "沧州市",
+     "name_zh": "沧州市",
+     "name_en": "Cangzhou"
+    }
+   ],
+   "routes": {
+    "subway": 28,
+    "train": 1
+   },
+   "networks": {
+    "天津地铁": {
+     "subway": 28
+    },
+    "(无 network)": {
+     "train": 1
+    }
+   }
+  },
+  "xinjiang": {
+   "l4": [
+    {
+     "id": 5515045,
+     "level": 4,
+     "name": "Ladakh",
+     "name_zh": "拉达克中央直辖区",
+     "name_en": "Ladakh"
+    },
+    {
+     "id": 14243026,
+     "level": 4,
+     "name": "Абай облысы",
+     "name_zh": "阿拜州",
+     "name_en": "Abay Region"
+    },
+    {
+     "id": 215718,
+     "level": 4,
+     "name": "Алматы облысы",
+     "name_zh": "阿拉木图州",
+     "name_en": "Almaty Region"
+    },
+    {
+     "id": 3382266,
+     "level": 4,
+     "name": "Баян-Өлгий ᠪᠠᠶ᠋ᠠᠨ ᠥᠯᠦᠭᠡᠢ",
+     "name_zh": "巴彦乌列盖省",
+     "name_en": "Bayan-Ölgii"
+    },
+    {
+     "id": 3279614,
+     "level": 4,
+     "name": "Вилояти Мухтори Кӯҳистони Бадахшон",
+     "name_zh": "戈尔诺—巴达赫尚自治州",
+     "name_en": "Gorno-Badakhshan Autonomous Region"
+    },
+    {
+     "id": 270054,
+     "level": 4,
+     "name": "Говь-Алтай ᠭᠣᠪᠢ ᠠᠯᠲᠠᠢ",
+     "name_zh": "戈壁阿尔泰省",
+     "name_en": "Govi-Altai"
+    },
+    {
+     "id": 14312169,
+     "level": 4,
+     "name": "Жетісу облысы",
+     "name_zh": "杰特苏州",
+     "name_en": "Jetisu Region"
+    },
+    {
+     "id": 1251542,
+     "level": 4,
+     "name": "Нарын облусу",
+     "name_zh": "纳伦州",
+     "name_en": "Naryn Region"
+    },
+    {
+     "id": 178020,
+     "level": 4,
+     "name": "Ош облусу",
+     "name_zh": "奥什州",
+     "name_en": "Osh Region"
+    },
+    {
+     "id": 145194,
+     "level": 4,
+     "name": "Республика Алтай",
+     "name_zh": "阿尔泰共和国",
+     "name_en": "Altai Republic"
+    },
+    {
+     "id": 270055,
+     "level": 4,
+     "name": "Ховд ᠬᠣᠪᠳᠤ",
+     "name_zh": "科布多省",
+     "name_en": "Khovd"
+    },
+    {
+     "id": 215699,
+     "level": 4,
+     "name": "Шығыс Қазақстан облысы",
+     "name_zh": "东哈萨克斯坦州",
+     "name_en": "East Kazakhstan Region"
+    },
+    {
+     "id": 178025,
+     "level": 4,
+     "name": "Ысык-Көл облусу",
+     "name_zh": "伊塞克湖州",
+     "name_en": "Issyk-Kul Region"
+    },
+    {
+     "id": 1674535,
+     "level": 4,
+     "name": "ولایت بدخشان",
+     "name_zh": "巴达赫尚省",
+     "name_en": "Badakhshan Province"
+    },
+    {
+     "id": 357995,
+     "level": 4,
+     "name": "گلگت بلتستان",
+     "name_zh": "吉尔吉特-巴尔蒂斯坦",
+     "name_en": "Gilgit-Baltistan"
+    },
+    {
+     "id": 153310,
+     "level": 4,
+     "name": "新疆维吾尔自治区 شىنجاڭ ئۇيغۇر ئاپتونوم رايونی",
+     "name_zh": "新疆维吾尔自治区",
+     "name_en": "Xinjiang"
+    },
+    {
+     "id": 153314,
+     "level": 4,
+     "name": "甘肃省",
+     "name_zh": "甘肃省",
+     "name_en": "Gansu"
+    },
+    {
+     "id": 153292,
+     "level": 4,
+     "name": "西藏自治区 བོད་རང་སྐྱོང་ལྗོངས།",
+     "name_zh": "西藏自治区",
+     "name_en": "Xizang"
+    },
+    {
+     "id": 153269,
+     "level": 4,
+     "name": "青海省",
+     "name_zh": "青海省",
+     "name_en": "Qinghai"
+    }
+   ],
+   "l5": [
+    {
+     "id": 10391802,
+     "level": 5,
+     "name": "Nubra",
+     "name_zh": "努布拉",
+     "name_en": ""
+    },
+    {
+     "id": 16338250,
+     "level": 5,
+     "name": "بلتستان ڈویژن",
+     "name_zh": "",
+     "name_en": "Baltistan Division"
+    },
+    {
+     "id": 3712215,
+     "level": 5,
+     "name": "ولسوالی واخان",
+     "name_zh": "瓦罕县",
+     "name_en": "Wakhan District"
+    },
+    {
+     "id": 16338252,
+     "level": 5,
+     "name": "گلگت ڈویژن",
+     "name_zh": "",
+     "name_en": "Gilgit Division"
+    },
+    {
+     "id": 2752472,
+     "level": 5,
+     "name": "乌鲁木齐市 ئۈرۈمچى",
+     "name_zh": "乌鲁木齐市",
+     "name_en": "Ürümqi"
+    },
+    {
+     "id": 2750980,
+     "level": 5,
+     "name": "伊犁哈萨克自治州",
+     "name_zh": "伊犁哈萨克自治州",
+     "name_en": "Ili"
+    },
+    {
+     "id": 2710679,
+     "level": 5,
+     "name": "克孜勒苏柯尔克孜自治州 قىزىلسۇ قىرغىز ئاپتونوم ئوبلاستى / قىزىلسۇۇ قىرعىز اپتونوم وبلاسى",
+     "name_zh": "克孜勒苏柯尔克孜自治州",
+     "name_en": "Kizilsu"
+    },
+    {
+     "id": 2751491,
+     "level": 5,
+     "name": "克拉玛依市 قاراماي شەھىرى",
+     "name_zh": "克拉玛依市",
+     "name_en": "Karamay City"
+    },
+    {
+     "id": 239457,
+     "level": 5,
+     "name": "博尔塔拉蒙古自治州 ᠪᠣᠷᠣᠲᠠᠯ᠎ᠠ ᠶᠢᠨ ᠮᠣᠩᠭᠣᠯ ᠥᠪᠡᠷᠲᠡᠭᠡᠨ ᠵᠠᠰᠠᠬᠤ ᠵᠧᠦ",
+     "name_zh": "博尔塔拉蒙古自治州",
+     "name_en": "Bortala"
+    },
+    {
+     "id": 7027725,
+     "level": 5,
+     "name": "可克达拉市",
+     "name_zh": "可克达拉市",
+     "name_en": "Kekdara"
+    },
+    {
+     "id": 2747197,
+     "level": 5,
+     "name": "吐鲁番市 تۇرپان شەھىرى",
+     "name_zh": "吐鲁番市",
+     "name_en": "Turpan"
+    },
+    {
+     "id": 2748339,
+     "level": 5,
+     "name": "和田地区 خوتەن ۋىلايىتى",
+     "name_zh": "和田地区",
+     "name_en": "Hotan Prefecture"
+    },
+    {
+     "id": 2747108,
+     "level": 5,
+     "name": "哈密市 قۇمۇل شەھىرى",
+     "name_zh": "哈密市",
+     "name_en": "Hami"
+    },
+    {
+     "id": 2748436,
+     "level": 5,
+     "name": "喀什地区 قەشقەر ۋىلايىتى",
+     "name_zh": "喀什地区",
+     "name_en": "Kachgar"
+    },
+    {
+     "id": 239064,
+     "level": 5,
+     "name": "塔城地区 تارباعاتاي ايماعى",
+     "name_zh": "塔城地区",
+     "name_en": "Tacheng Prefecture"
+    },
+    {
+     "id": 2747242,
+     "level": 5,
+     "name": "巴音郭楞蒙古自治州 بايىنغولىن موڭغۇل ئاپتونوم ئوبلاستى",
+     "name_zh": "巴音郭楞蒙古自治州",
+     "name_en": "Bayingolin"
+    },
+    {
+     "id": 2752412,
+     "level": 5,
+     "name": "昌吉回族自治州 سانجى خۇيزۇ ئاپتونوم ئوبلاستى",
+     "name_zh": "昌吉回族自治州",
+     "name_en": "Changji"
+    },
+    {
+     "id": 2707989,
+     "level": 5,
+     "name": "海西蒙古族藏族自治州 མཚོ་ནུབ་སོག་རིགས་ཆ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "海西蒙古族藏族自治州",
+     "name_en": "Haixi Mongol and Tibetan Autonomous Prefecture"
+    },
+    {
+     "id": 2707991,
+     "level": 5,
+     "name": "玉树藏族自治州 ཡུལ་ཤུལ་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "玉树藏族自治州",
+     "name_en": "Yushu"
+    },
+    {
+     "id": 20461470,
+     "level": 5,
+     "name": "草湖项目区",
+     "name_zh": "草湖项目区",
+     "name_en": "Caohu Area"
+    },
+    {
+     "id": 2744938,
+     "level": 5,
+     "name": "那曲市 ནག་ཆུ་ས་ཁུལ།",
+     "name_zh": "那曲市",
+     "name_en": "Nagqu City"
+    },
+    {
+     "id": 165655,
+     "level": 5,
+     "name": "酒泉市",
+     "name_zh": "酒泉市",
+     "name_en": "Jiuquan Prefecture"
+    },
+    {
+     "id": 2748825,
+     "level": 5,
+     "name": "阿克苏地区 ئاقسۇ ۋىلايىتى",
+     "name_zh": "阿克苏地区",
+     "name_en": "Aksu Prefecture"
+    },
+    {
+     "id": 239062,
+     "level": 5,
+     "name": "阿勒泰地区",
+     "name_zh": "阿勒泰地区",
+     "name_en": "Altay Prefecture"
+    },
+    {
+     "id": 1997914,
+     "level": 5,
+     "name": "阿里地区 མངའ་རིས་ས་ཁུལ་",
+     "name_zh": "阿里地区",
+     "name_en": "Ngari Prefecture"
+    }
+   ],
+   "routes": {
+    "train": 47,
+    "subway": 4
+   },
+   "networks": {
+    "(无 network)": {
+     "subway": 4,
+     "train": 47
+    }
+   }
+  },
+  "yunnan": {
+   "l4": [
+    {
+     "id": 1903322,
+     "level": 4,
+     "name": "Tỉnh Lai Châu",
+     "name_zh": "莱州省",
+     "name_en": "Lai Châu Province"
+    },
+    {
+     "id": 1903400,
+     "level": 4,
+     "name": "Tỉnh Lào Cai",
+     "name_zh": "老街省",
+     "name_en": "Lào Cai Province"
+    },
+    {
+     "id": 1903418,
+     "level": 4,
+     "name": "Tỉnh Tuyên Quang",
+     "name_zh": "宣光省",
+     "name_en": "Tuyên Quang Province"
+    },
+    {
+     "id": 1903340,
+     "level": 4,
+     "name": "Tỉnh Điện Biên",
+     "name_zh": "奠边省",
+     "name_en": "Điện Biên Province"
+    },
+    {
+     "id": 5831662,
+     "level": 4,
+     "name": "ຜົ້ງສາລີ",
+     "name_zh": "丰沙里省",
+     "name_en": "Phongsaly"
+    },
+    {
+     "id": 5831659,
+     "level": 4,
+     "name": "ຫລວງນໍ້າທາ",
+     "name_zh": "琅南塔省",
+     "name_en": "Luang Namtha"
+    },
+    {
+     "id": 5831661,
+     "level": 4,
+     "name": "ອຸດົມໄຊ",
+     "name_zh": "乌多姆塞省",
+     "name_en": "Oudomxay"
+    },
+    {
+     "id": 5996476,
+     "level": 4,
+     "name": "ကချင်ပြည်နယ်",
+     "name_zh": "克钦邦",
+     "name_en": "Kachin State"
+    },
+    {
+     "id": 9399861,
+     "level": 4,
+     "name": "မြောက်ပိုင်း 'ဝ' ပြည်နယ်",
+     "name_zh": "北佤",
+     "name_en": "Northern Wa State"
+    },
+    {
+     "id": 5996485,
+     "level": 4,
+     "name": "ရှမ်းပြည်နယ်",
+     "name_zh": "掸邦",
+     "name_en": "Shan State"
+    },
+    {
+     "id": 913094,
+     "level": 4,
+     "name": "云南省",
+     "name_zh": "云南省",
+     "name_en": "Yunnan"
+    },
+    {
+     "id": 913068,
+     "level": 4,
+     "name": "四川省",
+     "name_zh": "四川省",
+     "name_en": "Sichuan"
+    },
+    {
+     "id": 286342,
+     "level": 4,
+     "name": "广西壮族自治区",
+     "name_zh": "广西壮族自治区",
+     "name_en": "Guangxi"
+    },
+    {
+     "id": 153292,
+     "level": 4,
+     "name": "西藏自治区 བོད་རང་སྐྱོང་ལྗོངས།",
+     "name_zh": "西藏自治区",
+     "name_en": "Xizang"
+    },
+    {
+     "id": 286937,
+     "level": 4,
+     "name": "贵州省",
+     "name_zh": "贵州省",
+     "name_en": "Guizhou"
+    }
+   ],
+   "l5": [
+    {
+     "id": 2725393,
+     "level": 5,
+     "name": "临沧市",
+     "name_zh": "临沧市",
+     "name_en": "Lincang"
+    },
+    {
+     "id": 2729779,
+     "level": 5,
+     "name": "丽江市",
+     "name_zh": "丽江市",
+     "name_en": "Lijiang City"
+    },
+    {
+     "id": 2727146,
+     "level": 5,
+     "name": "保山市",
+     "name_zh": "保山市",
+     "name_en": "Baoshan"
+    },
+    {
+     "id": 2780191,
+     "level": 5,
+     "name": "六盘水市",
+     "name_zh": "六盘水市",
+     "name_en": "Liupanshui"
+    },
+    {
+     "id": 2785750,
+     "level": 5,
+     "name": "凉山彝族自治州 ꆃꎭꆈꌠꊨꏦꏱꅉꍏ",
+     "name_zh": "凉山彝族自治州",
+     "name_en": "Liangshan"
+    },
+    {
+     "id": 2727745,
+     "level": 5,
+     "name": "大理白族自治州",
+     "name_zh": "大理白族自治州",
+     "name_en": "Dali Bai Autonomous Prefecture"
+    },
+    {
+     "id": 2791229,
+     "level": 5,
+     "name": "宜宾市",
+     "name_zh": "宜宾市",
+     "name_en": "Yibin"
+    },
+    {
+     "id": 2717249,
+     "level": 5,
+     "name": "德宏傣族景颇族自治州",
+     "name_zh": "德宏傣族景颇族自治州",
+     "name_en": "Dehong"
+    },
+    {
+     "id": 2729768,
+     "level": 5,
+     "name": "怒江傈僳族自治州 ꓠꓳ-ꓟꓵ ꓡꓲ-ꓢꓴ ꓫꓵꓽ ꓚꓲꓸ ꓛꓬꓽ ꓗꓪꓼ ꓫꓵꓽ ꓝꓳꓴ",
+     "name_zh": "怒江傈僳族自治州",
+     "name_en": "Nujiang"
+    },
+    {
+     "id": 2785689,
+     "level": 5,
+     "name": "攀枝花市",
+     "name_zh": "攀枝花市",
+     "name_en": "Panzhihua"
+    },
+    {
+     "id": 2718941,
+     "level": 5,
+     "name": "文山壮族苗族自治州",
+     "name_zh": "文山壮族苗族自治州",
+     "name_en": "Wenshan"
+    },
+    {
+     "id": 2723597,
+     "level": 5,
+     "name": "昆明市",
+     "name_zh": "昆明市",
+     "name_en": "Kunming"
+    },
+    {
+     "id": 2734866,
+     "level": 5,
+     "name": "昌都市 ཆབ་མདོ་ས་ཁུལ།",
+     "name_zh": "昌都市",
+     "name_en": "Chamdo City"
+    },
+    {
+     "id": 2402650,
+     "level": 5,
+     "name": "昭通市",
+     "name_zh": "昭通市",
+     "name_en": "Zhaotong City"
+    },
+    {
+     "id": 2716205,
+     "level": 5,
+     "name": "普洱市",
+     "name_zh": "普洱市",
+     "name_en": "Pu'er City"
+    },
+    {
+     "id": 2718030,
+     "level": 5,
+     "name": "曲靖市",
+     "name_zh": "曲靖市",
+     "name_en": "Qujing City"
+    },
+    {
+     "id": 2734427,
+     "level": 5,
+     "name": "林芝市 ཉིང་ཁྲི་གྲོང་ཁྱེར།",
+     "name_zh": "林芝市",
+     "name_en": "Nyingchi Prefecture"
+    },
+    {
+     "id": 2727342,
+     "level": 5,
+     "name": "楚雄彝族自治州",
+     "name_zh": "楚雄彝族自治州",
+     "name_en": "Chuxiong"
+    },
+    {
+     "id": 2780074,
+     "level": 5,
+     "name": "毕节市",
+     "name_zh": "毕节市",
+     "name_en": "Bijie"
+    },
+    {
+     "id": 2789344,
+     "level": 5,
+     "name": "泸州市",
+     "name_zh": "泸州市",
+     "name_en": "Luzhou"
+    },
+    {
+     "id": 2723502,
+     "level": 5,
+     "name": "玉溪市",
+     "name_zh": "玉溪市",
+     "name_en": "Yuxi"
+    },
+    {
+     "id": 2049312,
+     "level": 5,
+     "name": "甘孜藏族自治州 དཀར་མཛེས་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "甘孜藏族自治州",
+     "name_en": "Kardze"
+    },
+    {
+     "id": 2773986,
+     "level": 5,
+     "name": "百色市",
+     "name_zh": "百色市",
+     "name_en": "Baise"
+    },
+    {
+     "id": 2723404,
+     "level": 5,
+     "name": "红河哈尼族彝族自治州",
+     "name_zh": "红河哈尼族彝族自治州",
+     "name_en": "Honghe"
+    },
+    {
+     "id": 2715398,
+     "level": 5,
+     "name": "西双版纳傣族自治州",
+     "name_zh": "西双版纳傣族自治州",
+     "name_en": "Xishuangbanna"
+    },
+    {
+     "id": 2729695,
+     "level": 5,
+     "name": "迪庆藏族自治州 བདེ་ཆེན་བོད་རིགས་རང་སྐྱོང་ཁུལ།",
+     "name_zh": "迪庆藏族自治州",
+     "name_en": "Diqing"
+    },
+    {
+     "id": 2781292,
+     "level": 5,
+     "name": "黔西南布依族苗族自治州",
+     "name_zh": "黔西南布依族苗族自治州",
+     "name_en": "Qianxinan"
+    }
+   ],
+   "routes": {
+    "train": 17,
+    "subway": 14,
+    "tram": 3,
+    "light_rail": 2
+   },
+   "networks": {
+    "(无 network)": {
+     "train": 17,
+     "tram": 3,
+     "light_rail": 2
+    },
+    "昆明地铁": {
+     "subway": 14
+    }
+   }
+  },
+  "zhejiang": {
+   "l4": [
+    {
+     "id": 913067,
+     "level": 4,
+     "name": "上海市",
+     "name_zh": "上海市",
+     "name_en": "Shanghai"
+    },
+    {
+     "id": 913011,
+     "level": 4,
+     "name": "安徽省",
+     "name_zh": "安徽省",
+     "name_en": "Anhui"
+    },
+    {
+     "id": 913012,
+     "level": 4,
+     "name": "江苏省",
+     "name_zh": "江苏省",
+     "name_en": "Jiangsu"
+    },
+    {
+     "id": 913109,
+     "level": 4,
+     "name": "江西省",
+     "name_zh": "江西省",
+     "name_en": "Jiangxi"
+    },
+    {
+     "id": 553302,
+     "level": 4,
+     "name": "浙江省",
+     "name_zh": "浙江省",
+     "name_en": "Zhejiang"
+    },
+    {
+     "id": 553303,
+     "level": 4,
+     "name": "福建省",
+     "name_zh": "福建省",
+     "name_en": "Fujian"
+    }
+   ],
+   "l5": [
+    {
+     "id": 3046790,
+     "level": 5,
+     "name": "上饶市",
+     "name_zh": "上饶市",
+     "name_en": "Shangrao"
+    },
+    {
+     "id": 3289209,
+     "level": 5,
+     "name": "丽水市",
+     "name_zh": "丽水市",
+     "name_en": "Lishui"
+    },
+    {
+     "id": 3206301,
+     "level": 5,
+     "name": "南平市",
+     "name_zh": "南平市",
+     "name_en": "Nanping City"
+    },
+    {
+     "id": 3477550,
+     "level": 5,
+     "name": "台州市",
+     "name_zh": "台州市",
+     "name_en": "Taizhou"
+    },
+    {
+     "id": 3308626,
+     "level": 5,
+     "name": "嘉兴市",
+     "name_zh": "嘉兴市",
+     "name_en": "Jiaxing"
+    },
+    {
+     "id": 3277236,
+     "level": 5,
+     "name": "宁德市",
+     "name_zh": "宁德市",
+     "name_en": "Ningde City"
+    },
+    {
+     "id": 3478607,
+     "level": 5,
+     "name": "宁波市",
+     "name_zh": "宁波市",
+     "name_en": "Ningbo"
+    },
+    {
+     "id": 3222248,
+     "level": 5,
+     "name": "宣城市",
+     "name_zh": "宣城市",
+     "name_en": "Xuancheng"
+    },
+    {
+     "id": 4430942,
+     "level": 5,
+     "name": "无锡市",
+     "name_zh": "无锡市",
+     "name_en": "Wuxi City"
+    },
+    {
+     "id": 3221112,
+     "level": 5,
+     "name": "杭州市",
+     "name_zh": "杭州市",
+     "name_en": "Hangzhou City"
+    },
+    {
+     "id": 3289341,
+     "level": 5,
+     "name": "温州市",
+     "name_zh": "温州市",
+     "name_en": "Wenzhou"
+    },
+    {
+     "id": 3149738,
+     "level": 5,
+     "name": "湖州市",
+     "name_zh": "湖州市",
+     "name_en": "Huzhou"
+    },
+    {
+     "id": 3316522,
+     "level": 5,
+     "name": "绍兴市",
+     "name_zh": "绍兴市",
+     "name_en": "Shaoxing"
+    },
+    {
+     "id": 3308121,
+     "level": 5,
+     "name": "舟山市",
+     "name_zh": "舟山市",
+     "name_en": "Zhoushan"
+    },
+    {
+     "id": 4430941,
+     "level": 5,
+     "name": "苏州市",
+     "name_zh": "苏州市",
+     "name_en": "Suzhou City"
+    },
+    {
+     "id": 3278467,
+     "level": 5,
+     "name": "衢州市",
+     "name_zh": "衢州市",
+     "name_en": "Quzhou"
+    },
+    {
+     "id": 3411720,
+     "level": 5,
+     "name": "金华市",
+     "name_zh": "金华市",
+     "name_en": "Jinhua"
+    },
+    {
+     "id": 2992498,
+     "level": 5,
+     "name": "黄山市",
+     "name_zh": "黄山市",
+     "name_en": "Huangshan"
+    }
+   ],
+   "routes": {
+    "subway": 70,
+    "train": 6,
+    "tram": 2
+   },
+   "networks": {
+    "杭州地铁": {
+     "subway": 32
+    },
+    "宁波市轨道交通": {
+     "subway": 14
+    },
+    "(无 network)": {
+     "subway": 9,
+     "train": 2,
+     "tram": 1
+    },
+    "绍兴轨道交通": {
+     "subway": 6
+    },
+    "温州轨道交通": {
+     "subway": 6
+    },
+    "嘉善地铁": {
+     "train": 4
+    },
+    "台州轨道交通": {
+     "subway": 2
+    },
+    "浙中都市圈城际轨道交通": {
+     "subway": 1
+    },
+    "嘉兴有轨电车": {
+     "tram": 1
+    }
+   }
+  }
+ },
+ "generated_from": "18_admin_ids.py"
+}

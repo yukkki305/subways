@@ -34,6 +34,31 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py
 
 **幂等性实测**：整套重跑后，`relation-index.json` 除 `generated_at` / `attribution_generated_at` / `changes` 外与上一版逐字段一致，`changes` 变为全空（说明没有实质变更）；`attribution-report.json` 与 `docs/conflicts.md` 只变生成时间。
 
+
+## P1b：城市台账与行政区 id
+
+`18_admin_ids.py` 解决两件事：把台账里 54 座城市的 OSM 省/市关系 id 填上，以及统计「每城有多少条线路关系」用于排期。
+
+```powershell
+$env:PYTHONUTF8 = '1'
+# 先把 28 个省级 PBF 下到 E:\subway-data\snapshots\p1b-20261113（脚本在仓库外）
+python E:\subway-data\probe-p1b\fetch_p1b.py
+
+# 扫一遍 PBF：省面 / 地级市面 / 按 network 统计线路关系
+python pipeline\18_admin_ids.py --scan     # → data/admin-ids.json
+# 回填台账两列（可单独重跑，幂等）
+python pipeline\18_admin_ids.py --fill     # → data/cities-ledger.csv
+```
+
+| 坑 | 现象 | 处理 |
+| --- | --- | --- |
+| 行政层级 | 按 `admin_level=6` 收，49 城匹配失败 | 中国 OSM 里**地级市是 `admin_level=5`**，区县才是 6 |
+| 省名带民族文字 | `新疆维吾尔自治区 شىنجاڭ…` 精确匹配失败 | 省名索引按「空格前第一段」建 |
+| 自治州命名 | `文山壮族苗族自治州` 与台账「文山」对不上 | 精确匹配失败后按前缀 + 级别优先兜底 |
+| `network` 覆盖不全 | 15 城完全取不到关系数（哈尔滨、厦门、兰州…） | 归属必须以几何为准，network 只作辅助信号 |
+
+实测：28 省 / 1.74 GB，扫描约 100 s；台账 **58/58** 城两列 id 全部回填。
+
 ## S1 步骤与脚本映射
 
 | 步骤 | 脚本 | 输入 | 输出 | 状态 |

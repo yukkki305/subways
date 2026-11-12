@@ -65,6 +65,9 @@
 | --- | --- | --- | --- | --- |
 | `E:\subway-data\snapshots\20261101\*.osm.pbf` | 五省原始 PBF，合计 327.42 MB | `download.openstreetmap.fr/extracts/asia/china/` | ODbL-1.0 | 2026-11-01 |
 | `data/raw/transit-relations.json` | S1-3 的中间产物（16.03 MB），可由 PBF 重建 | 由 PBF 派生 | ODbL-1.0 | 2026-11-01 |
+| `data/cities-ledger.csv` | 54 城主线台账 + 4 座仅有轨城市：省市、slug、状态、批次、公开口径规模、OSM 省/市 admin id | 中文维基《中国城市轨道交通系统》系统表（公开规模）+ 本仓 `data/admin-ids.json`（admin id） | 公开统计字段来自维基（CC BY-SA 4.0 事实提取）；admin id 来自 OSM，**ODbL-1.0** | 2026-11 / 2026-11-12 | `pipeline/18_admin_ids.py` + 人工整理 |
+| `data/admin-ids.json` | 28 省 PBF 里的 `admin_level=4/5` 关系（省面、地级市面）与按 `network` 统计的线路关系数 | OSM 省级 extract（`p1b-20261113` 快照） | **ODbL-1.0** © OpenStreetMap contributors | 2026-11-12 | `pipeline/18_admin_ids.py --scan` |
+| `data/snapshots/p1b-20261113/manifest.json` | 28 个省级 PBF 的 URL、字节数、sha256（合计 1.74 GB）；PBF 本体在仓库外 | 直接记录 `download.openstreetmap.fr` 的文件哈希 | **ODbL-1.0** | 2026-11-12 | `E:/subway-data/probe-p1b/fetch_p1b.py` |
 
 ## 二、授权义务（ODbL-1.0，必须遵守）
 

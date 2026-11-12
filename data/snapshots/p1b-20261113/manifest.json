@@ -1,0 +1,177 @@
+{
+ "snapshot": "p1b-20261113",
+ "source": "https://download.openstreetmap.fr/extracts/asia/china",
+ "license": "ODbL-1.0",
+ "fetched_at": "2026-11-12T23:17:46+0800",
+ "provinces": [
+  {
+   "province": "anhui",
+   "bytes": 46346301,
+   "status": "ok",
+   "sha256": "06dc7dde8999111d43232ea9c6480d5f6846e69a55fe29e925149198d911425e"
+  },
+  {
+   "province": "beijing",
+   "bytes": 41953558,
+   "status": "ok",
+   "sha256": "4c5acda76a20e695dcfb7005203e8e62b24639074fdac39b643f153139d9cb35"
+  },
+  {
+   "province": "chongqing",
+   "bytes": 34187128,
+   "status": "ok",
+   "sha256": "7527022d78c360a43ca1ea8ad4b7baa765ad91ae47eadc3d3a2f3e234df95f16"
+  },
+  {
+   "province": "fujian",
+   "bytes": 46954805,
+   "status": "ok",
+   "sha256": "792a2c6e0bfc035a53bb6086cae684ad728daddc0a34eb5bd8397b40bff3f612"
+  },
+  {
+   "province": "gansu",
+   "bytes": 66958130,
+   "status": "ok",
+   "sha256": "daae5b1e75c1eeea29f13ead6f6d6355766e10eea875a82528cde24528f5e273"
+  },
+  {
+   "province": "guangdong",
+   "bytes": 195159720,
+   "status": "ok",
+   "sha256": "887434700b7cfb919ff28853ab9bda0b3d3427fd3893567be3676edda7717cc3"
+  },
+  {
+   "province": "guangxi",
+   "bytes": 59321506,
+   "status": "ok",
+   "sha256": "7ecd085c25f1ce05ec80e2aaf7dc86468a120b94b44eba06e71bbddb64f42827"
+  },
+  {
+   "province": "guizhou",
+   "bytes": 31466077,
+   "status": "ok",
+   "sha256": "f20f392c7cd68e478bfd172c1b3d442d52f3330a1c005fa258af386edbe7ad92"
+  },
+  {
+   "province": "hainan",
+   "bytes": 10836337,
+   "status": "ok",
+   "sha256": "b1158a247b3f257545a73348d1d21968040c8ba103bd1c3c9313a766842b9131"
+  },
+  {
+   "province": "hebei",
+   "bytes": 118409117,
+   "status": "ok",
+   "sha256": "a3236a9d448d5ee3f80f12a66ff52b83c5e5a11f9e01a3bf896059da68eb9965"
+  },
+  {
+   "province": "heilongjiang",
+   "bytes": 40267154,
+   "status": "ok",
+   "sha256": "2fc0c2a93cc5a5cac8e31379babfcd1b0106ced19d105869813f0cea3fe593c8"
+  },
+  {
+   "province": "henan",
+   "bytes": 55109857,
+   "status": "ok",
+   "sha256": "dc74047d238e8dcb65685ae12a3e1c208ca9ea95d2dddbb0a5cdb950526d7479"
+  },
+  {
+   "province": "hubei",
+   "bytes": 59443733,
+   "status": "ok",
+   "sha256": "ecdcdf067d85bc064f47d9809118ca9b8a9719af400aac6ba4b32fff200b3b4e"
+  },
+  {
+   "province": "hunan",
+   "bytes": 55291965,
+   "status": "ok",
+   "sha256": "30946fb23bcc9ca9b19f2af5d6efd6bc107da91c3fcb26fae002d790280d85d7"
+  },
+  {
+   "province": "inner_mongolia",
+   "bytes": 45996517,
+   "status": "ok",
+   "sha256": "b6813e5d8f7ea0b3e29afa5c672692117295de6819723c69ebc1478c258cdd9a"
+  },
+  {
+   "province": "jiangsu",
+   "bytes": 89816906,
+   "status": "ok",
+   "sha256": "665df21bc62110b640db8eae6d2fa4fe17342766cbc989a331ab7a440ffce333"
+  },
+  {
+   "province": "jiangxi",
+   "bytes": 52986888,
+   "status": "ok",
+   "sha256": "d2eca7ba3dee9ffda9be63bbfcf2bcd8247f0a728066473381d61698628d1bda"
+  },
+  {
+   "province": "jilin",
+   "bytes": 29979187,
+   "status": "ok",
+   "sha256": "756c3d7abebebffdecada4ad46929bb28e113c24f29ef34354cedd76c41c0e61"
+  },
+  {
+   "province": "liaoning",
+   "bytes": 31101732,
+   "status": "ok",
+   "sha256": "a6c540a18a47d5b7a0ed27087a31c4e0387d0e62c80d6b8ac7b8ea7d346ca5c1"
+  },
+  {
+   "province": "shaanxi",
+   "bytes": 104353723,
+   "status": "ok",
+   "sha256": "385dcb0c35bb07e5b6525c516aa067899a6533d914bdcc6b217a0877a98eb35b"
+  },
+  {
+   "province": "shandong",
+   "bytes": 79037751,
+   "status": "ok",
+   "sha256": "e02386494513ea8b5808415c5d8912f3566626db8db9f4c4b0d8269800730be8"
+  },
+  {
+   "province": "shanghai",
+   "bytes": 29729569,
+   "status": "ok",
+   "sha256": "51022f8ec4a4aa2694cac9f2c4d6063772016300054c732ee9a1741f9995a79f"
+  },
+  {
+   "province": "shanxi",
+   "bytes": 34671322,
+   "status": "ok",
+   "sha256": "342f1bbbbc5b1dbe94cbf9f3bdded19112b100b31b15d1de1be5d4912b9ed3ea"
+  },
+  {
+   "province": "sichuan",
+   "bytes": 118054155,
+   "status": "ok",
+   "sha256": "cd99fe533ba35889ad98ab1a64ec6b0b8311894872e0e2e3ff49bcd360aa38fa"
+  },
+  {
+   "province": "tianjin",
+   "bytes": 17098268,
+   "status": "ok",
+   "sha256": "ee86a8c6692e88be337bf2b1c60833ac09794e5f8dfcf5f937c767427600d37a"
+  },
+  {
+   "province": "xinjiang",
+   "bytes": 49368267,
+   "status": "ok",
+   "sha256": "05861f8a8d357f9554f11b8e038293c86f568eec69a1529a4f7c37b2de998bc6"
+  },
+  {
+   "province": "yunnan",
+   "bytes": 94758233,
+   "status": "ok",
+   "sha256": "f606fb8f2141da837707b550b96a2941fe0e5a4c6e405942d6acec768f06bd30"
+  },
+  {
+   "province": "zhejiang",
+   "bytes": 99136770,
+   "status": "ok",
+   "sha256": "4fbd10bc7be85649e104031f0bd09dba67c5bfd9b2b514da31803f5a327ae25c"
+  }
+ ],
+ "total_bytes": 1737794676
+}

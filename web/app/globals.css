@@ -323,6 +323,26 @@ body .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
   font-variant-numeric: tabular-nums;
 }
 
+/* 总览入口：菜单最后一格，用分隔线隔开（UX 阶段 3） */
+.city-switch__all {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--c-border-soft);
+}
+
+.city-switch__all a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--c-accent);
+  font-size: var(--fs-small);
+  text-decoration: none;
+}
+
+.city-switch__all a:hover {
+  background: var(--c-hover);
+}
+
 /* ——— 加载 / 失败浮层（S3-6） ——— */
 .map-loading {
   position: absolute;
@@ -1027,5 +1047,149 @@ dl.kv dd {
   width: 12px;
   height: 12px;
   display: block;
+}
+
+/* ── 城市总览页（UX 阶段 3） ─────────────────────── */
+
+/*
+ * 这一页没有地图，是普通文档流：纸色底 + 居中栏宽。
+ * 卡片缩略图用 SVG 描边画线，所以卡片底色要比纸面亮一档，线才跳得出来；
+ * 深色下反过来——卡片比纸面亮一点点（#232320 对 #1a1a18）。
+ */
+.cities {
+  min-height: 100vh;
+  padding: 56px 24px 32px;
+  background: var(--c-bg);
+  color: var(--c-text);
+  /* 页脚贴底：四张卡不满一屏时，版权行不该浮在页面中间 */
+  display: flex;
+  flex-direction: column;
+}
+
+.cities__head {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto 28px;
+}
+
+.cities__head h1 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: 0.01em;
+}
+
+.cities__lede {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--c-text-muted);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+
+.cities__grid {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: 18px;
+}
+
+.city-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface-solid);
+  box-shadow: var(--c-shadow-card);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.city-card:hover {
+  border-color: var(--c-border-strong);
+  box-shadow: var(--c-shadow-md);
+  transform: translateY(-2px);
+}
+
+.city-card:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.city-card__thumb {
+  display: block;
+  aspect-ratio: 10 / 7;
+  padding: 8px;
+  background: var(--c-surface-2);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+
+.city-card__thumb svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.city-card__nothumb {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--c-text-placeholder);
+  font-size: var(--fs-small);
+}
+
+.city-card__body {
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px 14px;
+}
+
+.city-card__name {
+  font-size: var(--fs-title);
+  font-weight: 600;
+}
+
+.city-card__meta {
+  color: var(--c-text-body);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.city-card__sub {
+  color: var(--c-text-subtle);
+  font-size: var(--fs-meta);
+}
+
+.cities__foot {
+  max-width: 1080px;
+  width: 100%;
+  margin: 32px auto 0;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-border-soft);
+  color: var(--c-text-subtle);
+  font-size: var(--fs-meta);
+  line-height: 1.8;
+}
+
+.cities__foot a {
+  color: var(--c-accent);
+}
+
+@media (max-width: 560px) {
+  .cities {
+    padding: 32px 16px 28px;
+  }
+
+  .cities__grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
 }
 

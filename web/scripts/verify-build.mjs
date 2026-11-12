@@ -200,6 +200,23 @@ check(
   wanted.every((c) => sitemapUrls.some((u) => (c === "sh" ? /\/subways\/$/.test(u) : u.endsWith(`/subways/${c}/`)))),
   `${sitemapUrls.length} 条 URL`,
 );
+check(
+  "sitemap.xml 收录城市总览页",
+  sitemapUrls.some((u) => /\/subways\/cities\/$/.test(u)),
+  sitemapUrls.find((u) => u.endsWith("/cities/")) ?? "缺 /cities/",
+);
+
+// ── UX 阶段 3：总览页（每张卡片一张 SVG 轮廓） ─────────────
+const citiesPage = join(OUT_ABS, "cities", "index.html");
+const citiesHtml = existsSync(citiesPage) ? readFileSync(citiesPage, "utf8") : "";
+check("out/cities/index.html 存在", citiesHtml.length > 0, citiesHtml ? `${(citiesHtml.length / 1024).toFixed(0)} KB` : "缺文件");
+if (citiesHtml) {
+  const labels = wanted.map((c) => loadCity(c).web?.city_label ?? loadCity(c).name);
+  const missing = labels.filter((n) => !citiesHtml.includes(n));
+  check("总览页列出每个城市的名字", missing.length === 0, missing.length ? `缺：${missing.join("、")}` : labels.join(" / "));
+  const paths = (citiesHtml.match(/<path /g) ?? []).length;
+  check("总览页缩略图有线路轮廓", paths > wanted.length, `${paths} 条 path（每城至少 1 条）`);
+}
 
 // ── 全局：打包残留与体积 ──────────────────────────────────
 const files = walk(OUT_ABS);

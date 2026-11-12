@@ -15,6 +15,12 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const home = citySummary(HOME_CITY);
   const rest = publicCityCodes().map((code) => citySummary(code));
+  // 总览页取各城里最新的快照日期：任何一城更新，它都该重新被抓取
+  const newest = [home, ...rest]
+    .map((c) => c.asOf)
+    .filter((d): d is string => Boolean(d))
+    .sort()
+    .at(-1);
 
   return [
     {
@@ -22,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: home.asOf ?? undefined,
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: `${SITE}cities/`,
+      lastModified: newest,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     ...rest.map((c) => ({
       url: `${SITE}${c.code}/`,

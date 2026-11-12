@@ -678,3 +678,11 @@ npm run deploy -- --skip-smoke
 - **双语站名是例外**：英文副行的颜色写在 `text-field` 的 `format` 里（layout 而非 paint），`applyPalette` 里对 `BILINGUAL_LAYERS` 单独重设 `text-field`。
 - **线路颜色不随主题变**（D6）：深浅两套下 `metro-line.line-color` 是同一个表达式；深色可读性靠 casing 与背景同为纸色实现的「交叉留白」。
 - maplibre 自带控件（缩放按钮）不吃我们的 token，靠 `--c-ctrl-icon-filter` + `body .maplibregl-ctrl-group…` 覆盖；**别去掉 `body` 前缀**，maplibre 的 CSS 在 `globals.css` 之后加载，同权重会被它盖掉。
+
+## 城市总览页（UX 阶段 3）
+
+- 路由：`/cities/`（`app/cities/page.tsx`）。`/` 仍是上海——那是已经发出去的旗舰链接，不换成总览。
+- 缩略图在 **构建期** 由 `lib/thumbnails.ts` 从 `segment.geojson` 现算 SVG：等距圆柱投影（城市尺度 <1.5°，与墨卡托差别不到 0.5%，不必引投影库）→ 等比放进 1000×700 → 每条线一个 `<path>`，颜色直接取官图色。
+- 体积靠两件事压下来：**顶点抽稀**（离上一个保留点 <2.5/1000 就丢，缩略图上不到 1 px）与**坐标取整**；四城合计从 890 KB 降到 179 KB。
+- 数据缺文件时 `cityThumb()` 返回 `null`，卡片渲染「缩略图待生成」而不是让整页构建失败。
+- 加城市不用改这一页：`citySummary()` 读 `pipeline/cities/<code>.json` + `public/data/cities.json`，只要 `prebuild` 同步过数据，卡片与 sitemap 自动多一条。

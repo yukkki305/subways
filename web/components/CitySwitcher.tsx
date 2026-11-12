@@ -84,6 +84,12 @@ export default function CitySwitcher({ current, cities }: Props) {
               </li>
             );
           })}
+          {/* 总览入口（UX 阶段 3）：菜单底部单独一格，与上面的城市项区分开 */}
+          <li role="none" className="city-switch__all">
+            <Link role="menuitem" href="/cities/" onClick={() => setOpen(false)}>
+              全部城市 →
+            </Link>
+          </li>
         </ul>
       )}
     </div>

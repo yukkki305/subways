@@ -1,7 +1,7 @@
 # UX 计划：城市总览页 + 深色模式
 
 > 目标：让四座城市“被看见”，并给地图加上深色模式。不触碰 P2（示意化）的工作。
-> 状态：阶段 0–2 已完成；阶段 3–5 待做。
+> 状态：阶段 0–3 已完成；阶段 4–5 待做。
 > 关联：[颜色盘点](ux-color-inventory.md)、[P1a 自证](validation-p1a.md)。
 
 ---
@@ -26,7 +26,7 @@
 | 0 | 颜色盘点 + `lib/theme.ts` 契约（`Palette`/`LIGHT`/`DARK`/`resolveTheme`） | 0.5 h | ✅ 本轮 |
 | 1 | 界面深色地基：CSS token 化、`<html data-theme>` 注水脚本、`ThemeToggle` | 2.5 h | ✅ 本轮 |
 | 2 | 地图深色：`buildStyle(palette)` 接线、`applyTheme()` 覆盖 21 层、对比度校准 | 3 h | ✅ 本轮 |
-| 3 | 城市总览页：`/cities/`、卡片、SVG 缩略图脚本、三处入口 | 3 h | 待做 |
+| 3 | 城市总览页：`/cities/`、卡片、SVG 缩略图脚本、三处入口 | 3 h | ✅ 本轮 |
 | 4 | 校验与自证：verify 增项、sitemap、主题持久化 E2E、`docs/validation-ux.md` | 2 h | 待做 |
 | 5 | 发布：5 页进冒烟、线上深浅各复核一次 | 0.5 h | 待做 |
 
@@ -99,6 +99,33 @@
 - **首帧无闪**：深色下重载页面，从第一帧开始 `background` 就是 `#1A1A18`（采样 0/849 ms 两点，中间无浅色帧）；加载遮罩为不透明 `#1a1a18`。
 - `typecheck` 干净；`build` 成功（postbuild 释放 5.14 MB）；`verify` **87 项 / 4 城 / 0 失败**。
 - 截图：`E:\subway-data\preview\ux2-sh-dark.png`（全城）、`ux2-sh-dark-z13.png`（站名与圆点）、`ux2-sh-dark-panel.png`（选中态 + 抽屉）。
+
+---
+
+## 七、阶段 3 交付（已完成）
+
+1. `web/lib/thumbnails.ts`（新建，服务端）：读该城 `segment.geojson` + `lines.json`，等距圆柱投影 → 等比缩放到 **1000×700** 的框 → 每条线一个 `<path>`。失败返回 `null`，卡片显示占位而不阻塞构建。
+2. `web/app/cities/page.tsx`（新建）：四张卡片（缩略图 + 城市名 + 计数 + 数据日期），整卡是 `<Link>`，`/` 与 `/<code>/` 各归各位。
+3. `web/app/sitemap.ts`：新增 `/cities/`，`lastModified` 取四城里最新的快照日期。
+4. `web/components/CitySwitcher.tsx` + `.city-switch__all`：菜单底部加「全部城市 →」（分隔线隔开），这是从任意城市页进入总览的入口。
+5. `app/globals.css`：`.cities*` / `.city-card*` 一组样式，全部走 `--c-*` token，深浅两套自动成立。
+
+### 体积：890 KB → 179 KB 的两步
+
+| 版本 | `out/cities/index.html` | 做法 |
+| --- | --- | --- |
+| 初版 | 891,782 B | 坐标 `toFixed(1)`，每条线全部顶点 |
+| 抽稀 | 193,427 B | 按「离上一个保留点 ≥ **2.5** 个 viewBox 单位」抽稀 + 坐标取整（2.5/1000 × 230 px 不到 1 px，肉眼看不出来） |
+| 换框 | **179,109 B**（gzip ≈ 60 KB） | 画框从 1000×1000 正方形改成 1000×700 横向，四座城都横向铺得比纵向长，正方形上下白扔空间 |
+
+### 验证
+
+- `typecheck` 干净；`build` 成功；`verify` **91 项 / 4 城 / 0 失败**（新增 4 项：sitemap 收录 `/cities/`、`out/cities/index.html` 存在、四个城市名都在、缩略图 path 数 > 城市数）。
+- 页面实测：4 张卡片、4 个 `<svg>`、**63 条 `<path>`**（上海 20 / 广州 19 / 成都 16 / 合肥 8，与线路数一致）。
+- 深色：卡片 `rgb(38,38,35)`、缩略图底 `rgb(42,42,38)`；缩略图线路色与地图同一份官图色（D6：不另配色）。
+- 窄屏 492 px：两列网格，卡片内文字不溢出。
+- 入口：城市切换器菜单实测 `href="/subways/cities/"`、文字「全部城市 →」。
+- 截图：`ux3-cities-light.png`、`ux3-cities-dark.png`、`ux3-cities-narrow.png`、`ux3-switcher-entry.png`。
 
 ---
 

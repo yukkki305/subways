@@ -1,6 +1,8 @@
-# 中国铁路图鉴 · 上海
+# 中国铁路图鉴
 
-把上海 20 条城市轨道交通线路按**真实地理走向**画在地图上，点车站看线路、站序与换乘。
+把四座城市的城市轨道交通线路按**真实地理走向**画在地图上，点车站看线路、站序与换乘；
+四城可在页头切换，也可从[城市总览](https://yukkki305.github.io/subways/cities/)进入。
+支持浅色 / 深色 / 跟随系统三种主题。
 数据来自 OpenStreetMap，全链路 WGS-84，底图自建，不依赖任何第三方瓦片。
 
 **[→ 线上站点](https://yukkki305.github.io/subways/)** ｜ 个人作品集项目，数据仅供参考
@@ -9,7 +11,7 @@
 
 ## 这是什么
 
-- **一张能查的地铁图**：20 条线路 / 423 座车站 / 570 个区间 / 12 条换乘关系，点击任意车站弹出线路、站序、换乘距离与数据来源
+- **一张能查的地铁图**：上海 20 条 / 423 站 / 570 区间 / 12 换乘，广州 19 / 320 / 393 / 3，成都 16 / 364 / 454 / 4，合肥 8 / 195 / 207 / 0；点击任意车站弹出线路、站序、换乘距离与数据来源
 - **一套可重跑的数据管道**：省级 OSM PBF → 关系抽取 → 归一 → 建模 → 区间切分 → 归属校验 → 静态产物，一条命令重建
 - **一份写下来的决策记录**：每个踩过的坑都落成 ADR（`docs/decisions/`），下面「四个硬问题」是其中的代表
 
@@ -24,7 +26,7 @@
 | 区间 | 570 段，合计 946.18 km（按 branch 累加，含共线重复） |
 | 换乘 | 12 条（同名多站之间）；`is_transfer` 站点 100 |
 | 检索索引 | 443 条（423 站 + 20 线），中文 / 拼音全拼 / 首字母 / 英文 / 线路号 |
-| 静态产物 | 4.08 MB（gzip ≈ 0.92 MB），首屏 17 个请求 |
+| 静态产物 | 四城共 8.37 MB（gzip ≈ 1.5 MB）；单城首屏约 0.75 MB（按城懒加载） |
 
 ## 四个硬问题，以及怎么解决的
 
@@ -81,7 +83,7 @@ E:\subway-data\venv\Scripts\python.exe pipeline\run_s1.py --from S1-3
 cd web
 npm.cmd run typecheck    # 0 错
 npm.cmd run test:search  # 22 条检索用例 + 性能断言
-npm.cmd run build && npm.cmd run verify   # 21 项构建自证
+npm.cmd run build && npm.cmd run verify   # 94 项构建自证（4 城）
 ```
 
 ## 目录
@@ -110,11 +112,11 @@ npm.cmd run build && npm.cmd run verify   # 21 项构建自证
 2. 12 条换乘中 9 条的换乘类型（通道/出站）为人工判定，待核实
 3. 数据为 2026-11-01 快照，非实时；每年新增约 50 条（段）线路需要增量更新
 4. 底图为 P0 极简版（无道路、无 POI），只为让线路成为视觉主体
-5. 目前只有上海一城；全国 58 城的 P1 需要各省站名来源与闭合省界
+5. 目前四城（上海 / 广州 / 成都 / 合肥）；全国 58 城的 P1 需要各省站名来源与闭合省界
 
 ## English
 
-A georeferenced map of Shanghai's 20 urban rail lines (423 stations, 570 segments), built from
+A georeferenced atlas of four Chinese metros (Shanghai, Guangzhou, Chengdu, Hefei — 62 lines, 1,302 stations), with light/dark themes, built from
 OpenStreetMap province PBFs with a re-runnable Python pipeline and rendered with MapLibre GL JS.
 Static export, no runtime data calls, no third-party basemap tiles. Portfolio project — data for
 reference only.

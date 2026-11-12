@@ -686,3 +686,10 @@ npm run deploy -- --skip-smoke
 - 体积靠两件事压下来：**顶点抽稀**（离上一个保留点 <2.5/1000 就丢，缩略图上不到 1 px）与**坐标取整**；四城合计从 890 KB 降到 179 KB。
 - 数据缺文件时 `cityThumb()` 返回 `null`，卡片渲染「缩略图待生成」而不是让整页构建失败。
 - 加城市不用改这一页：`citySummary()` 读 `pipeline/cities/<code>.json` + `public/data/cities.json`，只要 `prebuild` 同步过数据，卡片与 sitemap 自动多一条。
+
+## 校验与自证（UX 阶段 4）
+
+- `npm run verify` 现在 **94 项**：每城 21 项 + 全局 4 项 + 总览页 5 项 + 主题纸色一致性 2 项。
+- 主题纸色必须两边一致：界面在 `app/globals.css`（`--c-paper`），地图在 `lib/theme.ts`（`LIGHT.paper` / `DARK.paper`）。改一处忘另一处，表现是加载遮罩或页脚与地图底色差一圈 —— verify 直接拿源码比，不靠肉眼。
+- `deploy.mjs` 也认总览页：`--dry-run` 会打印 `总览页：cities/（175 KB）`，线上冒烟要求总览页 200 且四城名齐全。
+- 完整证据（对比度实测、主题 E2E、反向验证）：`docs/validation-ux.md`。

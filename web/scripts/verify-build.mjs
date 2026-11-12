@@ -216,6 +216,52 @@ if (citiesHtml) {
   check("总览页列出每个城市的名字", missing.length === 0, missing.length ? `缺：${missing.join("、")}` : labels.join(" / "));
   const paths = (citiesHtml.match(/<path /g) ?? []).length;
   check("总览页缩略图有线路轮廓", paths > wanted.length, `${paths} 条 path（每城至少 1 条）`);
+  // 卡片必须真的链到对应城市页：href 带 basePath，上海指根
+  const hrefProblems = wanted.filter((c) => {
+    const want = c === "sh" ? 'href="/subways/"' : `href="/subways/${c}/"`;
+    return !citiesHtml.includes(want);
+  });
+  check(
+    "总览页每张卡片链到对应城市页",
+    hrefProblems.length === 0,
+    hrefProblems.length ? `缺：${hrefProblems.join("、")}` : `${wanted.length} 条链接`,
+  );
+}
+
+// ── UX 阶段 4：主题两套值的唯一不变量 ─────────────────────
+// 界面用 CSS 变量、地图用 lib/theme.ts；两边各有一份纸色，必须相等，否则
+// 加载遮罩 / casing / 页脚会与地图底色不一致（肉眼是「一圈边」）。
+// 这里直接读源码而不是构建产物：常量改错时构建本身不会报错，只有切主题才看得出来。
+const cssSrc = readFileSync(join(ROOT, "app", "globals.css"), "utf8");
+const themeSrc = readFileSync(join(ROOT, "lib", "theme.ts"), "utf8");
+
+function cssVar(block, name) {
+  const m = new RegExp(`${name}:\\s*(#[0-9a-fA-F]{3,8})`).exec(block);
+  return m ? m[1].toLowerCase() : null;
+}
+function themeConst(name) {
+  // 取 `export const LIGHT: Palette = { ... }` / DARK 里的 paper 字段
+  const block = new RegExp(`const ${name}:\\s*Palette\\s*=\\s*\\{([\\s\\S]*?)\\n\\}`).exec(themeSrc);
+  if (!block) return null;
+  const m = /paper:\s*"(#[0-9a-fA-F]{3,8})"/.exec(block[1]);
+  return m ? m[1].toLowerCase() : null;
+}
+
+// 注意：文件头的注释里也写了 `:root[data-theme="dark"]`，所以必须按「行首选择器」定位，
+// 不能直接 indexOf 字符串（第一版就是这么错的：light 段被切在注释处，取不到 --c-paper）。
+const darkIdx = cssSrc.search(/^:root\[data-theme="dark"\]\s*\{/m);
+const lightRoot = darkIdx > 0 ? cssSrc.slice(0, darkIdx) : cssSrc;
+const darkRoot = darkIdx > 0 ? cssSrc.slice(darkIdx) : "";
+const pairs = [
+  ["浅色 --c-paper", cssVar(lightRoot, "--c-paper"), themeConst("LIGHT")],
+  ["深色 --c-paper", cssVar(darkRoot, "--c-paper"), themeConst("DARK")],
+];
+for (const [label, cssValue, themeValue] of pairs) {
+  check(
+    `${label} 与 lib/theme.ts 同值`,
+    Boolean(cssValue) && cssValue === themeValue,
+    cssValue && themeValue ? `${cssValue} / ${themeValue}` : `解析失败（css=${cssValue} theme=${themeValue}）`,
+  );
 }
 
 // ── 全局：打包残留与体积 ──────────────────────────────────

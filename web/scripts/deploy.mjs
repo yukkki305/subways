@@ -84,6 +84,14 @@ function pagesInBuild() {
   return pages;
 }
 
+/**
+ * 城市总览页（UX 阶段 3）：它不是某个城市的数据页，没有 data/<code>/meta.json，
+ * 所以不在 pages 里；但它是入口页，发布后必须能打开，单独当一页冒烟。
+ */
+const overviewPage = existsSync(join(OUT_DIR, "cities", "index.html"))
+  ? { code: "cities", path: "cities/", file: join(OUT_DIR, "cities", "index.html"), label: "全部城市" }
+  : null;
+
 const pages = pagesInBuild();
 if (pages.length === 0) {
   console.error("[deploy] out/ 里没有任何城市页，先跑一次构建");
@@ -110,6 +118,8 @@ if (emptyPages.length) {
   process.exit(1);
 }
 log(`页面 ${pages.length} 个：${pages.map((p) => (p.path || "(根)") + "→" + p.code).join("  ")}`);
+if (overviewPage) log(`总览页：${overviewPage.path}（${(statSync(overviewPage.file).size / 1024).toFixed(0)} KB）`);
+else console.error("[deploy] 警告：没有 out/cities/index.html，总览页不会被冒烟");
 log(`cities.json ${citiesJson.length} 条：${citiesJson.map((c) => `${c.code}:${c.lines}线`).join("  ")}`);
 
 /** 2. 准备 staging（out 内容 + .nojekyll） */
@@ -241,6 +251,7 @@ const allUrls = [
   SITE,
   `${SITE}data/cities.json`,
   ...pageUrls,
+  ...(overviewPage ? [SITE + overviewPage.path] : []),
   ...pages.flatMap((p) => probesFor(p.code)),
 ];
 
@@ -272,8 +283,18 @@ for (let attempt = 0; attempt < smokeDelays.length; attempt += 1) {
     citiesOk = false;
   }
   const badPages = pageChecks.filter((p) => !p.ok).map((p) => p.code);
+  // 总览页：200 + 标题 + 四城名都在（它是入口，缺一张卡就意味着某城进不去）
+  let overviewOk = true;
+  if (overviewPage) {
+    const r = results.find((x) => x.url === SITE + overviewPage.path);
+    const labels = citiesJson.map((c) => c.label);
+    overviewOk = Boolean(
+      r && r.status === 200 && r.text.includes("全部城市") && labels.every((l) => r.text.includes(l)),
+    );
+    if (!overviewOk) badPages.push("cities");
+  }
 
-  lastReport = `页面 ${pageChecks.length - badPages.length}/${pageChecks.length}｜数据 ${results.length - bad.length - 1}/${results.length - 1}｜cities.json ${citiesOk ? "ok" : "未就绪"}`;
+  lastReport = `页面 ${pageChecks.length + (overviewPage ? 1 : 0) - badPages.length}/${pageChecks.length + (overviewPage ? 1 : 0)}｜数据 ${results.length - bad.length - 1}/${results.length - 1}｜cities.json ${citiesOk ? "ok" : "未就绪"}`;
 
   if (bad.length === 0 && badPages.length === 0 && citiesOk) {
     smokeOk = true;
@@ -293,4 +314,4 @@ if (!smokeOk) {
   console.error(`[deploy] 线上冒烟失败：${lastReport}`);
   process.exit(1);
 }
-log(`线上可用：${pageUrls.join("  ")}`);
+log(`线上可用：${[...pageUrls, ...(overviewPage ? [SITE + overviewPage.path] : [])].join("  ")}`);

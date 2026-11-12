@@ -21,7 +21,9 @@
   --c-text: #2b2b2b;
   --c-text-body: #3f3a32;
   --c-text-muted: #6b6b6b;
-  --c-text-subtle: #8b8374;
+  /* 4.78:1 on --c-paper / 5.31:1 on --c-surface（UX 阶段 4 实测：原来的
+     #8b8374 只有 3.33:1，作为正文级元信息不达 4.5:1，压深到刚好过线） */
+  --c-text-subtle: #6f6a5c;
   --c-text-placeholder: #9c9486;
   --c-accent: #1f5fa8;
   --c-focus: #1f5fa8;

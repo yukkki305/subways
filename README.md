@@ -123,5 +123,5 @@ reference only.
 
 ---
 
-路线图：**P0 单城打样 ✅**（验收表见 `docs/acceptance-p0.md`）→ **P1a 三城试点 ✅**（广州 / 成都 / 合肥；[自证与 A1–A8 验收](docs/validation-p1a.md)、[计划与执行记录](docs/plan-p1a.md)、[探测报告](docs/probe/p1a.md)；四城已上线：`/`、`/gz/`、`/cd/`、`/hf/`）→ P1 全国 58 城 → P2 示意化 + 换乘规划 → P3 增量更新。
+路线图：**P0 单城打样 ✅**（验收表见 `docs/acceptance-p0.md`）→ **P1a 三城试点 ✅**（广州 / 成都 / 合肥；[自证与 A1–A8 验收](docs/validation-p1a.md)、[计划与执行记录](docs/plan-p1a.md)、[探测报告](docs/probe/p1a.md)；四城已上线：`/`、`/gz/`、`/cd/`、`/hf/`）→ **UX 打磨 ✅**（[城市总览](https://yukkki305.github.io/subways/cities/)、浅色/深色/跟随系统三态主题、[自证](docs/validation-ux.md)）→ P1 全国 58 城 → P2 示意化 + 换乘规划 → P3 增量更新。
 数据规模参考：截至 2024-12-31，全国 58 城 / 361–362 条运营线路 / 12,160.77 km。

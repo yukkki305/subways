@@ -1,7 +1,7 @@
 # UX 计划：城市总览页 + 深色模式
 
 > 目标：让四座城市“被看见”，并给地图加上深色模式。不触碰 P2（示意化）的工作。
-> 状态：阶段 0–4 已完成；阶段 5（发布）待做。
+> 状态：阶段 0–5 全部完成（2026-11-12）。
 > 关联：[颜色盘点](ux-color-inventory.md)、[P1a 自证](validation-p1a.md)。
 
 ---
@@ -166,3 +166,17 @@
 | 自证文档 | docs/validation-ux.md（U-A1…U-A7 对照、对比度表、E2E 场景表、校验增项表、五条已知局限） |
 
 卡点记录：这套 ego 运行时里 Emulation.setEmulatedMedia 对 matchMedia 不生效，系统主题「实时跟随」只能打桩验证解析路径，无法真机模拟。
+
+## 九、阶段 5 发布
+
+| 项 | 结果 |
+| --- | --- |
+| gh-pages 提交 | `9cda7dc`，staging **80 文件 / 8.37 MB** |
+| 冒烟 | 第 1–4 轮失败（`cities/` 404、个别 `data/sh/*` 连接被重置返回 0），**第 5 轮通过**：页面 5/5｜数据 27/27｜cities.json ok |
+| 线上五页 | `/`、`/cities/`、`/gz/`、`/cd/`、`/hf/` 全部 `map.loaded()=true`（总览页无地图） |
+| 深色线上 | `data-theme=dark`、四城 `background=#1A1A18`、`basemap` 源存在 |
+| 缩放 | 上海 9.71 / 广州 9.02 / 成都 9.56 / 合肥 10.11（与本地一致） |
+| 首屏 | 总览页 `ttfb 114 ms / dcl 139 ms / 24 个请求`；城市页 18 个请求 |
+| 截图 | `live-cities-dark.png`、`live-gz-dark.png`（线上广州 z12 深色） |
+
+冒烟失败的四轮不是新问题：Pages 重建期间 `cities/` 还没生成，且 CDN 抖动会让个别 `.geojson` 返回 0 状态（连接被重置）。这正是阶段 6.6 加多轮轮询的原因。

@@ -1,0 +1,54 @@
+{
+ "generated_at": "2026-11-12T14:15:04.087Z",
+ "city_code": "hf",
+ "city": "合肥市",
+ "city_label": "合肥",
+ "snapshot_date": "20261101",
+ "data_as_of": "2026-11-01",
+ "counts": {
+  "stations": 195,
+  "slots": 215,
+  "transfer_style_stations": 19,
+  "multi_line_stations": 19,
+  "needs_review": 2,
+  "split_groups": 0,
+  "transfer_candidates": 0,
+  "name_groups_multi": 19,
+  "lines": 8,
+  "transfers": 0,
+  "segments": 207
+ },
+ "total_bytes": 706403,
+ "files": [
+  {
+   "name": "lines.json",
+   "source": "data/processed/hefei/lines.json",
+   "bytes": 18208,
+   "sha256_16": "6c176da4b64f118a"
+  },
+  {
+   "name": "station.json",
+   "source": "data/processed/hefei/station.json",
+   "bytes": 182567,
+   "sha256_16": "d764b928ac52519a"
+  },
+  {
+   "name": "transfer.json",
+   "source": "data/processed/hefei/transfer.json",
+   "bytes": 345,
+   "sha256_16": "46a2a79a24966ea3"
+  },
+  {
+   "name": "segment.geojson",
+   "source": "data/processed/hefei/segment.geojson",
+   "bytes": 268192,
+   "sha256_16": "22c9fe3be8beb37f"
+  },
+  {
+   "name": "basemap.geojson",
+   "source": "data/processed/hefei/basemap.geojson",
+   "bytes": 237091,
+   "sha256_16": "d2b7174336522c09"
+  }
+ ]
+}

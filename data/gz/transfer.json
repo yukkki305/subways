@@ -1,0 +1,103 @@
+{
+ "city": "广州市",
+ "city_code": "gz",
+ "snapshot_date": "p1a-20261103",
+ "generated_at": "2026-11-05T23:06:44+08:00",
+ "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
+ "stats": {
+  "total": 3,
+  "by_type": {
+   "通道": 3
+  },
+  "needs_review": 3
+ },
+ "transfers": [
+  {
+   "id": "gz-station-bai-yun-wen-hua-guang-chang--gz-station-bai-yun-wen-hua-guang-chang-2",
+   "name": "白云文化广场",
+   "station_a": "gz-station-bai-yun-wen-hua-guang-chang",
+   "station_b": "gz-station-bai-yun-wen-hua-guang-chang-2",
+   "lines_a": [
+    "gz-line-2"
+   ],
+   "lines_b": [
+    "gz-line-12"
+   ],
+   "coord_a": [
+    113.27023,
+    23.192425
+   ],
+   "coord_b": [
+    113.271057,
+    23.195852
+   ],
+   "dist_m": 388.9,
+   "type": "通道",
+   "type_confidence": "low",
+   "type_note": "2 号线与 12 号线同名站，OSM 站距 390 m；12 号线该段为新建站体，是否为站内通道、及是否已开通运营均待核",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  },
+  {
+   "id": "gz-station-nan-cun-wan-bo--gz-station-nan-cun-wan-bo-2",
+   "name": "南村万博",
+   "station_a": "gz-station-nan-cun-wan-bo",
+   "station_b": "gz-station-nan-cun-wan-bo-2",
+   "lines_a": [
+    "gz-line-7"
+   ],
+   "lines_b": [
+    "gz-line-18"
+   ],
+   "coord_a": [
+    113.342299,
+    23.007227
+   ],
+   "coord_b": [
+    113.338951,
+    23.00649
+   ],
+   "dist_m": 352.8,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "7 号线与 18 号线同名站，OSM 站距 352 m；18 号线为深层站，两站经站内长通道连通。步行时间无可靠来源，按 ADR R5 留空",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  },
+  {
+   "id": "gz-station-mo-die-sha--gz-station-mo-die-sha-2",
+   "name": "磨碟沙",
+   "station_a": "gz-station-mo-die-sha",
+   "station_b": "gz-station-mo-die-sha-2",
+   "lines_a": [
+    "gz-line-8"
+   ],
+   "lines_b": [
+    "gz-line-18"
+   ],
+   "coord_a": [
+    113.336252,
+    23.101204
+   ],
+   "coord_b": [
+    113.338242,
+    23.103619
+   ],
+   "dist_m": 336.3,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "8 号线与 18 号线同名站，OSM 站距 337 m；18 号线为深层站，经站内通道连通。待现场核对通道长度",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  }
+ ]
+}

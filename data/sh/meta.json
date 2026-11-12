@@ -1,0 +1,60 @@
+{
+ "generated_at": "2026-11-12T14:15:04.108Z",
+ "city_code": "sh",
+ "city": "上海市",
+ "city_label": "上海",
+ "snapshot_date": "20261101",
+ "data_as_of": "2026-11-01",
+ "counts": {
+  "stations": 423,
+  "slots": 592,
+  "transfer_style_stations": 100,
+  "multi_line_stations": 83,
+  "needs_review": 43,
+  "split_groups": 8,
+  "transfer_candidates": 12,
+  "name_groups_multi": 133,
+  "lines": 20,
+  "transfers": 12,
+  "segments": 570
+ },
+ "total_bytes": 1973358,
+ "files": [
+  {
+   "name": "lines.json",
+   "source": "data/processed/shanghai/lines.json",
+   "bytes": 44308,
+   "sha256_16": "414d7691b15e4cbc"
+  },
+  {
+   "name": "station.json",
+   "source": "data/processed/shanghai/station.json",
+   "bytes": 434587,
+   "sha256_16": "63b2384197ecc7f4"
+  },
+  {
+   "name": "transfer.json",
+   "source": "data/processed/shanghai/transfer.json",
+   "bytes": 10032,
+   "sha256_16": "99035df589983689"
+  },
+  {
+   "name": "segment.geojson",
+   "source": "data/processed/shanghai/segment.geojson",
+   "bytes": 896707,
+   "sha256_16": "820e9e4be30ccfc8"
+  },
+  {
+   "name": "basemap.geojson",
+   "source": "data/processed/basemap/shanghai-basemap.geojson",
+   "bytes": 495983,
+   "sha256_16": "8d0e625c1a247720"
+  },
+  {
+   "name": "sea.geojson",
+   "source": "data/processed/basemap/shanghai-sea.geojson",
+   "bytes": 91741,
+   "sha256_16": "605ae5bbbb924328"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+[
+ {
+  "code": "cd",
+  "label": "成都",
+  "city": "成都市",
+  "lines": 16,
+  "stations": 364,
+  "segments": 454,
+  "transfers": 4,
+  "snapshot_date": "p1a-20261103",
+  "has_basemap": true,
+  "has_sea": false,
+  "bytes": 1247919
+ },
+ {
+  "code": "gz",
+  "label": "广州",
+  "city": "广州市",
+  "lines": 19,
+  "stations": 320,
+  "segments": 393,
+  "transfers": 3,
+  "snapshot_date": "p1a-20261103",
+  "has_basemap": true,
+  "has_sea": false,
+  "bytes": 1838227
+ },
+ {
+  "code": "hf",
+  "label": "合肥",
+  "city": "合肥市",
+  "lines": 8,
+  "stations": 195,
+  "segments": 207,
+  "transfers": 0,
+  "snapshot_date": "20261101",
+  "has_basemap": true,
+  "has_sea": false,
+  "bytes": 706403
+ },
+ {
+  "code": "sh",
+  "label": "上海",
+  "city": "上海市",
+  "lines": 20,
+  "stations": 423,
+  "segments": 570,
+  "transfers": 12,
+  "snapshot_date": "20261101",
+  "has_basemap": true,
+  "has_sea": true,
+  "bytes": 1973358
+ }
+]

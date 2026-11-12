@@ -1,0 +1,54 @@
+{
+ "generated_at": "2026-11-12T14:15:04.081Z",
+ "city_code": "gz",
+ "city": "广州市",
+ "city_label": "广州",
+ "snapshot_date": "p1a-20261103",
+ "data_as_of": "2026-11-03",
+ "counts": {
+  "stations": 320,
+  "slots": 414,
+  "transfer_style_stations": 75,
+  "multi_line_stations": 69,
+  "needs_review": 26,
+  "split_groups": 3,
+  "transfer_candidates": 3,
+  "name_groups_multi": 79,
+  "lines": 19,
+  "transfers": 3,
+  "segments": 393
+ },
+ "total_bytes": 1838227,
+ "files": [
+  {
+   "name": "lines.json",
+   "source": "data/processed/guangzhou/lines.json",
+   "bytes": 40228,
+   "sha256_16": "99bc9df40f4b71b0"
+  },
+  {
+   "name": "station.json",
+   "source": "data/processed/guangzhou/station.json",
+   "bytes": 316254,
+   "sha256_16": "f2c293536e856a6e"
+  },
+  {
+   "name": "transfer.json",
+   "source": "data/processed/guangzhou/transfer.json",
+   "bytes": 2939,
+   "sha256_16": "f8752103e0034e57"
+  },
+  {
+   "name": "segment.geojson",
+   "source": "data/processed/guangzhou/segment.geojson",
+   "bytes": 1251812,
+   "sha256_16": "6c8b40bcd89d8393"
+  },
+  {
+   "name": "basemap.geojson",
+   "source": "data/processed/guangzhou/basemap.geojson",
+   "bytes": 226994,
+   "sha256_16": "ec71464d428111d3"
+  }
+ ]
+}

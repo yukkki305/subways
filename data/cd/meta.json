@@ -1,0 +1,54 @@
+{
+ "generated_at": "2026-11-12T14:15:04.060Z",
+ "city_code": "cd",
+ "city": "成都市",
+ "city_label": "成都",
+ "snapshot_date": "p1a-20261103",
+ "data_as_of": "2026-11-03",
+ "counts": {
+  "stations": 364,
+  "slots": 470,
+  "transfer_style_stations": 85,
+  "multi_line_stations": 80,
+  "needs_review": 31,
+  "split_groups": 2,
+  "transfer_candidates": 4,
+  "name_groups_multi": 93,
+  "lines": 16,
+  "transfers": 4,
+  "segments": 454
+ },
+ "total_bytes": 1247919,
+ "files": [
+  {
+   "name": "lines.json",
+   "source": "data/processed/chengdu/lines.json",
+   "bytes": 36120,
+   "sha256_16": "f600c4988770e207"
+  },
+  {
+   "name": "station.json",
+   "source": "data/processed/chengdu/station.json",
+   "bytes": 362168,
+   "sha256_16": "186b03ba5d586da3"
+  },
+  {
+   "name": "transfer.json",
+   "source": "data/processed/chengdu/transfer.json",
+   "bytes": 3566,
+   "sha256_16": "856254bbb5fb637a"
+  },
+  {
+   "name": "segment.geojson",
+   "source": "data/processed/chengdu/segment.geojson",
+   "bytes": 604128,
+   "sha256_16": "8940c6b3f6f6788a"
+  },
+  {
+   "name": "basemap.geojson",
+   "source": "data/processed/chengdu/basemap.geojson",
+   "bytes": 241937,
+   "sha256_16": "056eac40c487e7dc"
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+{
+ "city": "成都市",
+ "city_code": "cd",
+ "snapshot_date": "p1a-20261103",
+ "generated_at": "2026-11-05T22:25:52+08:00",
+ "rules": "ADR R5（只表达未合并两站；type ∈ 同站/通道/出站换乘）+ R7（walk_minutes 无来源填 null）",
+ "stats": {
+  "total": 4,
+  "by_type": {
+   "通道": 4
+  },
+  "needs_review": 4
+ },
+ "transfers": [
+  {
+   "id": "cd-station-fu-hua-yuan--cd-station-fu-hua-yuan-3",
+   "name": "孵化园",
+   "station_a": "cd-station-fu-hua-yuan",
+   "station_b": "cd-station-fu-hua-yuan-3",
+   "lines_a": [
+    "cd-line-1"
+   ],
+   "lines_b": [
+    "cd-line-18"
+   ],
+   "coord_a": [
+    104.061717,
+    30.577638
+   ],
+   "coord_b": [
+    104.065471,
+    30.579055
+   ],
+   "dist_m": 392.9,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "1/9/18 号线三个站体相距 195.8–392.4 m；1↔9 与 9↔18 为通道，1↔18 跨两个站体，类型待核",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  },
+  {
+   "id": "cd-station-li-gong-da-xue--cd-station-li-gong-da-xue-2",
+   "name": "理工大学",
+   "station_a": "cd-station-li-gong-da-xue",
+   "station_b": "cd-station-li-gong-da-xue-2",
+   "lines_a": [
+    "cd-line-7"
+   ],
+   "lines_b": [
+    "cd-line-8"
+   ],
+   "coord_a": [
+    104.132475,
+    30.676539
+   ],
+   "coord_b": [
+    104.135662,
+    30.676003
+   ],
+   "dist_m": 311.1,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "7/8 号线站体相距 310.6 m，按通道换乘处理，待官方资料核对",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  },
+  {
+   "id": "cd-station-fu-hua-yuan-2--cd-station-fu-hua-yuan-3",
+   "name": "孵化园",
+   "station_a": "cd-station-fu-hua-yuan-2",
+   "station_b": "cd-station-fu-hua-yuan-3",
+   "lines_a": [
+    "cd-line-9"
+   ],
+   "lines_b": [
+    "cd-line-18"
+   ],
+   "coord_a": [
+    104.063729,
+    30.577953
+   ],
+   "coord_b": [
+    104.065471,
+    30.579055
+   ],
+   "dist_m": 207.0,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "1/9/18 号线三个站体相距 195.8–392.4 m；1↔9 与 9↔18 为通道，1↔18 跨两个站体，类型待核",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  },
+  {
+   "id": "cd-station-fu-hua-yuan--cd-station-fu-hua-yuan-2",
+   "name": "孵化园",
+   "station_a": "cd-station-fu-hua-yuan",
+   "station_b": "cd-station-fu-hua-yuan-2",
+   "lines_a": [
+    "cd-line-1"
+   ],
+   "lines_b": [
+    "cd-line-9"
+   ],
+   "coord_a": [
+    104.061717,
+    30.577638
+   ],
+   "coord_b": [
+    104.063729,
+    30.577953
+   ],
+   "dist_m": 196.1,
+   "type": "通道",
+   "type_confidence": "medium",
+   "type_note": "1/9/18 号线三个站体相距 195.8–392.4 m；1↔9 与 9↔18 为通道，1↔18 跨两个站体，类型待核",
+   "walk_minutes": null,
+   "needs_review": true,
+   "source": "人工判定（docs/mappings/transfer-decisions.md），几何距离来自 OSM",
+   "source_license": "ODbL-1.0",
+   "as_of": "p1a-20261103"
+  }
+ ]
+}

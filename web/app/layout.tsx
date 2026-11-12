@@ -7,8 +7,12 @@ const SITE = "https://yukkki305.github.io/subways/";
  * 首屏前把主题写进 <html data-theme>：否则深色用户会看到一闪而过的浅色。
  * 必须内联、必须在 <head> 里、必须在样式表生效前执行；逻辑与 lib/theme.ts 的
  * resolveTheme 保持一致（存的是模式，不是解析结果）。
+ *
+ * 另外把结果挂到 window.__THEME__：MapView 建 style 时要读它。
+ * 只读 data-theme 不保险——hydrate 期间 React 可能先把属性抹掉再补回来，
+ * 于是地图会先用浅色调色板建出来（实测 215 ms 时仍是 #F4F1EA）。
  */
-const THEME_INIT = `(function(){try{var k="subways-theme";var m=localStorage.getItem(k);var dark=window.matchMedia("(prefers-color-scheme: dark)").matches;var t=(m==="light"||m==="dark")?m:(dark?"dark":"light");document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}catch(e){}})();`;
+const THEME_INIT = `(function(){try{var k="subways-theme";var m=localStorage.getItem(k);var dark=window.matchMedia("(prefers-color-scheme: dark)").matches;var t=(m==="light"||m==="dark")?m:(dark?"dark":"light");document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;window.__THEME__=t;}catch(e){}})();`;
 
 /**
  * P1a-6.2：页面级元信息（标题/描述/canonical/OG）改由各城市页面自己给，

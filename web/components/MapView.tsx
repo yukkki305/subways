@@ -176,8 +176,16 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
     let disposed = false;
     let cleanupThemeObserver: (() => void) | null = null;
 
-    /** 首帧就用当前主题建 style，避免深色用户先看到一帧浅色地图 */
-    const initialTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    /**
+     * 首帧就用当前主题建 style，避免深色用户先看到一帧浅色地图。
+     * 优先读 window.__THEME__（首屏内联脚本写的），dataset 只作兜底：
+     * hydrate 期间 React 可能短暂抹掉 <html data-theme>。
+     */
+    const initialTheme =
+      (window as unknown as { __THEME__?: string }).__THEME__ === "dark" ||
+      document.documentElement.dataset.theme === "dark"
+        ? "dark"
+        : "light";
 
     async function boot() {
       try {

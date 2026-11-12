@@ -87,6 +87,7 @@
 | --- | --- | --- | --- |
 | 1 | 深色下右上角缩放按钮仍是一块白底 | maplibre 的样式表在 `globals.css` **之后**加载，同权重时我方规则被覆盖（`background`/`border-radius`/`box-shadow` 全丢，只有不冲突的 `filter` 生效） | 选择器加 `body` 前缀提到 `0,1,1`，并对 maplibre 自带的 `.maplibregl-ctrl-group:not(:empty)` 用同形选择器对齐 |
 | 2 | 双语站名的英文副行在深色下仍是浅色 | 英文颜色写在 `text-field` 的 `format` 段里，属于 **layout** 而不是 paint，`setPaintProperty("text-color")` 改不到 | `applyPalette()` 里额外重设三个双语层的 `text-field`（`bilingualField(palette, withEn)`） |
+| 3 | 深色用户刷新时会先闪一帧浅色地图 | 建 style 时读的是 `<html data-theme>`，而 hydrate 期间 React 会短暂抹掉这个属性 → 首帧按浅色调色板建出来（实测 215 ms 时 `background` 仍是 `#F4F1EA`） | `THEME_INIT` 额外写 `window.__THEME__`，`MapView` 优先读它、`dataset` 只作兜底；同时把加载遮罩从半透明 `--c-scrim` 改成不透明 `--c-paper`，即使真有一帧浅色也被完全挡住 |
 
 ### 验证
 
@@ -95,6 +96,7 @@
 - **切换不动相机**：切换前后 `zoom` 与 `center` 完全一致（`cameraSame: true`）。
 - **线路颜色未变**（D6）：`metro-line.line-color` 仍是那组 `match` 表达式，20 条线一色不改。
 - 缩放控件：深色下 `background rgb(38,38,35)`、`border-radius 10px`、投影为深色 token。
+- **首帧无闪**：深色下重载页面，从第一帧开始 `background` 就是 `#1A1A18`（采样 0/849 ms 两点，中间无浅色帧）；加载遮罩为不透明 `#1a1a18`。
 - `typecheck` 干净；`build` 成功（postbuild 释放 5.14 MB）；`verify` **87 项 / 4 城 / 0 失败**。
 - 截图：`E:\subway-data\preview\ux2-sh-dark.png`（全城）、`ux2-sh-dark-z13.png`（站名与圆点）、`ux2-sh-dark-panel.png`（选中态 + 抽屉）。
 

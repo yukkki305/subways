@@ -330,8 +330,8 @@ body .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
   z-index: 3;
   display: grid;
   place-items: center;
-  background: var(--c-scrim);
-  backdrop-filter: blur(2px);
+  /* 不透明：与地图纸面同色，深色首屏加载期间不会透出浅色地图（UX-2） */
+  background: var(--c-paper);
   animation: fade-in 160ms ease-out;
 }
 

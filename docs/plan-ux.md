@@ -1,7 +1,7 @@
 # UX 计划：城市总览页 + 深色模式
 
 > 目标：让四座城市“被看见”，并给地图加上深色模式。不触碰 P2（示意化）的工作。
-> 状态：阶段 0–1 已完成；阶段 2–5 待做。
+> 状态：阶段 0–2 已完成；阶段 3–5 待做。
 > 关联：[颜色盘点](ux-color-inventory.md)、[P1a 自证](validation-p1a.md)。
 
 ---
@@ -25,7 +25,7 @@
 | --- | --- | --- | --- |
 | 0 | 颜色盘点 + `lib/theme.ts` 契约（`Palette`/`LIGHT`/`DARK`/`resolveTheme`） | 0.5 h | ✅ 本轮 |
 | 1 | 界面深色地基：CSS token 化、`<html data-theme>` 注水脚本、`ThemeToggle` | 2.5 h | ✅ 本轮 |
-| 2 | 地图深色：`buildStyle(palette)` 接线、`applyTheme()` 覆盖 21 层、对比度校准 | 3 h | 待做 |
+| 2 | 地图深色：`buildStyle(palette)` 接线、`applyTheme()` 覆盖 21 层、对比度校准 | 3 h | ✅ 本轮 |
 | 3 | 城市总览页：`/cities/`、卡片、SVG 缩略图脚本、三处入口 | 3 h | 待做 |
 | 4 | 校验与自证：verify 增项、sitemap、主题持久化 E2E、`docs/validation-ux.md` | 2 h | 待做 |
 | 5 | 发布：5 页进冒烟、线上深浅各复核一次 | 0.5 h | 待做 |
@@ -67,6 +67,36 @@
 - 三态循环实测：`system→light→dark→system`，`localStorage` 分别写 `light/dark/system`；刷新后保持（首屏脚本先生效）。
 - 「跟随系统」解析：把 `matchMedia` 打桩成 dark 后切到 system，`data-theme` 变 `dark`（真实 bundle，不是源码推理）。
 - `typecheck` 干净；`npm run verify` **87 项 / 4 城 / 0 失败**；导出 **7.93 MB**（+0.02 MB，gzip ≈1.48 MB）。
+
+---
+
+## 六、阶段 2 交付（已完成）
+
+1. `web/lib/mapStyle.ts`：
+   - 新增 `PALETTE_PAINT`（**20 条** `[layer, prop, keyof Palette]`）——深色地图的唯一清单；
+   - 新增 `BILINGUAL_LAYERS`（3 个双语站名层）与 `bilingualField()`；
+   - 新增 `applyPalette(map, palette)`：逐层 `setPaintProperty` + 对三个双语层 `setLayoutProperty("text-field", …)`。
+2. `web/components/MapView.tsx`：
+   - 首帧按 `documentElement.dataset.theme` 选 `paletteFor(theme)` 建 style（深色用户不会先看到一帧浅色地图）；
+   - `MutationObserver` 监听 `data-theme` 变化 → `applyPalette()`，卸载时 `disconnect()`。
+3. `web/app/globals.css`：maplibre 缩放控件跟随主题（`--c-ctrl-icon-filter` 浅 `none` / 深 `invert(0.86)`）。
+
+### 两个真问题
+
+| # | 现象 | 根因 | 修法 |
+| --- | --- | --- | --- |
+| 1 | 深色下右上角缩放按钮仍是一块白底 | maplibre 的样式表在 `globals.css` **之后**加载，同权重时我方规则被覆盖（`background`/`border-radius`/`box-shadow` 全丢，只有不冲突的 `filter` 生效） | 选择器加 `body` 前缀提到 `0,1,1`，并对 maplibre 自带的 `.maplibregl-ctrl-group:not(:empty)` 用同形选择器对齐 |
+| 2 | 双语站名的英文副行在深色下仍是浅色 | 英文颜色写在 `text-field` 的 `format` 段里，属于 **layout** 而不是 paint，`setPaintProperty("text-color")` 改不到 | `applyPalette()` 里额外重设三个双语层的 `text-field`（`bilingualField(palette, withEn)`） |
+
+### 验证
+
+- 浅色逐值不变（运行时回读）：`background #F4F1EA`、`metro-line-casing #F4F1EA`、`station-transfer-halo #F4F1EA`、`station-dot #FFFFFF`、`station-label-major #222222`、`text-halo rgba(244,241,234,0.95)`、`water-fill #D7E4EF`、双语层英文色 `#6E6E6E`。
+- 深色（同一次回读）：`background #1A1A18`、casing/halo `#1A1A18`、`station-dot #F2F0EB` / 环 `#8A8A83`、换乘点环 `#E9E6DF`、`station-label-major #F0EDE6` / halo `rgba(26,26,24,0.92)`、`station-label-minor #BDB8AF`、`water #16222B`、`sea #121C24`、`district-line #2B2B28`、双语英文色 `#8F8A81`。
+- **切换不动相机**：切换前后 `zoom` 与 `center` 完全一致（`cameraSame: true`）。
+- **线路颜色未变**（D6）：`metro-line.line-color` 仍是那组 `match` 表达式，20 条线一色不改。
+- 缩放控件：深色下 `background rgb(38,38,35)`、`border-radius 10px`、投影为深色 token。
+- `typecheck` 干净；`build` 成功（postbuild 释放 5.14 MB）；`verify` **87 项 / 4 城 / 0 失败**。
+- 截图：`E:\subway-data\preview\ux2-sh-dark.png`（全城）、`ux2-sh-dark-z13.png`（站名与圆点）、`ux2-sh-dark-panel.png`（选中态 + 抽屉）。
 
 ---
 

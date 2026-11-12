@@ -669,3 +669,12 @@ npm run deploy -- --skip-smoke
 - 地图颜色只有一处定义：`lib/theme.ts` 的 `LIGHT`/`DARK` 调色板，经 `buildStyle(..., palette)` 进 MapLibre。
 - 主题切换：`components/ThemeToggle.tsx`（页脚三态：跟随系统 → 浅色 → 深色），模式存 `localStorage["subways-theme"]`；`app/layout.tsx` 里的内联脚本在首屏前把它写进 `<html data-theme>`，否则深色用户会闪一下浅色。
 - 本地预览：`node E:\subway-data\probe-ux\serve.mjs`（把 `out/` 挂到 `/subways/`，端口 4402，带 `no-store`）。改完 CSS 记得用 `?v=N` 刷新，浏览器会缓存旧 CSS。
+
+## 地图主题（UX 阶段 2）
+
+- 建 style 时就带上当前主题：`MapView` 读 `<html data-theme>` → `paletteFor(theme)` → `buildStyle(..., palette)`，深色用户不会先看到一帧浅色地图。
+- 切换时不重建 style：`MutationObserver` 监听 `data-theme`，调 `applyPalette(map, palette)` 逐层 `setPaintProperty`。这样相机、缩放、选中态、事件都不受影响。
+- **加新图层要登记**：若该图层用了 `Palette` 里的颜色，必须把 `[layer, prop, key]` 加进 `lib/mapStyle.ts` 的 `PALETTE_PAINT`，否则切主题时它会留在旧配色上。
+- **双语站名是例外**：英文副行的颜色写在 `text-field` 的 `format` 里（layout 而非 paint），`applyPalette` 里对 `BILINGUAL_LAYERS` 单独重设 `text-field`。
+- **线路颜色不随主题变**（D6）：深浅两套下 `metro-line.line-color` 是同一个表达式；深色可读性靠 casing 与背景同为纸色实现的「交叉留白」。
+- maplibre 自带控件（缩放按钮）不吃我们的 token，靠 `--c-ctrl-icon-filter` + `body .maplibregl-ctrl-group…` 覆盖；**别去掉 `body` 前缀**，maplibre 的 CSS 在 `globals.css` 之后加载，同权重会被它盖掉。

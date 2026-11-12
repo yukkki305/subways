@@ -1,4 +1,4 @@
-import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
+import type { LayerSpecification, Map as MapLibreMap, StyleSpecification } from "maplibre-gl";
 
 /** 颜色只在 lib/theme.ts 里定义一次（浅色 = LIGHT，深色 = DARK），组件与图层都不硬编码 */
 import { LIGHT, type Palette } from "./theme";
@@ -18,6 +18,25 @@ function colorExpression(lineColors: LineColors, palette: Palette): unknown {
   const pairs = lineColors.flatMap(([id, color]) => [id, color]);
   return ["match", ["get", "line_id"], ...pairs, palette.lineFallback];
 }
+
+/**
+ * 双语站名的 text-field。
+ * 英文副行的颜色写在 format 段里（不是图层 paint），所以切主题时**必须重设 layout**，
+ * 单独 setPaintProperty("text-color") 改不到它 —— 见 applyPalette()。
+ */
+function bilingualField(palette: Palette, withEn: boolean): unknown {
+  return withEn
+    ? [
+        "format",
+        ["get", "name_display"],
+        { "font-scale": 1 },
+        "\n",
+        ["get", "name_en"],
+        { "font-scale": 0.66, "text-color": palette.labelSubtle },
+      ]
+    : ["get", "name_display"];
+}
+
 
 /** 中英双语站名图层（S4-2）：中文一行 + 英文小字一行，靠 format 的第二段调字号和颜色 */
 function bilingualLabel(
@@ -40,16 +59,7 @@ function bilingualLabel(
       : ["all", ["has", "name_en"], lengthFilter],
     layout: {
       "text-font": FONT_STACK,
-      "text-field": withEn
-        ? [
-            "format",
-            ["get", "name_display"],
-            { "font-scale": 1 },
-            "\n",
-            ["get", "name_en"],
-            { "font-scale": 0.66, "text-color": palette.labelSubtle },
-          ]
-        : ["get", "name_display"],
+      "text-field": bilingualField(palette, withEn),
       "text-size": ["interpolate", ["linear"], ["zoom"], 13, 12, 15, 13.5, 17, 15.5],
       "text-line-height": 1.02,
       "text-anchor": "left",
@@ -383,4 +393,59 @@ export function boundsOf(segments: GeoJSON.FeatureCollection): [[number, number]
     [minX, minY],
     [maxX, maxY],
   ];
+}
+
+/**
+ * 图层 → 由调色板驱动的 paint 属性。
+ * 这是「深色地图」的唯一清单：新增图层若用了 palette 里的颜色，必须在这里登记，
+ * 否则切主题时它会留在旧配色上（阶段 2 的 verify 会比对清单与实际 palette 用量）。
+ */
+export const PALETTE_PAINT: Array<[layer: string, prop: string, key: keyof Palette]> = [
+  ["background", "background-color", "paper"],
+  ["sea-fill", "fill-color", "sea"],
+  ["water-fill", "fill-color", "water"],
+  ["coastline", "line-color", "coastline"],
+  ["water-line", "line-color", "waterLine"],
+  ["district-line", "line-color", "district"],
+  ["province-line", "line-color", "province"],
+  ["metro-line-casing", "line-color", "paper"],
+  ["station-transfer-halo", "circle-color", "paper"],
+  ["station-dot", "circle-color", "dotFill"],
+  ["station-dot", "circle-stroke-color", "dotRing"],
+  ["station-dot-transfer", "circle-color", "dotFill"],
+  ["station-dot-transfer", "circle-stroke-color", "dotRingTransfer"],
+  ["station-selected", "circle-stroke-color", "ink"],
+  ["station-hover-label", "text-color", "ink"],
+  ["station-hover-label", "text-halo-color", "hoverHalo"],
+  ["station-label-major", "text-color", "labelPrimary"],
+  ["station-label-major", "text-halo-color", "haloPrimary"],
+  ["station-label-minor", "text-color", "labelSecondary"],
+  ["station-label-minor", "text-halo-color", "haloSecondary"],
+];
+
+/** 双语站名层：英文副行颜色藏在 text-field 的 format 里，只能整段重设 */
+const BILINGUAL_LAYERS: Array<[layer: string, withEn: boolean]> = [
+  ["station-label-bilingual", true],
+  ["station-label-long-zh", false],
+  ["station-label-bilingual-long", true],
+];
+
+/**
+ * 把调色板逐层写到已存在的 style 上。
+ *
+ * 为什么不 map.setStyle(buildStyle(...)) 重建：会丢相机、选中态与已注册的
+ * source/layer 相关状态，还要重新 fitBounds 一遍；这里只改颜色与三段 text-field，
+ * 相机、手势、点击都不受影响。
+ *
+ * 线路颜色**不在其列**（D6：深色不微调线色，只靠 casing 的纸色留白保证可读）。
+ */
+export function applyPalette(map: MapLibreMap, palette: Palette): void {
+  for (const [layer, prop, key] of PALETTE_PAINT) {
+    if (!map.getLayer(layer)) continue;
+    map.setPaintProperty(layer, prop as never, palette[key] as never);
+  }
+  for (const [layer, withEn] of BILINGUAL_LAYERS) {
+    if (!map.getLayer(layer)) continue;
+    map.setLayoutProperty(layer, "text-field", bilingualField(palette, withEn) as never);
+  }
 }

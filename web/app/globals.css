@@ -26,6 +26,7 @@
   --c-accent: #1f5fa8;
   --c-focus: #1f5fa8;
   --c-focus-ring: rgba(31, 95, 168, 0.35);
+  --c-ctrl-icon-filter: none;
   --c-danger: #c0392b;
   --c-danger-strong: #8c1d1d;
   --c-danger-glow: rgba(192, 57, 43, 0.45);
@@ -102,6 +103,7 @@
   --c-accent: #7fb2ea;
   --c-focus: #7fb2ea;
   --c-focus-ring: rgba(127, 178, 234, 0.35);
+  --c-ctrl-icon-filter: invert(0.86);
   --c-danger: #e2725b;
   --c-danger-strong: #f0978a;
   --c-danger-glow: rgba(226, 114, 91, 0.45);
@@ -171,6 +173,23 @@ body {
 .maplibregl-ctrl-attrib {
   font-size: 10px;
   background: var(--c-surface) !important;
+}
+
+/* 缩放按钮跟随主题：maplibre 自带白底黑图标，深色下会是一块白斑。
+   注意特异性：maplibre 的样式表在 globals.css 之后加载，同权重会被它盖掉，
+   所以统一挂一层 body 前缀（0,1,1 > 0,1,0）而不是写 !important。 */
+body .maplibregl-ctrl-group:not(:empty) {
+  background: var(--c-surface-solid);
+  border-radius: var(--radius-md);
+  box-shadow: var(--c-shadow-card);
+}
+
+body .maplibregl-ctrl-group button + button {
+  border-top-color: var(--c-border);
+}
+
+body .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: var(--c-ctrl-icon-filter);
 }
 
 

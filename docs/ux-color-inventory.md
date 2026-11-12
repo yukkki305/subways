@@ -207,3 +207,12 @@ station-label-bilingual-long
 - `:root` 现在是 **44 个 `--c-*`**：颜色 36（paper/bg/panel/surface×3/scrim/mask/line/border×3/text×5/accent/focus/focus-ring/danger×3/hover/active/mark×2/on-invert/badge×2/ok×2/warn×2/bad×2）+ 阴影 5 + 其余为旧名别名。
 - 地图调色板（`lib/theme.ts` 的 `Palette`）与界面 token 是**两套**：前者喂给 MapLibre 的 paint 属性，后者是 CSS；两边唯一必须一致的量是 `paper`（`--c-paper` 对 `Palette.paper`），阶段 4 的 verify 会断言这一点。
 - 深色取值原则：纸面 `#1a1a18`（暖黑，不用纯黑以免与线路色冲突）、文字 `#e9e6df`（不是纯白）、强调 `#7fb2ea`、danger `#e2725b`；阴影统一加深并降低透明度。
+
+## 阶段 2 落地（地图调色板接线，2026-11-12）
+
+- `lib/mapStyle.ts` 里出现了一份**可枚举清单** `PALETTE_PAINT`（20 条 `[layer, prop, keyof Palette]`），`applyPalette()` 照着它逐层 `setPaintProperty`。这是「切主题漏层」的唯一防线：**新加图层若取色于 palette，必须登记进这张表**。
+- 三个双语站名层（`station-label-bilingual` / `station-label-long-zh` / `station-label-bilingual-long`）单独处理：英文副行的颜色在 `text-field` 的 `format` 段里，属于 layout，必须整段 `setLayoutProperty` 重设，`setPaintProperty("text-color")` 对它无效。
+- 为什么不用 `setStyle(buildStyle(...))` 重建：会丢相机、选中态、已注册的 source/layer 状态，还得重新 `fitBounds`；现在只改颜色 + 三段 `text-field`，相机与手势完全不动（实测切换前后 `zoom`/`center` 一致）。
+- 线路色**不在清单里**（D6）：`metro-line.line-color` 在深浅两套下是同一个 `match` 表达式，20 条线一色不改；深色下的可读性靠 `metro-line-casing` 与 `background` 同为纸色（`#1A1A18`）来实现「交叉处留白」。
+- 深色回读值：`background/casing/halo #1A1A18`、`station-dot #F2F0EB` + 环 `#8A8A83`、换乘点环 `#E9E6DF`、`station-label-major #F0EDE6` + halo `rgba(26,26,24,.92)`、`station-label-minor #BDB8AF`、`water #16222B`、`sea #121C24`、`district-line #2B2B28`、双语英文 `#8F8A81`。
+- 一处容易被忽略的「非 map paint」颜色：maplibre 自带缩放控件（白底 + 深色图标），靠 `--c-ctrl-icon-filter`（浅 `none` / 深 `invert(0.86)`）+ `body .maplibregl-ctrl-group:not(:empty)…` 前缀解决；前缀是必须的，maplibre 的 CSS 在 `globals.css` 之后加载，同权重会被覆盖。

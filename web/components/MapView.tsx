@@ -10,7 +10,8 @@ import SearchBox from "@/components/SearchBox";
 import StationPanel from "@/components/StationPanel";
 import ThemeToggle from "@/components/ThemeToggle";
 import type { CityLink } from "@/lib/cities";
-import { boundsOf, buildStyle, type LineColors } from "@/lib/mapStyle";
+import { boundsOf, buildStyle, applyPalette, type LineColors } from "@/lib/mapStyle";
+import { paletteFor } from "@/lib/theme";
 import type { SearchHit } from "@/lib/search";
 import { FONT_STACK_CSS } from "../lib/typography";
 import {
@@ -173,6 +174,10 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
 
   useEffect(() => {
     let disposed = false;
+    let cleanupThemeObserver: (() => void) | null = null;
+
+    /** 首帧就用当前主题建 style，避免深色用户先看到一帧浅色地图 */
+    const initialTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 
     async function boot() {
       try {
@@ -195,7 +200,7 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
 
         const map = new maplibregl.Map({
           container: boxRef.current,
-          style: buildStyle(basemap, segments, stationCollection, lineColors, lineTypes, sea),
+          style: buildStyle(basemap, segments, stationCollection, lineColors, lineTypes, sea, paletteFor(initialTheme)),
           center,
           zoom,
         // 中文与西文都走本机渲染（不请求 glyph PBF），字体栈统一在 lib/typography.ts
@@ -289,6 +294,20 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
           w.__mapErrors = [...(w.__mapErrors ?? []), String(e.error?.message ?? e)];
         });
 
+        /**
+         * 深色地图（UX-2）：监听从 <html data-theme> 上来的主题变化。
+         * 主题的唯一真源是那道 data-theme 属性（首屏脚本 + ThemeToggle 都在写它），
+         * 这里只负责把调色板搬到图层上，不自己判断系统偏好。
+         */
+        const syncPalette = () => {
+          const theme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+          applyPalette(map, paletteFor(theme));
+        };
+        map.once("load", syncPalette);
+        const themeObserver = new MutationObserver(syncPalette);
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+        cleanupThemeObserver = () => themeObserver.disconnect();
+
         // 自查用：E2E 脚本通过 window.__map 读相机与图层状态
         (window as unknown as { __map?: maplibregl.Map }).__map = map;
       } catch (err) {
@@ -302,6 +321,7 @@ export default function MapView({ cityCode, cityLabel, center, zoom, cities }: P
 
     return () => {
       disposed = true;
+      cleanupThemeObserver?.();
       mapRef.current?.remove();
       mapRef.current = null;
     };

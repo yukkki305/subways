@@ -59,6 +59,26 @@ python pipeline\18_admin_ids.py --fill     # → data/cities-ledger.csv
 
 实测：28 省 / 1.74 GB，扫描约 100 s；台账 **58/58** 城两列 id 全部回填。
 
+### G0 口径闸门：`19_check_ledger.py`
+
+进阶段 1 之前先对一次账：台账结构、文档批次表、前端产物、OSM 存在性。
+
+```powershell
+python pipeline\19_check_ledger.py            # 常规：unknown 只警告
+python pipeline\19_check_ledger.py --strict   # unknown 也算失败
+```
+
+实测 **13 项：通过 12｜失败 0｜待复核 1**。唯一警告是 D 组「待做城在 OSM 至少有 1 条线路关系」——`network` 标签覆盖不全，15 城取不到（镇江、金华、嘉兴、资阳、鄂州、湘潭、许昌、咸阳、哈尔滨、厦门、贵阳、乌鲁木齐、兰州、芜湖、马鞍山）。这一项交给阶段 2 的几何归属复核，并纳入 G1，不作为 G0 的阻断项。
+
+### P1b 数据源
+
+| 文件 | 来源 | 许可 | 截止 |
+| --- | --- | --- | --- |
+| `data/cities-ledger.csv` | 交通运输部 2025-12 月报 + 中文维基《中国城市轨道交通系统》系统表 | 事实性数据 | 2026-11 |
+| `data/admin-ids.json` | 28 个省级 OSM extract（`download.openstreetmap.fr`） | ODbL-1.0 | 2026-11-13 |
+| `data/snapshots/p1b-20261113/manifest.json` + 28 个 `.sha256` | 同上 | ODbL-1.0 | 2026-11-13 |
+
+
 ## S1 步骤与脚本映射
 
 | 步骤 | 脚本 | 输入 | 输出 | 状态 |

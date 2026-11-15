@@ -277,6 +277,16 @@ if (citiesHtml) {
     hrefProblems.length === 0,
     hrefProblems.length ? `缺：${hrefProblems.join("、")}` : `${wanted.length} 条链接`,
   );
+
+  // P1b-1.2：按省分组。54 城时一排 54 张卡片不可用，省分组标题必须和配置里的省份一一对应。
+  const provinces = [...new Set(wanted.map((c) => loadCity(c).province).filter(Boolean))];
+  const groupHeadings = (citiesHtml.match(/class="cities__group-title"/g) ?? []).length;
+  const missingProvince = provinces.filter((p) => !citiesHtml.includes(`>${p}`));
+  addTail(
+    "总览页按省分组且省名齐全",
+    groupHeadings === provinces.length && missingProvince.length === 0,
+    missingProvince.length ? `缺：${missingProvince.join("、")}` : `${provinces.length} 组：${provinces.join(" / ")}`,
+  );
 }
 
 // ── UX 阶段 4：主题两套值的唯一不变量 ─────────────────────

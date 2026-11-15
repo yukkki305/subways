@@ -1088,15 +1088,51 @@ dl.kv dd {
   line-height: 1.7;
 }
 
-.cities__grid {
+/* P1b-1.2：按省分组。省名一律用「江苏省」这种正式名，右侧是分组小计。 */
+.cities__group {
   max-width: 1080px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 30px;
+}
+
+.cities__group-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--c-border-soft);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+.cities__group-count {
+  font-size: var(--fs-meta);
+  font-weight: 400;
+  color: var(--c-text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.cities__grid {
+  /* --cols 由页面按该省城市数给（最多 4）：一城一组时不该在后面留三列空白 */
+  max-width: min(1080px, calc(var(--cols, 4) * 238px + (var(--cols, 4) - 1) * 18px + 20px));
+  width: 100%;
+  margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
   gap: 18px;
+}
+
+/* 窄屏：--cols 的宽度上限会把单卡拽成 258px、右半边留白，这时让卡片撑满一行。
+   注意必须写在基础规则之后——同权重下后写的赢。 */
+@media (max-width: 760px) {
+  .cities__grid {
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .city-card {

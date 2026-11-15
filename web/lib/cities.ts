@@ -22,6 +22,8 @@ export type CitySummary = {
   label: string;
   /** 正式名，例如「广州市」 */
   name: string;
+  /** 所属省级行政区，例如「江苏省」；配置里没有时为空串 */
+  province: string;
   center: [number, number];
   zoom: number;
   lines: number;
@@ -38,6 +40,7 @@ export type CitySummary = {
 type RawConfig = {
   code: string;
   name?: string;
+  province?: string;
   web?: { city_label?: string };
   scene_bbox?: number[];
   line_count_expected?: number;
@@ -114,6 +117,7 @@ export function citySummary(code: string): CitySummary {
     code,
     label: idx?.label ?? cfg.web?.city_label ?? cfg.name ?? code,
     name: idx?.city ?? cfg.name ?? code,
+    province: cfg.province ?? "",
     center: view.center,
     zoom: view.zoom,
     lines: idx?.lines ?? cfg.line_count_expected ?? 0,
@@ -133,7 +137,7 @@ export function publicCityCodes(): string[] {
 }
 
 /** 站点/换乘数在 metadata 与关于面板里用；缺计数时不编数字 */
-export function countsText(c: CitySummary): string {
+export function countsText(c: Pick<CitySummary, "lines" | "stations" | "segments" | "transfers">): string {
   const parts = [`${c.lines} 条线路`];
   if (c.stations) parts.push(`${c.stations} 站`);
   if (c.segments) parts.push(`${c.segments} 个区间`);
@@ -155,5 +159,56 @@ export function cityLinks(): CityLink[] {
       stations: c.stations,
       href: code === HOME_CITY ? "/" : `/${code}/`,
     };
+  });
+}
+
+/** 总览页的一张卡片：比切换器多要省份与体积信息 */
+export type CityCard = CityLink & { province: string; name: string; segments: number | null; transfers: number | null; asOf: string | null; hasBasemap: boolean };
+
+export type ProvinceGroup = { province: string; cities: CityCard[] };
+
+/**
+ * 总览页按省分组（P1b-1.2）。
+ *
+ * 54 城时一排 54 张卡片不可用，按省分区才扫得动；4 城时分组同样是「以后会长成这样」的结构。
+ * 排序规则（都保证构建产物稳定，不依赖文件系统顺序）：
+ *   - 省：城市多的在前（江苏 7 城会比只有 1 城的省靠前），同数量按省名排；
+ *   - 组内：线路多的在前，同数量按城市名排；
+ *   - 省份缺失的城（配置里没 province）归到「其它」，排最后。
+ */
+export function cityGroups(): ProvinceGroup[] {
+  const cards: CityCard[] = cityLinks().map((l) => {
+    const c = citySummary(l.code);
+    return {
+      ...l,
+      province: c.province || "其它",
+      name: c.name,
+      segments: c.segments,
+      transfers: c.transfers,
+      asOf: c.asOf,
+      hasBasemap: c.hasBasemap,
+    };
+  });
+
+  const byProvince = new Map<string, CityCard[]>();
+  for (const card of cards) {
+    const list = byProvince.get(card.province) ?? [];
+    list.push(card);
+    byProvince.set(card.province, list);
+  }
+
+  const groups: ProvinceGroup[] = [...byProvince].map(([province, cities]) => ({
+    province,
+    cities: cities.sort((a, b) => b.lines - a.lines || a.label.localeCompare(b.label, "zh-Hans-CN")),
+  }));
+
+  return groups.sort((a, b) => {
+    // 首页（上海）那一组永远在最前：`/` 是旗舰入口，总览页第一屏应该先看到它
+    const homeA = a.cities.some((c) => c.code === HOME_CITY) ? 1 : 0;
+    const homeB = b.cities.some((c) => c.code === HOME_CITY) ? 1 : 0;
+    if (homeA !== homeB) return homeB - homeA;
+    if (a.province === "其它") return 1;
+    if (b.province === "其它") return -1;
+    return b.cities.length - a.cities.length || a.province.localeCompare(b.province, "zh-Hans-CN");
   });
 }

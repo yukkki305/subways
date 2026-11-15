@@ -708,7 +708,24 @@ npm run deploy -- --skip-smoke
 
 ## 校验与自证（UX 阶段 4）
 
-- `npm run verify` 现在 **94 项**：每城 21 项 + 全局 4 项 + 总览页 5 项 + 主题纸色一致性 2 项。
+- `npm run verify` 现在 **95 项**：每城 21 项 + 全局 4 项 + 总览页 6 项 + 主题纸色一致性 2 项。
 - 主题纸色必须两边一致：界面在 `app/globals.css`（`--c-paper`），地图在 `lib/theme.ts`（`LIGHT.paper` / `DARK.paper`）。改一处忘另一处，表现是加载遮罩或页脚与地图底色差一圈 —— verify 直接拿源码比，不靠肉眼。
 - `deploy.mjs` 也认总览页：`--dry-run` 会打印 `总览页：cities/（175 KB）`，线上冒烟要求总览页 200 且四城名齐全。
+
+## 总览页按省分组（P1b-1.2）
+
+`/cities/` 从「一排卡片」改成「按省级行政区分组」——54 城时一排 54 张卡片没法看。
+
+- 分组在 `lib/cities.ts` 的 `cityGroups()`：省份取自 `pipeline/cities/<code>.json` 的 `province` 字段，缺字段的城归到「其它」并排最后。
+- 排序规则（都保证构建产物稳定，不依赖文件系统顺序）：**首页所在的省永远第一**（`/` 是旗舰入口）；其余按「城市多的在前 → 省名」；组内按「线路多的在前 → 城市名」。
+- 每组标题给出小计（`1 城 · 20 条线路`），页面导语多一句「N 个省级行政区」。
+- 一格不留空：`--cols` 按该省城市数给（最多 4），`max-width` 跟着收，否则一城一组时会留出三列空白，看着像坏图。窄屏（≤760px）改成撑满一行，≤560px 回到 `auto-fill(min 150px)` 的两列。
+- 新增一项断言：`总览页按省分组且省名齐全`（分组标题数 = 配置里的省份数，且每个省名都出现在页面上）。反向验证：把页面里的「安徽省」改成别的 → 恰好 1 项失败。
+
+## 一个必须一起做的修复：prebuild 只同步有产物的城市
+
+`pipeline/cities/` 在 P1b 之后有 **54 份配置**，其中 50 份是待做骨架（`line_ids` 还是 `null`）。`sync-data.mjs --all` 原来遍历 `listCityCodes()` 全部 54 份，第一次 `npm run build` 就直接报
+`[失败] pipeline/cities/bj.json 缺少字段 line_ids` —— 构建被待做城市卡死。
+
+现在 `--all` 先过 `hasProcessedData(code)`（看 `data/processed/<slug>/lines.json` 是否存在），只同步真的产出过数据的城市；一个都没有时明确报错「先跑 pipeline/run_city.py」。
 - 完整证据（对比度实测、主题 E2E、反向验证）：`docs/validation-ux.md`。

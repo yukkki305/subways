@@ -16,6 +16,7 @@
  * P1a-6.1：输出改为按城市分目录 public/data/<code>/，并生成 cities.json 供切换器使用。
  */
 import { createHash } from "node:crypto";
+import { existsSync } from "node:fs";
 import { copyFile, mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -46,6 +47,20 @@ const allCities = rest.includes("--all");
 async function sha256(path) {
   const buf = await readFile(path);
   return createHash("sha256").update(buf).digest("hex");
+}
+
+/**
+ * 这座城市是否真的产出过数据（`data/processed/<data_dir>/lines.json`）。
+ * 只看配置不够：P1b 的 50 份骨架配置齐全但没有产物。
+ */
+function hasProcessedData(code) {
+  try {
+    const cfg = loadCity(code);
+    // data_dir 本身就是仓库相对路径（data/processed/<slug>），别再拼一次
+    return existsSync(join(REPO, cfg.data_dir, "lines.json"));
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -178,7 +193,10 @@ async function syncCity(code) {
 async function main() {
   await mkdir(OUT, { recursive: true });
 
-  const codes = allCities ? listCityCodes() : [city];
+  // --all 只同步「真的产出过数据」的城市：P1b 之后 pipeline/cities/ 里有 54 份配置，
+  // 其余 50 份是待做骨架（line_ids 还是 null），把它们当构建输入会在 prebuild 阶段直接报错。
+  const codes = allCities ? listCityCodes().filter(hasProcessedData) : [city];
+  if (codes.length === 0) throw new Error("没有任何城市产出过数据（先跑 pipeline/run_city.py）");
   const synced = [];
   for (const code of codes) {
     synced.push(await syncCity(code));

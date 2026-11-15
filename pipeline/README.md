@@ -70,6 +70,30 @@ python pipeline\19_check_ledger.py --strict   # unknown 也算失败
 
 实测 **13 项：通过 12｜失败 0｜待复核 1**。唯一警告是 D 组「待做城在 OSM 至少有 1 条线路关系」——`network` 标签覆盖不全，15 城取不到（镇江、金华、嘉兴、资阳、鄂州、湘潭、许昌、咸阳、哈尔滨、厦门、贵阳、乌鲁木齐、兰州、芜湖、马鞍山）。这一项交给阶段 2 的几何归属复核，并纳入 G1，不作为 G0 的阻断项。
 
+### 阶段 0.4：快照核验 + 行政面 bbox + 50 城配置骨架
+
+```powershell
+# 1) 快照完整性（manifest 的字节数 / sha256 与磁盘对齐）
+python pipeline\20_verify_snapshot.py            # 默认算 sha256
+python pipeline\20_verify_snapshot.py --no-hash  # 只比大小
+
+# 2) 给每个省面 / 市面补 bbox（两遍扫，28 省约 20 分钟；每个省跑完就落盘）
+python pipeline\18b_admin_bbox.py
+python pipeline\18b_admin_bbox.py --only hainan  # 调试单省
+
+# 3) 生成 50 城配置骨架（已存在的 4 城不动；--force 才覆盖）
+python pipeline\21_gen_city_configs.py
+```
+
+**为什么 bbox 要单独扫两遍**：pyosmium 的 `RelationMember` 在 `SimpleHandler` 里没有 `.way` 属性（实测 `AttributeError`），拿成员 way 的坐标只能先收「关系 → 成员 way id」，再单独扫一遍算包围盒。
+
+| 坑 | 现象 | 处理 |
+| --- | --- | --- |
+| handler 没有 `node()` 回调 | 扫描瞬间结束、结果 0 条 | 加 `def node(self, o): pass`，否则 pyosmium 根本不读节点 |
+| 没传 `idx="flex_mem"` | `locations=True` 静默失效 | 显式传 `idx="flex_mem"` |
+| manifest 两种形态 | P1b 用 `provinces`（无 `name`），P1a/P0 用 `files` | `20_verify_snapshot.py` 的 `manifest_entries()` 两种都收 |
+| 省面拼不闭合 | 广东 194/197、江苏 374 永不闭合 | 生成配置时这两个省写 `province_face.mode="l5_union"` + 硬编码 21/13 座地级市 |
+
 ### P1b 数据源
 
 | 文件 | 来源 | 许可 | 截止 |

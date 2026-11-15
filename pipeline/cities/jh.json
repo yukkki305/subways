@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "jh",
+  "name": "金华市",
+  "id_prefix": "jh",
+  "province": "浙江省",
+  "province_l4": 553302,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "金华市",
+  "city_admin_level": 5,
+  "city_admin_id": 3411720,
+  "city_names_fallback": [],
+  "pbfs": [
+    "zhejiang"
+  ],
+  "pbf_provinces": {
+    "zhejiang": "浙江省"
+  },
+  "network": [
+    "金华"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    119.0962,
+    28.3963,
+    120.9003,
+    29.8041
+  ],
+  "scene_bbox": [
+    118.8662,
+    28.1663,
+    121.1303,
+    30.0341
+  ],
+  "km_per_deg": [
+    97.3,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/jh",
+  "web": {
+    "city_label": "金华"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

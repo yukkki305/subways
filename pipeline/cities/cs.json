@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "code": "cs",
+  "name": "长沙市",
+  "id_prefix": "cs",
+  "province": "湖南省",
+  "province_l4": 913073,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "长沙市",
+  "city_admin_level": 5,
+  "city_admin_id": 3202711,
+  "city_names_fallback": [],
+  "pbfs": [
+    "hunan"
+  ],
+  "pbf_provinces": {
+    "hunan": "湖南省"
+  },
+  "network": [
+    "长沙地铁",
+    "长沙磁浮快线"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    111.7708,
+    27.7312,
+    114.376,
+    28.7844
+  ],
+  "scene_bbox": [
+    111.5408,
+    27.5012,
+    114.606,
+    29.0144
+  ],
+  "km_per_deg": [
+    98.1,
+    111.0
+  ],
+  "line_count_expected": 7,
+  "line_ids": null,
+  "data_dir": "data/processed/cs",
+  "web": {
+    "city_label": "长沙"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "jn",
+  "name": "济南市",
+  "id_prefix": "jn",
+  "province": "山东省",
+  "province_l4": 913006,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "济南市",
+  "city_admin_level": 5,
+  "city_admin_id": 3486449,
+  "city_names_fallback": [],
+  "pbfs": [
+    "shandong"
+  ],
+  "pbf_provinces": {
+    "shandong": "山东省"
+  },
+  "network": [
+    "济南轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    116.0993,
+    35.8721,
+    118.0926,
+    37.6569
+  ],
+  "scene_bbox": [
+    115.8693,
+    35.6421,
+    118.3226,
+    37.8869
+  ],
+  "km_per_deg": [
+    89.2,
+    111.0
+  ],
+  "line_count_expected": 6,
+  "line_ids": null,
+  "data_dir": "data/processed/jn",
+  "web": {
+    "city_label": "济南"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

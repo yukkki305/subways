@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "code": "xa",
+  "name": "西安市",
+  "id_prefix": "xa",
+  "province": "陕西省",
+  "province_l4": 913100,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "西安市",
+  "city_admin_level": 5,
+  "city_admin_id": 3226004,
+  "city_names_fallback": [],
+  "pbfs": [
+    "shaanxi"
+  ],
+  "pbf_provinces": {
+    "shaanxi": "陕西省"
+  },
+  "network": [
+    "西安地铁",
+    "西安云巴"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    107.5384,
+    33.5761,
+    109.9438,
+    34.8638
+  ],
+  "scene_bbox": [
+    107.3084,
+    33.3461,
+    110.1738,
+    35.0938
+  ],
+  "km_per_deg": [
+    92.0,
+    111.0
+  ],
+  "line_count_expected": 12,
+  "line_ids": null,
+  "data_dir": "data/processed/xa",
+  "web": {
+    "city_label": "西安"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "code": "zj",
+  "name": "镇江市",
+  "id_prefix": "zj",
+  "province": "江苏省",
+  "province_l4": 913012,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  },
+  "city": "镇江市",
+  "city_admin_level": 5,
+  "city_admin_id": 3429680,
+  "city_names_fallback": [],
+  "pbfs": [
+    "jiangsu"
+  ],
+  "pbf_provinces": {
+    "jiangsu": "江苏省"
+  },
+  "network": [
+    "镇江"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    118.8421,
+    31.507,
+    120.0848,
+    32.4476
+  ],
+  "scene_bbox": [
+    118.6121,
+    31.277,
+    120.3148,
+    32.6776
+  ],
+  "km_per_deg": [
+    94.4,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/zj",
+  "web": {
+    "city_label": "镇江"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": [],
+  "province_l5_union": {
+    "江苏省": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "泰州市",
+      "宿迁市"
+    ]
+  }
+}

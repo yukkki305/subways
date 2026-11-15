@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "code": "xz",
+  "name": "徐州市",
+  "id_prefix": "xz",
+  "province": "江苏省",
+  "province_l4": 913012,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  },
+  "city": "徐州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3218572,
+  "city_names_fallback": [],
+  "pbfs": [
+    "jiangsu"
+  ],
+  "pbf_provinces": {
+    "jiangsu": "江苏省"
+  },
+  "network": [
+    "徐州地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    116.2352,
+    33.5924,
+    118.3014,
+    34.9706
+  ],
+  "scene_bbox": [
+    116.0052,
+    33.3624,
+    118.5314,
+    35.2006
+  ],
+  "km_per_deg": [
+    92.0,
+    111.0
+  ],
+  "line_count_expected": 4,
+  "line_ids": null,
+  "data_dir": "data/processed/xz",
+  "web": {
+    "city_label": "徐州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": [],
+  "province_l5_union": {
+    "江苏省": [
+      "南京市",
+      "无锡市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "zy",
+  "name": "资阳市",
+  "id_prefix": "zy",
+  "province": "四川省",
+  "province_l4": 913068,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "资阳市",
+  "city_admin_level": 5,
+  "city_admin_id": 2788724,
+  "city_names_fallback": [],
+  "pbfs": [
+    "sichuan"
+  ],
+  "pbf_provinces": {
+    "sichuan": "四川省"
+  },
+  "network": [
+    "资阳"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    105.0025,
+    29.5566,
+    105.87,
+    30.3905
+  ],
+  "scene_bbox": [
+    104.7725,
+    29.3266,
+    106.1,
+    30.6205
+  ],
+  "km_per_deg": [
+    96.4,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/zy",
+  "web": {
+    "city_label": "资阳"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

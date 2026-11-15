@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "sjz",
+  "name": "石家庄市",
+  "id_prefix": "sjz",
+  "province": "河北省",
+  "province_l4": 912998,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "石家庄市",
+  "city_admin_level": 5,
+  "city_admin_id": 3009732,
+  "city_names_fallback": [],
+  "pbfs": [
+    "hebei"
+  ],
+  "pbf_provinces": {
+    "hebei": "河北省"
+  },
+  "network": [
+    "石家庄地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    113.3972,
+    37.3211,
+    115.5971,
+    38.8836
+  ],
+  "scene_bbox": [
+    113.1672,
+    37.0911,
+    115.8271,
+    39.1136
+  ],
+  "km_per_deg": [
+    87.6,
+    111.0
+  ],
+  "line_count_expected": 3,
+  "line_ids": null,
+  "data_dir": "data/processed/sjz",
+  "web": {
+    "city_label": "石家庄"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

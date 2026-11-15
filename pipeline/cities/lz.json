@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "lz",
+  "name": "兰州市",
+  "id_prefix": "lz",
+  "province": "甘肃省",
+  "province_l4": 153314,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "兰州市",
+  "city_admin_level": 5,
+  "city_admin_id": 2701949,
+  "city_names_fallback": [],
+  "pbfs": [
+    "gansu"
+  ],
+  "pbf_provinces": {
+    "gansu": "甘肃省"
+  },
+  "network": [
+    "兰州"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    102.569,
+    35.4523,
+    104.6949,
+    37.1972
+  ],
+  "scene_bbox": [
+    102.339,
+    35.2223,
+    104.9249,
+    37.4272
+  ],
+  "km_per_deg": [
+    89.7,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/lz",
+  "web": {
+    "city_label": "兰州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

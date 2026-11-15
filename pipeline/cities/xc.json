@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "xc",
+  "name": "许昌市",
+  "id_prefix": "xc",
+  "province": "河南省",
+  "province_l4": 407492,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "许昌市",
+  "city_admin_level": 5,
+  "city_admin_id": 3283887,
+  "city_names_fallback": [],
+  "pbfs": [
+    "henan"
+  ],
+  "pbf_provinces": {
+    "henan": "河南省"
+  },
+  "network": [
+    "许昌"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    112.9377,
+    33.5699,
+    114.4408,
+    34.5281
+  ],
+  "scene_bbox": [
+    112.7077,
+    33.3399,
+    114.6708,
+    34.7581
+  ],
+  "km_per_deg": [
+    92.2,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/xc",
+  "web": {
+    "city_label": "许昌"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

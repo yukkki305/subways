@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "wlmq",
+  "name": "乌鲁木齐市",
+  "id_prefix": "wlmq",
+  "province": "新疆维吾尔自治区",
+  "province_l4": 153310,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "乌鲁木齐市",
+  "city_admin_level": 5,
+  "city_admin_id": 2752472,
+  "city_names_fallback": [],
+  "pbfs": [
+    "xinjiang"
+  ],
+  "pbf_provinces": {
+    "xinjiang": "新疆维吾尔自治区"
+  },
+  "network": [
+    "乌鲁木齐"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    86.674,
+    42.802,
+    89.0921,
+    45.1207
+  ],
+  "scene_bbox": [
+    86.444,
+    42.572,
+    89.3221,
+    45.3507
+  ],
+  "km_per_deg": [
+    80.1,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/wlmq",
+  "web": {
+    "city_label": "乌鲁木齐"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

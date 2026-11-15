@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "xt",
+  "name": "湘潭市",
+  "id_prefix": "xt",
+  "province": "湖南省",
+  "province_l4": 913073,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "湘潭市",
+  "city_admin_level": 5,
+  "city_admin_id": 3202624,
+  "city_names_fallback": [],
+  "pbfs": [
+    "hunan"
+  ],
+  "pbf_provinces": {
+    "hunan": "湖南省"
+  },
+  "network": [
+    "湘潭"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    111.8751,
+    27.2218,
+    113.2054,
+    28.1972
+  ],
+  "scene_bbox": [
+    111.6451,
+    26.9918,
+    113.4354,
+    28.4272
+  ],
+  "km_per_deg": [
+    98.6,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/xt",
+  "web": {
+    "city_label": "湘潭"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

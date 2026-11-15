@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "code": "nt",
+  "name": "南通市",
+  "id_prefix": "nt",
+  "province": "江苏省",
+  "province_l4": 913012,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  },
+  "city": "南通市",
+  "city_admin_level": 5,
+  "city_admin_id": 4430899,
+  "city_names_fallback": [],
+  "pbfs": [
+    "jiangsu"
+  ],
+  "pbf_provinces": {
+    "jiangsu": "江苏省"
+  },
+  "network": [
+    "南通轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    120.0772,
+    31.5141,
+    122.5045,
+    32.9783
+  ],
+  "scene_bbox": [
+    119.8472,
+    31.2841,
+    122.7345,
+    33.2083
+  ],
+  "km_per_deg": [
+    94.2,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/nt",
+  "web": {
+    "city_label": "南通"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": [],
+  "province_l5_union": {
+    "江苏省": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "xm",
+  "name": "厦门市",
+  "id_prefix": "xm",
+  "province": "福建省",
+  "province_l4": 553303,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "厦门市",
+  "city_admin_level": 5,
+  "city_admin_id": 3242930,
+  "city_names_fallback": [],
+  "pbfs": [
+    "fujian"
+  ],
+  "pbf_provinces": {
+    "fujian": "福建省"
+  },
+  "network": [
+    "厦门"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    117.7622,
+    24.2622,
+    118.5694,
+    25.0273
+  ],
+  "scene_bbox": [
+    117.5322,
+    24.0322,
+    118.7994,
+    25.2573
+  ],
+  "km_per_deg": [
+    101.2,
+    111.0
+  ],
+  "line_count_expected": 3,
+  "line_ids": null,
+  "data_dir": "data/processed/xm",
+  "web": {
+    "city_label": "厦门"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

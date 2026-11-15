@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "wz",
+  "name": "温州市",
+  "id_prefix": "wz",
+  "province": "浙江省",
+  "province_l4": 553302,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "温州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3289341,
+  "city_names_fallback": [],
+  "pbfs": [
+    "zhejiang"
+  ],
+  "pbf_provinces": {
+    "zhejiang": "浙江省"
+  },
+  "network": [
+    "温州轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    119.5002,
+    26.9249,
+    121.2606,
+    27.9279
+  ],
+  "scene_bbox": [
+    119.2702,
+    26.6949,
+    121.4906,
+    28.1579
+  ],
+  "km_per_deg": [
+    98.8,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/wz",
+  "web": {
+    "city_label": "温州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

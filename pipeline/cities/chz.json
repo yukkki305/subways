@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "chz",
+  "name": "滁州市",
+  "id_prefix": "chz",
+  "province": "安徽省",
+  "province_l4": 913011,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "滁州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3231588,
+  "city_names_fallback": [],
+  "pbfs": [
+    "anhui"
+  ],
+  "pbf_provinces": {
+    "anhui": "安徽省"
+  },
+  "network": [
+    "滁州轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    117.0343,
+    31.7279,
+    119.3438,
+    33.3395
+  ],
+  "scene_bbox": [
+    116.8043,
+    31.4979,
+    119.5738,
+    33.5695
+  ],
+  "km_per_deg": [
+    93.9,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/chz",
+  "web": {
+    "city_label": "滁州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

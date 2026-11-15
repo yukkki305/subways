@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "heb",
+  "name": "哈尔滨市",
+  "id_prefix": "heb",
+  "province": "黑龙江省",
+  "province_l4": 199073,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "哈尔滨市",
+  "city_admin_level": 5,
+  "city_admin_id": 2755608,
+  "city_names_fallback": [],
+  "pbfs": [
+    "heilongjiang"
+  ],
+  "pbf_provinces": {
+    "heilongjiang": "黑龙江省"
+  },
+  "network": [
+    "哈尔滨"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    125.5583,
+    43.94,
+    130.3535,
+    46.7918
+  ],
+  "scene_bbox": [
+    125.3283,
+    43.71,
+    130.5835,
+    47.0218
+  ],
+  "km_per_deg": [
+    78.2,
+    111.0
+  ],
+  "line_count_expected": 3,
+  "line_ids": null,
+  "data_dir": "data/processed/heb",
+  "web": {
+    "city_label": "哈尔滨"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

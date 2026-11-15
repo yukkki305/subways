@@ -198,6 +198,43 @@ D 用 `network` 标签做代理（标签里含城市名 → 该城有线路关�
 
 所以 G0 的结论是：**结构、口径、前端一致性全部通过；OSM 存在性留给阶段 2 的几何归属复核，并纳入 G1**——G1 要求自动化在南京 + 苏州上复现既有口径（63 线 / 1,302 站）时，这 15 城的归属会一并落地。
 
-## 10. 下一步
+## 10. 阶段 0.4 结果（2026-11-15）
+
+三件事：快照完整性、行政面 bbox、50 城配置骨架。
+
+### 10.1 快照完整性
+
+`pipeline/20_verify_snapshot.py` 把 `data/snapshots/*/manifest.json` 与磁盘对一遍（字节数 + sha256，`--no-hash` 只比大小）：
+
+| 快照 | 文件数 | 结果 |
+| --- | --- | --- |
+| `20261101`（P0 五省） | 5 | ✅ 全一致 |
+| `p1a-20261103`（P1a 广东） | 2 | ✅ 全一致 |
+| `p1b-20261113`（P1b 28 省） | 28 | ✅ 全一致 |
+
+合计 **35 个文件 / 1.74 GB 全部通过**（sha256 全量校验）。
+
+### 10.2 行政面 bbox
+
+`pipeline/18b_admin_bbox.py` 两遍扫 28 省，给每个 `l4` / `l5` 条目补 `bbox: [w, s, e, n]`；`data/admin-ids.json` 从 142 KB 涨到 **219 KB**，**28 省全部 l4 / l5 都拿到包围盒**（仅安徽 l4 有 1 个关系缺成员坐标，7/8）。
+
+为什么单独一个脚本：pyosmium 的 `RelationMember` 在 `SimpleHandler` 里没有 `.way`，只能先收「关系 → 成员 way id」再算包围盒；全程 24 分钟，且每个省跑完即落盘（第一版没落盘，中途崩在河南丢了 20 分钟）。
+
+### 10.3 50 城配置骨架
+
+`pipeline/21_gen_city_configs.py` 从台账 + admin-ids 生成 `pipeline/cities/<code>.json`：
+
+- **生成 50 个 / 失败 0**，每个都过了 `cityconfig.validate()`；
+- `code` / `id_prefix` 用台账的 slug（`bj`、`nj`、`su`、`hhht`…），`data_dir` = `data/processed/<slug>`；
+- `bbox` = 市面 bbox 外扩 0.12°，`scene_bbox` 外扩 0.35°；`km_per_deg` 按 bbox 中心纬度算；
+- 广东、江苏两省自动写 `province_face.mode = "l5_union"` + 21 / 13 座地级市；
+- 直辖市 `city_admin_level = 4`、`city_admin_id` 用省面 id（北京 912940 / 天津 912999 / 重庆 913069）；
+- 已完成的 4 城**完全不碰**（`--force` 才会覆盖，避免破坏「上海产物逐字节不变」）。
+
+**14 座城的 `network` 是兜底值**（写成城市名，OSM 里没有这个标签）：镇江、金华、嘉兴、资阳、鄂州、湘潭、许昌、咸阳、哈尔滨、厦门、贵阳、乌鲁木齐、芜湖、马鞍山。它们做的时候必须靠几何归属（05）填 `city`，不能依赖 network 过滤——这与 §8.4 的结论一致。
+
+其余需要人工补的字段：`line_ids`、`loop_start`、`line_names`、`ref_to_line`、`worksheet_cities`、`stop_bbox_whitelist`、`province_l5_union`（非广东/江苏）。
+
+## 11. 下一步
 - **阶段 1 前置改造**：verify 并行化、`/cities/` 按省分组、ADR 0005 放宽体积上限、`province.py` 省界闭合通用化、批量下载脚本。
 - **阶段 2 自动化三件套**：关系归一、站名/换乘自动判定、几何归属通用化。

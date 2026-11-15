@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "cc",
+  "name": "长春市",
+  "id_prefix": "cc",
+  "province": "吉林省",
+  "province_l4": 198590,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "长春市",
+  "city_admin_level": 5,
+  "city_admin_id": 2763992,
+  "city_names_fallback": [],
+  "pbfs": [
+    "jilin"
+  ],
+  "pbf_provinces": {
+    "jilin": "吉林省"
+  },
+  "network": [
+    "长春轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    126.0436,
+    44.3983,
+    127.2073,
+    45.3713
+  ],
+  "scene_bbox": [
+    125.8136,
+    44.1683,
+    127.4373,
+    45.6013
+  ],
+  "km_per_deg": [
+    78.9,
+    111.0
+  ],
+  "line_count_expected": 8,
+  "line_ids": null,
+  "data_dir": "data/processed/cc",
+  "web": {
+    "city_label": "长春"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

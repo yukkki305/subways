@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "hz",
+  "name": "杭州市",
+  "id_prefix": "hz",
+  "province": "浙江省",
+  "province_l4": 553302,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "杭州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3221112,
+  "city_names_fallback": [],
+  "pbfs": [
+    "zhejiang"
+  ],
+  "pbf_provinces": {
+    "zhejiang": "浙江省"
+  },
+  "network": [
+    "杭州地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    118.2197,
+    29.3332,
+    119.5654,
+    30.5326
+  ],
+  "scene_bbox": [
+    117.9897,
+    29.1032,
+    119.7954,
+    30.7626
+  ],
+  "km_per_deg": [
+    96.5,
+    111.0
+  ],
+  "line_count_expected": 12,
+  "line_ids": null,
+  "data_dir": "data/processed/hz",
+  "web": {
+    "city_label": "杭州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

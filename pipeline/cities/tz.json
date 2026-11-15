@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "tz",
+  "name": "台州市",
+  "id_prefix": "tz",
+  "province": "浙江省",
+  "province_l4": 553302,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "台州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3477550,
+  "city_names_fallback": [],
+  "pbfs": [
+    "zhejiang"
+  ],
+  "pbf_provinces": {
+    "zhejiang": "浙江省"
+  },
+  "network": [
+    "台州轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    120.1654,
+    27.8515,
+    122.5695,
+    29.467
+  ],
+  "scene_bbox": [
+    119.9354,
+    27.6215,
+    122.7995,
+    29.697
+  ],
+  "km_per_deg": [
+    97.7,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/tz",
+  "web": {
+    "city_label": "台州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

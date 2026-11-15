@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "nn",
+  "name": "南宁市",
+  "id_prefix": "nn",
+  "province": "广西壮族自治区",
+  "province_l4": 286342,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "南宁市",
+  "city_admin_level": 5,
+  "city_admin_id": 2775778,
+  "city_names_fallback": [],
+  "pbfs": [
+    "guangxi"
+  ],
+  "pbf_provinces": {
+    "guangxi": "广西壮族自治区"
+  },
+  "network": [
+    "南宁轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    107.2046,
+    22.0865,
+    109.7382,
+    24.1548
+  ],
+  "scene_bbox": [
+    106.9746,
+    21.8565,
+    109.9682,
+    24.3848
+  ],
+  "km_per_deg": [
+    102.4,
+    111.0
+  ],
+  "line_count_expected": 5,
+  "line_ids": null,
+  "data_dir": "data/processed/nn",
+  "web": {
+    "city_label": "南宁"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "mas",
+  "name": "马鞍山市",
+  "id_prefix": "mas",
+  "province": "安徽省",
+  "province_l4": 913011,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "马鞍山市",
+  "city_admin_level": 5,
+  "city_admin_id": 3260816,
+  "city_names_fallback": [],
+  "pbfs": [
+    "anhui"
+  ],
+  "pbf_provinces": {
+    "anhui": "安徽省"
+  },
+  "network": [
+    "马鞍山"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    117.7746,
+    31.1721,
+    119.0025,
+    32.1813
+  ],
+  "scene_bbox": [
+    117.5446,
+    30.9421,
+    119.2325,
+    32.4113
+  ],
+  "km_per_deg": [
+    94.7,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/mas",
+  "web": {
+    "city_label": "马鞍山"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

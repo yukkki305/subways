@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "code": "fs",
+  "name": "佛山市",
+  "id_prefix": "fs",
+  "province": "广东省",
+  "province_l4": 911844,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "广州市",
+      "深圳市",
+      "珠海市",
+      "汕头市",
+      "佛山市",
+      "韶关市",
+      "湛江市",
+      "肇庆市",
+      "江门市",
+      "茂名市",
+      "惠州市",
+      "梅州市",
+      "汕尾市",
+      "河源市",
+      "阳江市",
+      "清远市",
+      "东莞市",
+      "中山市",
+      "潮州市",
+      "揭阳市",
+      "云浮市"
+    ]
+  },
+  "city": "佛山市",
+  "city_admin_level": 5,
+  "city_admin_id": 3464719,
+  "city_names_fallback": [],
+  "pbfs": [
+    "guangdong"
+  ],
+  "pbf_provinces": {
+    "guangdong": "广东省"
+  },
+  "network": [
+    "佛山地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    112.2655,
+    22.5252,
+    113.508,
+    23.6962
+  ],
+  "scene_bbox": [
+    112.0355,
+    22.2952,
+    113.738,
+    23.9262
+  ],
+  "km_per_deg": [
+    102.4,
+    111.0
+  ],
+  "line_count_expected": 3,
+  "line_ids": null,
+  "data_dir": "data/processed/fs",
+  "web": {
+    "city_label": "佛山"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": [],
+  "province_l5_union": {
+    "广东省": [
+      "广州市",
+      "深圳市",
+      "珠海市",
+      "汕头市",
+      "韶关市",
+      "湛江市",
+      "肇庆市",
+      "江门市",
+      "茂名市",
+      "惠州市",
+      "梅州市",
+      "汕尾市",
+      "河源市",
+      "阳江市",
+      "清远市",
+      "东莞市",
+      "中山市",
+      "潮州市",
+      "揭阳市",
+      "云浮市"
+    ]
+  }
+}

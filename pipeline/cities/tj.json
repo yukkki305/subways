@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "tj",
+  "name": "天津市",
+  "id_prefix": "tj",
+  "province": "天津市",
+  "province_l4": 912999,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "天津市",
+  "city_admin_level": 4,
+  "city_admin_id": 912999,
+  "city_names_fallback": [],
+  "pbfs": [
+    "tianjin"
+  ],
+  "pbf_provinces": {
+    "tianjin": "天津市"
+  },
+  "network": [
+    "天津地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    116.6611,
+    39.4094,
+    117.6895,
+    40.372
+  ],
+  "scene_bbox": [
+    116.4311,
+    39.1794,
+    117.9195,
+    40.602
+  ],
+  "km_per_deg": [
+    85.4,
+    111.0
+  ],
+  "line_count_expected": 13,
+  "line_ids": null,
+  "data_dir": "data/processed/tj",
+  "web": {
+    "city_label": "天津"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "code": "nj",
+  "name": "南京市",
+  "id_prefix": "nj",
+  "province": "江苏省",
+  "province_l4": 913012,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "南京市",
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  },
+  "city": "南京市",
+  "city_admin_level": 5,
+  "city_admin_id": 2131524,
+  "city_names_fallback": [],
+  "pbfs": [
+    "jiangsu"
+  ],
+  "pbf_provinces": {
+    "jiangsu": "江苏省"
+  },
+  "network": [
+    "南京地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    118.2146,
+    31.1067,
+    119.3328,
+    32.7358
+  ],
+  "scene_bbox": [
+    117.9846,
+    30.8767,
+    119.5628,
+    32.9658
+  ],
+  "km_per_deg": [
+    94.5,
+    111.0
+  ],
+  "line_count_expected": 16,
+  "line_ids": null,
+  "data_dir": "data/processed/nj",
+  "web": {
+    "city_label": "南京"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": [],
+  "province_l5_union": {
+    "江苏省": [
+      "无锡市",
+      "徐州市",
+      "常州市",
+      "苏州市",
+      "南通市",
+      "连云港市",
+      "淮安市",
+      "盐城市",
+      "扬州市",
+      "镇江市",
+      "泰州市",
+      "宿迁市"
+    ]
+  }
+}

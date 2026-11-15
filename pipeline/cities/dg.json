@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "code": "dg",
+  "name": "东莞市",
+  "id_prefix": "dg",
+  "province": "广东省",
+  "province_l4": 911844,
+  "province_face": {
+    "mode": "l5_union",
+    "names": [
+      "广州市",
+      "深圳市",
+      "珠海市",
+      "汕头市",
+      "佛山市",
+      "韶关市",
+      "湛江市",
+      "肇庆市",
+      "江门市",
+      "茂名市",
+      "惠州市",
+      "梅州市",
+      "汕尾市",
+      "河源市",
+      "阳江市",
+      "清远市",
+      "东莞市",
+      "中山市",
+      "潮州市",
+      "揭阳市",
+      "云浮市"
+    ]
+  },
+  "city": "东莞市",
+  "city_admin_level": 5,
+  "city_admin_id": 3464319,
+  "city_names_fallback": [],
+  "pbfs": [
+    "guangdong"
+  ],
+  "pbf_provinces": {
+    "guangdong": "广东省"
+  },
+  "network": [
+    "东莞轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    113.3959,
+    22.5365,
+    114.3755,
+    23.2649
+  ],
+  "scene_bbox": [
+    113.1659,
+    22.3065,
+    114.6055,
+    23.4949
+  ],
+  "km_per_deg": [
+    102.5,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/dg",
+  "web": {
+    "city_label": "东莞"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": [],
+  "province_l5_union": {
+    "广东省": [
+      "广州市",
+      "深圳市",
+      "珠海市",
+      "汕头市",
+      "佛山市",
+      "韶关市",
+      "湛江市",
+      "肇庆市",
+      "江门市",
+      "茂名市",
+      "惠州市",
+      "梅州市",
+      "汕尾市",
+      "河源市",
+      "阳江市",
+      "清远市",
+      "中山市",
+      "潮州市",
+      "揭阳市",
+      "云浮市"
+    ]
+  }
+}

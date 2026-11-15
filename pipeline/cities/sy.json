@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "sy",
+  "name": "沈阳市",
+  "id_prefix": "sy",
+  "province": "辽宁省",
+  "province_l4": 912942,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "沈阳市",
+  "city_admin_level": 5,
+  "city_admin_id": 2769604,
+  "city_names_fallback": [],
+  "pbfs": [
+    "liaoning"
+  ],
+  "pbf_provinces": {
+    "liaoning": "辽宁省"
+  },
+  "network": [
+    "沈阳地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    122.6219,
+    42.4502,
+    123.7404,
+    43.1603
+  ],
+  "scene_bbox": [
+    122.3919,
+    42.2202,
+    123.9704,
+    43.3903
+  ],
+  "km_per_deg": [
+    81.7,
+    111.0
+  ],
+  "line_count_expected": 6,
+  "line_ids": null,
+  "data_dir": "data/processed/sy",
+  "web": {
+    "city_label": "沈阳"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

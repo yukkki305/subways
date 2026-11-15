@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "gy",
+  "name": "贵阳市",
+  "id_prefix": "gy",
+  "province": "贵州省",
+  "province_l4": 286937,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "贵阳市",
+  "city_admin_level": 5,
+  "city_admin_id": 2782246,
+  "city_names_fallback": [],
+  "pbfs": [
+    "guizhou"
+  ],
+  "pbf_provinces": {
+    "guizhou": "贵州省"
+  },
+  "network": [
+    "贵阳"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    105.999,
+    26.0668,
+    107.3947,
+    27.48
+  ],
+  "scene_bbox": [
+    105.769,
+    25.8368,
+    107.6247,
+    27.71
+  ],
+  "km_per_deg": [
+    99.4,
+    111.0
+  ],
+  "line_count_expected": 4,
+  "line_ids": null,
+  "data_dir": "data/processed/gy",
+  "web": {
+    "city_label": "贵阳"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

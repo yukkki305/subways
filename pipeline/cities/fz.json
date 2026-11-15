@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "fz",
+  "name": "福州市",
+  "id_prefix": "fz",
+  "province": "福建省",
+  "province_l4": 553303,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "福州市",
+  "city_admin_level": 5,
+  "city_admin_id": 3263977,
+  "city_names_fallback": [],
+  "pbfs": [
+    "fujian"
+  ],
+  "pbf_provinces": {
+    "fujian": "福建省"
+  },
+  "network": [
+    "福州地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    118.256,
+    24.9759,
+    120.5501,
+    26.7584
+  ],
+  "scene_bbox": [
+    118.026,
+    24.7459,
+    120.7801,
+    26.9884
+  ],
+  "km_per_deg": [
+    100.2,
+    111.0
+  ],
+  "line_count_expected": 6,
+  "line_ids": null,
+  "data_dir": "data/processed/fz",
+  "web": {
+    "city_label": "福州"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

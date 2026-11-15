@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "cq",
+  "name": "重庆市",
+  "id_prefix": "cq",
+  "province": "重庆市",
+  "province_l4": 913069,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "重庆市",
+  "city_admin_level": 4,
+  "city_admin_id": 913069,
+  "city_names_fallback": [],
+  "pbfs": [
+    "chongqing"
+  ],
+  "pbf_provinces": {
+    "chongqing": "重庆市"
+  },
+  "network": [
+    "重庆轨道交通"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    105.1668,
+    28.0417,
+    110.3144,
+    32.3237
+  ],
+  "scene_bbox": [
+    104.9368,
+    27.8117,
+    110.5444,
+    32.5537
+  ],
+  "km_per_deg": [
+    96.2,
+    111.0
+  ],
+  "line_count_expected": 11,
+  "line_ids": null,
+  "data_dir": "data/processed/cq",
+  "web": {
+    "city_label": "重庆"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

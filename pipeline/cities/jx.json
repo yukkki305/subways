@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "jx",
+  "name": "嘉兴市",
+  "id_prefix": "jx",
+  "province": "浙江省",
+  "province_l4": 553302,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "嘉兴市",
+  "city_admin_level": 5,
+  "city_admin_id": 3308626,
+  "city_names_fallback": [],
+  "pbfs": [
+    "zhejiang"
+  ],
+  "pbf_provinces": {
+    "zhejiang": "浙江省"
+  },
+  "network": [
+    "嘉兴"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    120.3453,
+    30.6102,
+    121.0943,
+    31.1524
+  ],
+  "scene_bbox": [
+    120.1153,
+    30.3802,
+    121.3243,
+    31.3824
+  ],
+  "km_per_deg": [
+    95.5,
+    111.0
+  ],
+  "line_count_expected": 1,
+  "line_ids": null,
+  "data_dir": "data/processed/jx",
+  "web": {
+    "city_label": "嘉兴"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

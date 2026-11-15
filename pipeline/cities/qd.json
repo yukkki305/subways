@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "qd",
+  "name": "青岛市",
+  "id_prefix": "qd",
+  "province": "山东省",
+  "province_l4": 913006,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "青岛市",
+  "city_admin_level": 5,
+  "city_admin_id": 3469133,
+  "city_names_fallback": [],
+  "pbfs": [
+    "shandong"
+  ],
+  "pbf_provinces": {
+    "shandong": "山东省"
+  },
+  "network": [
+    "青岛地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    119.3892,
+    35.3317,
+    121.6899,
+    37.2685
+  ],
+  "scene_bbox": [
+    119.1592,
+    35.1017,
+    121.9199,
+    37.4985
+  ],
+  "km_per_deg": [
+    89.7,
+    111.0
+  ],
+  "line_count_expected": 8,
+  "line_ids": null,
+  "data_dir": "data/processed/qd",
+  "web": {
+    "city_label": "青岛"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

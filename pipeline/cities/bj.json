@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "bj",
+  "name": "北京市",
+  "id_prefix": "bj",
+  "province": "北京市",
+  "province_l4": 912940,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "北京市",
+  "city_admin_level": 4,
+  "city_admin_id": 912940,
+  "city_names_fallback": [],
+  "pbfs": [
+    "beijing"
+  ],
+  "pbf_provinces": {
+    "beijing": "北京市"
+  },
+  "network": [
+    "北京地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    115.2968,
+    39.3216,
+    117.6281,
+    41.1792
+  ],
+  "scene_bbox": [
+    115.0668,
+    39.0916,
+    117.8581,
+    41.4092
+  ],
+  "km_per_deg": [
+    85.0,
+    111.0
+  ],
+  "line_count_expected": 30,
+  "line_ids": null,
+  "data_dir": "data/processed/bj",
+  "web": {
+    "city_label": "北京"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "code": "hhht",
+  "name": "呼和浩特市",
+  "id_prefix": "hhht",
+  "province": "内蒙古自治区",
+  "province_l4": 161349,
+  "province_face": {
+    "mode": "l4"
+  },
+  "city": "呼和浩特市",
+  "city_admin_level": 5,
+  "city_admin_id": 2752851,
+  "city_names_fallback": [],
+  "pbfs": [
+    "inner_mongolia"
+  ],
+  "pbf_provinces": {
+    "inner_mongolia": "内蒙古自治区"
+  },
+  "network": [
+    "呼和浩特地铁"
+  ],
+  "route_scope": {
+    "routes": [
+      "subway",
+      "light_rail",
+      "monorail"
+    ],
+    "ref_overrides": {},
+    "exclude_refs": []
+  },
+  "bbox": [
+    110.3911,
+    39.4665,
+    112.4252,
+    41.5011
+  ],
+  "scene_bbox": [
+    110.1611,
+    39.2365,
+    112.6552,
+    41.7311
+  ],
+  "km_per_deg": [
+    84.7,
+    111.0
+  ],
+  "line_count_expected": 2,
+  "line_ids": null,
+  "data_dir": "data/processed/hhht",
+  "web": {
+    "city_label": "呼和浩特"
+  },
+  "snapshot": "p1b-20261113",
+  "ref_to_line": {},
+  "stop_bbox_whitelist": [],
+  "worksheet_cities": []
+}

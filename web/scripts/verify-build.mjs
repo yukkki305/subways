@@ -34,9 +34,11 @@ const OUT_ABS = join(ROOT, OUT);
 /** 一次运行的全部断言，按最终输出顺序追加 */
 const checks = [];
 
-// 体积上限：P1a-6.4 之后四城 7.91 MB，原来的 8 MB（单城口径）已不代表用户成本。
-// 依据与替代方案见 docs/decisions/0005-size-budget.md。
-const SIZE_LIMIT_MB = 10;
+// 体积上限：P1b 全量 54 城，按 4 城实测线性外推约 70–85 MB。
+// 依据、测算表与备选方案见 docs/decisions/0005-size-budget.md（2026-11-16 修订）。
+const SIZE_LIMIT_MB = 80;
+// 单城数据上限：总量卡不住「某一城爆炸」——平均值会把它稀释掉
+const CITY_DATA_LIMIT_MB = 5;
 
 function report(list) {
   for (const c of list) console.log(`[${c.ok ? "通过" : "失败"}] ${c.name}${c.detail ? ` — ${c.detail}` : ""}`);
@@ -193,6 +195,13 @@ async function cityChecks(code) {
     (meta.files ?? []).every((f, i) => sizes[i] === f.bytes),
     `${(meta.files ?? []).length} 个文件`,
   );
+  // 单城数据量：总量 80 MB 是 54 城的平均值游戏，某一城爆到 8 MB 也能「通过」
+  const cityBytes = sizes.reduce((a, n) => a + n, 0);
+  add(
+    seen(`单城数据 < ${CITY_DATA_LIMIT_MB} MB`),
+    cityBytes < CITY_DATA_LIMIT_MB * 1024 * 1024,
+    `${(cityBytes / 1048576).toFixed(2)} MB`,
+  );
 
   // 4) 坐标全在该城视野内（WGS-84，防 GCJ-02 混入）
   const bb = sceneBbox(cfg);
@@ -331,9 +340,19 @@ for (const [label, cssValue, themeValue] of pairs) {
 const files = walk(OUT_ABS);
 const total = files.reduce((a, f) => a + statSync(f).size, 0);
 const shipped = files.filter((f) => /\.(js|css|mjs|json|geojson|html)$/.test(f));
-// gzip 是这里唯一的重活（54 城时约 80 MB）：按并发压，别串行等
+// gzip 是这里唯一的重活（54 城时约 70 MB）：按并发压，别串行等
 const gzParts = await pool(shipped, CONCURRENCY, async (f) => (await gzipAsync(await readFile(f))).length);
 const gz = gzParts.reduce((a, n) => a + n, 0);
+
+// 预警线（不判失败）：80 MB 是 54 城的硬线，按 4 城实测外推到 54 城正好落在 80 MB 附近，
+// 所以在 90% 就先喊一声，避免最后几批才突然撞线（见 ADR 0005 修订节）。
+const WARN_RATIO = 0.9;
+if (total >= SIZE_LIMIT_MB * 1024 * 1024 * WARN_RATIO) {
+  console.log(
+    `\n[注意] 体积已到上限的 ${((total / (SIZE_LIMIT_MB * 1024 * 1024)) * 100).toFixed(0)}%` +
+      `（${(total / 1048576).toFixed(1)} / ${SIZE_LIMIT_MB} MB）——加城前先看 ADR 0005 的备选方案。\n`,
+  );
+}
 
 const mediaDir = join(OUT_ABS, "_next", "static", "media");
 const mediaFiles = existsSync(mediaDir) ? readdirSync(mediaDir) : [];
